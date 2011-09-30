@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<project name="adaptivepayments-sample" default="war">
+
+	<property environment="env" />
+	<property file="../../build.properties" />
+	<property name="parent.lib" value="../../lib" />
+
+
+	<path id="compile.classpath">
+		<fileset dir="WebContent/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="ext-lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init" depends="clean">
+		<mkdir dir="build/classes" />
+		<mkdir dir="dist" />
+	</target>
+
+	<target name="check-sdk-jar">
+		<condition property="need.to.build.sdk">
+			<not>
+				<available file="../../${dist.dir}/${jarfile}" />
+			</not>
+		</condition>
+	</target>
+
+	<target name="buildSDK" depends="check-sdk-jar" if="need.to.build.sdk">
+		<ant antfile="build.xml" target="dist" dir="../.." />
+	</target>
+
+
+	<target name="compile" depends="init,buildSDK">
+		<copy file="../../${dist.dir}/${jarfile}" todir="WebContent/WEB-INF/lib" />
+		<copy todir="WebContent/WEB-INF/lib">
+			<fileset dir="${parent.lib}">
+				<exclude name="testng.jar" />
+			</fileset>
+		</copy>
+		<javac destdir="build/classes" debug="true" srcdir="src">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="war" depends="compile">
+		<war destfile="dist/adaptivepayments-sample.war" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent" />
+			<lib dir="WebContent/WEB-INF/lib" />
+			<classes dir="build/classes" />
+		</war>
+	</target>
+
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+	</target>
+
+</project>
