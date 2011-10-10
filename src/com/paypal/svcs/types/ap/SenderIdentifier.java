@@ -37,7 +37,7 @@ public class SenderIdentifier extends AccountIdentifier{
 
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-sb.append(super.toNVPString());
+sb.append(super.toNVPString(prefix));
 		if( useCredentials != null ) {
 			sb.append(prefix).append("useCredentials=").append(useCredentials);
 			sb.append('&');
@@ -48,6 +48,6 @@ sb.append(super.toNVPString());
 	public SenderIdentifier(Map<String, String> map, String prefix) {
 		 super(map,prefix); 
 		prefix = prefix.substring( 0, prefix.length()-1 );
-		this.useCredentials =Boolean.valueOf(map.get(prefix + "useCredentials(i)"));
+		this.useCredentials =Boolean.valueOf(map.get(prefix + "useCredentials"));
 	}
 }

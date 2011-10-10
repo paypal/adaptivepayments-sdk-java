@@ -50,6 +50,6 @@ public class FundingTypeInfo {
 
 	public FundingTypeInfo(Map<String, String> map, String prefix) {
 		prefix = prefix.substring( 0, prefix.length()-1 );
-		this.fundingType =map.get(prefix + "fundingType(i)");
+		this.fundingType =map.get(prefix + "fundingType");
 	}
 }

@@ -46,6 +46,6 @@ public class SenderOptions {
 
 	public SenderOptions(Map<String, String> map, String prefix) {
 		prefix = prefix.substring( 0, prefix.length()-1 );
-		this.requireShippingAddressSelection =Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection(i)"));
+		this.requireShippingAddressSelection =Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection"));
 	}
 }

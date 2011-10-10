@@ -27,7 +27,7 @@ public class ReceiverIdentifier extends AccountIdentifier{
 
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-sb.append(super.toNVPString());
+sb.append(super.toNVPString(prefix));
 		return sb.toString();
 	}
 
