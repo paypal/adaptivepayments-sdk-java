@@ -113,7 +113,7 @@ public class GetPaymentOptionsResponse {
 		if( map.containsKey(prefix + "shippingAddressId") ) {
 			this.shippingAddressId = map.get(prefix + "shippingAddressId");
 		}
-		if( map.containsKey(prefix + "senderOptions" + ".") ) {
+		if( map.containsKey(prefix + "senderOptions" + ".requireShippingAddressSelection") ) {
 			String newPrefix = prefix + "senderOptions" + '.';
 			this.senderOptions =  new SenderOptions(map, newPrefix);
 		}

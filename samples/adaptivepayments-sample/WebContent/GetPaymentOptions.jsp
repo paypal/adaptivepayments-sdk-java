@@ -4,21 +4,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adaptive Payments</title>
+<title>Adaptive Payments - GetPaymentOptions</title>
 </head>
 <body>
-	<h2>GetPaymentOptions API Test Page</h2>
-	<form method="POST">
-		<div class="params">
-			<div class="param_name">PayKey</div>
-			<div class="param_value">
-				<input type="text" name="payKey" value="" size="50" maxlength="260" />
-			</div>
-
+	<div id="wrapper">
+		<div id="header">
+			<h3>GetPaymentOptions</h3>
+			<div id="apidetails">GetPaymentOptions API operation is used to
+				retrieve the payment options passed with the
+				SetPaymentOptionsRequest.</div>
 		</div>
-		<input type="submit" name="GetPaymentOptionsBtn"
-			value="GetPaymentOptions" />
-	</form>
-	<a href="index.html">Home</a>
+		<form method="POST">
+			<div id="request_form">
+				<div class="params">
+					<div class="param_name">
+						Pay Key(Get PayKey via <a href='Pay'>Pay</a>)
+					</div>
+					<div class="param_value">
+						<input type="text" name="payKey" value="" />
+					</div>
+				</div>
+				<div class="submit">
+					<input type="submit" name="GetPaymentOptionsBtn"
+						value="GetPaymentOptions" /><br />
+				</div>
+				<a href="index.html">Home</a>
+			</div>
+		</form>
+		<div id="relatedcalls">
+			See also
+			<ul>
+				<li><a href='Pay'>Pay</a></li>
+				<li><a href='Refund'>Refund</a></li>
+				<li><a href='PaymentDetails'>PaymentDetails</a></li>
+				<li><a href='ExecutePayment'>ExecutePayment</a></li>
+				<li><a href='SetPaymentOptions'>SetPaymentOptions</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

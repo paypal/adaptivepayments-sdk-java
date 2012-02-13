@@ -27,6 +27,16 @@ public class SenderOptions {
 		this.requireShippingAddressSelection = value;
 	}
 
+	/**
+	 */
+	private String referrerCode;
+	public String getReferrerCode() {
+		return referrerCode;
+	}
+	public void setReferrerCode(String value) {
+		this.referrerCode = value;
+	}
+
 
 	public SenderOptions() {
 	}
@@ -41,11 +51,19 @@ public class SenderOptions {
 			sb.append(prefix).append("requireShippingAddressSelection=").append(requireShippingAddressSelection);
 			sb.append('&');
 		}
+		if( referrerCode != null ) {
+			sb.append(prefix).append("referrerCode=").append(NVPUtil.encodeUrl(referrerCode));
+			sb.append('&');
+		}
 		return sb.toString();
 	}
 
 	public SenderOptions(Map<String, String> map, String prefix) {
-		prefix = prefix.substring( 0, prefix.length()-1 );
-		this.requireShippingAddressSelection =Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection"));
+		if( map.containsKey(prefix + "requireShippingAddressSelection") ) {
+			this.requireShippingAddressSelection = Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection"));
+		}
+		if( map.containsKey(prefix + "referrerCode") ) {
+			this.referrerCode = map.get(prefix + "referrerCode");
+		}
 	}
 }

@@ -138,12 +138,8 @@ public class APIService {
 			if (serviceBinding.equalsIgnoreCase(Constants.SOAP)) {
 				String soapPayload = auth.appendSoapHeader(payload,
 						accessToken, tokenSecret);
-				if ((Constants.EMPTY_STRING != accessToken && accessToken != null)
-						&& (Constants.EMPTY_STRING != tokenSecret && tokenSecret != null)) {
-					response = connection.execute(url, soapPayload, headers);
-				} else {
-					response = connection.execute(url, soapPayload, null);
-				}
+				response = connection.execute(url, soapPayload, headers);
+
 			} else {
 				response = connection.execute(url, payload, headers);
 			}

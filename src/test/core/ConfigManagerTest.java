@@ -22,6 +22,7 @@ public class ConfigManagerTest {
 	public void getValueTest(ConfigManager conf) {
 		Assert.assertEquals(conf.getValue("service.EndPoint"),
 				UnitTestConstants.API_ENDPOINT);
+
 	}
 
 	@Test(dataProvider = "configParams", dataProviderClass = DataProviderClass.class)

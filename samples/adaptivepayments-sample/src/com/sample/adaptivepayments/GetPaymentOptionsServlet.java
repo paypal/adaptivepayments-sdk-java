@@ -2,11 +2,14 @@ package com.sample.adaptivepayments;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.HttpErrorException;
@@ -18,10 +21,7 @@ import com.paypal.sdk.exceptions.OAuthException;
 import com.paypal.svcs.services.AdaptivePaymentsService;
 import com.paypal.svcs.types.ap.GetPaymentOptionsRequest;
 import com.paypal.svcs.types.ap.GetPaymentOptionsResponse;
-import com.paypal.svcs.types.ap.SetPaymentOptionsRequest;
-import com.paypal.svcs.types.ap.SetPaymentOptionsResponse;
-import com.paypal.svcs.types.common.AckCode;
-import com.paypal.svcs.types.common.ErrorData;
+import com.paypal.svcs.types.ap.ReceiverOptions;
 import com.paypal.svcs.types.common.RequestEnvelope;
 
 /**
@@ -57,29 +57,51 @@ public class GetPaymentOptionsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		session.setAttribute("url", request.getRequestURI());
+		session.setAttribute(
+				"relatedUrl",
+				"<ul><li><a href='Pay'>Pay</a></li><li><a href='PaymentDetails'>PaymentDetails</a></li><li><a href='Refund'>Refund</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		GetPaymentOptionsRequest req = new GetPaymentOptionsRequest();
-		req.setPayKey(request.getParameter("payKey"));
+		if (request.getParameter("payKey") != "")
+			req.setPayKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);
+
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getServletContext().getRealPath("/")
 				+ "/WEB-INF/sdk_config.properties");
 		response.setContentType("text/html");
 		try {
 			GetPaymentOptionsResponse resp = service.getPaymentOptions(req);
-			response.getWriter().println(
-					"Ack:" + resp.getResponseEnvelope().getAck());
-			if (resp.getResponseEnvelope().getAck().equals(AckCode.SUCCESS)) {
+			if (resp != null) {
+				session.setAttribute("lastReq", service.getLastRequest());
+				session.setAttribute("lastResp", service.getLastResponse());
+				if (resp.getResponseEnvelope().getAck().toString()
+						.equalsIgnoreCase("SUCCESS")) {
+					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
+					map.put("Ack", resp.getResponseEnvelope().getAck());
+					map.put("Correlation ID", resp.getResponseEnvelope()
+							.getCorrelationId());
+					map.put("Time Stamp", resp.getResponseEnvelope()
+							.getTimestamp());
+					Iterator<ReceiverOptions> iterator = resp
+							.getReceiverOptions().iterator();
+					int index = 1;
+					while (iterator.hasNext()) {
+						ReceiverOptions receiverOptions = iterator.next();
+						map.put("Receiver Email" + index, receiverOptions
+								.getReceiver().getEmail());
+						index++;
+					}
 
-			} else {
-				Iterator iterator = resp.getError().iterator();
-				while (iterator.hasNext()) {
-					ErrorData error = (ErrorData) iterator.next();
-					response.getWriter().println("<br/>" + error.getMessage());
+					session.setAttribute("map", map);
+					response.sendRedirect("Response.jsp");
+				} else {
+					session.setAttribute("Error", resp.getError());
+					response.sendRedirect("Error.jsp");
 				}
 			}
-
-			response.getWriter().println("<a href='index.html'>Home</a>");
 		} catch (SSLConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

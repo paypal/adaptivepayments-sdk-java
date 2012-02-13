@@ -4,23 +4,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adaptive Payments</title>
+<title>Adaptive Payments - Cancel Preapproval</title>
 </head>
 <body>
-	<h2>CancelPreapproval API Test Page</h2>
-	<form method="POST">
-		<div class="params">
-			<div class="param_name">PreapprovalKey</div>
-			<div class="param_value">
-				<input type="text" name="preapprovalKey" value="" size="50"
-					maxlength="260" />
-			</div>
-
+	<div id="wrapper">
+		<div id="header">
+			<h3>Cancel Preapproval</h3>
+			<div id="apidetails">CancelPreapproval API operation is used to
+				handle the canceling of preapprovals. Preapprovals can be canceled
+				regardless of the state they are in, such as active, expired,
+				deactivated, and previously canceled.</div>
 		</div>
-		<input type="submit" name="CancelPreapprovalBtn"
-			value="CancelPreapproval" />
-			<a href="index.html">Home</a>
-	</form>
-	
+		<form method="POST">
+			<div id="request_form">
+				<div class="params">
+					<div class="param_name">
+						Preapproval Key*(Get Preapproval key via <a href='Preapproval'>Preapproval</a>)
+					</div>
+					<div class="param_value">
+						<input type="text" name="preapprovalKey" value="" />
+					</div>
+				</div>
+				<div class="submit">
+					<input type="submit" name="CancelPreapprovalBtn"
+						value="CancelPreapproval" />
+				</div>
+				<br /> <a href="index.html">Home</a>
+			</div>
+		</form>
+		<div id="relatedcalls">
+			See also
+			<ul>
+				<li><a href='Preapproval'>Preapproval</a></li>
+				<li><a href='PreapprovalDetails'>PreapprovalDetails</a></li>
+				<li><a href='ConfirmPreapproval'>ConfirmPreapproval</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

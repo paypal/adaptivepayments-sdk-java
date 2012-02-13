@@ -31,6 +31,8 @@ import com.paypal.svcs.types.ap.GetPaymentOptionsRequest;
 import com.paypal.svcs.types.ap.GetPaymentOptionsResponse;
 import com.paypal.svcs.types.ap.GetShippingAddressesRequest;
 import com.paypal.svcs.types.ap.GetShippingAddressesResponse;
+import com.paypal.svcs.types.ap.GetUserLimitsRequest;
+import com.paypal.svcs.types.ap.GetUserLimitsResponse;
 import com.paypal.svcs.types.ap.PayRequest;
 import com.paypal.svcs.types.ap.PayResponse;
 import com.paypal.svcs.types.ap.PaymentDetailsRequest;
@@ -382,6 +384,27 @@ public class AdaptivePaymentsService extends BaseService {
 
 	public GetShippingAddressesResponse getShippingAddresses (GetShippingAddressesRequest GetShippingAddressesRequest) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 		return getShippingAddresses(GetShippingAddressesRequest, null);
+	}
+
+	/**
+	 * @throws SSLConfigurationException
+	 * @throws InvalidCredentialException
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 * @throws HttpErrorException
+	 * @throws InvalidResponseDataException
+	 * @throws ClientActionRequiredException
+	 * @throws MissingCredentialException
+	 * @throws InterruptedException
+	 * @throws OAuthException
+	 */
+	public GetUserLimitsResponse getUserLimits (GetUserLimitsRequest GetUserLimitsRequest,  String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
+		String response = call("GetUserLimits", GetUserLimitsRequest.toNVPString(), apiUsername);
+		return new GetUserLimitsResponse(NVPUtil.decode(response), "");
+	}
+
+	public GetUserLimitsResponse getUserLimits (GetUserLimitsRequest GetUserLimitsRequest) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
+		return getUserLimits(GetUserLimitsRequest, null);
 	}
 
 }

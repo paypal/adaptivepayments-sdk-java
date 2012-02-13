@@ -13,7 +13,7 @@
 		<delete dir="${base.build.dir}" />
 		<delete dir="${dist.dir}" />
 		<delete dir="${javadoc.dir}" />
-		<delete dir="${test.report.dir}"/>
+		<delete dir="${test.report.dir}" />
 	</target>
 
 	<target name="compile" depends="clean">
@@ -28,7 +28,8 @@
 		<testng outputDir="${test.report.dir}" haltOnFailure="true" verbose="2">
 			<classpath>
 				<pathelement path="${base.build.dir}" />
-				<path refid="lib.classpath"></path>
+				<path refid="lib.classpath">
+				</path>
 			</classpath>
 			<classfileset dir="${base.build.dir}" includes="test/**/*.class" />
 		</testng>
@@ -37,7 +38,7 @@
 	<target name="doc" description="generate javadoc">
 		<delete dir="${javadoc.dir}" />
 		<mkdir dir="${javadoc.dir}" />
-		<javadoc destdir="${javadoc.dir}" classpathref="lib.classpath" use="true" windowtitle="AdaptivePayments Java SDK v${release.version}" doctitle="AdaptivePayments Java SDK v${release.version}" header="AdaptivePayments Java SDK v${release.version}" bottom="Copyright 2011 PayPal, Inc. All Rights Reserved." private="no" breakiterator="yes">
+		<javadoc destdir="${javadoc.dir}" classpathref="lib.classpath" use="true" windowtitle="Invoicing Java SDK v${release.version}" doctitle="Invoicing Java SDK v${release.version}" header="Invoicing Java SDK v${release.version}" bottom="Copyright 2011 PayPal, Inc. All Rights Reserved." private="no" breakiterator="yes">
 			<packageset dir="${src.java.dir}" defaultexcludes="yes">
 				<include name="com/paypal/**" />
 				<exclude name="test/**" />
@@ -58,7 +59,7 @@
 	</target>
 	<target name="all" depends="dist,test,doc">
 	</target>
-	
+
 	<target name="help">
 		<echo message="Usage: compile,test,doc,dist" />
 		<echo message="----------------------------------------------------------------------" />

@@ -4,20 +4,60 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adaptive Payments</title>
+<title>Adaptive Payments - ExecutePayment</title>
 </head>
 <body>
-	<h2>ExecutePayment API Test Page</h2>
-	<form method="POST">
-		<div class="params">
-			<div class="param_name">PayKey</div>
-			<div class="param_value">
-				<input type="text" name="payKey" value="" size="50" maxlength="260" />
-			</div>
-
+	<div id="wrapper">
+		<div id="header">
+			<h3>ExecutePayment</h3>
+			<div id="apidetails">ExecutePayment API operation lets you
+				execute a payment set up with the Pay API operation with the
+				actionType CREATE.</div>
 		</div>
-		<input type="submit" name="ExecutePaymentBtn" value="ExecutePayment" />
-	</form>
-	<a href="index.html">Home</a>
+		<form method="POST">
+			<div id="request_form">
+				<div class="params">
+					<div class="param_name">
+						Pay Key*(Get PayKey via <a href='Pay'>Pay</a>)
+					</div>
+					<div class="param_value">
+						<input type="text" name="payKey" value="" />
+					</div>
+
+				</div>
+				<div class="params">
+					<div class="param_name">Funding Plan ID</div>
+					<div class="param_value">
+						<input type="text" name="fundingPlanID" value="" />
+					</div>
+
+				</div>
+				<div class="param_name">Action Type*</div>
+				<div class="param_value">
+					<select name="actionType">
+						<option value="">--Select a value--</option>
+						<option value="PAY">Pay</option>
+						<option value="CREATE">Create</option>
+						<option value="PAY_PRIMARY">Pay Primary</option>
+					</select>
+				</div>
+				<div class="submit">
+					<input type="submit" name="ExecutePaymentBtn"
+						value="ExecutePayment" /><br />
+				</div>
+				<a href="index.html">Home</a>
+			</div>
+		</form>
+		<div id="relatedcalls">
+			See also
+			<ul>
+				<li><a href='Pay'>Pay</a></li>
+				<li><a href='PaymentDetails'>PaymentDetails</a></li>
+				<li><a href='GetPaymentOptions'>GetPaymentOptions</a></li>
+				<li><a href='Refund'>Refund</a></li>
+				<li><a href='SetPaymentOptions'>SetPaymentOptions</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

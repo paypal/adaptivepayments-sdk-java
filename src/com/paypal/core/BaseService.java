@@ -23,6 +23,25 @@ public class BaseService {
 	private String version;
 	protected String accessToken = null;
 	protected String tokenSecret = null;
+	protected String lastRequest=null;
+	protected String lastResponse=null;
+
+	
+	public String getLastRequest() {
+		return lastRequest;
+	}
+
+	public void setLastRequest(String lastRequest) {
+		this.lastRequest = lastRequest;
+	}
+
+	public String getLastResponse() {
+		return lastResponse;
+	}
+
+	public void setLastResponse(String lastResponse) {
+		this.lastResponse = lastResponse;
+	}
 
 	public String getAccessToken() {
 		return accessToken;
@@ -138,8 +157,11 @@ public class BaseService {
 			throw new FileNotFoundException("Property file not loaded");
 		}
 		APIService apiService = new APIService(serviceName);
-		return apiService.makeRequest(method, payload, apiUsername,
+		lastRequest=payload;
+		String response= apiService.makeRequest(method, payload, apiUsername,
 				accessToken, tokenSecret);
+		lastResponse=response;
+		return response;
 	}
 
 	public String getServiceName() {

@@ -5,12 +5,12 @@
 
 package com.paypal.svcs.types.ap;
 
-import com.paypal.core.NVPUtil;
-import com.paypal.svcs.types.common.CurrencyType;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import com.paypal.svcs.types.common.CurrencyType;
 
 
 /**

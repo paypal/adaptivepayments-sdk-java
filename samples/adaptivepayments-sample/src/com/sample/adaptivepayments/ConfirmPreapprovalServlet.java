@@ -1,12 +1,14 @@
 package com.sample.adaptivepayments;
 
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.HttpErrorException;
@@ -18,8 +20,6 @@ import com.paypal.sdk.exceptions.OAuthException;
 import com.paypal.svcs.services.AdaptivePaymentsService;
 import com.paypal.svcs.types.ap.ConfirmPreapprovalRequest;
 import com.paypal.svcs.types.ap.ConfirmPreapprovalResponse;
-import com.paypal.svcs.types.common.AckCode;
-import com.paypal.svcs.types.common.ErrorData;
 import com.paypal.svcs.types.common.RequestEnvelope;
 
 /**
@@ -55,29 +55,44 @@ public class ConfirmPreapprovalServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		session.setAttribute("url", request.getRequestURI());
+		session.setAttribute(
+				"relatedUrl",
+				"<ul><li><a href='Preapproval'>Preapproval</a></li><li><a href='PreapprovalDetails'>PreapprovalDetails</a></li><li><a href='ConfirmPreapproval'>ConfirmPreapproval</a></li><li><a href='CancelPreapproval'>CancelPreapproval</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		ConfirmPreapprovalRequest req = new ConfirmPreapprovalRequest();
 		req.setRequestEnvelope(requestEnvelope);
-		req.setPreapprovalKey(request.getParameter("preapprovalKey"));
+		if (request.getParameter("fundingSourceID") != "")
+			req.setFundingSourceId(request.getParameter("fundingSourceID"));
+		if (request.getParameter("pin") != "")
+			req.setPin(request.getParameter("pin"));
+		if (request.getParameter("preapprovalKey") != "")
+			req.setPreapprovalKey(request.getParameter("preapprovalKey"));
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getServletContext().getRealPath("/")
 				+ "/WEB-INF/sdk_config.properties");
 		response.setContentType("text/html");
 		try {
 			ConfirmPreapprovalResponse resp = service.confirmPreapproval(req);
-			response.getWriter().println(
-					"Ack:" + resp.getResponseEnvelope().getAck());
-
-			if (resp.getResponseEnvelope().getAck().equals(AckCode.SUCCESS)) {
-
-			} else {
-				Iterator iterator = resp.getError().iterator();
-				while (iterator.hasNext()) {
-					ErrorData error = (ErrorData) iterator.next();
-					response.getWriter().println("<br/>" + error.getMessage());
+			if (resp != null) {
+				session.setAttribute("lastReq", service.getLastRequest());
+				session.setAttribute("lastResp", service.getLastResponse());
+				if (resp.getResponseEnvelope().getAck().toString()
+						.equalsIgnoreCase("SUCCESS")) {
+					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
+					map.put("Ack", resp.getResponseEnvelope().getAck());
+					map.put("Correlation ID", resp.getResponseEnvelope()
+							.getCorrelationId());
+					map.put("Time Stamp", resp.getResponseEnvelope()
+							.getTimestamp());
+					session.setAttribute("map", map);
+					response.sendRedirect("Response.jsp");
+				} else {
+					session.setAttribute("Error", resp.getError());
+					response.sendRedirect("Error.jsp");
 				}
 			}
-			response.getWriter().println("<a href='index.html'>Home</a>");
 		} catch (SSLConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

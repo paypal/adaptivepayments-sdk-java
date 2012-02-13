@@ -4,22 +4,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adaptive Payments</title>
+<title>Adaptive Payments - Preapproval Details</title>
 </head>
 <body>
-	<h2>PreapprovalDetails API Test Page</h2>
-	<form method="POST">
-		<div class="params">
-			<div class="param_name">PreapprovalKey</div>
-			<div class="param_value">
-				<input type="text" name="preapprovalKey" value="" size="50"
-					maxlength="260" />
-			</div>
-
+	<div id="wrapper">
+		<div id="header">
+			<h3>Preapproval Details</h3>
+			<div id="apidetails">PreapprovalDetails API operation is used
+				to obtain information about an agreement between you and a sender
+				for making payments on the sender's behalf.</div>
 		</div>
-		<input type="submit" name="PreapprovalDetailsBtn"
-			value="PreapprovalDetails" />
-	</form>
-	<a href="index.html">Home</a>
+		<form method="POST">
+			<div id="request_form">
+				<div class="params">
+					<div class="param_name">
+						Preapproval Key*(Get Preapproval key via <a href='Preapproval'>Preapproval</a>)
+					</div>
+					<div class="param_value">
+						<input type="text" name="preapprovalKey" value="" s />
+					</div>
+				</div>
+				<div class="params">
+					<div class="param_name">Retrieves the billing address of the
+						sender</div>
+					<div class="param_value">
+						<select name="getBillingAddress">
+							<option value="">--Select a value--</option>
+							<option value="false">Omits the billing address from the
+								response</option>
+							<option value="true">Includes the billing address in the
+								response</option>
+						</select>
+					</div>
+				</div>
+				<div class="submit">
+					<input type="submit" name="PreapprovalDetailsBtn"
+						value="PreapprovalDetails" /><br />
+				</div>
+				<a href="index.html">Home</a>
+			</div>
+		</form>
+		<div id="relatedcalls">
+			See also
+			<ul>
+				<li><a href='Preapproval'>Preapproval</a></li>
+				<li><a href='ConfirmPreapproval'>ConfirmPreapproval</a></li>
+				<li><a href='CancelPreapproval'>CancelPreapproval</a></li>
+			</ul>
+		</div>
+	</div>
+
 </body>
 </html>

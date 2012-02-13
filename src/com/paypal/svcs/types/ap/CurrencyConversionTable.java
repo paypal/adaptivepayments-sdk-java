@@ -35,7 +35,7 @@ public class CurrencyConversionTable {
 	}
 	public CurrencyConversionTable(Map<String, String> map, String prefix) {
 		for(int i=0; i<10; i++) {
-			if( map.containsKey(prefix + "currencyConversionList" + '(' + i + ')'+ ".baseAmount(0).code") ) {
+			if( map.containsKey(prefix + "currencyConversionList" + '(' + i + ')'+ ".baseAmount.code") ) {
 				String newPrefix = prefix + "currencyConversionList" + '(' + i + ')' + '.';
 				this.currencyConversionList.add(new CurrencyConversionList(map, newPrefix));
 			}

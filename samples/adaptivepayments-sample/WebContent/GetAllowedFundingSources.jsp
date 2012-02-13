@@ -4,21 +4,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adaptive Payments</title>
+<title>Adaptive Payments - GetAllowedFundingSources</title>
 </head>
 <body>
-	<h2>GetAllowedFundingSources API Test Page</h2>
-	<form method="POST">
-		<div class="params">
-			<div class="param_name">PreapprovalKey</div>
-			<div class="param_value">
-				<input type="text" name="preapprovalKey" value="" size="50" maxlength="260" />
-			</div>
-
+	<div id="wrapper">
+		<div id="header">
+			<h3>GetAllowedFundingSources</h3>
+			<div id="apidetails">GetAllowedFundingSources API operation is
+				used to get the allowed funding sources available for a preapproval.</div>
 		</div>
-		<input type="submit" name="GetAllowedFundingSources"
-			value="GetAllowedFundingSources" />
-	</form>
-	<a href="index.html">Home</a>
+		<form method="POST">
+			<div id="request_form">
+				<div class="params">
+					<div class="param_name">
+						Preapproval Key*(Get PreapprovalKey via <a href='Preapproval'>Preapproval</a>)
+					</div>
+					<div class="param_value">
+						<input type="text" name="preapprovalKey" value="" />
+					</div>
+				</div>
+				<div class="submit">
+					<input type="submit" name="GetAllowedFundingSourcesBtn"
+						value="GetAllowedFundingSources" /><br />
+				</div>
+				<a href="index.html">Home</a>
+			</div>
+		</form>
+		<div id="relatedcalls">
+			See also
+			<ul>
+				<li><a href='Preapproval'>Preapproval</a></li>
+				<li><a href='Refund'>Refund</a></li>
+				<li><a href='GetFundingPlans'>GetFundingPlans</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
