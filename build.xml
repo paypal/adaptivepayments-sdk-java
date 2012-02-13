@@ -38,7 +38,7 @@
 	<target name="doc" description="generate javadoc">
 		<delete dir="${javadoc.dir}" />
 		<mkdir dir="${javadoc.dir}" />
-		<javadoc destdir="${javadoc.dir}" classpathref="lib.classpath" use="true" windowtitle="Invoicing Java SDK v${release.version}" doctitle="Invoicing Java SDK v${release.version}" header="Invoicing Java SDK v${release.version}" bottom="Copyright 2011 PayPal, Inc. All Rights Reserved." private="no" breakiterator="yes">
+		<javadoc destdir="${javadoc.dir}" classpathref="lib.classpath" use="true" windowtitle="AdaptivePayments Java SDK v${release.version}" doctitle="AdaptivePayments Java SDK v${release.version}" header="AdaptivePayments Java SDK v${release.version}" bottom="Copyright 2011 PayPal, Inc. All Rights Reserved." private="no" breakiterator="yes">
 			<packageset dir="${src.java.dir}" defaultexcludes="yes">
 				<include name="com/paypal/**" />
 				<exclude name="test/**" />
