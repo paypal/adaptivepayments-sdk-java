@@ -92,8 +92,7 @@ public class GetAllowedFundingSourcesServlet extends HttpServlet {
 						map.put("Funding Source ID" + index,
 								fundingSource.getFundingSourceId());
 						map.put("Allowed" + index, fundingSource.getAllowed());
-						// add more
-
+						index++;
 					}
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");

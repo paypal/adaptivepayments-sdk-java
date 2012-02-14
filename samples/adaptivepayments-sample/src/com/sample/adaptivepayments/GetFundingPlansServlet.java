@@ -90,7 +90,7 @@ public class GetFundingPlansServlet extends HttpServlet {
 						FundingPlan fundingPlan = iterator.next();
 						map.put("Funding Plan ID" + index,
 								fundingPlan.getFundingPlanId());
-
+						index++;
 					}
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
