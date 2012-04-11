@@ -15,9 +15,9 @@ value=val;
 return value;
 }
 public static DetailLevelCode fromValue(String v) {
-		for (DetailLevelCode c : values())
-			if (c.value.equals(v))
-				return c;
+																									for (DetailLevelCode c : values())
+																										if (c.value.equals(v))
+																											return c;
 throw new IllegalArgumentException(v);
 }
 }

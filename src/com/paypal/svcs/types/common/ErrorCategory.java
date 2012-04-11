@@ -16,9 +16,9 @@ value=val;
 return value;
 }
 public static ErrorCategory fromValue(String v) {
-		for (ErrorCategory c : values())
-			if (c.value.equals(v))
-				return c;
+																									for (ErrorCategory c : values())
+																										if (c.value.equals(v))
+																											return c;
 throw new IllegalArgumentException(v);
 }
 }

@@ -24,9 +24,9 @@ value=val;
 return value;
 }
 public static AckCode fromValue(String v) {
-		for (AckCode c : values())
-			if (c.value.equals(v))
-				return c;
+																									for (AckCode c : values())
+																										if (c.value.equals(v))
+																											return c;
 throw new IllegalArgumentException(v);
 }
 }

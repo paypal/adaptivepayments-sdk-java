@@ -54,7 +54,7 @@ import java.io.UnsupportedEncodingException;
 
 public class AdaptivePaymentsService extends BaseService {
 
-	private static final String SERVICE_VERSION = "1.7.0";
+	private static final String SERVICE_VERSION = "1.8.0";
 	private static final String SERVICE_NAME = "AdaptivePayments";
 
 	public AdaptivePaymentsService(File configFile) throws IOException, FileNotFoundException {
