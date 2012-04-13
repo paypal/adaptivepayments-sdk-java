@@ -17,13 +17,13 @@ SATURDAY("SATURDAY"),
 private String value;
 DayOfWeek(String val){
 value=val;
-}public String getValue(){
-return value;
-}
-public static DayOfWeek fromValue(String v) {
-																									for (DayOfWeek c : values())
-																										if (c.value.equals(v))
-																											return c;
-throw new IllegalArgumentException(v);
-}
+}		public String getValue(){
+			return value;
+		}
+		public static DayOfWeek fromValue(String v) {
+			for (DayOfWeek c : values())
+				if (c.value.equals(v))
+					return c;
+			throw new IllegalArgumentException(v);
+		}
 }

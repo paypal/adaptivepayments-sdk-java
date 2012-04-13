@@ -11,13 +11,13 @@ WARNING("Warning"),
 private String value;
 ErrorSeverity(String val){
 value=val;
-}public String getValue(){
-return value;
-}
-public static ErrorSeverity fromValue(String v) {
-																									for (ErrorSeverity c : values())
-																										if (c.value.equals(v))
-																											return c;
-throw new IllegalArgumentException(v);
-}
+}		public String getValue(){
+			return value;
+		}
+		public static ErrorSeverity fromValue(String v) {
+			for (ErrorSeverity c : values())
+				if (c.value.equals(v))
+					return c;
+			throw new IllegalArgumentException(v);
+		}
 }

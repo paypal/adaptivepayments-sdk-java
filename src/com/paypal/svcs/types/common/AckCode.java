@@ -20,13 +20,13 @@ FAILUREWITHWARNING("FailureWithWarning"),
 private String value;
 AckCode(String val){
 value=val;
-}public String getValue(){
-return value;
-}
-public static AckCode fromValue(String v) {
-																									for (AckCode c : values())
-																										if (c.value.equals(v))
-																											return c;
-throw new IllegalArgumentException(v);
-}
+}		public String getValue(){
+			return value;
+		}
+		public static AckCode fromValue(String v) {
+			for (AckCode c : values())
+				if (c.value.equals(v))
+					return c;
+			throw new IllegalArgumentException(v);
+		}
 }
