@@ -31,11 +31,14 @@ public class AddressList {
 	public AddressList() {
 	}
 	public AddressList(Map<String, String> map, String prefix) {
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "address" + '(' + i + ')'+ ".addresseeName") ) {
 				String newPrefix = prefix + "address" + '(' + i + ')' + '.';
 				this.address.add(new Address(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 	}
 }

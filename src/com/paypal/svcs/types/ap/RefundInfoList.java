@@ -31,11 +31,14 @@ public class RefundInfoList {
 	public RefundInfoList() {
 	}
 	public RefundInfoList(Map<String, String> map, String prefix) {
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "refundInfo" + '(' + i + ')'+ ".refundStatus") ) {
 				String newPrefix = prefix + "refundInfo" + '(' + i + ')' + '.';
 				this.refundInfo.add(new RefundInfo(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 	}
 }

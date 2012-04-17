@@ -6,12 +6,12 @@ package com.paypal.svcs.types.common;
 
 public enum DetailLevelCode {
 
-RETURNALL("ReturnAll"),
-	;
-private String value;
-DetailLevelCode(String val){
-value=val;
-}		public String getValue(){
+ 		RETURNALL("ReturnAll"),
+		;
+		private String value;
+		DetailLevelCode(String val){
+			value=val;
+		}		public String getValue(){
 			return value;
 		}
 		public static DetailLevelCode fromValue(String v) {

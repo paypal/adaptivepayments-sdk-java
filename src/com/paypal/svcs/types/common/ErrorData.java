@@ -125,11 +125,14 @@ public class ErrorData {
 		if( map.containsKey(prefix + "exceptionId") ) {
 			this.exceptionId = map.get(prefix + "exceptionId");
 		}
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "parameter" + '(' + i + ')'+ ".name") ) {
 				String newPrefix = prefix + "parameter" + '(' + i + ')' + '.';
 				this.parameter.add(new ErrorParameter(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 	}
 }

@@ -5,14 +5,14 @@ package com.paypal.svcs.types.common;
 
 public enum ErrorCategory {
 
-SYSTEM("System"),
-APPLICATION("Application"),
-REQUEST("Request"),
-	;
-private String value;
-ErrorCategory(String val){
-value=val;
-}		public String getValue(){
+ 		SYSTEM("System"),
+ 		APPLICATION("Application"),
+ 		REQUEST("Request"),
+		;
+		private String value;
+		ErrorCategory(String val){
+			value=val;
+		}		public String getValue(){
 			return value;
 		}
 		public static ErrorCategory fromValue(String v) {

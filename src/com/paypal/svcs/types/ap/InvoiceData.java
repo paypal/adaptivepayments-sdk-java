@@ -78,11 +78,14 @@ public class InvoiceData {
 	}
 
 	public InvoiceData(Map<String, String> map, String prefix) {
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "item" + '(' + i + ')'+ ".name") ) {
 				String newPrefix = prefix + "item" + '(' + i + ')' + '.';
 				this.item.add(new InvoiceItem(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 		if( map.containsKey(prefix + "totalTax") ) {
 			this.totalTax = Double.valueOf(map.get(prefix + "totalTax"));

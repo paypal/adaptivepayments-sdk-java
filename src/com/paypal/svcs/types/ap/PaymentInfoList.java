@@ -31,11 +31,14 @@ public class PaymentInfoList {
 	public PaymentInfoList() {
 	}
 	public PaymentInfoList(Map<String, String> map, String prefix) {
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "paymentInfo" + '(' + i + ')'+ ".transactionId") ) {
 				String newPrefix = prefix + "paymentInfo" + '(' + i + ')' + '.';
 				this.paymentInfo.add(new PaymentInfo(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 	}
 }

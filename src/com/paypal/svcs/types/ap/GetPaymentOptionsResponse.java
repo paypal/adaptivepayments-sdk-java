@@ -117,17 +117,23 @@ public class GetPaymentOptionsResponse {
 			String newPrefix = prefix + "senderOptions" + '.';
 			this.senderOptions =  new SenderOptions(map, newPrefix);
 		}
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "receiverOptions" + '(' + i + ')'+ ".description") ) {
 				String newPrefix = prefix + "receiverOptions" + '(' + i + ')' + '.';
 				this.receiverOptions.add(new ReceiverOptions(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 	}
 }

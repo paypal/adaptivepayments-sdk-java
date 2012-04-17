@@ -31,11 +31,14 @@ public class WarningDataList {
 	public WarningDataList() {
 	}
 	public WarningDataList(Map<String, String> map, String prefix) {
-		for(int i=0; i<10; i++) {
+		int i=0;
+		while(true) {
 			if( map.containsKey(prefix + "warningData" + '(' + i + ')'+ ".warningId") ) {
 				String newPrefix = prefix + "warningData" + '(' + i + ')' + '.';
 				this.warningData.add(new WarningData(map, newPrefix));
 			}
+			else break;
+			i++;
 		}
 	}
 }
