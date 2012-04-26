@@ -48,7 +48,7 @@ public class AuthenticationService {
 				&& (Constants.EMPTY_STRING != tokenSecret && tokenSecret != null)) {
 			authString = generateAuthString(apiCred, accessToken, tokenSecret,
 					httpConfiguration.getEndPointUrl());
-			headers.put("X-PAYPAL-AUTHORIZATION", authString);
+			headers.put("X-PP-AUTHORIZATION", authString);
 			connection.setDefaultSSL(true);
 			connection.setupClientSSL(null, null,
 					httpConfiguration.isTrustAll());
