@@ -1,8 +1,9 @@
-PayPal  Java AdaptivePayments SDK - 0.6.88
+PayPal  Java AdaptivePayments SDK - 0.7.88
 Release Date  - 11-Mar-2012
-This release contains wsdl changes for version 88.0
+  - This release contains wsdl changes for version 88.0
+  - Fix for incorrect Permissions header (X-PP-AUTHORIZATION)
 ==========================================================================================================
 PayPal  Java AdaptivePayments SDK - 0.6.86
 Release Date  - 27-Feb-2012
-This release contains new AdaptivePayments SDK (NVP) and samples for AdaptivePayments api's.
+ - This release contains new AdaptivePayments SDK (NVP) and samples for AdaptivePayments api's.
 ==========================================================================================================
