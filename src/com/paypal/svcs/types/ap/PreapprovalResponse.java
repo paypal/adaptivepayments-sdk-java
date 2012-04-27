@@ -63,8 +63,8 @@ public class PreapprovalResponse {
 		if( map.containsKey(prefix + "preapprovalKey") ) {
 			this.preapprovalKey = map.get(prefix + "preapprovalKey");
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

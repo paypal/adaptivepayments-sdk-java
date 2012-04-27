@@ -72,8 +72,8 @@ public class GetUserLimitsResponse {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "userLimit" + '(' + i + ')'+ ".limitType") ) {
 				String newPrefix = prefix + "userLimit" + '(' + i + ')' + '.';
 				this.userLimit.add(new UserLimit(map, newPrefix));
@@ -85,8 +85,8 @@ public class GetUserLimitsResponse {
 			String newPrefix = prefix + "warningDataList" + '.';
 			this.warningDataList =  new WarningDataList(map, newPrefix);
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

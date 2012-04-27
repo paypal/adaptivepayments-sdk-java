@@ -59,8 +59,8 @@ public class GetAllowedFundingSourcesResponse {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "fundingSource" + '(' + i + ')'+ ".lastFourOfAccountNumber") ) {
 				String newPrefix = prefix + "fundingSource" + '(' + i + ')' + '.';
 				this.fundingSource.add(new FundingSource(map, newPrefix));
@@ -68,8 +68,8 @@ public class GetAllowedFundingSourcesResponse {
 			else break;
 			i++;
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

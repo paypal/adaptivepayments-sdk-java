@@ -59,8 +59,8 @@ public class GetAvailableShippingAddressesResponse {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "availableAddress" + '(' + i + ')'+ ".addresseeName") ) {
 				String newPrefix = prefix + "availableAddress" + '(' + i + ')' + '.';
 				this.availableAddress.add(new Address(map, newPrefix));
@@ -68,8 +68,8 @@ public class GetAvailableShippingAddressesResponse {
 			else break;
 			i++;
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

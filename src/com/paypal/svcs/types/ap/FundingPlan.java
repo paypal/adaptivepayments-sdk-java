@@ -109,8 +109,8 @@ public class FundingPlan {
 			String newPrefix = prefix + "currencyConversion" + '.';
 			this.currencyConversion =  new CurrencyConversion(map, newPrefix);
 		}
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "charge" + '(' + i + ')'+ ".fundingSource(0).lastFourOfAccountNumber") ) {
 				String newPrefix = prefix + "charge" + '(' + i + ')' + '.';
 				this.charge.add(new FundingPlanCharge(map, newPrefix));

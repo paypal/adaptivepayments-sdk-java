@@ -31,8 +31,8 @@ public class PaymentInfoList {
 	public PaymentInfoList() {
 	}
 	public PaymentInfoList(Map<String, String> map, String prefix) {
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "paymentInfo" + '(' + i + ')'+ ".transactionId") ) {
 				String newPrefix = prefix + "paymentInfo" + '(' + i + ')' + '.';
 				this.paymentInfo.add(new PaymentInfo(map, newPrefix));

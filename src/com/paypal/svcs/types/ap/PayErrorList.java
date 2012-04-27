@@ -31,8 +31,8 @@ public class PayErrorList {
 	public PayErrorList() {
 	}
 	public PayErrorList(Map<String, String> map, String prefix) {
-		int i=0;
-		while(true) {
+		 while(true) {
+		int i=0; 
 			if( map.containsKey(prefix + "payError" + '(' + i + ')'+ ".error(0).errorId") ) {
 				String newPrefix = prefix + "payError" + '(' + i + ')' + '.';
 				this.payError.add(new PayError(map, newPrefix));
