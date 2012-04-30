@@ -33,5 +33,6 @@ sb.append(super.toNVPString(prefix));
 
 	public ReceiverIdentifier(Map<String, String> map, String prefix) {
 		 super(map,prefix); 
+		int i=0; 
 	}
 }

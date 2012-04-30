@@ -53,8 +53,9 @@ public class CurrencyList {
 	}
 
 	public CurrencyList(Map<String, String> map, String prefix) {
-		 while(true) {
 		int i=0; 
+		 i=0; 
+		 while(true) {
 			if( map.containsKey(prefix + "currency" + '(' + i + ')'+ ".code") ) {
 				String newPrefix = prefix + "currency" + '(' + i + ')' + '.';
 				this.currency.add(new CurrencyType(map, newPrefix));

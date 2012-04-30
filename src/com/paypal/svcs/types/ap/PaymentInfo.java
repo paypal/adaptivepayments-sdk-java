@@ -103,6 +103,7 @@ public class PaymentInfo {
 	public PaymentInfo() {
 	}
 	public PaymentInfo(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "transactionId") ) {
 			this.transactionId = map.get(prefix + "transactionId");
 		}

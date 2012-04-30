@@ -59,6 +59,7 @@ public class SenderOptions {
 	}
 
 	public SenderOptions(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "requireShippingAddressSelection") ) {
 			this.requireShippingAddressSelection = Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection"));
 		}

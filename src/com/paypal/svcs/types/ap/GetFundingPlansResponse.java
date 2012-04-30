@@ -55,12 +55,13 @@ public class GetFundingPlansResponse {
 	public GetFundingPlansResponse() {
 	}
 	public GetFundingPlansResponse(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "responseEnvelope" + ".timestamp") ) {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "fundingPlan" + '(' + i + ')'+ ".fundingPlanId") ) {
 				String newPrefix = prefix + "fundingPlan" + '(' + i + ')' + '.';
 				this.fundingPlan.add(new FundingPlan(map, newPrefix));
@@ -68,8 +69,8 @@ public class GetFundingPlansResponse {
 			else break;
 			i++;
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

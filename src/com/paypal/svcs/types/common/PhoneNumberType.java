@@ -78,6 +78,7 @@ public class PhoneNumberType {
 	}
 
 	public PhoneNumberType(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "countryCode") ) {
 			this.countryCode = map.get(prefix + "countryCode");
 		}

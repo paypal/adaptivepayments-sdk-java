@@ -138,6 +138,7 @@ public class Receiver {
 	}
 
 	public Receiver(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "amount") ) {
 			this.amount = Double.valueOf(map.get(prefix + "amount"));
 		}

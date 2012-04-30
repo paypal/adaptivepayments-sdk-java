@@ -58,6 +58,7 @@ public class ConvertCurrencyResponse {
 	public ConvertCurrencyResponse() {
 	}
 	public ConvertCurrencyResponse(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "responseEnvelope" + ".timestamp") ) {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
@@ -66,8 +67,8 @@ public class ConvertCurrencyResponse {
 			String newPrefix = prefix + "estimatedAmountTable" + '.';
 			this.estimatedAmountTable =  new CurrencyConversionTable(map, newPrefix);
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

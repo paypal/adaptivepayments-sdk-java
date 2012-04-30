@@ -55,12 +55,13 @@ public class GetAvailableShippingAddressesResponse {
 	public GetAvailableShippingAddressesResponse() {
 	}
 	public GetAvailableShippingAddressesResponse(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "responseEnvelope" + ".timestamp") ) {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "availableAddress" + '(' + i + ')'+ ".addresseeName") ) {
 				String newPrefix = prefix + "availableAddress" + '(' + i + ')' + '.';
 				this.availableAddress.add(new Address(map, newPrefix));
@@ -68,8 +69,8 @@ public class GetAvailableShippingAddressesResponse {
 			else break;
 			i++;
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

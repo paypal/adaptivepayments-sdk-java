@@ -92,6 +92,7 @@ public class BaseAddress {
 	public BaseAddress() {
 	}
 	public BaseAddress(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "line1") ) {
 			this.line1 = map.get(prefix + "line1");
 		}

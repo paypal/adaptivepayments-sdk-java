@@ -122,6 +122,7 @@ public class RefundInfo {
 	public RefundInfo() {
 	}
 	public RefundInfo(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "receiver" + ".amount") ) {
 			String newPrefix = prefix + "receiver" + '.';
 			this.receiver =  new Receiver(map, newPrefix);

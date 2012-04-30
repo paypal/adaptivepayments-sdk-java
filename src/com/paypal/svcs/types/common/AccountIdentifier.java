@@ -57,6 +57,7 @@ public class AccountIdentifier {
 	}
 
 	public AccountIdentifier(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "email") ) {
 			this.email = map.get(prefix + "email");
 		}

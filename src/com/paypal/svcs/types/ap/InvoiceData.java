@@ -78,8 +78,9 @@ public class InvoiceData {
 	}
 
 	public InvoiceData(Map<String, String> map, String prefix) {
-		 while(true) {
 		int i=0; 
+		 i=0; 
+		 while(true) {
 			if( map.containsKey(prefix + "item" + '(' + i + ')'+ ".name") ) {
 				String newPrefix = prefix + "item" + '(' + i + ')' + '.';
 				this.item.add(new InvoiceItem(map, newPrefix));

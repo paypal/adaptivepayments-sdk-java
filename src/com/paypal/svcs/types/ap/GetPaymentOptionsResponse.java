@@ -98,6 +98,7 @@ public class GetPaymentOptionsResponse {
 	public GetPaymentOptionsResponse() {
 	}
 	public GetPaymentOptionsResponse(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "responseEnvelope" + ".timestamp") ) {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
@@ -117,8 +118,8 @@ public class GetPaymentOptionsResponse {
 			String newPrefix = prefix + "senderOptions" + '.';
 			this.senderOptions =  new SenderOptions(map, newPrefix);
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "receiverOptions" + '(' + i + ')'+ ".description") ) {
 				String newPrefix = prefix + "receiverOptions" + '(' + i + ')' + '.';
 				this.receiverOptions.add(new ReceiverOptions(map, newPrefix));
@@ -126,8 +127,8 @@ public class GetPaymentOptionsResponse {
 			else break;
 			i++;
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

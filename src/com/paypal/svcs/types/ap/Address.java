@@ -49,6 +49,7 @@ public class Address {
 	public Address() {
 	}
 	public Address(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "addresseeName") ) {
 			this.addresseeName = map.get(prefix + "addresseeName");
 		}

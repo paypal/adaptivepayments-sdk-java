@@ -64,6 +64,7 @@ public class CurrencyType {
 	}
 
 	public CurrencyType(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "code") ) {
 			this.code = map.get(prefix + "code");
 		}

@@ -69,6 +69,7 @@ public class FundingSource {
 	public FundingSource() {
 	}
 	public FundingSource(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "lastFourOfAccountNumber") ) {
 			this.lastFourOfAccountNumber = map.get(prefix + "lastFourOfAccountNumber");
 		}

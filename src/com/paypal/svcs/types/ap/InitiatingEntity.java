@@ -48,6 +48,7 @@ public class InitiatingEntity {
 	}
 
 	public InitiatingEntity(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "institutionCustomer" + ".institutionId") ) {
 			String newPrefix = prefix + "institutionCustomer" + '.';
 			this.institutionCustomer =  new InstitutionCustomer(map, newPrefix);

@@ -86,6 +86,7 @@ public class DisplayOptions {
 	}
 
 	public DisplayOptions(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "emailHeaderImageUrl") ) {
 			this.emailHeaderImageUrl = map.get(prefix + "emailHeaderImageUrl");
 		}

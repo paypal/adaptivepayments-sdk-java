@@ -44,6 +44,7 @@ public class CurrencyConversionList {
 	public CurrencyConversionList() {
 	}
 	public CurrencyConversionList(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "baseAmount" + ".code") ) {
 			String newPrefix = prefix + "baseAmount" + '.';
 			this.baseAmount =  new CurrencyType(map, newPrefix);

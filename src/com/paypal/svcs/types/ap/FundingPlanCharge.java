@@ -44,6 +44,7 @@ public class FundingPlanCharge {
 	public FundingPlanCharge() {
 	}
 	public FundingPlanCharge(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "charge" + ".code") ) {
 			String newPrefix = prefix + "charge" + '.';
 			this.charge =  new CurrencyType(map, newPrefix);

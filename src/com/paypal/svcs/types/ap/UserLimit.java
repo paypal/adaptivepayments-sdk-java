@@ -41,6 +41,7 @@ public class UserLimit {
 	public UserLimit() {
 	}
 	public UserLimit(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "limitType") ) {
 			this.limitType = map.get(prefix + "limitType");
 		}

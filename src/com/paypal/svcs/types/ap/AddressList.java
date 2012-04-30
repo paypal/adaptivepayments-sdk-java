@@ -31,8 +31,9 @@ public class AddressList {
 	public AddressList() {
 	}
 	public AddressList(Map<String, String> map, String prefix) {
-		 while(true) {
 		int i=0; 
+		 i=0; 
+		 while(true) {
 			if( map.containsKey(prefix + "address" + '(' + i + ')'+ ".addresseeName") ) {
 				String newPrefix = prefix + "address" + '(' + i + ')' + '.';
 				this.address.add(new Address(map, newPrefix));

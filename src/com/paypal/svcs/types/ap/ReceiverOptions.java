@@ -108,6 +108,7 @@ public class ReceiverOptions {
 	}
 
 	public ReceiverOptions(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "description") ) {
 			this.description = map.get(prefix + "description");
 		}

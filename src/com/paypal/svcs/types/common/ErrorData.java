@@ -104,6 +104,7 @@ public class ErrorData {
 	public ErrorData() {
 	}
 	public ErrorData(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "errorId") ) {
 			this.errorId = Integer.valueOf(map.get(prefix + "errorId"));
 		}
@@ -125,8 +126,8 @@ public class ErrorData {
 		if( map.containsKey(prefix + "exceptionId") ) {
 			this.exceptionId = map.get(prefix + "exceptionId");
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "parameter" + '(' + i + ')'+ ".name") ) {
 				String newPrefix = prefix + "parameter" + '(' + i + ')' + '.';
 				this.parameter.add(new ErrorParameter(map, newPrefix));

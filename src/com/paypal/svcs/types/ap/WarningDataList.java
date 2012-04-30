@@ -31,8 +31,9 @@ public class WarningDataList {
 	public WarningDataList() {
 	}
 	public WarningDataList(Map<String, String> map, String prefix) {
-		 while(true) {
 		int i=0; 
+		 i=0; 
+		 while(true) {
 			if( map.containsKey(prefix + "warningData" + '(' + i + ')'+ ".warningId") ) {
 				String newPrefix = prefix + "warningData" + '(' + i + ')' + '.';
 				this.warningData.add(new WarningData(map, newPrefix));

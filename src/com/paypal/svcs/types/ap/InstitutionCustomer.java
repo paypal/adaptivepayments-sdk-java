@@ -159,6 +159,7 @@ public class InstitutionCustomer {
 	}
 
 	public InstitutionCustomer(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "institutionId") ) {
 			this.institutionId = map.get(prefix + "institutionId");
 		}

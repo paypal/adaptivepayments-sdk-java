@@ -66,6 +66,7 @@ public class ExecutePaymentResponse {
 	public ExecutePaymentResponse() {
 	}
 	public ExecutePaymentResponse(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "responseEnvelope" + ".timestamp") ) {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
@@ -77,8 +78,8 @@ public class ExecutePaymentResponse {
 			String newPrefix = prefix + "payErrorList" + '.';
 			this.payErrorList =  new PayErrorList(map, newPrefix);
 		}
+		 i=0; 
 		 while(true) {
-		int i=0; 
 			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
 				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
 				this.error.add(new ErrorData(map, newPrefix));

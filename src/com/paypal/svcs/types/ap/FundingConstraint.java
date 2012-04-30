@@ -43,6 +43,7 @@ public class FundingConstraint {
 	}
 
 	public FundingConstraint(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "allowedFundingType" + ".") ) {
 			String newPrefix = prefix + "allowedFundingType" + '.';
 			this.allowedFundingType =  new FundingTypeList(map, newPrefix);

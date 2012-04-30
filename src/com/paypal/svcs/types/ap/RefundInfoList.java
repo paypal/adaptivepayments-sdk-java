@@ -31,8 +31,9 @@ public class RefundInfoList {
 	public RefundInfoList() {
 	}
 	public RefundInfoList(Map<String, String> map, String prefix) {
-		 while(true) {
 		int i=0; 
+		 i=0; 
+		 while(true) {
 			if( map.containsKey(prefix + "refundInfo" + '(' + i + ')'+ ".refundStatus") ) {
 				String newPrefix = prefix + "refundInfo" + '(' + i + ')' + '.';
 				this.refundInfo.add(new RefundInfo(map, newPrefix));

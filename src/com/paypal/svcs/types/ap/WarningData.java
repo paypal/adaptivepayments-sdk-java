@@ -39,6 +39,7 @@ public class WarningData {
 	public WarningData() {
 	}
 	public WarningData(Map<String, String> map, String prefix) {
+		int i=0; 
 		if( map.containsKey(prefix + "warningId") ) {
 			this.warningId = Integer.valueOf(map.get(prefix + "warningId"));
 		}

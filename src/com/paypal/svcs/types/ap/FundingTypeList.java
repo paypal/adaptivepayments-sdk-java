@@ -52,8 +52,9 @@ public class FundingTypeList {
 	}
 
 	public FundingTypeList(Map<String, String> map, String prefix) {
-		 while(true) {
 		int i=0; 
+		 i=0; 
+		 while(true) {
 			if( map.containsKey(prefix + "fundingTypeInfo" + '(' + i + ')') ) {
 				String newPrefix = prefix + "fundingTypeInfo" + '(' + i + ')' + '.';
 				this.fundingTypeInfo.add(new FundingTypeInfo(map, newPrefix));
