@@ -103,7 +103,7 @@ public class GetPaymentOptionsResponse {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "initiatingEntity" + ".institutionCustomer(0).institutionId") ) {
+		if( map.containsKey(prefix + "initiatingEntity" + ".institutionCustomer.institutionId") ) {
 			String newPrefix = prefix + "initiatingEntity" + '.';
 			this.initiatingEntity =  new InitiatingEntity(map, newPrefix);
 		}

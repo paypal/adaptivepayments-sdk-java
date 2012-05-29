@@ -112,7 +112,7 @@ public class FundingPlan {
 		}
 		 i=0; 
 		 while(true) {
-			if( map.containsKey(prefix + "charge" + '(' + i + ')'+ ".fundingSource(0).lastFourOfAccountNumber") ) {
+			if( map.containsKey(prefix + "charge" + '(' + i + ')'+ ".fundingSource.lastFourOfAccountNumber") ) {
 				String newPrefix = prefix + "charge" + '(' + i + ')' + '.';
 				this.charge.add(new FundingPlanCharge(map, newPrefix));
 			}

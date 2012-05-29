@@ -63,7 +63,9 @@ public class ConvertCurrencyResponse {
 			String newPrefix = prefix + "responseEnvelope" + '.';
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "estimatedAmountTable" + ".") ) {
+		//TODO: Manual fix
+		if (map.containsKey(prefix + "estimatedAmountTable"
+				+ ".currencyConversionList(0).baseAmount.code")) {
 			String newPrefix = prefix + "estimatedAmountTable" + '.';
 			this.estimatedAmountTable =  new CurrencyConversionTable(map, newPrefix);
 		}
