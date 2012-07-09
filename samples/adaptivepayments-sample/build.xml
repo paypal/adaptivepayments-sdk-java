@@ -28,7 +28,7 @@
 		</condition>
 	</target>
 
-	<target name="buildSDK" depends="check-sdk-jar" if="need.to.build.sdk">
+	<target name="buildSDK">
 		<ant antfile="build.xml" target="dist" dir="../.." />
 	</target>
 
