@@ -1,95 +1,131 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.core.NVPUtil;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import java.io.UnsupportedEncodingException;
-
+import com.paypal.core.NVPUtil;
 
 /**
- * The request to execute the payment request.
+ * The request to execute the payment request. 
  */
-public class ExecutePaymentRequest {
+public class ExecutePaymentRequest{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private RequestEnvelope requestEnvelope;
-	public RequestEnvelope getRequestEnvelope() {
-		return requestEnvelope;
-	}
-	public void setRequestEnvelope(RequestEnvelope value) {
-		this.requestEnvelope = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String payKey;
-	public String getPayKey() {
-		return payKey;
-	}
-	public void setPayKey(String value) {
-		this.payKey = value;
-	}
 
 	/**
-	 * Describes the action that is performed
-	 * by this API
-	 */
+	 * Describes the action that is performed by this API 	 
+	 */ 
 	private String actionType;
-	public String getActionType() {
-		return actionType;
-	}
-	public void setActionType(String value) {
-		this.actionType = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String fundingPlanId;
-	public String getFundingPlanId() {
-		return fundingPlanId;
-	}
-	public void setFundingPlanId(String value) {
-		this.fundingPlanId = value;
-	}
 
+	
 
-	public ExecutePaymentRequest(RequestEnvelope requestEnvelope, String payKey) {
+	/**
+	 * Constructor with arguments
+	 */
+	public ExecutePaymentRequest (RequestEnvelope requestEnvelope, String payKey){
 		this.requestEnvelope = requestEnvelope;
 		this.payKey = payKey;
-	}
-	public ExecutePaymentRequest() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public ExecutePaymentRequest (){
+	}	
+
+	/**
+	 * Getter for requestEnvelope
+	 */
+	 public RequestEnvelope getRequestEnvelope() {
+	 	return requestEnvelope;
+	 }
+	 
+	/**
+	 * Setter for requestEnvelope
+	 */
+	 public void setRequestEnvelope(RequestEnvelope requestEnvelope) {
+	 	this.requestEnvelope = requestEnvelope;
+	 }
+	 
+	/**
+	 * Getter for payKey
+	 */
+	 public String getPayKey() {
+	 	return payKey;
+	 }
+	 
+	/**
+	 * Setter for payKey
+	 */
+	 public void setPayKey(String payKey) {
+	 	this.payKey = payKey;
+	 }
+	 
+	/**
+	 * Getter for actionType
+	 */
+	 public String getActionType() {
+	 	return actionType;
+	 }
+	 
+	/**
+	 * Setter for actionType
+	 */
+	 public void setActionType(String actionType) {
+	 	this.actionType = actionType;
+	 }
+	 
+	/**
+	 * Getter for fundingPlanId
+	 */
+	 public String getFundingPlanId() {
+	 	return fundingPlanId;
+	 }
+	 
+	/**
+	 * Setter for fundingPlanId
+	 */
+	 public void setFundingPlanId(String fundingPlanId) {
+	 	this.fundingPlanId = fundingPlanId;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( requestEnvelope != null ) {
+		if (requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
 			sb.append(requestEnvelope.toNVPString(newPrefix));
 		}
-		if( payKey != null ) {
+		if (payKey != null) {
 			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(payKey));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( actionType != null ) {
+		if (actionType != null) {
 			sb.append(prefix).append("actionType=").append(NVPUtil.encodeUrl(actionType));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( fundingPlanId != null ) {
+		if (fundingPlanId != null) {
 			sb.append(prefix).append("fundingPlanId=").append(NVPUtil.encodeUrl(fundingPlanId));
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}

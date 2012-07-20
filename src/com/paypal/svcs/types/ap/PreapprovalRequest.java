@@ -1,332 +1,510 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.core.NVPUtil;
+import com.paypal.svcs.types.common.RequestEnvelope;
 import com.paypal.svcs.types.common.ClientDetailsType;
 import com.paypal.svcs.types.common.DayOfWeek;
-import com.paypal.svcs.types.common.RequestEnvelope;
 import java.io.UnsupportedEncodingException;
-
+import com.paypal.core.NVPUtil;
 
 /**
- * A request to create a Preapproval. A Preapproval
- * is an agreement between a Paypal account holder
- * (the sender) and the API caller (the service
- * invoker) to make payment(s) on the the sender's
- * behalf with various limitations defined.
+ * A request to create a Preapproval. A Preapproval is an
+ * agreement between a Paypal account holder (the sender) and
+ * the API caller (the service invoker) to make payment(s) on
+ * the the sender's behalf with various limitations defined. 
  */
-public class PreapprovalRequest {
+public class PreapprovalRequest{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private RequestEnvelope requestEnvelope;
-	public RequestEnvelope getRequestEnvelope() {
-		return requestEnvelope;
-	}
-	public void setRequestEnvelope(RequestEnvelope value) {
-		this.requestEnvelope = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private ClientDetailsType clientDetails;
-	public ClientDetailsType getClientDetails() {
-		return clientDetails;
-	}
-	public void setClientDetails(ClientDetailsType value) {
-		this.clientDetails = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String cancelUrl;
-	public String getCancelUrl() {
-		return cancelUrl;
-	}
-	public void setCancelUrl(String value) {
-		this.cancelUrl = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String currencyCode;
-	public String getCurrencyCode() {
-		return currencyCode;
-	}
-	public void setCurrencyCode(String value) {
-		this.currencyCode = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Integer dateOfMonth;
-	public Integer getDateOfMonth() {
-		return dateOfMonth;
-	}
-	public void setDateOfMonth(Integer value) {
-		this.dateOfMonth = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private DayOfWeek dayOfWeek;
-	public DayOfWeek getDayOfWeek() {
-		return dayOfWeek;
-	}
-	public void setDayOfWeek(DayOfWeek value) {
-		this.dayOfWeek = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String endingDate;
-	public String getEndingDate() {
-		return endingDate;
-	}
-	public void setEndingDate(String value) {
-		this.endingDate = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Double maxAmountPerPayment;
-	public Double getMaxAmountPerPayment() {
-		return maxAmountPerPayment;
-	}
-	public void setMaxAmountPerPayment(Double value) {
-		this.maxAmountPerPayment = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Integer maxNumberOfPayments;
-	public Integer getMaxNumberOfPayments() {
-		return maxNumberOfPayments;
-	}
-	public void setMaxNumberOfPayments(Integer value) {
-		this.maxNumberOfPayments = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
-	public Integer getMaxNumberOfPaymentsPerPeriod() {
-		return maxNumberOfPaymentsPerPeriod;
-	}
-	public void setMaxNumberOfPaymentsPerPeriod(Integer value) {
-		this.maxNumberOfPaymentsPerPeriod = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Double maxTotalAmountOfAllPayments;
-	public Double getMaxTotalAmountOfAllPayments() {
-		return maxTotalAmountOfAllPayments;
-	}
-	public void setMaxTotalAmountOfAllPayments(Double value) {
-		this.maxTotalAmountOfAllPayments = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String paymentPeriod;
-	public String getPaymentPeriod() {
-		return paymentPeriod;
-	}
-	public void setPaymentPeriod(String value) {
-		this.paymentPeriod = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String returnUrl;
-	public String getReturnUrl() {
-		return returnUrl;
-	}
-	public void setReturnUrl(String value) {
-		this.returnUrl = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String memo;
-	public String getMemo() {
-		return memo;
-	}
-	public void setMemo(String value) {
-		this.memo = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String ipnNotificationUrl;
-	public String getIpnNotificationUrl() {
-		return ipnNotificationUrl;
-	}
-	public void setIpnNotificationUrl(String value) {
-		this.ipnNotificationUrl = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String senderEmail;
-	public String getSenderEmail() {
-		return senderEmail;
-	}
-	public void setSenderEmail(String value) {
-		this.senderEmail = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String startingDate;
-	public String getStartingDate() {
-		return startingDate;
-	}
-	public void setStartingDate(String value) {
-		this.startingDate = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String pinType;
-	public String getPinType() {
-		return pinType;
-	}
-	public void setPinType(String value) {
-		this.pinType = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String feesPayer;
-	public String getFeesPayer() {
-		return feesPayer;
-	}
-	public void setFeesPayer(String value) {
-		this.feesPayer = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Boolean displayMaxTotalAmount;
-	public Boolean getDisplayMaxTotalAmount() {
-		return displayMaxTotalAmount;
-	}
-	public void setDisplayMaxTotalAmount(Boolean value) {
-		this.displayMaxTotalAmount = value;
-	}
 
+	
 
-	public PreapprovalRequest(RequestEnvelope requestEnvelope, String cancelUrl, String currencyCode, String returnUrl, String startingDate) {
+	/**
+	 * Constructor with arguments
+	 */
+	public PreapprovalRequest (RequestEnvelope requestEnvelope, String cancelUrl, String currencyCode, String returnUrl, String startingDate){
 		this.requestEnvelope = requestEnvelope;
 		this.cancelUrl = cancelUrl;
 		this.currencyCode = currencyCode;
 		this.returnUrl = returnUrl;
 		this.startingDate = startingDate;
-	}
-	public PreapprovalRequest() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public PreapprovalRequest (){
+	}	
+
+	/**
+	 * Getter for requestEnvelope
+	 */
+	 public RequestEnvelope getRequestEnvelope() {
+	 	return requestEnvelope;
+	 }
+	 
+	/**
+	 * Setter for requestEnvelope
+	 */
+	 public void setRequestEnvelope(RequestEnvelope requestEnvelope) {
+	 	this.requestEnvelope = requestEnvelope;
+	 }
+	 
+	/**
+	 * Getter for clientDetails
+	 */
+	 public ClientDetailsType getClientDetails() {
+	 	return clientDetails;
+	 }
+	 
+	/**
+	 * Setter for clientDetails
+	 */
+	 public void setClientDetails(ClientDetailsType clientDetails) {
+	 	this.clientDetails = clientDetails;
+	 }
+	 
+	/**
+	 * Getter for cancelUrl
+	 */
+	 public String getCancelUrl() {
+	 	return cancelUrl;
+	 }
+	 
+	/**
+	 * Setter for cancelUrl
+	 */
+	 public void setCancelUrl(String cancelUrl) {
+	 	this.cancelUrl = cancelUrl;
+	 }
+	 
+	/**
+	 * Getter for currencyCode
+	 */
+	 public String getCurrencyCode() {
+	 	return currencyCode;
+	 }
+	 
+	/**
+	 * Setter for currencyCode
+	 */
+	 public void setCurrencyCode(String currencyCode) {
+	 	this.currencyCode = currencyCode;
+	 }
+	 
+	/**
+	 * Getter for dateOfMonth
+	 */
+	 public Integer getDateOfMonth() {
+	 	return dateOfMonth;
+	 }
+	 
+	/**
+	 * Setter for dateOfMonth
+	 */
+	 public void setDateOfMonth(Integer dateOfMonth) {
+	 	this.dateOfMonth = dateOfMonth;
+	 }
+	 
+	/**
+	 * Getter for dayOfWeek
+	 */
+	 public DayOfWeek getDayOfWeek() {
+	 	return dayOfWeek;
+	 }
+	 
+	/**
+	 * Setter for dayOfWeek
+	 */
+	 public void setDayOfWeek(DayOfWeek dayOfWeek) {
+	 	this.dayOfWeek = dayOfWeek;
+	 }
+	 
+	/**
+	 * Getter for endingDate
+	 */
+	 public String getEndingDate() {
+	 	return endingDate;
+	 }
+	 
+	/**
+	 * Setter for endingDate
+	 */
+	 public void setEndingDate(String endingDate) {
+	 	this.endingDate = endingDate;
+	 }
+	 
+	/**
+	 * Getter for maxAmountPerPayment
+	 */
+	 public Double getMaxAmountPerPayment() {
+	 	return maxAmountPerPayment;
+	 }
+	 
+	/**
+	 * Setter for maxAmountPerPayment
+	 */
+	 public void setMaxAmountPerPayment(Double maxAmountPerPayment) {
+	 	this.maxAmountPerPayment = maxAmountPerPayment;
+	 }
+	 
+	/**
+	 * Getter for maxNumberOfPayments
+	 */
+	 public Integer getMaxNumberOfPayments() {
+	 	return maxNumberOfPayments;
+	 }
+	 
+	/**
+	 * Setter for maxNumberOfPayments
+	 */
+	 public void setMaxNumberOfPayments(Integer maxNumberOfPayments) {
+	 	this.maxNumberOfPayments = maxNumberOfPayments;
+	 }
+	 
+	/**
+	 * Getter for maxNumberOfPaymentsPerPeriod
+	 */
+	 public Integer getMaxNumberOfPaymentsPerPeriod() {
+	 	return maxNumberOfPaymentsPerPeriod;
+	 }
+	 
+	/**
+	 * Setter for maxNumberOfPaymentsPerPeriod
+	 */
+	 public void setMaxNumberOfPaymentsPerPeriod(Integer maxNumberOfPaymentsPerPeriod) {
+	 	this.maxNumberOfPaymentsPerPeriod = maxNumberOfPaymentsPerPeriod;
+	 }
+	 
+	/**
+	 * Getter for maxTotalAmountOfAllPayments
+	 */
+	 public Double getMaxTotalAmountOfAllPayments() {
+	 	return maxTotalAmountOfAllPayments;
+	 }
+	 
+	/**
+	 * Setter for maxTotalAmountOfAllPayments
+	 */
+	 public void setMaxTotalAmountOfAllPayments(Double maxTotalAmountOfAllPayments) {
+	 	this.maxTotalAmountOfAllPayments = maxTotalAmountOfAllPayments;
+	 }
+	 
+	/**
+	 * Getter for paymentPeriod
+	 */
+	 public String getPaymentPeriod() {
+	 	return paymentPeriod;
+	 }
+	 
+	/**
+	 * Setter for paymentPeriod
+	 */
+	 public void setPaymentPeriod(String paymentPeriod) {
+	 	this.paymentPeriod = paymentPeriod;
+	 }
+	 
+	/**
+	 * Getter for returnUrl
+	 */
+	 public String getReturnUrl() {
+	 	return returnUrl;
+	 }
+	 
+	/**
+	 * Setter for returnUrl
+	 */
+	 public void setReturnUrl(String returnUrl) {
+	 	this.returnUrl = returnUrl;
+	 }
+	 
+	/**
+	 * Getter for memo
+	 */
+	 public String getMemo() {
+	 	return memo;
+	 }
+	 
+	/**
+	 * Setter for memo
+	 */
+	 public void setMemo(String memo) {
+	 	this.memo = memo;
+	 }
+	 
+	/**
+	 * Getter for ipnNotificationUrl
+	 */
+	 public String getIpnNotificationUrl() {
+	 	return ipnNotificationUrl;
+	 }
+	 
+	/**
+	 * Setter for ipnNotificationUrl
+	 */
+	 public void setIpnNotificationUrl(String ipnNotificationUrl) {
+	 	this.ipnNotificationUrl = ipnNotificationUrl;
+	 }
+	 
+	/**
+	 * Getter for senderEmail
+	 */
+	 public String getSenderEmail() {
+	 	return senderEmail;
+	 }
+	 
+	/**
+	 * Setter for senderEmail
+	 */
+	 public void setSenderEmail(String senderEmail) {
+	 	this.senderEmail = senderEmail;
+	 }
+	 
+	/**
+	 * Getter for startingDate
+	 */
+	 public String getStartingDate() {
+	 	return startingDate;
+	 }
+	 
+	/**
+	 * Setter for startingDate
+	 */
+	 public void setStartingDate(String startingDate) {
+	 	this.startingDate = startingDate;
+	 }
+	 
+	/**
+	 * Getter for pinType
+	 */
+	 public String getPinType() {
+	 	return pinType;
+	 }
+	 
+	/**
+	 * Setter for pinType
+	 */
+	 public void setPinType(String pinType) {
+	 	this.pinType = pinType;
+	 }
+	 
+	/**
+	 * Getter for feesPayer
+	 */
+	 public String getFeesPayer() {
+	 	return feesPayer;
+	 }
+	 
+	/**
+	 * Setter for feesPayer
+	 */
+	 public void setFeesPayer(String feesPayer) {
+	 	this.feesPayer = feesPayer;
+	 }
+	 
+	/**
+	 * Getter for displayMaxTotalAmount
+	 */
+	 public Boolean getDisplayMaxTotalAmount() {
+	 	return displayMaxTotalAmount;
+	 }
+	 
+	/**
+	 * Setter for displayMaxTotalAmount
+	 */
+	 public void setDisplayMaxTotalAmount(Boolean displayMaxTotalAmount) {
+	 	this.displayMaxTotalAmount = displayMaxTotalAmount;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( requestEnvelope != null ) {
+		if (requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
 			sb.append(requestEnvelope.toNVPString(newPrefix));
 		}
-		if( clientDetails != null ) {
+		if (clientDetails != null) {
 			String newPrefix = prefix + "clientDetails.";
 			sb.append(clientDetails.toNVPString(newPrefix));
 		}
-		if( cancelUrl != null ) {
+		if (cancelUrl != null) {
 			sb.append(prefix).append("cancelUrl=").append(NVPUtil.encodeUrl(cancelUrl));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( currencyCode != null ) {
+		if (currencyCode != null) {
 			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(currencyCode));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( dateOfMonth != null ) {
+		if (dateOfMonth != null) {
 			sb.append(prefix).append("dateOfMonth=").append(dateOfMonth);
-			sb.append('&');
+			sb.append("&");
 		}
-		if( dayOfWeek != null ) {
+		if (dayOfWeek != null) {
 			sb.append(prefix).append("dayOfWeek=").append(dayOfWeek.getValue());
-			sb.append('&');
+			sb.append("&");
 		}
-		if( endingDate != null ) {
+		if (endingDate != null) {
 			sb.append(prefix).append("endingDate=").append(NVPUtil.encodeUrl(endingDate));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( maxAmountPerPayment != null ) {
+		if (maxAmountPerPayment != null) {
 			sb.append(prefix).append("maxAmountPerPayment=").append(maxAmountPerPayment);
-			sb.append('&');
+			sb.append("&");
 		}
-		if( maxNumberOfPayments != null ) {
+		if (maxNumberOfPayments != null) {
 			sb.append(prefix).append("maxNumberOfPayments=").append(maxNumberOfPayments);
-			sb.append('&');
+			sb.append("&");
 		}
-		if( maxNumberOfPaymentsPerPeriod != null ) {
+		if (maxNumberOfPaymentsPerPeriod != null) {
 			sb.append(prefix).append("maxNumberOfPaymentsPerPeriod=").append(maxNumberOfPaymentsPerPeriod);
-			sb.append('&');
+			sb.append("&");
 		}
-		if( maxTotalAmountOfAllPayments != null ) {
+		if (maxTotalAmountOfAllPayments != null) {
 			sb.append(prefix).append("maxTotalAmountOfAllPayments=").append(maxTotalAmountOfAllPayments);
-			sb.append('&');
+			sb.append("&");
 		}
-		if( paymentPeriod != null ) {
+		if (paymentPeriod != null) {
 			sb.append(prefix).append("paymentPeriod=").append(NVPUtil.encodeUrl(paymentPeriod));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( returnUrl != null ) {
+		if (returnUrl != null) {
 			sb.append(prefix).append("returnUrl=").append(NVPUtil.encodeUrl(returnUrl));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( memo != null ) {
+		if (memo != null) {
 			sb.append(prefix).append("memo=").append(NVPUtil.encodeUrl(memo));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( ipnNotificationUrl != null ) {
+		if (ipnNotificationUrl != null) {
 			sb.append(prefix).append("ipnNotificationUrl=").append(NVPUtil.encodeUrl(ipnNotificationUrl));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( senderEmail != null ) {
+		if (senderEmail != null) {
 			sb.append(prefix).append("senderEmail=").append(NVPUtil.encodeUrl(senderEmail));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( startingDate != null ) {
+		if (startingDate != null) {
 			sb.append(prefix).append("startingDate=").append(NVPUtil.encodeUrl(startingDate));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( pinType != null ) {
+		if (pinType != null) {
 			sb.append(prefix).append("pinType=").append(NVPUtil.encodeUrl(pinType));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( feesPayer != null ) {
+		if (feesPayer != null) {
 			sb.append(prefix).append("feesPayer=").append(NVPUtil.encodeUrl(feesPayer));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( displayMaxTotalAmount != null ) {
+		if (displayMaxTotalAmount != null) {
 			sb.append(prefix).append("displayMaxTotalAmount=").append(displayMaxTotalAmount);
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}

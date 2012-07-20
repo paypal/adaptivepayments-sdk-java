@@ -1,64 +1,93 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
 import com.paypal.svcs.types.common.BaseAddress;
 import java.util.Map;
 
-
 /**
+ * No Document Comments
  */
-public class Address {
+public class Address{
+
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String addresseeName;
-	public String getAddresseeName() {
-		return addresseeName;
-	}
-	public void setAddresseeName(String value) {
-		this.addresseeName = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private BaseAddress baseAddress;
-	public BaseAddress getBaseAddress() {
-		return baseAddress;
-	}
-	public void setBaseAddress(BaseAddress value) {
-		this.baseAddress = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String addressId;
-	public String getAddressId() {
-		return addressId;
-	}
-	public void setAddressId(String value) {
-		this.addressId = value;
-	}
+
+	
+
+	/**
+	 * Default Constructor
+	 */
+	public Address (){
+	}	
+
+	/**
+	 * Getter for addresseeName
+	 */
+	 public String getAddresseeName() {
+	 	return addresseeName;
+	 }
+	 
+	/**
+	 * Setter for addresseeName
+	 */
+	 public void setAddresseeName(String addresseeName) {
+	 	this.addresseeName = addresseeName;
+	 }
+	 
+	/**
+	 * Getter for baseAddress
+	 */
+	 public BaseAddress getBaseAddress() {
+	 	return baseAddress;
+	 }
+	 
+	/**
+	 * Setter for baseAddress
+	 */
+	 public void setBaseAddress(BaseAddress baseAddress) {
+	 	this.baseAddress = baseAddress;
+	 }
+	 
+	/**
+	 * Getter for addressId
+	 */
+	 public String getAddressId() {
+	 	return addressId;
+	 }
+	 
+	/**
+	 * Setter for addressId
+	 */
+	 public void setAddressId(String addressId) {
+	 	this.addressId = addressId;
+	 }
+	 
 
 
-	public Address() {
-	}
 	public Address(Map<String, String> map, String prefix) {
-		int i=0; 
-		if( map.containsKey(prefix + "addresseeName") ) {
+		int i = 0;
+		if(map.containsKey(prefix + "addresseeName")){
 			this.addresseeName = map.get(prefix + "addresseeName");
 		}
-		if( map.containsKey(prefix + "baseAddress" + ".line1") ) {
-			String newPrefix = prefix + "baseAddress" + '.';
+		if(map.containsKey(prefix + "baseAddress" + ".line1")){
+			String newPrefix = prefix + "baseAddress" + ".";
 			this.baseAddress =  new BaseAddress(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "addressId") ) {
+		if(map.containsKey(prefix + "addressId")){
 			this.addressId = map.get(prefix + "addressId");
 		}
 	}
+
 }

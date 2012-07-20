@@ -1,45 +1,57 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.svcs.types.ap.WarningData;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import com.paypal.svcs.types.ap.WarningData;
 import java.util.Map;
 
-
 /**
+ * No Document Comments
  */
-public class WarningDataList {
+public class WarningDataList{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private List<WarningData> warningData = new ArrayList<WarningData>();
-	public List<WarningData> getWarningData() {
-		return warningData;
-	}
-	public void setWarningData(List<WarningData> value) {
-		this.warningData = value;
-	}
+
+	
+
+	/**
+	 * Default Constructor
+	 */
+	public WarningDataList (){
+	}	
+
+	/**
+	 * Getter for warningData
+	 */
+	 public List<WarningData> getWarningData() {
+	 	return warningData;
+	 }
+	 
+	/**
+	 * Setter for warningData
+	 */
+	 public void setWarningData(List<WarningData> warningData) {
+	 	this.warningData = warningData;
+	 }
+	 
 
 
-	public WarningDataList() {
-	}
 	public WarningDataList(Map<String, String> map, String prefix) {
-		int i=0; 
-		 i=0; 
-		 while(true) {
-			if( map.containsKey(prefix + "warningData" + '(' + i + ')'+ ".warningId") ) {
-				String newPrefix = prefix + "warningData" + '(' + i + ')' + '.';
+		int i = 0;
+		i = 0;
+		while(true) {
+			if(map.containsKey(prefix + "warningData" + "(" + i + ")")){
+				String newPrefix = prefix + "warningData" + "(" + i + ")" + ".";
 				this.warningData.add(new WarningData(map, newPrefix));
+			} else {
+				break;
 			}
-			else break;
 			i++;
 		}
 	}
+
 }

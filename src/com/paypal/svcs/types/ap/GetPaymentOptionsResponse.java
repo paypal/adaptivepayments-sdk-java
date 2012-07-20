@@ -1,140 +1,205 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.svcs.types.ap.DisplayOptions;
-import com.paypal.svcs.types.ap.InitiatingEntity;
-import com.paypal.svcs.types.ap.ReceiverOptions;
-import com.paypal.svcs.types.ap.SenderOptions;
-import com.paypal.svcs.types.common.ErrorData;
 import com.paypal.svcs.types.common.ResponseEnvelope;
-import java.util.ArrayList;
+import com.paypal.svcs.types.ap.InitiatingEntity;
+import com.paypal.svcs.types.ap.DisplayOptions;
+import com.paypal.svcs.types.ap.SenderOptions;
 import java.util.List;
+import java.util.ArrayList;
+import com.paypal.svcs.types.ap.ReceiverOptions;
+import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
-
 /**
- * The response message for the GetPaymentOption
- * request
+ * The response message for the GetPaymentOption request 
  */
-public class GetPaymentOptionsResponse {
+public class GetPaymentOptionsResponse{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private ResponseEnvelope responseEnvelope;
-	public ResponseEnvelope getResponseEnvelope() {
-		return responseEnvelope;
-	}
-	public void setResponseEnvelope(ResponseEnvelope value) {
-		this.responseEnvelope = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private InitiatingEntity initiatingEntity;
-	public InitiatingEntity getInitiatingEntity() {
-		return initiatingEntity;
-	}
-	public void setInitiatingEntity(InitiatingEntity value) {
-		this.initiatingEntity = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private DisplayOptions displayOptions;
-	public DisplayOptions getDisplayOptions() {
-		return displayOptions;
-	}
-	public void setDisplayOptions(DisplayOptions value) {
-		this.displayOptions = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String shippingAddressId;
-	public String getShippingAddressId() {
-		return shippingAddressId;
-	}
-	public void setShippingAddressId(String value) {
-		this.shippingAddressId = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private SenderOptions senderOptions;
-	public SenderOptions getSenderOptions() {
-		return senderOptions;
-	}
-	public void setSenderOptions(SenderOptions value) {
-		this.senderOptions = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private List<ReceiverOptions> receiverOptions = new ArrayList<ReceiverOptions>();
-	public List<ReceiverOptions> getReceiverOptions() {
-		return receiverOptions;
-	}
-	public void setReceiverOptions(List<ReceiverOptions> value) {
-		this.receiverOptions = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
-	public List<ErrorData> getError() {
-		return error;
-	}
-	public void setError(List<ErrorData> value) {
-		this.error = value;
-	}
+
+	
+
+	/**
+	 * Default Constructor
+	 */
+	public GetPaymentOptionsResponse (){
+	}	
+
+	/**
+	 * Getter for responseEnvelope
+	 */
+	 public ResponseEnvelope getResponseEnvelope() {
+	 	return responseEnvelope;
+	 }
+	 
+	/**
+	 * Setter for responseEnvelope
+	 */
+	 public void setResponseEnvelope(ResponseEnvelope responseEnvelope) {
+	 	this.responseEnvelope = responseEnvelope;
+	 }
+	 
+	/**
+	 * Getter for initiatingEntity
+	 */
+	 public InitiatingEntity getInitiatingEntity() {
+	 	return initiatingEntity;
+	 }
+	 
+	/**
+	 * Setter for initiatingEntity
+	 */
+	 public void setInitiatingEntity(InitiatingEntity initiatingEntity) {
+	 	this.initiatingEntity = initiatingEntity;
+	 }
+	 
+	/**
+	 * Getter for displayOptions
+	 */
+	 public DisplayOptions getDisplayOptions() {
+	 	return displayOptions;
+	 }
+	 
+	/**
+	 * Setter for displayOptions
+	 */
+	 public void setDisplayOptions(DisplayOptions displayOptions) {
+	 	this.displayOptions = displayOptions;
+	 }
+	 
+	/**
+	 * Getter for shippingAddressId
+	 */
+	 public String getShippingAddressId() {
+	 	return shippingAddressId;
+	 }
+	 
+	/**
+	 * Setter for shippingAddressId
+	 */
+	 public void setShippingAddressId(String shippingAddressId) {
+	 	this.shippingAddressId = shippingAddressId;
+	 }
+	 
+	/**
+	 * Getter for senderOptions
+	 */
+	 public SenderOptions getSenderOptions() {
+	 	return senderOptions;
+	 }
+	 
+	/**
+	 * Setter for senderOptions
+	 */
+	 public void setSenderOptions(SenderOptions senderOptions) {
+	 	this.senderOptions = senderOptions;
+	 }
+	 
+	/**
+	 * Getter for receiverOptions
+	 */
+	 public List<ReceiverOptions> getReceiverOptions() {
+	 	return receiverOptions;
+	 }
+	 
+	/**
+	 * Setter for receiverOptions
+	 */
+	 public void setReceiverOptions(List<ReceiverOptions> receiverOptions) {
+	 	this.receiverOptions = receiverOptions;
+	 }
+	 
+	/**
+	 * Getter for error
+	 */
+	 public List<ErrorData> getError() {
+	 	return error;
+	 }
+	 
+	/**
+	 * Setter for error
+	 */
+	 public void setError(List<ErrorData> error) {
+	 	this.error = error;
+	 }
+	 
 
 
-	public GetPaymentOptionsResponse() {
-	}
 	public GetPaymentOptionsResponse(Map<String, String> map, String prefix) {
-		int i=0; 
-		if( map.containsKey(prefix + "responseEnvelope" + ".timestamp") ) {
-			String newPrefix = prefix + "responseEnvelope" + '.';
+		int i = 0;
+		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
+			String newPrefix = prefix + "responseEnvelope" + ".";
 			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "initiatingEntity" + ".institutionCustomer.institutionId") ) {
-			String newPrefix = prefix + "initiatingEntity" + '.';
+		if(map.containsKey(prefix + "initiatingEntity" + ".institutionCustomer.institutionId")){
+			String newPrefix = prefix + "initiatingEntity" + ".";
 			this.initiatingEntity =  new InitiatingEntity(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "displayOptions" + ".emailHeaderImageUrl") ) {
-			String newPrefix = prefix + "displayOptions" + '.';
+		if(map.containsKey(prefix + "displayOptions")){
+			String newPrefix = prefix + "displayOptions" + ".";
 			this.displayOptions =  new DisplayOptions(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "shippingAddressId") ) {
+		if(map.containsKey(prefix + "shippingAddressId")){
 			this.shippingAddressId = map.get(prefix + "shippingAddressId");
 		}
-		if( map.containsKey(prefix + "senderOptions" + ".requireShippingAddressSelection") ) {
-			String newPrefix = prefix + "senderOptions" + '.';
+		if(map.containsKey(prefix + "senderOptions")){
+			String newPrefix = prefix + "senderOptions" + ".";
 			this.senderOptions =  new SenderOptions(map, newPrefix);
 		}
-		 i=0; 
-		 while(true) {
-			if( map.containsKey(prefix + "receiverOptions" + '(' + i + ')'+ ".description") ) {
-				String newPrefix = prefix + "receiverOptions" + '(' + i + ')' + '.';
+		i = 0;
+		while(true) {
+			if(map.containsKey(prefix + "receiverOptions" + "(" + i + ")")){
+				String newPrefix = prefix + "receiverOptions" + "(" + i + ")" + ".";
 				this.receiverOptions.add(new ReceiverOptions(map, newPrefix));
+			} else {
+				break;
 			}
-			else break;
 			i++;
 		}
-		 i=0; 
-		 while(true) {
-			if( map.containsKey(prefix + "error" + '(' + i + ')'+ ".errorId") ) {
-				String newPrefix = prefix + "error" + '(' + i + ')' + '.';
+		i = 0;
+		while(true) {
+			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".parameter(0)")){
+				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
 				this.error.add(new ErrorData(map, newPrefix));
+			} else {
+				break;
 			}
-			else break;
 			i++;
 		}
 	}
+
 }

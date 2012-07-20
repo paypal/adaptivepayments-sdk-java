@@ -1,70 +1,87 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.core.NVPUtil;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import java.io.UnsupportedEncodingException;
-
+import com.paypal.core.NVPUtil;
 
 /**
- * The request to get the addresses available for a
- * payment.
+ * The request to get the addresses available for a payment. 
  */
-public class GetShippingAddressesRequest {
+public class GetShippingAddressesRequest{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private RequestEnvelope requestEnvelope;
-	public RequestEnvelope getRequestEnvelope() {
-		return requestEnvelope;
-	}
-	public void setRequestEnvelope(RequestEnvelope value) {
-		this.requestEnvelope = value;
-	}
 
 	/**
-	 * The key for which to provide the
-	 * available addresses. Key can be an
-	 * AdaptivePayments key such as payKey or
-	 * preapprovalKey
-	 *
-	 * @Required
-	 */
+	 * The key for which to provide the available addresses. Key
+	 * can be an AdaptivePayments key such as payKey or
+	 * preapprovalKey 	  
+	 *@Required	 
+	 */ 
 	private String key;
-	public String getKey() {
-		return key;
-	}
-	public void setKey(String value) {
-		this.key = value;
-	}
 
+	
 
-	public GetShippingAddressesRequest(RequestEnvelope requestEnvelope, String key) {
+	/**
+	 * Constructor with arguments
+	 */
+	public GetShippingAddressesRequest (RequestEnvelope requestEnvelope, String key){
 		this.requestEnvelope = requestEnvelope;
 		this.key = key;
-	}
-	public GetShippingAddressesRequest() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public GetShippingAddressesRequest (){
+	}	
+
+	/**
+	 * Getter for requestEnvelope
+	 */
+	 public RequestEnvelope getRequestEnvelope() {
+	 	return requestEnvelope;
+	 }
+	 
+	/**
+	 * Setter for requestEnvelope
+	 */
+	 public void setRequestEnvelope(RequestEnvelope requestEnvelope) {
+	 	this.requestEnvelope = requestEnvelope;
+	 }
+	 
+	/**
+	 * Getter for key
+	 */
+	 public String getKey() {
+	 	return key;
+	 }
+	 
+	/**
+	 * Setter for key
+	 */
+	 public void setKey(String key) {
+	 	this.key = key;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( requestEnvelope != null ) {
+		if (requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
 			sb.append(requestEnvelope.toNVPString(newPrefix));
 		}
-		if( key != null ) {
+		if (key != null) {
 			sb.append(prefix).append("key=").append(NVPUtil.encodeUrl(key));
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}

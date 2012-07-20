@@ -1,139 +1,213 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.common;
-
-import com.paypal.core.NVPUtil;
 import java.io.UnsupportedEncodingException;
-
+import com.paypal.core.NVPUtil;
 
 /**
- * Details about the end user of the application
- * invoking this service.
+ * Details about the end user of the application invoking this
+ * service. 
  */
-public class ClientDetailsType {
+public class ClientDetailsType{
+
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String ipAddress;
-	public String getIpAddress() {
-		return ipAddress;
-	}
-	public void setIpAddress(String value) {
-		this.ipAddress = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String deviceId;
-	public String getDeviceId() {
-		return deviceId;
-	}
-	public void setDeviceId(String value) {
-		this.deviceId = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String applicationId;
-	public String getApplicationId() {
-		return applicationId;
-	}
-	public void setApplicationId(String value) {
-		this.applicationId = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String model;
-	public String getModel() {
-		return model;
-	}
-	public void setModel(String value) {
-		this.model = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String geoLocation;
-	public String getGeoLocation() {
-		return geoLocation;
-	}
-	public void setGeoLocation(String value) {
-		this.geoLocation = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String customerType;
-	public String getCustomerType() {
-		return customerType;
-	}
-	public void setCustomerType(String value) {
-		this.customerType = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String partnerName;
-	public String getPartnerName() {
-		return partnerName;
-	}
-	public void setPartnerName(String value) {
-		this.partnerName = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String customerId;
-	public String getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(String value) {
-		this.customerId = value;
-	}
 
+	
+
+	/**
+	 * Default Constructor
+	 */
+	public ClientDetailsType (){
+	}	
+
+	/**
+	 * Getter for ipAddress
+	 */
+	 public String getIpAddress() {
+	 	return ipAddress;
+	 }
+	 
+	/**
+	 * Setter for ipAddress
+	 */
+	 public void setIpAddress(String ipAddress) {
+	 	this.ipAddress = ipAddress;
+	 }
+	 
+	/**
+	 * Getter for deviceId
+	 */
+	 public String getDeviceId() {
+	 	return deviceId;
+	 }
+	 
+	/**
+	 * Setter for deviceId
+	 */
+	 public void setDeviceId(String deviceId) {
+	 	this.deviceId = deviceId;
+	 }
+	 
+	/**
+	 * Getter for applicationId
+	 */
+	 public String getApplicationId() {
+	 	return applicationId;
+	 }
+	 
+	/**
+	 * Setter for applicationId
+	 */
+	 public void setApplicationId(String applicationId) {
+	 	this.applicationId = applicationId;
+	 }
+	 
+	/**
+	 * Getter for model
+	 */
+	 public String getModel() {
+	 	return model;
+	 }
+	 
+	/**
+	 * Setter for model
+	 */
+	 public void setModel(String model) {
+	 	this.model = model;
+	 }
+	 
+	/**
+	 * Getter for geoLocation
+	 */
+	 public String getGeoLocation() {
+	 	return geoLocation;
+	 }
+	 
+	/**
+	 * Setter for geoLocation
+	 */
+	 public void setGeoLocation(String geoLocation) {
+	 	this.geoLocation = geoLocation;
+	 }
+	 
+	/**
+	 * Getter for customerType
+	 */
+	 public String getCustomerType() {
+	 	return customerType;
+	 }
+	 
+	/**
+	 * Setter for customerType
+	 */
+	 public void setCustomerType(String customerType) {
+	 	this.customerType = customerType;
+	 }
+	 
+	/**
+	 * Getter for partnerName
+	 */
+	 public String getPartnerName() {
+	 	return partnerName;
+	 }
+	 
+	/**
+	 * Setter for partnerName
+	 */
+	 public void setPartnerName(String partnerName) {
+	 	this.partnerName = partnerName;
+	 }
+	 
+	/**
+	 * Getter for customerId
+	 */
+	 public String getCustomerId() {
+	 	return customerId;
+	 }
+	 
+	/**
+	 * Setter for customerId
+	 */
+	 public void setCustomerId(String customerId) {
+	 	this.customerId = customerId;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( ipAddress != null ) {
+		if (ipAddress != null) {
 			sb.append(prefix).append("ipAddress=").append(NVPUtil.encodeUrl(ipAddress));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( deviceId != null ) {
+		if (deviceId != null) {
 			sb.append(prefix).append("deviceId=").append(NVPUtil.encodeUrl(deviceId));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( applicationId != null ) {
+		if (applicationId != null) {
 			sb.append(prefix).append("applicationId=").append(NVPUtil.encodeUrl(applicationId));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( model != null ) {
+		if (model != null) {
 			sb.append(prefix).append("model=").append(NVPUtil.encodeUrl(model));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( geoLocation != null ) {
+		if (geoLocation != null) {
 			sb.append(prefix).append("geoLocation=").append(NVPUtil.encodeUrl(geoLocation));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( customerType != null ) {
+		if (customerType != null) {
 			sb.append(prefix).append("customerType=").append(NVPUtil.encodeUrl(customerType));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( partnerName != null ) {
+		if (partnerName != null) {
 			sb.append(prefix).append("partnerName=").append(NVPUtil.encodeUrl(partnerName));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( customerId != null ) {
+		if (customerId != null) {
 			sb.append(prefix).append("customerId=").append(NVPUtil.encodeUrl(customerId));
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}

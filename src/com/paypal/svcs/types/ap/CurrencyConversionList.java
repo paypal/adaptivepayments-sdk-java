@@ -1,57 +1,75 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.svcs.types.ap.CurrencyList;
 import com.paypal.svcs.types.common.CurrencyType;
+import com.paypal.svcs.types.ap.CurrencyList;
 import java.util.Map;
 
-
 /**
- * A list of estimated currency conversions for a
- * base currency.
+ * A list of estimated currency conversions for a base
+ * currency. 
  */
-public class CurrencyConversionList {
+public class CurrencyConversionList{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private CurrencyType baseAmount;
-	public CurrencyType getBaseAmount() {
-		return baseAmount;
-	}
-	public void setBaseAmount(CurrencyType value) {
-		this.baseAmount = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private CurrencyList currencyList;
-	public CurrencyList getCurrencyList() {
-		return currencyList;
-	}
-	public void setCurrencyList(CurrencyList value) {
-		this.currencyList = value;
-	}
+
+	
+
+	/**
+	 * Default Constructor
+	 */
+	public CurrencyConversionList (){
+	}	
+
+	/**
+	 * Getter for baseAmount
+	 */
+	 public CurrencyType getBaseAmount() {
+	 	return baseAmount;
+	 }
+	 
+	/**
+	 * Setter for baseAmount
+	 */
+	 public void setBaseAmount(CurrencyType baseAmount) {
+	 	this.baseAmount = baseAmount;
+	 }
+	 
+	/**
+	 * Getter for currencyList
+	 */
+	 public CurrencyList getCurrencyList() {
+	 	return currencyList;
+	 }
+	 
+	/**
+	 * Setter for currencyList
+	 */
+	 public void setCurrencyList(CurrencyList currencyList) {
+	 	this.currencyList = currencyList;
+	 }
+	 
 
 
-	public CurrencyConversionList() {
-	}
 	public CurrencyConversionList(Map<String, String> map, String prefix) {
-		int i=0; 
-		if( map.containsKey(prefix + "baseAmount" + ".code") ) {
-			String newPrefix = prefix + "baseAmount" + '.';
+		int i = 0;
+		if(map.containsKey(prefix + "baseAmount" + ".code")){
+			String newPrefix = prefix + "baseAmount" + ".";
 			this.baseAmount =  new CurrencyType(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "currencyList" + ".currency(0).code") ) {
-			String newPrefix = prefix + "currencyList" + '.';
+		if(map.containsKey(prefix + "currencyList" + ".currency(0).code")){
+			String newPrefix = prefix + "currencyList" + ".";
 			this.currencyList =  new CurrencyList(map, newPrefix);
 		}
 	}
+
 }

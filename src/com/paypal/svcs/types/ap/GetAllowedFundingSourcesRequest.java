@@ -1,66 +1,86 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.core.NVPUtil;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import java.io.UnsupportedEncodingException;
-
+import com.paypal.core.NVPUtil;
 
 /**
- * The request to get the allowed funding sources
- * available for a preapproval.
+ * The request to get the allowed funding sources available for
+ * a preapproval. 
  */
-public class GetAllowedFundingSourcesRequest {
+public class GetAllowedFundingSourcesRequest{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private RequestEnvelope requestEnvelope;
-	public RequestEnvelope getRequestEnvelope() {
-		return requestEnvelope;
-	}
-	public void setRequestEnvelope(RequestEnvelope value) {
-		this.requestEnvelope = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String key;
-	public String getKey() {
-		return key;
-	}
-	public void setKey(String value) {
-		this.key = value;
-	}
 
+	
 
-	public GetAllowedFundingSourcesRequest(RequestEnvelope requestEnvelope, String key) {
+	/**
+	 * Constructor with arguments
+	 */
+	public GetAllowedFundingSourcesRequest (RequestEnvelope requestEnvelope, String key){
 		this.requestEnvelope = requestEnvelope;
 		this.key = key;
-	}
-	public GetAllowedFundingSourcesRequest() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public GetAllowedFundingSourcesRequest (){
+	}	
+
+	/**
+	 * Getter for requestEnvelope
+	 */
+	 public RequestEnvelope getRequestEnvelope() {
+	 	return requestEnvelope;
+	 }
+	 
+	/**
+	 * Setter for requestEnvelope
+	 */
+	 public void setRequestEnvelope(RequestEnvelope requestEnvelope) {
+	 	this.requestEnvelope = requestEnvelope;
+	 }
+	 
+	/**
+	 * Getter for key
+	 */
+	 public String getKey() {
+	 	return key;
+	 }
+	 
+	/**
+	 * Setter for key
+	 */
+	 public void setKey(String key) {
+	 	this.key = key;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( requestEnvelope != null ) {
+		if (requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
 			sb.append(requestEnvelope.toNVPString(newPrefix));
 		}
-		if( key != null ) {
+		if (key != null) {
 			sb.append(prefix).append("key=").append(NVPUtil.encodeUrl(key));
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}

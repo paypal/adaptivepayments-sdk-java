@@ -1,49 +1,62 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.core.NVPUtil;
+import java.util.List;
+import java.util.ArrayList;
 import com.paypal.svcs.types.ap.Receiver;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.paypal.core.NVPUtil;
 
 /**
+ * No Document Comments
  */
-public class ReceiverList {
+public class ReceiverList{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private List<Receiver> receiver = new ArrayList<Receiver>();
-	public List<Receiver> getReceiver() {
-		return receiver;
-	}
-	public void setReceiver(List<Receiver> value) {
-		this.receiver = value;
-	}
 
+	
 
-	public ReceiverList(List<Receiver> receiver) {
+	/**
+	 * Constructor with arguments
+	 */
+	public ReceiverList (List<Receiver> receiver){
 		this.receiver = receiver;
-	}
-	public ReceiverList() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public ReceiverList (){
+	}	
+
+	/**
+	 * Getter for receiver
+	 */
+	 public List<Receiver> getReceiver() {
+	 	return receiver;
+	 }
+	 
+	/**
+	 * Setter for receiver
+	 */
+	 public void setReceiver(List<Receiver> receiver) {
+	 	this.receiver = receiver;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( receiver != null ) {
-			for(int i=0; i<receiver.size(); i++) {
-				String newPrefix = prefix + "receiver" + '(' + i + ").";
+		if (receiver != null) {
+			for(int i=0; i < receiver.size(); i++) {
+				String newPrefix = prefix + "receiver" + "(" + i + ").";
 				sb.append(receiver.get(i).toNVPString(newPrefix));
 			}
 		}

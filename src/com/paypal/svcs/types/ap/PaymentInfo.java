@@ -1,133 +1,206 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
 import com.paypal.svcs.types.ap.Receiver;
 import java.util.Map;
 
-
 /**
- * PaymentInfo represents the payment attempt made
- * to a Receiver of a PayRequest. If the execution
- * of the payment has not yet completed, there will
- * not be any transaction details.
+ * PaymentInfo represents the payment attempt made to a
+ * Receiver of a PayRequest. If the execution of the payment
+ * has not yet completed, there will not be any transaction
+ * details. 
  */
-public class PaymentInfo {
+public class PaymentInfo{
+
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String transactionId;
-	public String getTransactionId() {
-		return transactionId;
-	}
-	public void setTransactionId(String value) {
-		this.transactionId = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String transactionStatus;
-	public String getTransactionStatus() {
-		return transactionStatus;
-	}
-	public void setTransactionStatus(String value) {
-		this.transactionStatus = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private Receiver receiver;
-	public Receiver getReceiver() {
-		return receiver;
-	}
-	public void setReceiver(Receiver value) {
-		this.receiver = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Double refundedAmount;
-	public Double getRefundedAmount() {
-		return refundedAmount;
-	}
-	public void setRefundedAmount(Double value) {
-		this.refundedAmount = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private Boolean pendingRefund;
-	public Boolean getPendingRefund() {
-		return pendingRefund;
-	}
-	public void setPendingRefund(Boolean value) {
-		this.pendingRefund = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String senderTransactionId;
-	public String getSenderTransactionId() {
-		return senderTransactionId;
-	}
-	public void setSenderTransactionId(String value) {
-		this.senderTransactionId = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String senderTransactionStatus;
-	public String getSenderTransactionStatus() {
-		return senderTransactionStatus;
-	}
-	public void setSenderTransactionStatus(String value) {
-		this.senderTransactionStatus = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String pendingReason;
-	public String getPendingReason() {
-		return pendingReason;
-	}
-	public void setPendingReason(String value) {
-		this.pendingReason = value;
-	}
+
+	
+
+	/**
+	 * Default Constructor
+	 */
+	public PaymentInfo (){
+	}	
+
+	/**
+	 * Getter for transactionId
+	 */
+	 public String getTransactionId() {
+	 	return transactionId;
+	 }
+	 
+	/**
+	 * Setter for transactionId
+	 */
+	 public void setTransactionId(String transactionId) {
+	 	this.transactionId = transactionId;
+	 }
+	 
+	/**
+	 * Getter for transactionStatus
+	 */
+	 public String getTransactionStatus() {
+	 	return transactionStatus;
+	 }
+	 
+	/**
+	 * Setter for transactionStatus
+	 */
+	 public void setTransactionStatus(String transactionStatus) {
+	 	this.transactionStatus = transactionStatus;
+	 }
+	 
+	/**
+	 * Getter for receiver
+	 */
+	 public Receiver getReceiver() {
+	 	return receiver;
+	 }
+	 
+	/**
+	 * Setter for receiver
+	 */
+	 public void setReceiver(Receiver receiver) {
+	 	this.receiver = receiver;
+	 }
+	 
+	/**
+	 * Getter for refundedAmount
+	 */
+	 public Double getRefundedAmount() {
+	 	return refundedAmount;
+	 }
+	 
+	/**
+	 * Setter for refundedAmount
+	 */
+	 public void setRefundedAmount(Double refundedAmount) {
+	 	this.refundedAmount = refundedAmount;
+	 }
+	 
+	/**
+	 * Getter for pendingRefund
+	 */
+	 public Boolean getPendingRefund() {
+	 	return pendingRefund;
+	 }
+	 
+	/**
+	 * Setter for pendingRefund
+	 */
+	 public void setPendingRefund(Boolean pendingRefund) {
+	 	this.pendingRefund = pendingRefund;
+	 }
+	 
+	/**
+	 * Getter for senderTransactionId
+	 */
+	 public String getSenderTransactionId() {
+	 	return senderTransactionId;
+	 }
+	 
+	/**
+	 * Setter for senderTransactionId
+	 */
+	 public void setSenderTransactionId(String senderTransactionId) {
+	 	this.senderTransactionId = senderTransactionId;
+	 }
+	 
+	/**
+	 * Getter for senderTransactionStatus
+	 */
+	 public String getSenderTransactionStatus() {
+	 	return senderTransactionStatus;
+	 }
+	 
+	/**
+	 * Setter for senderTransactionStatus
+	 */
+	 public void setSenderTransactionStatus(String senderTransactionStatus) {
+	 	this.senderTransactionStatus = senderTransactionStatus;
+	 }
+	 
+	/**
+	 * Getter for pendingReason
+	 */
+	 public String getPendingReason() {
+	 	return pendingReason;
+	 }
+	 
+	/**
+	 * Setter for pendingReason
+	 */
+	 public void setPendingReason(String pendingReason) {
+	 	this.pendingReason = pendingReason;
+	 }
+	 
 
 
-	public PaymentInfo() {
-	}
 	public PaymentInfo(Map<String, String> map, String prefix) {
-		int i=0; 
-		if( map.containsKey(prefix + "transactionId") ) {
+		int i = 0;
+		if(map.containsKey(prefix + "transactionId")){
 			this.transactionId = map.get(prefix + "transactionId");
 		}
-		if( map.containsKey(prefix + "transactionStatus") ) {
+		if(map.containsKey(prefix + "transactionStatus")){
 			this.transactionStatus = map.get(prefix + "transactionStatus");
 		}
-		if( map.containsKey(prefix + "receiver" + ".amount") ) {
-			String newPrefix = prefix + "receiver" + '.';
+		if(map.containsKey(prefix + "receiver" + ".amount")){
+			String newPrefix = prefix + "receiver" + ".";
 			this.receiver =  new Receiver(map, newPrefix);
 		}
-		if( map.containsKey(prefix + "refundedAmount") ) {
+		if(map.containsKey(prefix + "refundedAmount")){
 			this.refundedAmount = Double.valueOf(map.get(prefix + "refundedAmount"));
 		}
-		if( map.containsKey(prefix + "pendingRefund") ) {
+		if(map.containsKey(prefix + "pendingRefund")){
 			this.pendingRefund = Boolean.valueOf(map.get(prefix + "pendingRefund"));
 		}
-		if( map.containsKey(prefix + "senderTransactionId") ) {
+		if(map.containsKey(prefix + "senderTransactionId")){
 			this.senderTransactionId = map.get(prefix + "senderTransactionId");
 		}
-		if( map.containsKey(prefix + "senderTransactionStatus") ) {
+		if(map.containsKey(prefix + "senderTransactionStatus")){
 			this.senderTransactionStatus = map.get(prefix + "senderTransactionStatus");
 		}
-		if( map.containsKey(prefix + "pendingReason") ) {
+		if(map.containsKey(prefix + "pendingReason")){
 			this.pendingReason = map.get(prefix + "pendingReason");
 		}
 	}
+
 }

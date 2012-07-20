@@ -1,92 +1,122 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.common;
-
-import com.paypal.core.NVPUtil;
 import java.io.UnsupportedEncodingException;
+import com.paypal.core.NVPUtil;
 import java.util.Map;
 
-
 /**
+ * No Document Comments
  */
-public class PhoneNumberType {
+public class PhoneNumberType{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String countryCode;
-	public String getCountryCode() {
-		return countryCode;
-	}
-	public void setCountryCode(String value) {
-		this.countryCode = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String phoneNumber;
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String value) {
-		this.phoneNumber = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String extension;
-	public String getExtension() {
-		return extension;
-	}
-	public void setExtension(String value) {
-		this.extension = value;
-	}
 
+	
 
-	public PhoneNumberType(String countryCode, String phoneNumber) {
+	/**
+	 * Constructor with arguments
+	 */
+	public PhoneNumberType (String countryCode, String phoneNumber){
 		this.countryCode = countryCode;
 		this.phoneNumber = phoneNumber;
-	}
-	public PhoneNumberType() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public PhoneNumberType (){
+	}	
+
+	/**
+	 * Getter for countryCode
+	 */
+	 public String getCountryCode() {
+	 	return countryCode;
+	 }
+	 
+	/**
+	 * Setter for countryCode
+	 */
+	 public void setCountryCode(String countryCode) {
+	 	this.countryCode = countryCode;
+	 }
+	 
+	/**
+	 * Getter for phoneNumber
+	 */
+	 public String getPhoneNumber() {
+	 	return phoneNumber;
+	 }
+	 
+	/**
+	 * Setter for phoneNumber
+	 */
+	 public void setPhoneNumber(String phoneNumber) {
+	 	this.phoneNumber = phoneNumber;
+	 }
+	 
+	/**
+	 * Getter for extension
+	 */
+	 public String getExtension() {
+	 	return extension;
+	 }
+	 
+	/**
+	 * Setter for extension
+	 */
+	 public void setExtension(String extension) {
+	 	this.extension = extension;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( countryCode != null ) {
+		if (countryCode != null) {
 			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(countryCode));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( phoneNumber != null ) {
+		if (phoneNumber != null) {
 			sb.append(prefix).append("phoneNumber=").append(NVPUtil.encodeUrl(phoneNumber));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( extension != null ) {
+		if (extension != null) {
 			sb.append(prefix).append("extension=").append(NVPUtil.encodeUrl(extension));
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}
-
 	public PhoneNumberType(Map<String, String> map, String prefix) {
-		int i=0; 
-		if( map.containsKey(prefix + "countryCode") ) {
+		int i = 0;
+		if(map.containsKey(prefix + "countryCode")){
 			this.countryCode = map.get(prefix + "countryCode");
 		}
-		if( map.containsKey(prefix + "phoneNumber") ) {
+		if(map.containsKey(prefix + "phoneNumber")){
 			this.phoneNumber = map.get(prefix + "phoneNumber");
 		}
-		if( map.containsKey(prefix + "extension") ) {
+		if(map.containsKey(prefix + "extension")){
 			this.extension = map.get(prefix + "extension");
 		}
 	}
+
 }

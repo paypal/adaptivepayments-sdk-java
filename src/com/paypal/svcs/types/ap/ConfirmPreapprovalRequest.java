@@ -1,93 +1,131 @@
-
-/**
- * Auto generated code
- */
-
 package com.paypal.svcs.types.ap;
-
-import com.paypal.core.NVPUtil;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import java.io.UnsupportedEncodingException;
-
+import com.paypal.core.NVPUtil;
 
 /**
- * The request to confirm a Preapproval.
+ * The request to confirm a Preapproval. 
  */
-public class ConfirmPreapprovalRequest {
+public class ConfirmPreapprovalRequest{
+
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private RequestEnvelope requestEnvelope;
-	public RequestEnvelope getRequestEnvelope() {
-		return requestEnvelope;
-	}
-	public void setRequestEnvelope(RequestEnvelope value) {
-		this.requestEnvelope = value;
-	}
 
 	/**
-	 *
-	 * @Required
-	 */
+	 * No Document Comments	  
+	 *@Required	 
+	 */ 
 	private String preapprovalKey;
-	public String getPreapprovalKey() {
-		return preapprovalKey;
-	}
-	public void setPreapprovalKey(String value) {
-		this.preapprovalKey = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String fundingSourceId;
-	public String getFundingSourceId() {
-		return fundingSourceId;
-	}
-	public void setFundingSourceId(String value) {
-		this.fundingSourceId = value;
-	}
 
 	/**
-	 */
+	 * No Document Comments	 
+	 */ 
 	private String pin;
-	public String getPin() {
-		return pin;
-	}
-	public void setPin(String value) {
-		this.pin = value;
-	}
 
+	
 
-	public ConfirmPreapprovalRequest(RequestEnvelope requestEnvelope, String preapprovalKey) {
+	/**
+	 * Constructor with arguments
+	 */
+	public ConfirmPreapprovalRequest (RequestEnvelope requestEnvelope, String preapprovalKey){
 		this.requestEnvelope = requestEnvelope;
 		this.preapprovalKey = preapprovalKey;
-	}
-	public ConfirmPreapprovalRequest() {
-	}
+	}	
+
+	/**
+	 * Default Constructor
+	 */
+	public ConfirmPreapprovalRequest (){
+	}	
+
+	/**
+	 * Getter for requestEnvelope
+	 */
+	 public RequestEnvelope getRequestEnvelope() {
+	 	return requestEnvelope;
+	 }
+	 
+	/**
+	 * Setter for requestEnvelope
+	 */
+	 public void setRequestEnvelope(RequestEnvelope requestEnvelope) {
+	 	this.requestEnvelope = requestEnvelope;
+	 }
+	 
+	/**
+	 * Getter for preapprovalKey
+	 */
+	 public String getPreapprovalKey() {
+	 	return preapprovalKey;
+	 }
+	 
+	/**
+	 * Setter for preapprovalKey
+	 */
+	 public void setPreapprovalKey(String preapprovalKey) {
+	 	this.preapprovalKey = preapprovalKey;
+	 }
+	 
+	/**
+	 * Getter for fundingSourceId
+	 */
+	 public String getFundingSourceId() {
+	 	return fundingSourceId;
+	 }
+	 
+	/**
+	 * Setter for fundingSourceId
+	 */
+	 public void setFundingSourceId(String fundingSourceId) {
+	 	this.fundingSourceId = fundingSourceId;
+	 }
+	 
+	/**
+	 * Getter for pin
+	 */
+	 public String getPin() {
+	 	return pin;
+	 }
+	 
+	/**
+	 * Setter for pin
+	 */
+	 public void setPin(String pin) {
+	 	this.pin = pin;
+	 }
+	 
+
 
 	public String toNVPString() throws UnsupportedEncodingException {
 		return toNVPString("");
 	}
-
+	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if( requestEnvelope != null ) {
+		if (requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
 			sb.append(requestEnvelope.toNVPString(newPrefix));
 		}
-		if( preapprovalKey != null ) {
+		if (preapprovalKey != null) {
 			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(preapprovalKey));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( fundingSourceId != null ) {
+		if (fundingSourceId != null) {
 			sb.append(prefix).append("fundingSourceId=").append(NVPUtil.encodeUrl(fundingSourceId));
-			sb.append('&');
+			sb.append("&");
 		}
-		if( pin != null ) {
+		if (pin != null) {
 			sb.append(prefix).append("pin=").append(NVPUtil.encodeUrl(pin));
-			sb.append('&');
+			sb.append("&");
 		}
 		return sb.toString();
 	}
