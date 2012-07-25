@@ -21,7 +21,15 @@ public class ConnectionManager {
 	 * @return HttpConnection object 
 	 */
 	public HttpConnection getConnection() {
-		HttpConnection httpConnection = new HttpConnection();
+		HttpConnection httpConnection = new DefaultHttpConnection();
 		return httpConnection;
+	}
+	
+	public HttpConnection getConnection(HttpConfiguration httpConfig){
+		
+		if( httpConfig.isGoogleAppEngine() )
+			return new GoogleAppEngineHttpConnection();
+		else
+			return new DefaultHttpConnection();
 	}
 }

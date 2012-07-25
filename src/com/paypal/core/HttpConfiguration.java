@@ -18,6 +18,7 @@ public class HttpConfiguration {
 	private int connectionTimeout;
 	private int maxHttpConnection;
 	private String endPointUrl;
+	private boolean googleAppEngine;
 
 	private boolean trustAll;
 	private int retryDelay;
@@ -153,6 +154,14 @@ public class HttpConfiguration {
 
 	public void setProxySet(boolean proxySet) {
 		this.proxySet = proxySet;
+	}
+	
+	public boolean isGoogleAppEngine() {
+		return googleAppEngine;
+	}
+	
+	public void setGoogleAppEngine(boolean googleAppEngine) {
+		this.googleAppEngine = googleAppEngine;
 	}
 
 }
