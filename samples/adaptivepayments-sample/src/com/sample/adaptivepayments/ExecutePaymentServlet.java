@@ -63,8 +63,12 @@ public class ExecutePaymentServlet extends HttpServlet {
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		ExecutePaymentRequest req = new ExecutePaymentRequest();
 		req.setPayKey(request.getParameter("payKey"));
-		req.setActionType(request.getParameter("actionType"));
-		req.setFundingPlanId(request.getParameter("fundingPlanID"));
+		if(request.getParameter("actionType") !=""){
+			req.setActionType(request.getParameter("actionType"));
+		}
+		if(request.getParameter("fundingPlanID") != ""){
+			req.setFundingPlanId(request.getParameter("fundingPlanID"));
+		}
 		req.setRequestEnvelope(requestEnvelope);
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getServletContext().getRealPath("/")
