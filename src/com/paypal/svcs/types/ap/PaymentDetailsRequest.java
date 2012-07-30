@@ -12,23 +12,23 @@ public class PaymentDetailsRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String transactionId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String trackingId;
 

@@ -12,43 +12,43 @@ public class PaymentInfo{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String transactionId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String transactionStatus;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Receiver receiver;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double refundedAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean pendingRefund;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String senderTransactionId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String senderTransactionStatus;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String pendingReason;
 

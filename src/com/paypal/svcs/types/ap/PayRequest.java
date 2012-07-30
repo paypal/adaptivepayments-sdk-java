@@ -15,93 +15,93 @@ public class PayRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private ClientDetailsType clientDetails;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String actionType;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String pin;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ReceiverList receiverList;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean reverseAllParallelPaymentsOnError;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String trackingId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private FundingConstraint fundingConstraint;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private SenderIdentifier sender;
 

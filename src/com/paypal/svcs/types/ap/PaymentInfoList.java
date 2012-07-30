@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.PaymentInfo;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class PaymentInfoList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<PaymentInfo> paymentInfo = new ArrayList<PaymentInfo>();

@@ -3,24 +3,24 @@ import com.paypal.svcs.types.common.BaseAddress;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class Address{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String addresseeName;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private BaseAddress baseAddress;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String addressId;
 

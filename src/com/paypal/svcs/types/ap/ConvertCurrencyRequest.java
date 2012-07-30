@@ -13,19 +13,19 @@ public class ConvertCurrencyRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyList baseAmountList;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyCodeList convertToCurrencyList;
@@ -37,7 +37,7 @@ public class ConvertCurrencyRequest{
 	private String countryCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String conversionType;
 

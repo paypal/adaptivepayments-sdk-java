@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.WarningData;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class WarningDataList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<WarningData> warningData = new ArrayList<WarningData>();
@@ -44,7 +44,7 @@ public class WarningDataList{
 		int i = 0;
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "warningData" + "(" + i + ")")){
+			if(map.containsKey(prefix + "warningData" + "(" + i + ")" + ".warningId") || map.containsKey(prefix + "warningData" + "(" + i + ")" + ".message")){
 				String newPrefix = prefix + "warningData" + "(" + i + ")" + ".";
 				this.warningData.add(new WarningData(map, newPrefix));
 			} else {

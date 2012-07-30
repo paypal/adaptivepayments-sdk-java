@@ -13,7 +13,7 @@ public class CurrencyList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<CurrencyType> currency = new ArrayList<CurrencyType>();

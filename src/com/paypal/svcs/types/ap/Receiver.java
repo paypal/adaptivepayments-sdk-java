@@ -14,38 +14,38 @@ public class Receiver{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Double amount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String email;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private PhoneNumberType phone;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean primary;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String invoiceId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String paymentType;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String paymentSubType;
 

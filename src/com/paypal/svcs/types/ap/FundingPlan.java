@@ -15,34 +15,34 @@ public class FundingPlan{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String fundingPlanId;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType fundingAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private FundingSource backupFundingSource;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private CurrencyType senderFees;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private CurrencyConversion currencyConversion;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<FundingPlanCharge> charge = new ArrayList<FundingPlanCharge>();

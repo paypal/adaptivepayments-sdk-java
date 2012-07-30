@@ -10,27 +10,27 @@ public class InvoiceItem{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String name;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String identifier;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double price;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double itemPrice;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer itemCount;
 

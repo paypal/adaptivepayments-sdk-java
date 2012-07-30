@@ -4,25 +4,25 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class PhoneNumberType{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String countryCode;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String phoneNumber;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String extension;
 

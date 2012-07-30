@@ -16,39 +16,39 @@ public class SetPaymentOptionsRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private InitiatingEntity initiatingEntity;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private DisplayOptions displayOptions;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String shippingAddressId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private SenderOptions senderOptions;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<ReceiverOptions> receiverOptions = new ArrayList<ReceiverOptions>();
 

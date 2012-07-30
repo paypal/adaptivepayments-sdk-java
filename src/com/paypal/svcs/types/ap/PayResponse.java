@@ -16,35 +16,35 @@ public class PayResponse{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String paymentExecStatus;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private PayErrorList payErrorList;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private FundingPlan defaultFundingPlan;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
@@ -164,7 +164,7 @@ public class PayResponse{
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".parameter(0)")){
+			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
 				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
 				this.error.add(new ErrorData(map, newPrefix));
 			} else {

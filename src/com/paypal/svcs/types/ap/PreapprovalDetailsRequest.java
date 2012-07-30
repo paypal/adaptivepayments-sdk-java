@@ -10,19 +10,19 @@ public class PreapprovalDetailsRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean getBillingAddress;
 

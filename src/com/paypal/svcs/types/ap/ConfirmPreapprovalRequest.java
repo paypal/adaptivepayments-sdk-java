@@ -10,24 +10,24 @@ public class ConfirmPreapprovalRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String fundingSourceId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String pin;
 

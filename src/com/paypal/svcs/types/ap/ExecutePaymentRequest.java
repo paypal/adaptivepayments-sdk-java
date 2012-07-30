@@ -10,13 +10,13 @@ public class ExecutePaymentRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String payKey;
@@ -27,7 +27,7 @@ public class ExecutePaymentRequest{
 	private String actionType;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String fundingPlanId;
 

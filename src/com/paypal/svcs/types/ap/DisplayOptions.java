@@ -11,22 +11,22 @@ public class DisplayOptions{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String emailHeaderImageUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String emailMarketingImageUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String headerImageUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String businessName;
 

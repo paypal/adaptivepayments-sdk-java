@@ -12,7 +12,7 @@ public class SenderIdentifier extends AccountIdentifier {
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean useCredentials;
 

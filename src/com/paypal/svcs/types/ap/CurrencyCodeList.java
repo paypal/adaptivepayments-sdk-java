@@ -11,7 +11,7 @@ public class CurrencyCodeList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<String> currencyCode = new ArrayList<String>();

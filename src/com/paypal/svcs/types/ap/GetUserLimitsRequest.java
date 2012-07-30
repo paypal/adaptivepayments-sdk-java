@@ -13,7 +13,7 @@ public class GetUserLimitsRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
@@ -25,13 +25,13 @@ public class GetUserLimitsRequest{
 	private AccountIdentifier user;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String country;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;

@@ -8,28 +8,28 @@ public class FundingSource{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String lastFourOfAccountNumber;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String type;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String displayName;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String fundingSourceId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean allowed;
 

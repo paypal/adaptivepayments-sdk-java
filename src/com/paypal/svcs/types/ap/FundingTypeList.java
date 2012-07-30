@@ -7,13 +7,13 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class FundingTypeList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<FundingTypeInfo> fundingTypeInfo = new ArrayList<FundingTypeInfo>();
@@ -67,7 +67,7 @@ public class FundingTypeList{
 		int i = 0;
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "fundingTypeInfo" + "(" + i + ")")){
+			if(map.containsKey(prefix + "fundingTypeInfo" + "(" + i + ")" +".fundingType")){
 				String newPrefix = prefix + "fundingTypeInfo" + "(" + i + ")" + ".";
 				this.fundingTypeInfo.add(new FundingTypeInfo(map, newPrefix));
 			} else {

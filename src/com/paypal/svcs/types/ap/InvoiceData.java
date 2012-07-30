@@ -14,17 +14,17 @@ public class InvoiceData{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<InvoiceItem> item = new ArrayList<InvoiceItem>();
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double totalTax;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double totalShipping;
 
@@ -106,7 +106,7 @@ public class InvoiceData{
 		int i = 0;
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "item" + "(" + i + ")")){
+			if(map.containsKey(prefix + "item" + "(" + i + ")" + ".name")){
 				String newPrefix = prefix + "item" + "(" + i + ")" + ".";
 				this.item.add(new InvoiceItem(map, newPrefix));
 			} else {

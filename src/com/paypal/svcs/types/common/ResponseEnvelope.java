@@ -10,7 +10,7 @@ public class ResponseEnvelope{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String timestamp;
@@ -22,13 +22,13 @@ public class ResponseEnvelope{
 	private AckCode ack;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String correlationId;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String build;

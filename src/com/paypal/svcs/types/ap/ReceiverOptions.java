@@ -13,28 +13,28 @@ public class ReceiverOptions{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String description;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String customId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private InvoiceData invoiceData;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ReceiverIdentifier receiver;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String referrerCode;
 
@@ -161,11 +161,11 @@ public class ReceiverOptions{
 		if(map.containsKey(prefix + "customId")){
 			this.customId = map.get(prefix + "customId");
 		}
-		if(map.containsKey(prefix + "invoiceData")){
+		if(map.containsKey(prefix + "invoiceData.item(0).name")){ 
 			String newPrefix = prefix + "invoiceData" + ".";
 			this.invoiceData =  new InvoiceData(map, newPrefix);
 		}
-		if(map.containsKey(prefix + "receiver")){
+		if(map.containsKey(prefix + "receiver"+".email") || map.containsKey(prefix + "receiver"+".phone.countryCode")){
 			String newPrefix = prefix + "receiver" + ".";
 			this.receiver =  new ReceiverIdentifier(map, newPrefix);
 		}

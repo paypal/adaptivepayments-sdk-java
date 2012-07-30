@@ -14,33 +14,33 @@ public class RefundRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String transactionId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String trackingId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private ReceiverList receiverList;
 

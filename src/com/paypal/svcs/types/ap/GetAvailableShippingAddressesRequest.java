@@ -10,7 +10,7 @@ public class GetAvailableShippingAddressesRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;

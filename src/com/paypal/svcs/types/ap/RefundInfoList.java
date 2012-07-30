@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.RefundInfo;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class RefundInfoList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<RefundInfo> refundInfo = new ArrayList<RefundInfo>();

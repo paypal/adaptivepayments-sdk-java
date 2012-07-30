@@ -15,107 +15,107 @@ public class PreapprovalRequest{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private ClientDetailsType clientDetails;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer dateOfMonth;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private DayOfWeek dayOfWeek;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String endingDate;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double maxAmountPerPayment;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPayments;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double maxTotalAmountOfAllPayments;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String paymentPeriod;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String startingDate;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String pinType;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
 

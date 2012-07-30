@@ -14,7 +14,7 @@ public class InitiatingEntity{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private InstitutionCustomer institutionCustomer;
 

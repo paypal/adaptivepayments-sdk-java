@@ -11,13 +11,13 @@ public class PayError{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Receiver receiver;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ErrorData error;
@@ -66,7 +66,7 @@ public class PayError{
 			String newPrefix = prefix + "receiver" + ".";
 			this.receiver =  new Receiver(map, newPrefix);
 		}
-		if(map.containsKey(prefix + "error" + ".parameter(0)")){
+		if(map.containsKey(prefix + "error" + ".errorId")){
 			String newPrefix = prefix + "error" + ".";
 			this.error =  new ErrorData(map, newPrefix);
 		}

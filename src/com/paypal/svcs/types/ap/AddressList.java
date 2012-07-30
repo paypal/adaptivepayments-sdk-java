@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.Address;
 import java.util.Map;
 
 /**
- * No Document Comments
+ * 
  */
 public class AddressList{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<Address> address = new ArrayList<Address>();

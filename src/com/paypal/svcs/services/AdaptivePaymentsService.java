@@ -66,7 +66,6 @@ public class AdaptivePaymentsService extends BaseService{
 
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -85,7 +84,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -103,7 +101,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -122,7 +119,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -140,7 +136,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -159,7 +154,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -177,7 +171,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -196,7 +189,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -214,7 +206,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -233,7 +224,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -251,7 +241,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -270,7 +259,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -288,7 +276,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -307,7 +294,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -325,7 +311,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -344,7 +329,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -362,7 +346,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -381,7 +364,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -399,7 +381,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -418,7 +399,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -436,7 +416,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -455,7 +434,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -473,7 +451,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -492,7 +469,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -510,7 +486,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -529,7 +504,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -547,7 +521,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -566,7 +539,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -584,7 +556,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -603,7 +574,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -621,7 +591,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 		
 	/**	
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
@@ -640,7 +609,6 @@ public class AdaptivePaymentsService extends BaseService{
 	 }
 	 
 	/** 
-	 * The Method does not have any comments, this is
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException

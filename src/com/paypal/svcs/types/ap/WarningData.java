@@ -9,12 +9,12 @@ public class WarningData{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer warningId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String message;
 

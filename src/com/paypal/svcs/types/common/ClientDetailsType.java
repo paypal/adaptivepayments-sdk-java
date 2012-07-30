@@ -10,42 +10,42 @@ public class ClientDetailsType{
 
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String ipAddress;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String deviceId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String applicationId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String model;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String geoLocation;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String customerType;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String partnerName;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String customerId;
 

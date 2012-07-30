@@ -10,7 +10,7 @@ public class FundingTypeInfo{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String fundingType;

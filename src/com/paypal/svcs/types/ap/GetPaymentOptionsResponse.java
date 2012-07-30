@@ -16,38 +16,38 @@ public class GetPaymentOptionsResponse{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private InitiatingEntity initiatingEntity;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private DisplayOptions displayOptions;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String shippingAddressId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private SenderOptions senderOptions;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<ReceiverOptions> receiverOptions = new ArrayList<ReceiverOptions>();
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
@@ -169,20 +169,20 @@ public class GetPaymentOptionsResponse{
 			String newPrefix = prefix + "initiatingEntity" + ".";
 			this.initiatingEntity =  new InitiatingEntity(map, newPrefix);
 		}
-		if(map.containsKey(prefix + "displayOptions")){
+		if(map.containsKey(prefix + "displayOptions.emailHeaderImageUrl")){
 			String newPrefix = prefix + "displayOptions" + ".";
 			this.displayOptions =  new DisplayOptions(map, newPrefix);
 		}
 		if(map.containsKey(prefix + "shippingAddressId")){
 			this.shippingAddressId = map.get(prefix + "shippingAddressId");
 		}
-		if(map.containsKey(prefix + "senderOptions")){
+		if(map.containsKey(prefix + "senderOptions.requireShippingAddressSelection")){
 			String newPrefix = prefix + "senderOptions" + ".";
 			this.senderOptions =  new SenderOptions(map, newPrefix);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "receiverOptions" + "(" + i + ")")){
+			if(map.containsKey(prefix + "receiverOptions" + "(" + i + ")" + ".description")){
 				String newPrefix = prefix + "receiverOptions" + "(" + i + ")" + ".";
 				this.receiverOptions.add(new ReceiverOptions(map, newPrefix));
 			} else {
@@ -192,7 +192,7 @@ public class GetPaymentOptionsResponse{
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".parameter(0)")){
+			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
 				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
 				this.error.add(new ErrorData(map, newPrefix));
 			} else {

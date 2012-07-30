@@ -16,101 +16,101 @@ public class PaymentDetailsResponse{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private PaymentInfoList paymentInfoList;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String status;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String trackingId;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String actionType;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean reverseAllParallelPaymentsOnError;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private FundingConstraint fundingConstraint;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private SenderIdentifier sender;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
@@ -429,13 +429,13 @@ public class PaymentDetailsResponse{
 			String newPrefix = prefix + "fundingConstraint" + ".";
 			this.fundingConstraint =  new FundingConstraint(map, newPrefix);
 		}
-		if(map.containsKey(prefix + "sender")){
+		if(map.containsKey(prefix + "sender.useCredentials")){
 			String newPrefix = prefix + "sender" + ".";
 			this.sender =  new SenderIdentifier(map, newPrefix);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".parameter(0)")){
+			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
 				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
 				this.error.add(new ErrorData(map, newPrefix));
 			} else {

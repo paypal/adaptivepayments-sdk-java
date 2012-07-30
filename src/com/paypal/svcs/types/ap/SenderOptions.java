@@ -16,7 +16,7 @@ public class SenderOptions{
 	private Boolean requireShippingAddressSelection;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String referrerCode;
 

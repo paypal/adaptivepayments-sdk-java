@@ -12,7 +12,7 @@ public class CurrencyConversionTable{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<CurrencyConversionList> currencyConversionList = new ArrayList<CurrencyConversionList>();

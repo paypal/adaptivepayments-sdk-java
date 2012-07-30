@@ -11,53 +11,53 @@ public class RefundInfo{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Receiver receiver;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String refundStatus;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double refundNetAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double refundFeeAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double refundGrossAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double totalOfAllRefunds;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean refundHasBecomeFull;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String encryptedRefundTransactionId;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String refundTransactionStatus;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private ErrorList errorList;
 
@@ -241,7 +241,7 @@ public class RefundInfo{
 		if(map.containsKey(prefix + "refundTransactionStatus")){
 			this.refundTransactionStatus = map.get(prefix + "refundTransactionStatus");
 		}
-		if(map.containsKey(prefix + "errorList" + ".error(0).parameter(0)")){
+		if(map.containsKey(prefix + "errorList" + ".error(0).errorId")){
 			String newPrefix = prefix + "errorList" + ".";
 			this.errorList =  new ErrorList(map, newPrefix);
 		}

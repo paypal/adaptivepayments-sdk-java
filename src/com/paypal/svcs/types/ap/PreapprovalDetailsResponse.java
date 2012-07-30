@@ -15,146 +15,146 @@ public class PreapprovalDetailsResponse{
 
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Boolean approved;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Integer curPayments;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Double curPaymentsAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer curPeriodAttempts;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String curPeriodEndingDate;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer dateOfMonth;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private DayOfWeek dayOfWeek;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String endingDate;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double maxAmountPerPayment;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPayments;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Double maxTotalAmountOfAllPayments;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String paymentPeriod;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String pinType;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String startingDate;
 
 	/**
-	 * No Document Comments	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String status;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private AddressList addressList;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
@@ -630,7 +630,7 @@ public class PreapprovalDetailsResponse{
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".parameter(0)")){
+			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
 				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
 				this.error.add(new ErrorData(map, newPrefix));
 			} else {

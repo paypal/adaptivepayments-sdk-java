@@ -51,7 +51,7 @@ public class InstitutionCustomer{
 	private String countryCode;
 
 	/**
-	 * No Document Comments	 
+	 * 	 
 	 */ 
 	private String email;
 
