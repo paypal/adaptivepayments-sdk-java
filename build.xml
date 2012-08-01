@@ -56,6 +56,7 @@
 				<exclude name="resource/**" />
 			</fileset>
 		</jar>
+        <delete dir="${base.build.dir}" />
 	</target>
 	<target name="all" depends="dist,test,doc">
 	</target>

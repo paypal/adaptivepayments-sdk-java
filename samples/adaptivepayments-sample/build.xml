@@ -51,6 +51,7 @@
 			<lib dir="WebContent/WEB-INF/lib" />
 			<classes dir="build/classes" />
 		</war>
+        <delete dir="build" />
 	</target>
 
 	<target name="clean">
