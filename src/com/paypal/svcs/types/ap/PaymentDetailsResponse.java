@@ -376,73 +376,105 @@ public class PaymentDetailsResponse{
 	 
 
 
-	public PaymentDetailsResponse(Map<String, String> map, String prefix) {
+	
+	public static PaymentDetailsResponse createInstance(Map<String, String> map, String prefix, int index) {
+		PaymentDetailsResponse paymentDetailsResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "cancelUrl")){
-			this.cancelUrl = map.get(prefix + "cancelUrl");
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+			paymentDetailsResponse.setResponseEnvelope(responseEnvelope);
 		}
-		if(map.containsKey(prefix + "currencyCode")){
-			this.currencyCode = map.get(prefix + "currencyCode");
+		if (map.containsKey(prefix + "cancelUrl")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setCancelUrl(map.get(prefix + "cancelUrl"));
 		}
-		if(map.containsKey(prefix + "ipnNotificationUrl")){
-			this.ipnNotificationUrl = map.get(prefix + "ipnNotificationUrl");
+		if (map.containsKey(prefix + "currencyCode")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setCurrencyCode(map.get(prefix + "currencyCode"));
 		}
-		if(map.containsKey(prefix + "memo")){
-			this.memo = map.get(prefix + "memo");
+		if (map.containsKey(prefix + "ipnNotificationUrl")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setIpnNotificationUrl(map.get(prefix + "ipnNotificationUrl"));
 		}
-		if(map.containsKey(prefix + "paymentInfoList" + ".paymentInfo(0).receiver.amount")){
-			String newPrefix = prefix + "paymentInfoList" + ".";
-			this.paymentInfoList =  new PaymentInfoList(map, newPrefix);
+		if (map.containsKey(prefix + "memo")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setMemo(map.get(prefix + "memo"));
 		}
-		if(map.containsKey(prefix + "returnUrl")){
-			this.returnUrl = map.get(prefix + "returnUrl");
+		PaymentInfoList paymentInfoList =  PaymentInfoList.createInstance(map, prefix + "paymentInfoList", -1);
+		if (paymentInfoList != null) {
+			paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+			paymentDetailsResponse.setPaymentInfoList(paymentInfoList);
 		}
-		if(map.containsKey(prefix + "senderEmail")){
-			this.senderEmail = map.get(prefix + "senderEmail");
+		if (map.containsKey(prefix + "returnUrl")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setReturnUrl(map.get(prefix + "returnUrl"));
 		}
-		if(map.containsKey(prefix + "status")){
-			this.status = map.get(prefix + "status");
+		if (map.containsKey(prefix + "senderEmail")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setSenderEmail(map.get(prefix + "senderEmail"));
 		}
-		if(map.containsKey(prefix + "trackingId")){
-			this.trackingId = map.get(prefix + "trackingId");
+		if (map.containsKey(prefix + "status")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setStatus(map.get(prefix + "status"));
 		}
-		if(map.containsKey(prefix + "payKey")){
-			this.payKey = map.get(prefix + "payKey");
+		if (map.containsKey(prefix + "trackingId")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setTrackingId(map.get(prefix + "trackingId"));
 		}
-		if(map.containsKey(prefix + "actionType")){
-			this.actionType = map.get(prefix + "actionType");
+		if (map.containsKey(prefix + "payKey")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setPayKey(map.get(prefix + "payKey"));
 		}
-		if(map.containsKey(prefix + "feesPayer")){
-			this.feesPayer = map.get(prefix + "feesPayer");
+		if (map.containsKey(prefix + "actionType")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setActionType(map.get(prefix + "actionType"));
 		}
-		if(map.containsKey(prefix + "reverseAllParallelPaymentsOnError")){
-			this.reverseAllParallelPaymentsOnError = Boolean.valueOf(map.get(prefix + "reverseAllParallelPaymentsOnError"));
+		if (map.containsKey(prefix + "feesPayer")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setFeesPayer(map.get(prefix + "feesPayer"));
 		}
-		if(map.containsKey(prefix + "preapprovalKey")){
-			this.preapprovalKey = map.get(prefix + "preapprovalKey");
+		if (map.containsKey(prefix + "reverseAllParallelPaymentsOnError")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setReverseAllParallelPaymentsOnError(Boolean.valueOf(map.get(prefix + "reverseAllParallelPaymentsOnError")));
 		}
-		if(map.containsKey(prefix + "fundingConstraint" + ".allowedFundingType.fundingTypeInfo(0).fundingType")){
-			String newPrefix = prefix + "fundingConstraint" + ".";
-			this.fundingConstraint =  new FundingConstraint(map, newPrefix);
+		if (map.containsKey(prefix + "preapprovalKey")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setPreapprovalKey(map.get(prefix + "preapprovalKey"));
 		}
-		if(map.containsKey(prefix + "sender.useCredentials")){
-			String newPrefix = prefix + "sender" + ".";
-			this.sender =  new SenderIdentifier(map, newPrefix);
+		FundingConstraint fundingConstraint =  FundingConstraint.createInstance(map, prefix + "fundingConstraint", -1);
+		if (fundingConstraint != null) {
+			paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+			paymentDetailsResponse.setFundingConstraint(fundingConstraint);
+		}
+		SenderIdentifier sender =  SenderIdentifier.createInstance(map, prefix + "sender", -1);
+		if (sender != null) {
+			paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+			paymentDetailsResponse.setSender(sender);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return paymentDetailsResponse;
 	}
-
+ 
 }

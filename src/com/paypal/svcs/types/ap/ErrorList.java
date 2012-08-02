@@ -40,18 +40,33 @@ public class ErrorList{
 	 
 
 
-	public ErrorList(Map<String, String> map, String prefix) {
+	
+	public static ErrorList createInstance(Map<String, String> map, String prefix, int index) {
+		ErrorList errorList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				errorList = (errorList == null) ? new ErrorList() : errorList;
+				errorList.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return errorList;
 	}
-
+ 
 }

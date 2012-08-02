@@ -40,18 +40,33 @@ public class WarningDataList{
 	 
 
 
-	public WarningDataList(Map<String, String> map, String prefix) {
+	
+	public static WarningDataList createInstance(Map<String, String> map, String prefix, int index) {
+		WarningDataList warningDataList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "warningData" + "(" + i + ")" + ".warningId") || map.containsKey(prefix + "warningData" + "(" + i + ")" + ".message")){
-				String newPrefix = prefix + "warningData" + "(" + i + ")" + ".";
-				this.warningData.add(new WarningData(map, newPrefix));
+			WarningData warningData =  WarningData.createInstance(map, prefix + "warningData", i);
+			if (warningData != null) {
+				warningDataList = (warningDataList == null) ? new WarningDataList() : warningDataList;
+				warningDataList.getWarningData().add(warningData);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return warningDataList;
 	}
-
+ 
 }

@@ -56,14 +56,30 @@ public class WarningData{
 	 
 
 
-	public WarningData(Map<String, String> map, String prefix) {
+	
+	public static WarningData createInstance(Map<String, String> map, String prefix, int index) {
+		WarningData warningData = null;
 		int i = 0;
-		if(map.containsKey(prefix + "warningId")){
-			this.warningId = Integer.valueOf(map.get(prefix + "warningId"));
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "message")){
-			this.message = map.get(prefix + "message");
+			
+		if (map.containsKey(prefix + "warningId")) {
+				warningData = (warningData == null) ? new WarningData() : warningData;
+				warningData.setWarningId(Integer.valueOf(map.get(prefix + "warningId")));
 		}
+		if (map.containsKey(prefix + "message")) {
+				warningData = (warningData == null) ? new WarningData() : warningData;
+				warningData.setMessage(map.get(prefix + "message"));
+		}
+		return warningData;
 	}
-
+ 
 }

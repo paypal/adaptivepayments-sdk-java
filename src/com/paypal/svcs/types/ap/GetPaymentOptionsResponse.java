@@ -159,47 +159,68 @@ public class GetPaymentOptionsResponse{
 	 
 
 
-	public GetPaymentOptionsResponse(Map<String, String> map, String prefix) {
+	
+	public static GetPaymentOptionsResponse createInstance(Map<String, String> map, String prefix, int index) {
+		GetPaymentOptionsResponse getPaymentOptionsResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "initiatingEntity" + ".institutionCustomer.institutionId")){
-			String newPrefix = prefix + "initiatingEntity" + ".";
-			this.initiatingEntity =  new InitiatingEntity(map, newPrefix);
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+			getPaymentOptionsResponse.setResponseEnvelope(responseEnvelope);
 		}
-		if(map.containsKey(prefix + "displayOptions.emailHeaderImageUrl")){
-			String newPrefix = prefix + "displayOptions" + ".";
-			this.displayOptions =  new DisplayOptions(map, newPrefix);
+		InitiatingEntity initiatingEntity =  InitiatingEntity.createInstance(map, prefix + "initiatingEntity", -1);
+		if (initiatingEntity != null) {
+			getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+			getPaymentOptionsResponse.setInitiatingEntity(initiatingEntity);
 		}
-		if(map.containsKey(prefix + "shippingAddressId")){
-			this.shippingAddressId = map.get(prefix + "shippingAddressId");
+		DisplayOptions displayOptions =  DisplayOptions.createInstance(map, prefix + "displayOptions", -1);
+		if (displayOptions != null) {
+			getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+			getPaymentOptionsResponse.setDisplayOptions(displayOptions);
 		}
-		if(map.containsKey(prefix + "senderOptions.requireShippingAddressSelection")){
-			String newPrefix = prefix + "senderOptions" + ".";
-			this.senderOptions =  new SenderOptions(map, newPrefix);
+		if (map.containsKey(prefix + "shippingAddressId")) {
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.setShippingAddressId(map.get(prefix + "shippingAddressId"));
+		}
+		SenderOptions senderOptions =  SenderOptions.createInstance(map, prefix + "senderOptions", -1);
+		if (senderOptions != null) {
+			getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+			getPaymentOptionsResponse.setSenderOptions(senderOptions);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "receiverOptions" + "(" + i + ")" + ".description")){
-				String newPrefix = prefix + "receiverOptions" + "(" + i + ")" + ".";
-				this.receiverOptions.add(new ReceiverOptions(map, newPrefix));
+			ReceiverOptions receiverOptions =  ReceiverOptions.createInstance(map, prefix + "receiverOptions", i);
+			if (receiverOptions != null) {
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.getReceiverOptions().add(receiverOptions);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				getPaymentOptionsResponse = (getPaymentOptionsResponse == null) ? new GetPaymentOptionsResponse() : getPaymentOptionsResponse;
+				getPaymentOptionsResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return getPaymentOptionsResponse;
 	}
-
+ 
 }

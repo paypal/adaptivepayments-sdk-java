@@ -40,18 +40,33 @@ public class PaymentInfoList{
 	 
 
 
-	public PaymentInfoList(Map<String, String> map, String prefix) {
+	
+	public static PaymentInfoList createInstance(Map<String, String> map, String prefix, int index) {
+		PaymentInfoList paymentInfoList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "paymentInfo" + "(" + i + ")" + ".receiver.amount")){
-				String newPrefix = prefix + "paymentInfo" + "(" + i + ")" + ".";
-				this.paymentInfo.add(new PaymentInfo(map, newPrefix));
+			PaymentInfo paymentInfo =  PaymentInfo.createInstance(map, prefix + "paymentInfo", i);
+			if (paymentInfo != null) {
+				paymentInfoList = (paymentInfoList == null) ? new PaymentInfoList() : paymentInfoList;
+				paymentInfoList.getPaymentInfo().add(paymentInfo);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return paymentInfoList;
 	}
-
+ 
 }

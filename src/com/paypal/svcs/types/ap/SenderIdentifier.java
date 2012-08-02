@@ -53,10 +53,32 @@ public class SenderIdentifier extends AccountIdentifier {
 		}
 		return sb.toString();
 	}
-	public SenderIdentifier(Map<String, String> map, String prefix) {
-		super(map,prefix);
-		prefix = prefix.substring(0, prefix.length() - 1);
-		this.useCredentials = Boolean.valueOf(map.get(prefix + "useCredentials"));
+	
+	public static SenderIdentifier createInstance(Map<String, String> map, String prefix, int index) {
+		SenderIdentifier senderIdentifier = null;
+		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+		AccountIdentifier accountIdentifier = AccountIdentifier.createInstance(map, prefix, -1);
+		if (accountIdentifier != null) {
+			senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
+			senderIdentifier.setEmail(accountIdentifier.getEmail());
+			senderIdentifier.setPhone(accountIdentifier.getPhone());
+		}
+			
+		if (map.containsKey(prefix + "useCredentials")) {
+				senderIdentifier = (senderIdentifier == null) ? new SenderIdentifier() : senderIdentifier;
+				senderIdentifier.setUseCredentials(Boolean.valueOf(map.get(prefix + "useCredentials")));
+		}
+		return senderIdentifier;
 	}
-
+ 
 }

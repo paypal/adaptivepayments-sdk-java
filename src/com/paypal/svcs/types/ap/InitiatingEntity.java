@@ -54,12 +54,27 @@ public class InitiatingEntity{
 		}
 		return sb.toString();
 	}
-	public InitiatingEntity(Map<String, String> map, String prefix) {
+	
+	public static InitiatingEntity createInstance(Map<String, String> map, String prefix, int index) {
+		InitiatingEntity initiatingEntity = null;
 		int i = 0;
-		if(map.containsKey(prefix + "institutionCustomer" + ".institutionId")){
-			String newPrefix = prefix + "institutionCustomer" + ".";
-			this.institutionCustomer =  new InstitutionCustomer(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
+			
+		InstitutionCustomer institutionCustomer =  InstitutionCustomer.createInstance(map, prefix + "institutionCustomer", -1);
+		if (institutionCustomer != null) {
+			initiatingEntity = (initiatingEntity == null) ? new InitiatingEntity() : initiatingEntity;
+			initiatingEntity.setInstitutionCustomer(institutionCustomer);
+		}
+		return initiatingEntity;
 	}
-
+ 
 }

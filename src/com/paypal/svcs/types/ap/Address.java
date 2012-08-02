@@ -76,18 +76,35 @@ public class Address{
 	 
 
 
-	public Address(Map<String, String> map, String prefix) {
+	
+	public static Address createInstance(Map<String, String> map, String prefix, int index) {
+		Address address = null;
 		int i = 0;
-		if(map.containsKey(prefix + "addresseeName")){
-			this.addresseeName = map.get(prefix + "addresseeName");
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "baseAddress" + ".line1")){
-			String newPrefix = prefix + "baseAddress" + ".";
-			this.baseAddress =  new BaseAddress(map, newPrefix);
+			
+		if (map.containsKey(prefix + "addresseeName")) {
+				address = (address == null) ? new Address() : address;
+				address.setAddresseeName(map.get(prefix + "addresseeName"));
 		}
-		if(map.containsKey(prefix + "addressId")){
-			this.addressId = map.get(prefix + "addressId");
+		BaseAddress baseAddress =  BaseAddress.createInstance(map, prefix + "baseAddress", -1);
+		if (baseAddress != null) {
+			address = (address == null) ? new Address() : address;
+			address.setBaseAddress(baseAddress);
 		}
+		if (map.containsKey(prefix + "addressId")) {
+				address = (address == null) ? new Address() : address;
+				address.setAddressId(map.get(prefix + "addressId"));
+		}
+		return address;
 	}
-
+ 
 }

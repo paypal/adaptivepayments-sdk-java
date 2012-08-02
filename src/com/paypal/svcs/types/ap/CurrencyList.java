@@ -63,18 +63,33 @@ public class CurrencyList{
 		}
 		return sb.toString();
 	}
-	public CurrencyList(Map<String, String> map, String prefix) {
+	
+	public static CurrencyList createInstance(Map<String, String> map, String prefix, int index) {
+		CurrencyList currencyList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "currency" + "(" + i + ")" + ".code")){
-				String newPrefix = prefix + "currency" + "(" + i + ")" + ".";
-				this.currency.add(new CurrencyType(map, newPrefix));
+			CurrencyType currency =  CurrencyType.createInstance(map, prefix + "currency", i);
+			if (currency != null) {
+				currencyList = (currencyList == null) ? new CurrencyList() : currencyList;
+				currencyList.getCurrency().add(currency);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return currencyList;
 	}
-
+ 
 }

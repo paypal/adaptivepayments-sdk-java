@@ -101,36 +101,54 @@ public class GetUserLimitsResponse{
 	 
 
 
-	public GetUserLimitsResponse(Map<String, String> map, String prefix) {
+	
+	public static GetUserLimitsResponse createInstance(Map<String, String> map, String prefix, int index) {
+		GetUserLimitsResponse getUserLimitsResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+			getUserLimitsResponse.setResponseEnvelope(responseEnvelope);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "userLimit" + "(" + i + ")" + ".limitType")){
-				String newPrefix = prefix + "userLimit" + "(" + i + ")" + ".";
-				this.userLimit.add(new UserLimit(map, newPrefix));
+			UserLimit userLimit =  UserLimit.createInstance(map, prefix + "userLimit", i);
+			if (userLimit != null) {
+				getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+				getUserLimitsResponse.getUserLimit().add(userLimit);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
-		if(map.containsKey(prefix + "warningDataList.warningData(0).warningId")){
-			String newPrefix = prefix + "warningDataList" + ".";
-			this.warningDataList =  new WarningDataList(map, newPrefix);
+		WarningDataList warningDataList =  WarningDataList.createInstance(map, prefix + "warningDataList", -1);
+		if (warningDataList != null) {
+			getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+			getUserLimitsResponse.setWarningDataList(warningDataList);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				getUserLimitsResponse = (getUserLimitsResponse == null) ? new GetUserLimitsResponse() : getUserLimitsResponse;
+				getUserLimitsResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return getUserLimitsResponse;
 	}
-
+ 
 }

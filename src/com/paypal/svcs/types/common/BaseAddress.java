@@ -153,29 +153,50 @@ public class BaseAddress{
 	 
 
 
-	public BaseAddress(Map<String, String> map, String prefix) {
+	
+	public static BaseAddress createInstance(Map<String, String> map, String prefix, int index) {
+		BaseAddress baseAddress = null;
 		int i = 0;
-		if(map.containsKey(prefix + "line1")){
-			this.line1 = map.get(prefix + "line1");
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "line2")){
-			this.line2 = map.get(prefix + "line2");
+			
+		if (map.containsKey(prefix + "line1")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setLine1(map.get(prefix + "line1"));
 		}
-		if(map.containsKey(prefix + "city")){
-			this.city = map.get(prefix + "city");
+		if (map.containsKey(prefix + "line2")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setLine2(map.get(prefix + "line2"));
 		}
-		if(map.containsKey(prefix + "state")){
-			this.state = map.get(prefix + "state");
+		if (map.containsKey(prefix + "city")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setCity(map.get(prefix + "city"));
 		}
-		if(map.containsKey(prefix + "postalCode")){
-			this.postalCode = map.get(prefix + "postalCode");
+		if (map.containsKey(prefix + "state")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setState(map.get(prefix + "state"));
 		}
-		if(map.containsKey(prefix + "countryCode")){
-			this.countryCode = map.get(prefix + "countryCode");
+		if (map.containsKey(prefix + "postalCode")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setPostalCode(map.get(prefix + "postalCode"));
 		}
-		if(map.containsKey(prefix + "type")){
-			this.type = map.get(prefix + "type");
+		if (map.containsKey(prefix + "countryCode")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setCountryCode(map.get(prefix + "countryCode"));
 		}
+		if (map.containsKey(prefix + "type")) {
+				baseAddress = (baseAddress == null) ? new BaseAddress() : baseAddress;
+				baseAddress.setType(map.get(prefix + "type"));
+		}
+		return baseAddress;
 	}
-
+ 
 }

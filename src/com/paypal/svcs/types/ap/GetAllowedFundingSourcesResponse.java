@@ -81,32 +81,49 @@ public class GetAllowedFundingSourcesResponse{
 	 
 
 
-	public GetAllowedFundingSourcesResponse(Map<String, String> map, String prefix) {
+	
+	public static GetAllowedFundingSourcesResponse createInstance(Map<String, String> map, String prefix, int index) {
+		GetAllowedFundingSourcesResponse getAllowedFundingSourcesResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
+			getAllowedFundingSourcesResponse.setResponseEnvelope(responseEnvelope);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "fundingSource" + "(" + i + ")" + ".type")){
-				String newPrefix = prefix + "fundingSource" + "(" + i + ")" + ".";
-				this.fundingSource.add(new FundingSource(map, newPrefix));
+			FundingSource fundingSource =  FundingSource.createInstance(map, prefix + "fundingSource", i);
+			if (fundingSource != null) {
+				getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
+				getAllowedFundingSourcesResponse.getFundingSource().add(fundingSource);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				getAllowedFundingSourcesResponse = (getAllowedFundingSourcesResponse == null) ? new GetAllowedFundingSourcesResponse() : getAllowedFundingSourcesResponse;
+				getAllowedFundingSourcesResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return getAllowedFundingSourcesResponse;
 	}
-
+ 
 }

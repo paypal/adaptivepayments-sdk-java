@@ -58,15 +58,31 @@ public class UserLimit{
 	 
 
 
-	public UserLimit(Map<String, String> map, String prefix) {
+	
+	public static UserLimit createInstance(Map<String, String> map, String prefix, int index) {
+		UserLimit userLimit = null;
 		int i = 0;
-		if(map.containsKey(prefix + "limitType")){
-			this.limitType = map.get(prefix + "limitType");
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "limitAmount" + ".code")){
-			String newPrefix = prefix + "limitAmount" + ".";
-			this.limitAmount =  new CurrencyType(map, newPrefix);
+			
+		if (map.containsKey(prefix + "limitType")) {
+				userLimit = (userLimit == null) ? new UserLimit() : userLimit;
+				userLimit.setLimitType(map.get(prefix + "limitType"));
 		}
+		CurrencyType limitAmount =  CurrencyType.createInstance(map, prefix + "limitAmount", -1);
+		if (limitAmount != null) {
+			userLimit = (userLimit == null) ? new UserLimit() : userLimit;
+			userLimit.setLimitAmount(limitAmount);
+		}
+		return userLimit;
 	}
-
+ 
 }

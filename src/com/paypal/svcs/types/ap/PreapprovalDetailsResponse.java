@@ -546,98 +546,139 @@ public class PreapprovalDetailsResponse{
 	 
 
 
-	public PreapprovalDetailsResponse(Map<String, String> map, String prefix) {
+	
+	public static PreapprovalDetailsResponse createInstance(Map<String, String> map, String prefix, int index) {
+		PreapprovalDetailsResponse preapprovalDetailsResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "approved")){
-			this.approved = Boolean.valueOf(map.get(prefix + "approved"));
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+			preapprovalDetailsResponse.setResponseEnvelope(responseEnvelope);
 		}
-		if(map.containsKey(prefix + "cancelUrl")){
-			this.cancelUrl = map.get(prefix + "cancelUrl");
+		if (map.containsKey(prefix + "approved")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setApproved(Boolean.valueOf(map.get(prefix + "approved")));
 		}
-		if(map.containsKey(prefix + "curPayments")){
-			this.curPayments = Integer.valueOf(map.get(prefix + "curPayments"));
+		if (map.containsKey(prefix + "cancelUrl")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setCancelUrl(map.get(prefix + "cancelUrl"));
 		}
-		if(map.containsKey(prefix + "curPaymentsAmount")){
-			this.curPaymentsAmount = Double.valueOf(map.get(prefix + "curPaymentsAmount"));
+		if (map.containsKey(prefix + "curPayments")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setCurPayments(Integer.valueOf(map.get(prefix + "curPayments")));
 		}
-		if(map.containsKey(prefix + "curPeriodAttempts")){
-			this.curPeriodAttempts = Integer.valueOf(map.get(prefix + "curPeriodAttempts"));
+		if (map.containsKey(prefix + "curPaymentsAmount")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setCurPaymentsAmount(Double.valueOf(map.get(prefix + "curPaymentsAmount")));
 		}
-		if(map.containsKey(prefix + "curPeriodEndingDate")){
-			this.curPeriodEndingDate = map.get(prefix + "curPeriodEndingDate");
+		if (map.containsKey(prefix + "curPeriodAttempts")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setCurPeriodAttempts(Integer.valueOf(map.get(prefix + "curPeriodAttempts")));
 		}
-		if(map.containsKey(prefix + "currencyCode")){
-			this.currencyCode = map.get(prefix + "currencyCode");
+		if (map.containsKey(prefix + "curPeriodEndingDate")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setCurPeriodEndingDate(map.get(prefix + "curPeriodEndingDate"));
 		}
-		if(map.containsKey(prefix + "dateOfMonth")){
-			this.dateOfMonth = Integer.valueOf(map.get(prefix + "dateOfMonth"));
+		if (map.containsKey(prefix + "currencyCode")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setCurrencyCode(map.get(prefix + "currencyCode"));
 		}
-		if(map.containsKey(prefix + "dayOfWeek")){
-			this.dayOfWeek = DayOfWeek.fromValue(map.get(prefix + "dayOfWeek"));
+		if (map.containsKey(prefix + "dateOfMonth")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setDateOfMonth(Integer.valueOf(map.get(prefix + "dateOfMonth")));
 		}
-		if(map.containsKey(prefix + "endingDate")){
-			this.endingDate = map.get(prefix + "endingDate");
+		if (map.containsKey(prefix + "dayOfWeek")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setDayOfWeek(DayOfWeek.fromValue(map.get(prefix + "dayOfWeek")));
 		}
-		if(map.containsKey(prefix + "maxAmountPerPayment")){
-			this.maxAmountPerPayment = Double.valueOf(map.get(prefix + "maxAmountPerPayment"));
+		if (map.containsKey(prefix + "endingDate")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setEndingDate(map.get(prefix + "endingDate"));
 		}
-		if(map.containsKey(prefix + "maxNumberOfPayments")){
-			this.maxNumberOfPayments = Integer.valueOf(map.get(prefix + "maxNumberOfPayments"));
+		if (map.containsKey(prefix + "maxAmountPerPayment")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setMaxAmountPerPayment(Double.valueOf(map.get(prefix + "maxAmountPerPayment")));
 		}
-		if(map.containsKey(prefix + "maxNumberOfPaymentsPerPeriod")){
-			this.maxNumberOfPaymentsPerPeriod = Integer.valueOf(map.get(prefix + "maxNumberOfPaymentsPerPeriod"));
+		if (map.containsKey(prefix + "maxNumberOfPayments")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setMaxNumberOfPayments(Integer.valueOf(map.get(prefix + "maxNumberOfPayments")));
 		}
-		if(map.containsKey(prefix + "maxTotalAmountOfAllPayments")){
-			this.maxTotalAmountOfAllPayments = Double.valueOf(map.get(prefix + "maxTotalAmountOfAllPayments"));
+		if (map.containsKey(prefix + "maxNumberOfPaymentsPerPeriod")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setMaxNumberOfPaymentsPerPeriod(Integer.valueOf(map.get(prefix + "maxNumberOfPaymentsPerPeriod")));
 		}
-		if(map.containsKey(prefix + "paymentPeriod")){
-			this.paymentPeriod = map.get(prefix + "paymentPeriod");
+		if (map.containsKey(prefix + "maxTotalAmountOfAllPayments")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setMaxTotalAmountOfAllPayments(Double.valueOf(map.get(prefix + "maxTotalAmountOfAllPayments")));
 		}
-		if(map.containsKey(prefix + "pinType")){
-			this.pinType = map.get(prefix + "pinType");
+		if (map.containsKey(prefix + "paymentPeriod")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setPaymentPeriod(map.get(prefix + "paymentPeriod"));
 		}
-		if(map.containsKey(prefix + "returnUrl")){
-			this.returnUrl = map.get(prefix + "returnUrl");
+		if (map.containsKey(prefix + "pinType")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setPinType(map.get(prefix + "pinType"));
 		}
-		if(map.containsKey(prefix + "senderEmail")){
-			this.senderEmail = map.get(prefix + "senderEmail");
+		if (map.containsKey(prefix + "returnUrl")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setReturnUrl(map.get(prefix + "returnUrl"));
 		}
-		if(map.containsKey(prefix + "memo")){
-			this.memo = map.get(prefix + "memo");
+		if (map.containsKey(prefix + "senderEmail")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setSenderEmail(map.get(prefix + "senderEmail"));
 		}
-		if(map.containsKey(prefix + "startingDate")){
-			this.startingDate = map.get(prefix + "startingDate");
+		if (map.containsKey(prefix + "memo")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setMemo(map.get(prefix + "memo"));
 		}
-		if(map.containsKey(prefix + "status")){
-			this.status = map.get(prefix + "status");
+		if (map.containsKey(prefix + "startingDate")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setStartingDate(map.get(prefix + "startingDate"));
 		}
-		if(map.containsKey(prefix + "ipnNotificationUrl")){
-			this.ipnNotificationUrl = map.get(prefix + "ipnNotificationUrl");
+		if (map.containsKey(prefix + "status")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setStatus(map.get(prefix + "status"));
 		}
-		if(map.containsKey(prefix + "addressList" + ".address(0).baseAddress.line1")){
-			String newPrefix = prefix + "addressList" + ".";
-			this.addressList =  new AddressList(map, newPrefix);
+		if (map.containsKey(prefix + "ipnNotificationUrl")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setIpnNotificationUrl(map.get(prefix + "ipnNotificationUrl"));
 		}
-		if(map.containsKey(prefix + "feesPayer")){
-			this.feesPayer = map.get(prefix + "feesPayer");
+		AddressList addressList =  AddressList.createInstance(map, prefix + "addressList", -1);
+		if (addressList != null) {
+			preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+			preapprovalDetailsResponse.setAddressList(addressList);
 		}
-		if(map.containsKey(prefix + "displayMaxTotalAmount")){
-			this.displayMaxTotalAmount = Boolean.valueOf(map.get(prefix + "displayMaxTotalAmount"));
+		if (map.containsKey(prefix + "feesPayer")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setFeesPayer(map.get(prefix + "feesPayer"));
+		}
+		if (map.containsKey(prefix + "displayMaxTotalAmount")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setDisplayMaxTotalAmount(Boolean.valueOf(map.get(prefix + "displayMaxTotalAmount")));
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return preapprovalDetailsResponse;
 	}
-
+ 
 }

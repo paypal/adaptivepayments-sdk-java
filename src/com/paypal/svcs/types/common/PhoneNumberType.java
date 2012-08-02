@@ -106,17 +106,34 @@ public class PhoneNumberType{
 		}
 		return sb.toString();
 	}
-	public PhoneNumberType(Map<String, String> map, String prefix) {
+	
+	public static PhoneNumberType createInstance(Map<String, String> map, String prefix, int index) {
+		PhoneNumberType phoneNumberType = null;
 		int i = 0;
-		if(map.containsKey(prefix + "countryCode")){
-			this.countryCode = map.get(prefix + "countryCode");
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "phoneNumber")){
-			this.phoneNumber = map.get(prefix + "phoneNumber");
+			
+		if (map.containsKey(prefix + "countryCode")) {
+				phoneNumberType = (phoneNumberType == null) ? new PhoneNumberType() : phoneNumberType;
+				phoneNumberType.setCountryCode(map.get(prefix + "countryCode"));
 		}
-		if(map.containsKey(prefix + "extension")){
-			this.extension = map.get(prefix + "extension");
+		if (map.containsKey(prefix + "phoneNumber")) {
+				phoneNumberType = (phoneNumberType == null) ? new PhoneNumberType() : phoneNumberType;
+				phoneNumberType.setPhoneNumber(map.get(prefix + "phoneNumber"));
 		}
+		if (map.containsKey(prefix + "extension")) {
+				phoneNumberType = (phoneNumberType == null) ? new PhoneNumberType() : phoneNumberType;
+				phoneNumberType.setExtension(map.get(prefix + "extension"));
+		}
+		return phoneNumberType;
 	}
-
+ 
 }

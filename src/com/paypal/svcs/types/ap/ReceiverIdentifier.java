@@ -30,9 +30,28 @@ public class ReceiverIdentifier extends AccountIdentifier {
 		sb.append(super.toNVPString(prefix));
 		return sb.toString();
 	}
-	public ReceiverIdentifier(Map<String, String> map, String prefix) {
-		super(map,prefix);
+	
+	public static ReceiverIdentifier createInstance(Map<String, String> map, String prefix, int index) {
+		ReceiverIdentifier receiverIdentifier = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+		AccountIdentifier accountIdentifier = AccountIdentifier.createInstance(map, prefix, -1);
+		if (accountIdentifier != null) {
+			receiverIdentifier = (receiverIdentifier == null) ? new ReceiverIdentifier() : receiverIdentifier;
+			receiverIdentifier.setEmail(accountIdentifier.getEmail());
+			receiverIdentifier.setPhone(accountIdentifier.getPhone());
+		}
+			
+		return receiverIdentifier;
 	}
-
+ 
 }

@@ -99,20 +99,38 @@ public class ResponseEnvelope{
 	 
 
 
-	public ResponseEnvelope(Map<String, String> map, String prefix) {
+	
+	public static ResponseEnvelope createInstance(Map<String, String> map, String prefix, int index) {
+		ResponseEnvelope responseEnvelope = null;
 		int i = 0;
-		if(map.containsKey(prefix + "timestamp")){
-			this.timestamp = map.get(prefix + "timestamp");
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "ack")){
-			this.ack = AckCode.fromValue(map.get(prefix + "ack"));
+			
+		if (map.containsKey(prefix + "timestamp")) {
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.setTimestamp(map.get(prefix + "timestamp"));
 		}
-		if(map.containsKey(prefix + "correlationId")){
-			this.correlationId = map.get(prefix + "correlationId");
+		if (map.containsKey(prefix + "ack")) {
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.setAck(AckCode.fromValue(map.get(prefix + "ack")));
 		}
-		if(map.containsKey(prefix + "build")){
-			this.build = map.get(prefix + "build");
+		if (map.containsKey(prefix + "correlationId")) {
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.setCorrelationId(map.get(prefix + "correlationId"));
 		}
+		if (map.containsKey(prefix + "build")) {
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.setBuild(map.get(prefix + "build"));
+		}
+		return responseEnvelope;
 	}
-
+ 
 }

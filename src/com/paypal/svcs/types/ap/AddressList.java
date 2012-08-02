@@ -40,18 +40,33 @@ public class AddressList{
 	 
 
 
-	public AddressList(Map<String, String> map, String prefix) {
+	
+	public static AddressList createInstance(Map<String, String> map, String prefix, int index) {
+		AddressList addressList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "address" + "(" + i + ")" + ".baseAddress.line1")){
-				String newPrefix = prefix + "address" + "(" + i + ")" + ".";
-				this.address.add(new Address(map, newPrefix));
+			Address address =  Address.createInstance(map, prefix + "address", i);
+			if (address != null) {
+				addressList = (addressList == null) ? new AddressList() : addressList;
+				addressList.getAddress().add(address);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return addressList;
 	}
-
+ 
 }

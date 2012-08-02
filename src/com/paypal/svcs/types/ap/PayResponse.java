@@ -142,36 +142,56 @@ public class PayResponse{
 	 
 
 
-	public PayResponse(Map<String, String> map, String prefix) {
+	
+	public static PayResponse createInstance(Map<String, String> map, String prefix, int index) {
+		PayResponse payResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "payKey")){
-			this.payKey = map.get(prefix + "payKey");
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+			payResponse.setResponseEnvelope(responseEnvelope);
 		}
-		if(map.containsKey(prefix + "paymentExecStatus")){
-			this.paymentExecStatus = map.get(prefix + "paymentExecStatus");
+		if (map.containsKey(prefix + "payKey")) {
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.setPayKey(map.get(prefix + "payKey"));
 		}
-		if(map.containsKey(prefix + "payErrorList" + ".payError(0).receiver.amount")){
-			String newPrefix = prefix + "payErrorList" + ".";
-			this.payErrorList =  new PayErrorList(map, newPrefix);
+		if (map.containsKey(prefix + "paymentExecStatus")) {
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.setPaymentExecStatus(map.get(prefix + "paymentExecStatus"));
 		}
-		if(map.containsKey(prefix + "defaultFundingPlan" + ".fundingPlanId")){
-			String newPrefix = prefix + "defaultFundingPlan" + ".";
-			this.defaultFundingPlan =  new FundingPlan(map, newPrefix);
+		PayErrorList payErrorList =  PayErrorList.createInstance(map, prefix + "payErrorList", -1);
+		if (payErrorList != null) {
+			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+			payResponse.setPayErrorList(payErrorList);
+		}
+		FundingPlan defaultFundingPlan =  FundingPlan.createInstance(map, prefix + "defaultFundingPlan", -1);
+		if (defaultFundingPlan != null) {
+			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+			payResponse.setDefaultFundingPlan(defaultFundingPlan);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+				payResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return payResponse;
 	}
-
+ 
 }

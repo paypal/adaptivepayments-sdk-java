@@ -40,18 +40,33 @@ public class RefundInfoList{
 	 
 
 
-	public RefundInfoList(Map<String, String> map, String prefix) {
+	
+	public static RefundInfoList createInstance(Map<String, String> map, String prefix, int index) {
+		RefundInfoList refundInfoList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "refundInfo" + "(" + i + ")" + ".receiver.amount")){
-				String newPrefix = prefix + "refundInfo" + "(" + i + ")" + ".";
-				this.refundInfo.add(new RefundInfo(map, newPrefix));
+			RefundInfo refundInfo =  RefundInfo.createInstance(map, prefix + "refundInfo", i);
+			if (refundInfo != null) {
+				refundInfoList = (refundInfoList == null) ? new RefundInfoList() : refundInfoList;
+				refundInfoList.getRefundInfo().add(refundInfo);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return refundInfoList;
 	}
-
+ 
 }

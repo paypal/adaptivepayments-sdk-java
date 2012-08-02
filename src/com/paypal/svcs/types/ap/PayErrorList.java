@@ -40,18 +40,33 @@ public class PayErrorList{
 	 
 
 
-	public PayErrorList(Map<String, String> map, String prefix) {
+	
+	public static PayErrorList createInstance(Map<String, String> map, String prefix, int index) {
+		PayErrorList payErrorList = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "payError" + "(" + i + ")" + ".receiver.amount")){
-				String newPrefix = prefix + "payError" + "(" + i + ")" + ".";
-				this.payError.add(new PayError(map, newPrefix));
+			PayError payError =  PayError.createInstance(map, prefix + "payError", i);
+			if (payError != null) {
+				payErrorList = (payErrorList == null) ? new PayErrorList() : payErrorList;
+				payErrorList.getPayError().add(payError);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return payErrorList;
 	}
-
+ 
 }

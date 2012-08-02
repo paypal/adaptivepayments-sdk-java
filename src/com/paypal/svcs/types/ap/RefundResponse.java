@@ -101,29 +101,47 @@ public class RefundResponse{
 	 
 
 
-	public RefundResponse(Map<String, String> map, String prefix) {
+	
+	public static RefundResponse createInstance(Map<String, String> map, String prefix, int index) {
+		RefundResponse refundResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "currencyCode")){
-			this.currencyCode = map.get(prefix + "currencyCode");
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+			refundResponse.setResponseEnvelope(responseEnvelope);
 		}
-		if(map.containsKey(prefix + "refundInfoList" + ".refundInfo(0).receiver.amount")){
-			String newPrefix = prefix + "refundInfoList" + ".";
-			this.refundInfoList =  new RefundInfoList(map, newPrefix);
+		if (map.containsKey(prefix + "currencyCode")) {
+				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+				refundResponse.setCurrencyCode(map.get(prefix + "currencyCode"));
+		}
+		RefundInfoList refundInfoList =  RefundInfoList.createInstance(map, prefix + "refundInfoList", -1);
+		if (refundInfoList != null) {
+			refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+			refundResponse.setRefundInfoList(refundInfoList);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				refundResponse = (refundResponse == null) ? new RefundResponse() : refundResponse;
+				refundResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return refundResponse;
 	}
-
+ 
 }

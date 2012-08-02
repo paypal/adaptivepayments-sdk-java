@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.paypal.core.NVPUtil;
+import com.paypal.core.ReflectionUtil;
 import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.HttpErrorException;
 import com.paypal.exception.InvalidCredentialException;
@@ -63,12 +65,8 @@ public class ExecutePaymentServlet extends HttpServlet {
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		ExecutePaymentRequest req = new ExecutePaymentRequest();
 		req.setPayKey(request.getParameter("payKey"));
-		if(request.getParameter("actionType") !=""){
-			req.setActionType(request.getParameter("actionType"));
-		}
-		if(request.getParameter("fundingPlanID") != ""){
-			req.setFundingPlanId(request.getParameter("fundingPlanID"));
-		}
+		req.setActionType(request.getParameter("actionType"));
+		req.setFundingPlanId(request.getParameter("fundingPlanID"));
 		req.setRequestEnvelope(requestEnvelope);
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getServletContext().getRealPath("/")
@@ -77,6 +75,7 @@ public class ExecutePaymentServlet extends HttpServlet {
 		try {
 			ExecutePaymentResponse resp = service.executePayment(req);
 			if (resp != null) {
+				session.setAttribute("RESPONSE_OBJECT", resp);
 				session.setAttribute("lastReq", service.getLastRequest());
 				session.setAttribute("lastResp", service.getLastResponse());
 				if (resp.getResponseEnvelope().getAck().toString()

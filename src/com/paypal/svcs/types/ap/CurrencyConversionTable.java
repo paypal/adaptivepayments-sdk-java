@@ -41,18 +41,33 @@ public class CurrencyConversionTable{
 	 
 
 
-	public CurrencyConversionTable(Map<String, String> map, String prefix) {
+	
+	public static CurrencyConversionTable createInstance(Map<String, String> map, String prefix, int index) {
+		CurrencyConversionTable currencyConversionTable = null;
 		int i = 0;
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "currencyConversionList" + "(" + i + ")" + ".baseAmount.code")){
-				String newPrefix = prefix + "currencyConversionList" + "(" + i + ")" + ".";
-				this.currencyConversionList.add(new CurrencyConversionList(map, newPrefix));
+			CurrencyConversionList currencyConversionList =  CurrencyConversionList.createInstance(map, prefix + "currencyConversionList", i);
+			if (currencyConversionList != null) {
+				currencyConversionTable = (currencyConversionTable == null) ? new CurrencyConversionTable() : currencyConversionTable;
+				currencyConversionTable.getCurrencyConversionList().add(currencyConversionList);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return currencyConversionTable;
 	}
-
+ 
 }

@@ -81,26 +81,43 @@ public class GetShippingAddressesResponse{
 	 
 
 
-	public GetShippingAddressesResponse(Map<String, String> map, String prefix) {
+	
+	public static GetShippingAddressesResponse createInstance(Map<String, String> map, String prefix, int index) {
+		GetShippingAddressesResponse getShippingAddressesResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "selectedAddress" + ".baseAddress.line1")){
-			String newPrefix = prefix + "selectedAddress" + ".";
-			this.selectedAddress =  new Address(map, newPrefix);
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
+			getShippingAddressesResponse.setResponseEnvelope(responseEnvelope);
+		}
+		Address selectedAddress =  Address.createInstance(map, prefix + "selectedAddress", -1);
+		if (selectedAddress != null) {
+			getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
+			getShippingAddressesResponse.setSelectedAddress(selectedAddress);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				getShippingAddressesResponse = (getShippingAddressesResponse == null) ? new GetShippingAddressesResponse() : getShippingAddressesResponse;
+				getShippingAddressesResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return getShippingAddressesResponse;
 	}
-
+ 
 }

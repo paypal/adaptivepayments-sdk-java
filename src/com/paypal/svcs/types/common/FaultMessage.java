@@ -61,22 +61,38 @@ public class FaultMessage{
 	 
 
 
-	public FaultMessage(Map<String, String> map, String prefix) {
+	
+	public static FaultMessage createInstance(Map<String, String> map, String prefix, int index) {
+		FaultMessage faultMessage = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
+			faultMessage.setResponseEnvelope(responseEnvelope);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
+				faultMessage.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return faultMessage;
 	}
-
+ 
 }

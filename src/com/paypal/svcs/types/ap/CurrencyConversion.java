@@ -78,19 +78,36 @@ public class CurrencyConversion{
 	 
 
 
-	public CurrencyConversion(Map<String, String> map, String prefix) {
+	
+	public static CurrencyConversion createInstance(Map<String, String> map, String prefix, int index) {
+		CurrencyConversion currencyConversion = null;
 		int i = 0;
-		if(map.containsKey(prefix + "from" + ".code")){
-			String newPrefix = prefix + "from" + ".";
-			this.from =  new CurrencyType(map, newPrefix);
+		if(index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} 
+		else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "to" + ".code")){
-			String newPrefix = prefix + "to" + ".";
-			this.to =  new CurrencyType(map, newPrefix);
+			
+		CurrencyType from =  CurrencyType.createInstance(map, prefix + "from", -1);
+		if (from != null) {
+			currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
+			currencyConversion.setFrom(from);
 		}
-		if(map.containsKey(prefix + "exchangeRate")){
-			this.exchangeRate = Double.valueOf(map.get(prefix + "exchangeRate"));
+		CurrencyType to =  CurrencyType.createInstance(map, prefix + "to", -1);
+		if (to != null) {
+			currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
+			currencyConversion.setTo(to);
 		}
+		if (map.containsKey(prefix + "exchangeRate")) {
+				currencyConversion = (currencyConversion == null) ? new CurrencyConversion() : currencyConversion;
+				currencyConversion.setExchangeRate(Double.valueOf(map.get(prefix + "exchangeRate")));
+		}
+		return currencyConversion;
 	}
-
+ 
 }
