@@ -63,10 +63,15 @@ public class ReflectionUtil {
 									List listObj = (List) returnObject;
 									int i = 0;
 									for (Object o : listObj) {
-										responseMap
-												.putAll(generateMapFromResponse(
-														o, propertyName + "(" + i
-																+ ")"));
+										if (o.getClass().getPackage().getName().contains("com.paypal")) {
+											responseMap
+											.putAll(generateMapFromResponse(
+													o, propertyName + "(" + i
+															+ ")"));
+										} else {
+											responseMap.put(propertyName + "(" + i
+													+ ")", o);
+										}
 										i++;
 									}
 
