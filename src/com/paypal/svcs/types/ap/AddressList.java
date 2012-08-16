@@ -44,12 +44,11 @@ public class AddressList{
 	public static AddressList createInstance(Map<String, String> map, String prefix, int index) {
 		AddressList addressList = null;
 		int i = 0;
-		if(index != -1) {
+		if (index != -1) {
 				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
-		} 
-		else {
+		} else {
 			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}

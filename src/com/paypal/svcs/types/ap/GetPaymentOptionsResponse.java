@@ -163,12 +163,11 @@ public class GetPaymentOptionsResponse{
 	public static GetPaymentOptionsResponse createInstance(Map<String, String> map, String prefix, int index) {
 		GetPaymentOptionsResponse getPaymentOptionsResponse = null;
 		int i = 0;
-		if(index != -1) {
+		if (index != -1) {
 				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
-		} 
-		else {
+		} else {
 			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}

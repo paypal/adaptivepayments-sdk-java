@@ -14,8 +14,7 @@ public class ErrorData{
 
 
 	/**
-	 * 	  
-	 *@Required	 
+	 * 	 
 	 */ 
 	private Integer errorId;
 
@@ -180,12 +179,11 @@ public class ErrorData{
 	public static ErrorData createInstance(Map<String, String> map, String prefix, int index) {
 		ErrorData errorData = null;
 		int i = 0;
-		if(index != -1) {
+		if (index != -1) {
 				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
-		} 
-		else {
+		} else {
 			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}

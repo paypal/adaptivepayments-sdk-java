@@ -178,12 +178,11 @@ public class PaymentInfo{
 	public static PaymentInfo createInstance(Map<String, String> map, String prefix, int index) {
 		PaymentInfo paymentInfo = null;
 		int i = 0;
-		if(index != -1) {
+		if (index != -1) {
 				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
-		} 
-		else {
+		} else {
 			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}

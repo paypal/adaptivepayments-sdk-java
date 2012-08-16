@@ -10,8 +10,7 @@ public class InvoiceItem{
 
 
 	/**
-	 * 	  
-	 *@Required	 
+	 * 	 
 	 */ 
 	private String name;
 
@@ -36,13 +35,6 @@ public class InvoiceItem{
 	private Integer itemCount;
 
 	
-
-	/**
-	 * Constructor with arguments
-	 */
-	public InvoiceItem (String name){
-		this.name = name;
-	}	
 
 	/**
 	 * Default Constructor
@@ -154,12 +146,11 @@ public class InvoiceItem{
 	public static InvoiceItem createInstance(Map<String, String> map, String prefix, int index) {
 		InvoiceItem invoiceItem = null;
 		int i = 0;
-		if(index != -1) {
+		if (index != -1) {
 				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
-		} 
-		else {
+		} else {
 			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}

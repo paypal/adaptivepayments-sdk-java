@@ -65,12 +65,11 @@ public class FaultMessage{
 	public static FaultMessage createInstance(Map<String, String> map, String prefix, int index) {
 		FaultMessage faultMessage = null;
 		int i = 0;
-		if(index != -1) {
+		if (index != -1) {
 				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
-		} 
-		else {
+		} else {
 			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}

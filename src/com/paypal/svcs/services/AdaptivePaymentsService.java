@@ -41,7 +41,7 @@ public class AdaptivePaymentsService extends BaseService{
 
 
 	// Service Version
-	public static final String SERVICE_VERSION = "1.8.0";
+	public static final String SERVICE_VERSION = "1.8.1";
 
 	// Service Name
 	public static final String SERVICE_NAME = "AdaptivePayments";
