@@ -153,8 +153,7 @@ public class PreapprovalServlet extends HttpServlet {
 					map.put("Redirect URL",
 							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-preapproval&preapprovalkey="
 									+ resp.getPreapprovalKey()
-									+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-preapproval&preapprovalkey="
-									+ resp.getPreapprovalKey() + "</a>");
+									+ ">Redirect to paypal</a>");
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
 				} else {
