@@ -60,16 +60,31 @@ public class PayError{
 	 
 
 
-	public PayError(Map<String, String> map, String prefix) {
+	
+	public static PayError createInstance(Map<String, String> map, String prefix, int index) {
+		PayError payError = null;
 		int i = 0;
-		if(map.containsKey(prefix + "receiver" + ".amount")){
-			String newPrefix = prefix + "receiver" + ".";
-			this.receiver =  new Receiver(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "error" + ".errorId")){
-			String newPrefix = prefix + "error" + ".";
-			this.error =  new ErrorData(map, newPrefix);
+			
+		Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+		if (receiver != null) {
+			payError = (payError == null) ? new PayError() : payError;
+			payError.setReceiver(receiver);
 		}
+		ErrorData error =  ErrorData.createInstance(map, prefix + "error", -1);
+		if (error != null) {
+			payError = (payError == null) ? new PayError() : payError;
+			payError.setError(error);
+		}
+		return payError;
 	}
-
+ 
 }

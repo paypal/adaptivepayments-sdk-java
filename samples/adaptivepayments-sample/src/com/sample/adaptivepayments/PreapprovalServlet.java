@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.paypal.core.NVPUtil;
+import com.paypal.core.ReflectionUtil;
 import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.HttpErrorException;
 import com.paypal.exception.InvalidCredentialException;
@@ -136,6 +138,7 @@ public class PreapprovalServlet extends HttpServlet {
 			PreapprovalResponse resp = service.preapproval(req);
 			response.setContentType("text/html");
 			if (resp != null) {
+				session.setAttribute("RESPONSE_OBJECT", resp);
 				session.setAttribute("lastReq", service.getLastRequest());
 				session.setAttribute("lastResp", service.getLastResponse());
 				if (resp.getResponseEnvelope().getAck().toString()
@@ -150,8 +153,7 @@ public class PreapprovalServlet extends HttpServlet {
 					map.put("Redirect URL",
 							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-preapproval&preapprovalkey="
 									+ resp.getPreapprovalKey()
-									+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-preapproval&preapprovalkey="
-									+ resp.getPreapprovalKey() + "</a>");
+									+ ">Redirect to paypal</a>");
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
 				} else {

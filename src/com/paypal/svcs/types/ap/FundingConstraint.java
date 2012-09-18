@@ -51,12 +51,26 @@ public class FundingConstraint{
 		}
 		return sb.toString();
 	}
-	public FundingConstraint(Map<String, String> map, String prefix) {
+	
+	public static FundingConstraint createInstance(Map<String, String> map, String prefix, int index) {
+		FundingConstraint fundingConstraint = null;
 		int i = 0;
-		if(map.containsKey(prefix + "allowedFundingType" + ".fundingTypeInfo(0).fundingType")){
-			String newPrefix = prefix + "allowedFundingType" + ".";
-			this.allowedFundingType =  new FundingTypeList(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
+			
+		FundingTypeList allowedFundingType =  FundingTypeList.createInstance(map, prefix + "allowedFundingType", -1);
+		if (allowedFundingType != null) {
+			fundingConstraint = (fundingConstraint == null) ? new FundingConstraint() : fundingConstraint;
+			fundingConstraint.setAllowedFundingType(allowedFundingType);
+		}
+		return fundingConstraint;
 	}
-
+ 
 }

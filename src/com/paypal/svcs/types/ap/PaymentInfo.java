@@ -174,33 +174,54 @@ public class PaymentInfo{
 	 
 
 
-	public PaymentInfo(Map<String, String> map, String prefix) {
+	
+	public static PaymentInfo createInstance(Map<String, String> map, String prefix, int index) {
+		PaymentInfo paymentInfo = null;
 		int i = 0;
-		if(map.containsKey(prefix + "transactionId")){
-			this.transactionId = map.get(prefix + "transactionId");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "transactionStatus")){
-			this.transactionStatus = map.get(prefix + "transactionStatus");
+			
+		if (map.containsKey(prefix + "transactionId")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setTransactionId(map.get(prefix + "transactionId"));
 		}
-		if(map.containsKey(prefix + "receiver" + ".amount")){
-			String newPrefix = prefix + "receiver" + ".";
-			this.receiver =  new Receiver(map, newPrefix);
+		if (map.containsKey(prefix + "transactionStatus")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setTransactionStatus(map.get(prefix + "transactionStatus"));
 		}
-		if(map.containsKey(prefix + "refundedAmount")){
-			this.refundedAmount = Double.valueOf(map.get(prefix + "refundedAmount"));
+		Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+		if (receiver != null) {
+			paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+			paymentInfo.setReceiver(receiver);
 		}
-		if(map.containsKey(prefix + "pendingRefund")){
-			this.pendingRefund = Boolean.valueOf(map.get(prefix + "pendingRefund"));
+		if (map.containsKey(prefix + "refundedAmount")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setRefundedAmount(Double.valueOf(map.get(prefix + "refundedAmount")));
 		}
-		if(map.containsKey(prefix + "senderTransactionId")){
-			this.senderTransactionId = map.get(prefix + "senderTransactionId");
+		if (map.containsKey(prefix + "pendingRefund")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setPendingRefund(Boolean.valueOf(map.get(prefix + "pendingRefund")));
 		}
-		if(map.containsKey(prefix + "senderTransactionStatus")){
-			this.senderTransactionStatus = map.get(prefix + "senderTransactionStatus");
+		if (map.containsKey(prefix + "senderTransactionId")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setSenderTransactionId(map.get(prefix + "senderTransactionId"));
 		}
-		if(map.containsKey(prefix + "pendingReason")){
-			this.pendingReason = map.get(prefix + "pendingReason");
+		if (map.containsKey(prefix + "senderTransactionStatus")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setSenderTransactionStatus(map.get(prefix + "senderTransactionStatus"));
 		}
+		if (map.containsKey(prefix + "pendingReason")) {
+				paymentInfo = (paymentInfo == null) ? new PaymentInfo() : paymentInfo;
+				paymentInfo.setPendingReason(map.get(prefix + "pendingReason"));
+		}
+		return paymentInfo;
 	}
-
+ 
 }

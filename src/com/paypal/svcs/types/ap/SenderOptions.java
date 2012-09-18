@@ -74,14 +74,29 @@ public class SenderOptions{
 		}
 		return sb.toString();
 	}
-	public SenderOptions(Map<String, String> map, String prefix) {
+	
+	public static SenderOptions createInstance(Map<String, String> map, String prefix, int index) {
+		SenderOptions senderOptions = null;
 		int i = 0;
-		if(map.containsKey(prefix + "requireShippingAddressSelection")){
-			this.requireShippingAddressSelection = Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection"));
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "referrerCode")){
-			this.referrerCode = map.get(prefix + "referrerCode");
+			
+		if (map.containsKey(prefix + "requireShippingAddressSelection")) {
+				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
+				senderOptions.setRequireShippingAddressSelection(Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection")));
 		}
+		if (map.containsKey(prefix + "referrerCode")) {
+				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
+				senderOptions.setReferrerCode(map.get(prefix + "referrerCode"));
+		}
+		return senderOptions;
 	}
-
+ 
 }

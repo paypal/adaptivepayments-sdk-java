@@ -74,15 +74,30 @@ public class AccountIdentifier{
 		}
 		return sb.toString();
 	}
-	public AccountIdentifier(Map<String, String> map, String prefix) {
+	
+	public static AccountIdentifier createInstance(Map<String, String> map, String prefix, int index) {
+		AccountIdentifier accountIdentifier = null;
 		int i = 0;
-		if(map.containsKey(prefix + "email")){
-			this.email = map.get(prefix + "email");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "phone" + ".countryCode")){
-			String newPrefix = prefix + "phone" + ".";
-			this.phone =  new PhoneNumberType(map, newPrefix);
+			
+		if (map.containsKey(prefix + "email")) {
+				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
+				accountIdentifier.setEmail(map.get(prefix + "email"));
 		}
+		PhoneNumberType phone =  PhoneNumberType.createInstance(map, prefix + "phone", -1);
+		if (phone != null) {
+			accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
+			accountIdentifier.setPhone(phone);
+		}
+		return accountIdentifier;
 	}
-
+ 
 }

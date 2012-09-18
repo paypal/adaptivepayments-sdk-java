@@ -41,7 +41,7 @@ public class AdaptivePaymentsService extends BaseService{
 
 
 	// Service Version
-	public static final String SERVICE_VERSION = "1.8.0";
+	public static final String SERVICE_VERSION = "1.8.1";
 
 	// Service Name
 	public static final String SERVICE_NAME = "AdaptivePayments";
@@ -80,7 +80,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public CancelPreapprovalResponse cancelPreapproval(CancelPreapprovalRequest cancelPreapprovalRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("CancelPreapproval", cancelPreapprovalRequest.toNVPString(), apiUsername);
-		return new CancelPreapprovalResponse(NVPUtil.decode(response), "");
+		return CancelPreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -115,7 +115,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ConfirmPreapprovalResponse confirmPreapproval(ConfirmPreapprovalRequest confirmPreapprovalRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("ConfirmPreapproval", confirmPreapprovalRequest.toNVPString(), apiUsername);
-		return new ConfirmPreapprovalResponse(NVPUtil.decode(response), "");
+		return ConfirmPreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -150,7 +150,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ConvertCurrencyResponse convertCurrency(ConvertCurrencyRequest convertCurrencyRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("ConvertCurrency", convertCurrencyRequest.toNVPString(), apiUsername);
-		return new ConvertCurrencyResponse(NVPUtil.decode(response), "");
+		return ConvertCurrencyResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -185,7 +185,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ExecutePaymentResponse executePayment(ExecutePaymentRequest executePaymentRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("ExecutePayment", executePaymentRequest.toNVPString(), apiUsername);
-		return new ExecutePaymentResponse(NVPUtil.decode(response), "");
+		return ExecutePaymentResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -220,7 +220,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetAllowedFundingSourcesResponse getAllowedFundingSources(GetAllowedFundingSourcesRequest getAllowedFundingSourcesRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("GetAllowedFundingSources", getAllowedFundingSourcesRequest.toNVPString(), apiUsername);
-		return new GetAllowedFundingSourcesResponse(NVPUtil.decode(response), "");
+		return GetAllowedFundingSourcesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -255,7 +255,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetPaymentOptionsResponse getPaymentOptions(GetPaymentOptionsRequest getPaymentOptionsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("GetPaymentOptions", getPaymentOptionsRequest.toNVPString(), apiUsername);
-		return new GetPaymentOptionsResponse(NVPUtil.decode(response), "");
+		return GetPaymentOptionsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -290,7 +290,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PaymentDetailsResponse paymentDetails(PaymentDetailsRequest paymentDetailsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("PaymentDetails", paymentDetailsRequest.toNVPString(), apiUsername);
-		return new PaymentDetailsResponse(NVPUtil.decode(response), "");
+		return PaymentDetailsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -325,7 +325,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PayResponse pay(PayRequest payRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("Pay", payRequest.toNVPString(), apiUsername);
-		return new PayResponse(NVPUtil.decode(response), "");
+		return PayResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -360,7 +360,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PreapprovalDetailsResponse preapprovalDetails(PreapprovalDetailsRequest preapprovalDetailsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("PreapprovalDetails", preapprovalDetailsRequest.toNVPString(), apiUsername);
-		return new PreapprovalDetailsResponse(NVPUtil.decode(response), "");
+		return PreapprovalDetailsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -395,7 +395,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PreapprovalResponse preapproval(PreapprovalRequest preapprovalRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("Preapproval", preapprovalRequest.toNVPString(), apiUsername);
-		return new PreapprovalResponse(NVPUtil.decode(response), "");
+		return PreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -430,7 +430,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public RefundResponse refund(RefundRequest refundRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("Refund", refundRequest.toNVPString(), apiUsername);
-		return new RefundResponse(NVPUtil.decode(response), "");
+		return RefundResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -465,7 +465,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public SetPaymentOptionsResponse setPaymentOptions(SetPaymentOptionsRequest setPaymentOptionsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("SetPaymentOptions", setPaymentOptionsRequest.toNVPString(), apiUsername);
-		return new SetPaymentOptionsResponse(NVPUtil.decode(response), "");
+		return SetPaymentOptionsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -500,7 +500,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetFundingPlansResponse getFundingPlans(GetFundingPlansRequest getFundingPlansRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("GetFundingPlans", getFundingPlansRequest.toNVPString(), apiUsername);
-		return new GetFundingPlansResponse(NVPUtil.decode(response), "");
+		return GetFundingPlansResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -535,7 +535,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetAvailableShippingAddressesResponse getAvailableShippingAddresses(GetAvailableShippingAddressesRequest getAvailableShippingAddressesRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("GetAvailableShippingAddresses", getAvailableShippingAddressesRequest.toNVPString(), apiUsername);
-		return new GetAvailableShippingAddressesResponse(NVPUtil.decode(response), "");
+		return GetAvailableShippingAddressesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -570,7 +570,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetShippingAddressesResponse getShippingAddresses(GetShippingAddressesRequest getShippingAddressesRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("GetShippingAddresses", getShippingAddressesRequest.toNVPString(), apiUsername);
-		return new GetShippingAddressesResponse(NVPUtil.decode(response), "");
+		return GetShippingAddressesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 
@@ -605,7 +605,7 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetUserLimitsResponse getUserLimits(GetUserLimitsRequest getUserLimitsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	String response = call("GetUserLimits", getUserLimitsRequest.toNVPString(), apiUsername);
-		return new GetUserLimitsResponse(NVPUtil.decode(response), "");
+		return GetUserLimitsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 	 
 	/** 

@@ -58,9 +58,25 @@ public class FundingTypeInfo{
 		}
 		return sb.toString();
 	}
-	public FundingTypeInfo(Map<String, String> map, String prefix) {
-		prefix = prefix.substring(0, prefix.length() - 1);
-		this.fundingType = map.get(prefix + "fundingType");
+	
+	public static FundingTypeInfo createInstance(Map<String, String> map, String prefix, int index) {
+		FundingTypeInfo fundingTypeInfo = null;
+		int i = 0;
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
+		if (map.containsKey(prefix + "fundingType")) {
+				fundingTypeInfo = (fundingTypeInfo == null) ? new FundingTypeInfo() : fundingTypeInfo;
+				fundingTypeInfo.setFundingType(map.get(prefix + "fundingType"));
+		}
+		return fundingTypeInfo;
 	}
-
+ 
 }

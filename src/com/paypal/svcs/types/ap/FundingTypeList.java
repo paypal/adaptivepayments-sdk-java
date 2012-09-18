@@ -63,18 +63,32 @@ public class FundingTypeList{
 		}
 		return sb.toString();
 	}
-	public FundingTypeList(Map<String, String> map, String prefix) {
+	
+	public static FundingTypeList createInstance(Map<String, String> map, String prefix, int index) {
+		FundingTypeList fundingTypeList = null;
 		int i = 0;
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "fundingTypeInfo" + "(" + i + ")" +".fundingType")){
-				String newPrefix = prefix + "fundingTypeInfo" + "(" + i + ")" + ".";
-				this.fundingTypeInfo.add(new FundingTypeInfo(map, newPrefix));
+			FundingTypeInfo fundingTypeInfo =  FundingTypeInfo.createInstance(map, prefix + "fundingTypeInfo", i);
+			if (fundingTypeInfo != null) {
+				fundingTypeList = (fundingTypeList == null) ? new FundingTypeList() : fundingTypeList;
+				fundingTypeList.getFundingTypeInfo().add(fundingTypeInfo);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return fundingTypeList;
 	}
-
+ 
 }

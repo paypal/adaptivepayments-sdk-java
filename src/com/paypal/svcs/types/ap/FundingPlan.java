@@ -141,37 +141,56 @@ public class FundingPlan{
 	 
 
 
-	public FundingPlan(Map<String, String> map, String prefix) {
+	
+	public static FundingPlan createInstance(Map<String, String> map, String prefix, int index) {
+		FundingPlan fundingPlan = null;
 		int i = 0;
-		if(map.containsKey(prefix + "fundingPlanId")){
-			this.fundingPlanId = map.get(prefix + "fundingPlanId");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "fundingAmount" + ".code")){
-			String newPrefix = prefix + "fundingAmount" + ".";
-			this.fundingAmount =  new CurrencyType(map, newPrefix);
+			
+		if (map.containsKey(prefix + "fundingPlanId")) {
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.setFundingPlanId(map.get(prefix + "fundingPlanId"));
 		}
-		if(map.containsKey(prefix + "backupFundingSource" + ".type")){
-			String newPrefix = prefix + "backupFundingSource" + ".";
-			this.backupFundingSource =  new FundingSource(map, newPrefix);
+		CurrencyType fundingAmount =  CurrencyType.createInstance(map, prefix + "fundingAmount", -1);
+		if (fundingAmount != null) {
+			fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+			fundingPlan.setFundingAmount(fundingAmount);
 		}
-		if(map.containsKey(prefix + "senderFees" + ".code")){
-			String newPrefix = prefix + "senderFees" + ".";
-			this.senderFees =  new CurrencyType(map, newPrefix);
+		FundingSource backupFundingSource =  FundingSource.createInstance(map, prefix + "backupFundingSource", -1);
+		if (backupFundingSource != null) {
+			fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+			fundingPlan.setBackupFundingSource(backupFundingSource);
 		}
-		if(map.containsKey(prefix + "currencyConversion" + ".from.code")){
-			String newPrefix = prefix + "currencyConversion" + ".";
-			this.currencyConversion =  new CurrencyConversion(map, newPrefix);
+		CurrencyType senderFees =  CurrencyType.createInstance(map, prefix + "senderFees", -1);
+		if (senderFees != null) {
+			fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+			fundingPlan.setSenderFees(senderFees);
+		}
+		CurrencyConversion currencyConversion =  CurrencyConversion.createInstance(map, prefix + "currencyConversion", -1);
+		if (currencyConversion != null) {
+			fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+			fundingPlan.setCurrencyConversion(currencyConversion);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "charge" + "(" + i + ")" + ".charge.code")){
-				String newPrefix = prefix + "charge" + "(" + i + ")" + ".";
-				this.charge.add(new FundingPlanCharge(map, newPrefix));
+			FundingPlanCharge charge =  FundingPlanCharge.createInstance(map, prefix + "charge", i);
+			if (charge != null) {
+				fundingPlan = (fundingPlan == null) ? new FundingPlan() : fundingPlan;
+				fundingPlan.getCharge().add(charge);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return fundingPlan;
 	}
-
+ 
 }

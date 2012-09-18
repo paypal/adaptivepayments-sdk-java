@@ -211,29 +211,49 @@ public class InstitutionCustomer{
 		}
 		return sb.toString();
 	}
-	public InstitutionCustomer(Map<String, String> map, String prefix) {
+	
+	public static InstitutionCustomer createInstance(Map<String, String> map, String prefix, int index) {
+		InstitutionCustomer institutionCustomer = null;
 		int i = 0;
-		if(map.containsKey(prefix + "institutionId")){
-			this.institutionId = map.get(prefix + "institutionId");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "firstName")){
-			this.firstName = map.get(prefix + "firstName");
+			
+		if (map.containsKey(prefix + "institutionId")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setInstitutionId(map.get(prefix + "institutionId"));
 		}
-		if(map.containsKey(prefix + "lastName")){
-			this.lastName = map.get(prefix + "lastName");
+		if (map.containsKey(prefix + "firstName")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setFirstName(map.get(prefix + "firstName"));
 		}
-		if(map.containsKey(prefix + "displayName")){
-			this.displayName = map.get(prefix + "displayName");
+		if (map.containsKey(prefix + "lastName")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setLastName(map.get(prefix + "lastName"));
 		}
-		if(map.containsKey(prefix + "institutionCustomerId")){
-			this.institutionCustomerId = map.get(prefix + "institutionCustomerId");
+		if (map.containsKey(prefix + "displayName")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setDisplayName(map.get(prefix + "displayName"));
 		}
-		if(map.containsKey(prefix + "countryCode")){
-			this.countryCode = map.get(prefix + "countryCode");
+		if (map.containsKey(prefix + "institutionCustomerId")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setInstitutionCustomerId(map.get(prefix + "institutionCustomerId"));
 		}
-		if(map.containsKey(prefix + "email")){
-			this.email = map.get(prefix + "email");
+		if (map.containsKey(prefix + "countryCode")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setCountryCode(map.get(prefix + "countryCode"));
 		}
+		if (map.containsKey(prefix + "email")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setEmail(map.get(prefix + "email"));
+		}
+		return institutionCustomer;
 	}
-
+ 
 }

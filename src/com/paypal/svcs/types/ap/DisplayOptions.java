@@ -120,20 +120,37 @@ public class DisplayOptions{
 		}
 		return sb.toString();
 	}
-	public DisplayOptions(Map<String, String> map, String prefix) {
+	
+	public static DisplayOptions createInstance(Map<String, String> map, String prefix, int index) {
+		DisplayOptions displayOptions = null;
 		int i = 0;
-		if(map.containsKey(prefix + "emailHeaderImageUrl")){
-			this.emailHeaderImageUrl = map.get(prefix + "emailHeaderImageUrl");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "emailMarketingImageUrl")){
-			this.emailMarketingImageUrl = map.get(prefix + "emailMarketingImageUrl");
+			
+		if (map.containsKey(prefix + "emailHeaderImageUrl")) {
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.setEmailHeaderImageUrl(map.get(prefix + "emailHeaderImageUrl"));
 		}
-		if(map.containsKey(prefix + "headerImageUrl")){
-			this.headerImageUrl = map.get(prefix + "headerImageUrl");
+		if (map.containsKey(prefix + "emailMarketingImageUrl")) {
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.setEmailMarketingImageUrl(map.get(prefix + "emailMarketingImageUrl"));
 		}
-		if(map.containsKey(prefix + "businessName")){
-			this.businessName = map.get(prefix + "businessName");
+		if (map.containsKey(prefix + "headerImageUrl")) {
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.setHeaderImageUrl(map.get(prefix + "headerImageUrl"));
 		}
+		if (map.containsKey(prefix + "businessName")) {
+				displayOptions = (displayOptions == null) ? new DisplayOptions() : displayOptions;
+				displayOptions.setBusinessName(map.get(prefix + "businessName"));
+		}
+		return displayOptions;
 	}
-
+ 
 }

@@ -142,23 +142,41 @@ public class InvoiceItem{
 		}
 		return sb.toString();
 	}
-	public InvoiceItem(Map<String, String> map, String prefix) {
+	
+	public static InvoiceItem createInstance(Map<String, String> map, String prefix, int index) {
+		InvoiceItem invoiceItem = null;
 		int i = 0;
-		if(map.containsKey(prefix + "name")){
-			this.name = map.get(prefix + "name");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "identifier")){
-			this.identifier = map.get(prefix + "identifier");
+			
+		if (map.containsKey(prefix + "name")) {
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.setName(map.get(prefix + "name"));
 		}
-		if(map.containsKey(prefix + "price")){
-			this.price = Double.valueOf(map.get(prefix + "price"));
+		if (map.containsKey(prefix + "identifier")) {
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.setIdentifier(map.get(prefix + "identifier"));
 		}
-		if(map.containsKey(prefix + "itemPrice")){
-			this.itemPrice = Double.valueOf(map.get(prefix + "itemPrice"));
+		if (map.containsKey(prefix + "price")) {
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.setPrice(Double.valueOf(map.get(prefix + "price")));
 		}
-		if(map.containsKey(prefix + "itemCount")){
-			this.itemCount = Integer.valueOf(map.get(prefix + "itemCount"));
+		if (map.containsKey(prefix + "itemPrice")) {
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.setItemPrice(Double.valueOf(map.get(prefix + "itemPrice")));
 		}
+		if (map.containsKey(prefix + "itemCount")) {
+				invoiceItem = (invoiceItem == null) ? new InvoiceItem() : invoiceItem;
+				invoiceItem.setItemCount(Integer.valueOf(map.get(prefix + "itemCount")));
+		}
+		return invoiceItem;
 	}
-
+ 
 }

@@ -200,30 +200,50 @@ public class Receiver{
 		}
 		return sb.toString();
 	}
-	public Receiver(Map<String, String> map, String prefix) {
+	
+	public static Receiver createInstance(Map<String, String> map, String prefix, int index) {
+		Receiver receiver = null;
 		int i = 0;
-		if(map.containsKey(prefix + "amount")){
-			this.amount = Double.valueOf(map.get(prefix + "amount"));
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "email")){
-			this.email = map.get(prefix + "email");
+			
+		if (map.containsKey(prefix + "amount")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setAmount(Double.valueOf(map.get(prefix + "amount")));
 		}
-		if(map.containsKey(prefix + "phone" + ".countryCode")){
-			String newPrefix = prefix + "phone" + ".";
-			this.phone =  new PhoneNumberType(map, newPrefix);
+		if (map.containsKey(prefix + "email")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setEmail(map.get(prefix + "email"));
 		}
-		if(map.containsKey(prefix + "primary")){
-			this.primary = Boolean.valueOf(map.get(prefix + "primary"));
+		PhoneNumberType phone =  PhoneNumberType.createInstance(map, prefix + "phone", -1);
+		if (phone != null) {
+			receiver = (receiver == null) ? new Receiver() : receiver;
+			receiver.setPhone(phone);
 		}
-		if(map.containsKey(prefix + "invoiceId")){
-			this.invoiceId = map.get(prefix + "invoiceId");
+		if (map.containsKey(prefix + "primary")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setPrimary(Boolean.valueOf(map.get(prefix + "primary")));
 		}
-		if(map.containsKey(prefix + "paymentType")){
-			this.paymentType = map.get(prefix + "paymentType");
+		if (map.containsKey(prefix + "invoiceId")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setInvoiceId(map.get(prefix + "invoiceId"));
 		}
-		if(map.containsKey(prefix + "paymentSubType")){
-			this.paymentSubType = map.get(prefix + "paymentSubType");
+		if (map.containsKey(prefix + "paymentType")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setPaymentType(map.get(prefix + "paymentType"));
 		}
+		if (map.containsKey(prefix + "paymentSubType")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setPaymentSubType(map.get(prefix + "paymentSubType"));
+		}
+		return receiver;
 	}
-
+ 
 }

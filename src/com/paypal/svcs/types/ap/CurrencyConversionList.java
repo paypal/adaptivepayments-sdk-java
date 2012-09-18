@@ -60,16 +60,31 @@ public class CurrencyConversionList{
 	 
 
 
-	public CurrencyConversionList(Map<String, String> map, String prefix) {
+	
+	public static CurrencyConversionList createInstance(Map<String, String> map, String prefix, int index) {
+		CurrencyConversionList currencyConversionList = null;
 		int i = 0;
-		if(map.containsKey(prefix + "baseAmount" + ".code")){
-			String newPrefix = prefix + "baseAmount" + ".";
-			this.baseAmount =  new CurrencyType(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "currencyList" + ".currency(0).code")){
-			String newPrefix = prefix + "currencyList" + ".";
-			this.currencyList =  new CurrencyList(map, newPrefix);
+			
+		CurrencyType baseAmount =  CurrencyType.createInstance(map, prefix + "baseAmount", -1);
+		if (baseAmount != null) {
+			currencyConversionList = (currencyConversionList == null) ? new CurrencyConversionList() : currencyConversionList;
+			currencyConversionList.setBaseAmount(baseAmount);
 		}
+		CurrencyList currencyList =  CurrencyList.createInstance(map, prefix + "currencyList", -1);
+		if (currencyList != null) {
+			currencyConversionList = (currencyConversionList == null) ? new CurrencyConversionList() : currencyConversionList;
+			currencyConversionList.setCurrencyList(currencyList);
+		}
+		return currencyConversionList;
 	}
-
+ 
 }

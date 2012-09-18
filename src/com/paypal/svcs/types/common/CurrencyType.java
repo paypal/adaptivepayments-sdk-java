@@ -83,14 +83,29 @@ public class CurrencyType{
 		}
 		return sb.toString();
 	}
-	public CurrencyType(Map<String, String> map, String prefix) {
+	
+	public static CurrencyType createInstance(Map<String, String> map, String prefix, int index) {
+		CurrencyType currencyType = null;
 		int i = 0;
-		if(map.containsKey(prefix + "code")){
-			this.code = map.get(prefix + "code");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "amount")){
-			this.amount = Double.valueOf(map.get(prefix + "amount"));
+			
+		if (map.containsKey(prefix + "code")) {
+				currencyType = (currencyType == null) ? new CurrencyType() : currencyType;
+				currencyType.setCode(map.get(prefix + "code"));
 		}
+		if (map.containsKey(prefix + "amount")) {
+				currencyType = (currencyType == null) ? new CurrencyType() : currencyType;
+				currencyType.setAmount(Double.valueOf(map.get(prefix + "amount")));
+		}
+		return currencyType;
 	}
-
+ 
 }

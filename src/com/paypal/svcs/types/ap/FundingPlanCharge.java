@@ -59,16 +59,31 @@ public class FundingPlanCharge{
 	 
 
 
-	public FundingPlanCharge(Map<String, String> map, String prefix) {
+	
+	public static FundingPlanCharge createInstance(Map<String, String> map, String prefix, int index) {
+		FundingPlanCharge fundingPlanCharge = null;
 		int i = 0;
-		if(map.containsKey(prefix + "charge" + ".code")){
-			String newPrefix = prefix + "charge" + ".";
-			this.charge =  new CurrencyType(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "fundingSource" + ".type")){
-			String newPrefix = prefix + "fundingSource" + ".";
-			this.fundingSource =  new FundingSource(map, newPrefix);
+			
+		CurrencyType charge =  CurrencyType.createInstance(map, prefix + "charge", -1);
+		if (charge != null) {
+			fundingPlanCharge = (fundingPlanCharge == null) ? new FundingPlanCharge() : fundingPlanCharge;
+			fundingPlanCharge.setCharge(charge);
 		}
+		FundingSource fundingSource =  FundingSource.createInstance(map, prefix + "fundingSource", -1);
+		if (fundingSource != null) {
+			fundingPlanCharge = (fundingPlanCharge == null) ? new FundingPlanCharge() : fundingPlanCharge;
+			fundingPlanCharge.setFundingSource(fundingSource);
+		}
+		return fundingPlanCharge;
 	}
-
+ 
 }

@@ -12,6 +12,42 @@
 <body>
 	<h2>Error Page</h2>
 	<%
+		Map<String, String> originalMap = (Map) session
+				.getAttribute("ORIGINAL_MAP");
+		Map<String, String> constructedMap = (Map) session
+				.getAttribute("CONSTRUCTED_MAP");
+		if ((originalMap != null) && (constructedMap != null)) {
+	%>
+	<div id="test_result">
+		Deserialization test result
+		<%=originalMap.equals(constructedMap) ? "<span style='color:GREEN'>SUCCESS</span>"
+						: "<span style='color:RED'>FAILURE</span>"%>
+		<%
+			if (!originalMap.equals(constructedMap)) {
+		%>
+		<div id="test_failures">
+			<ul>
+				<%
+					for (String key : originalMap.keySet()) {
+								if (!originalMap.get(key).equals(
+										constructedMap.get(key))) {
+				%>
+				<li>Key : <%=key%>, Original Value : <%=originalMap.get(key)%>,
+					Constructed Value:<%=constructedMap.get(key)%></li>
+				<%
+					}
+							}
+				%>
+			</ul>
+		</div>
+		<%
+			}
+		%>
+	</div>
+	<%
+		}
+	%>
+	<%
 		List<ErrorData> errorList = (List<ErrorData>) session
 				.getAttribute("Error");
 

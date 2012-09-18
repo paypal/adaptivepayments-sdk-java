@@ -81,32 +81,48 @@ public class GetAvailableShippingAddressesResponse{
 	 
 
 
-	public GetAvailableShippingAddressesResponse(Map<String, String> map, String prefix) {
+	
+	public static GetAvailableShippingAddressesResponse createInstance(Map<String, String> map, String prefix, int index) {
+		GetAvailableShippingAddressesResponse getAvailableShippingAddressesResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
+			getAvailableShippingAddressesResponse.setResponseEnvelope(responseEnvelope);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "availableAddress" + "(" + i + ")" + ".baseAddress.line1")){
-				String newPrefix = prefix + "availableAddress" + "(" + i + ")" + ".";
-				this.availableAddress.add(new Address(map, newPrefix));
+			Address availableAddress =  Address.createInstance(map, prefix + "availableAddress", i);
+			if (availableAddress != null) {
+				getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
+				getAvailableShippingAddressesResponse.getAvailableAddress().add(availableAddress);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				getAvailableShippingAddressesResponse = (getAvailableShippingAddressesResponse == null) ? new GetAvailableShippingAddressesResponse() : getAvailableShippingAddressesResponse;
+				getAvailableShippingAddressesResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return getAvailableShippingAddressesResponse;
 	}
-
+ 
 }

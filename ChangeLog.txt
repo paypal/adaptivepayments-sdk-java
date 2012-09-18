@@ -1,4 +1,11 @@
 
+Version 1.1.93 - August 13, 2012
+ 
+	- SDK refreshed to Release 1.8.1. Please refer https://www.x.com/developers/paypal/documentation-tools/release-notes#AdaptivePaymentsAPI
+	- SDK Core - Deserialization Logic Change
+--------------------------------------------------------------------------------------------------
+
+
 Version 1.0.92 - July 30, 2012
  
 	- Stable release

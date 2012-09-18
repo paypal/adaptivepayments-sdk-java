@@ -12,6 +12,18 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	<filter>
+		<filter-name>TestFilter</filter-name>
+		<filter-class>com.sample.adaptivepayments.filters.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<url-pattern>/Response.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<url-pattern>/Error.jsp</url-pattern>
+	</filter-mapping>
 	<servlet>
 		<description></description>
 		<display-name>ConvertCurrencyServlet</display-name>

@@ -113,23 +113,41 @@ public class FundingSource{
 	 
 
 
-	public FundingSource(Map<String, String> map, String prefix) {
+	
+	public static FundingSource createInstance(Map<String, String> map, String prefix, int index) {
+		FundingSource fundingSource = null;
 		int i = 0;
-		if(map.containsKey(prefix + "lastFourOfAccountNumber")){
-			this.lastFourOfAccountNumber = map.get(prefix + "lastFourOfAccountNumber");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "type")){
-			this.type = map.get(prefix + "type");
+			
+		if (map.containsKey(prefix + "lastFourOfAccountNumber")) {
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.setLastFourOfAccountNumber(map.get(prefix + "lastFourOfAccountNumber"));
 		}
-		if(map.containsKey(prefix + "displayName")){
-			this.displayName = map.get(prefix + "displayName");
+		if (map.containsKey(prefix + "type")) {
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.setType(map.get(prefix + "type"));
 		}
-		if(map.containsKey(prefix + "fundingSourceId")){
-			this.fundingSourceId = map.get(prefix + "fundingSourceId");
+		if (map.containsKey(prefix + "displayName")) {
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.setDisplayName(map.get(prefix + "displayName"));
 		}
-		if(map.containsKey(prefix + "allowed")){
-			this.allowed = Boolean.valueOf(map.get(prefix + "allowed"));
+		if (map.containsKey(prefix + "fundingSourceId")) {
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.setFundingSourceId(map.get(prefix + "fundingSourceId"));
 		}
+		if (map.containsKey(prefix + "allowed")) {
+				fundingSource = (fundingSource == null) ? new FundingSource() : fundingSource;
+				fundingSource.setAllowed(Boolean.valueOf(map.get(prefix + "allowed")));
+		}
+		return fundingSource;
 	}
-
+ 
 }

@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <project name="adaptivepayments-sample" default="war">
 
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="ext-lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
 	<property environment="env" />
 	<property file="../../build.properties" />
 	<property name="parent.lib" value="../../lib" />
@@ -11,7 +16,7 @@
 			<include name="*.jar" />
 		</fileset>
 		<fileset dir="ext-lib">
-			<include name="*.jar" />
+			<include name="servlet-api.jar" />
 		</fileset>
 	</path>
 
@@ -46,12 +51,23 @@
 	</target>
 
 	<target name="war" depends="compile">
+		<if>
+			<isset property="env.DIST_MODE" />
+			<then>
+				<property name="dist.mode" value="${env.DIST_MODE}" />
+			</then>
+			<else>
+				<echo message="environment variable DIST_MODE(development/production) not set; defaulting to production" />
+				<property name="dist.mode" value="production" />
+			</else>
+		</if>
+		<echo message="distribution mode set to ${dist.mode}" />
+		<copy overwrite="true" file="resources/${dist.mode}/web.xml" todir="WebContent/WEB-INF/" />
 		<war destfile="dist/adaptivepayments-sample.war" webxml="WebContent/WEB-INF/web.xml">
 			<fileset dir="WebContent" />
-			<lib dir="WebContent/WEB-INF/lib" />
 			<classes dir="build/classes" />
 		</war>
-        <delete dir="build" />
+		<delete dir="build" />
 	</target>
 
 	<target name="clean">

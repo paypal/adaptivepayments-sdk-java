@@ -153,25 +153,43 @@ public class ReceiverOptions{
 		}
 		return sb.toString();
 	}
-	public ReceiverOptions(Map<String, String> map, String prefix) {
+	
+	public static ReceiverOptions createInstance(Map<String, String> map, String prefix, int index) {
+		ReceiverOptions receiverOptions = null;
 		int i = 0;
-		if(map.containsKey(prefix + "description")){
-			this.description = map.get(prefix + "description");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "customId")){
-			this.customId = map.get(prefix + "customId");
+			
+		if (map.containsKey(prefix + "description")) {
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.setDescription(map.get(prefix + "description"));
 		}
-		if(map.containsKey(prefix + "invoiceData.item(0).name")){ 
-			String newPrefix = prefix + "invoiceData" + ".";
-			this.invoiceData =  new InvoiceData(map, newPrefix);
+		if (map.containsKey(prefix + "customId")) {
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.setCustomId(map.get(prefix + "customId"));
 		}
-		if(map.containsKey(prefix + "receiver"+".email") || map.containsKey(prefix + "receiver"+".phone.countryCode")){
-			String newPrefix = prefix + "receiver" + ".";
-			this.receiver =  new ReceiverIdentifier(map, newPrefix);
+		InvoiceData invoiceData =  InvoiceData.createInstance(map, prefix + "invoiceData", -1);
+		if (invoiceData != null) {
+			receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+			receiverOptions.setInvoiceData(invoiceData);
 		}
-		if(map.containsKey(prefix + "referrerCode")){
-			this.referrerCode = map.get(prefix + "referrerCode");
+		ReceiverIdentifier receiver =  ReceiverIdentifier.createInstance(map, prefix + "receiver", -1);
+		if (receiver != null) {
+			receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+			receiverOptions.setReceiver(receiver);
 		}
+		if (map.containsKey(prefix + "referrerCode")) {
+				receiverOptions = (receiverOptions == null) ? new ReceiverOptions() : receiverOptions;
+				receiverOptions.setReferrerCode(map.get(prefix + "referrerCode"));
+		}
+		return receiverOptions;
 	}
-
+ 
 }

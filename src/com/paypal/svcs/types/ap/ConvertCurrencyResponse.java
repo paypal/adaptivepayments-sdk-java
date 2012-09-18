@@ -82,26 +82,42 @@ public class ConvertCurrencyResponse{
 	 
 
 
-	public ConvertCurrencyResponse(Map<String, String> map, String prefix) {
+	
+	public static ConvertCurrencyResponse createInstance(Map<String, String> map, String prefix, int index) {
+		ConvertCurrencyResponse convertCurrencyResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "estimatedAmountTable" + ".currencyConversionList(0).baseAmount.code")){
-			String newPrefix = prefix + "estimatedAmountTable" + ".";
-			this.estimatedAmountTable =  new CurrencyConversionTable(map, newPrefix);
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
+			convertCurrencyResponse.setResponseEnvelope(responseEnvelope);
+		}
+		CurrencyConversionTable estimatedAmountTable =  CurrencyConversionTable.createInstance(map, prefix + "estimatedAmountTable", -1);
+		if (estimatedAmountTable != null) {
+			convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
+			convertCurrencyResponse.setEstimatedAmountTable(estimatedAmountTable);
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				convertCurrencyResponse = (convertCurrencyResponse == null) ? new ConvertCurrencyResponse() : convertCurrencyResponse;
+				convertCurrencyResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return convertCurrencyResponse;
 	}
-
+ 
 }

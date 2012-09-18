@@ -80,25 +80,41 @@ public class PreapprovalResponse{
 	 
 
 
-	public PreapprovalResponse(Map<String, String> map, String prefix) {
+	
+	public static PreapprovalResponse createInstance(Map<String, String> map, String prefix, int index) {
+		PreapprovalResponse preapprovalResponse = null;
 		int i = 0;
-		if(map.containsKey(prefix + "responseEnvelope" + ".timestamp")){
-			String newPrefix = prefix + "responseEnvelope" + ".";
-			this.responseEnvelope =  new ResponseEnvelope(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "preapprovalKey")){
-			this.preapprovalKey = map.get(prefix + "preapprovalKey");
+			
+		ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+		if (responseEnvelope != null) {
+			preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
+			preapprovalResponse.setResponseEnvelope(responseEnvelope);
+		}
+		if (map.containsKey(prefix + "preapprovalKey")) {
+				preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
+				preapprovalResponse.setPreapprovalKey(map.get(prefix + "preapprovalKey"));
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "error" + "(" + i + ")" + ".errorId")){
-				String newPrefix = prefix + "error" + "(" + i + ")" + ".";
-				this.error.add(new ErrorData(map, newPrefix));
+			ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+			if (error != null) {
+				preapprovalResponse = (preapprovalResponse == null) ? new PreapprovalResponse() : preapprovalResponse;
+				preapprovalResponse.getError().add(error);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return preapprovalResponse;
 	}
-
+ 
 }

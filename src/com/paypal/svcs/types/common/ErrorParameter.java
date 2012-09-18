@@ -57,14 +57,29 @@ public class ErrorParameter{
 	 
 
 
-	public ErrorParameter(Map<String, String> map, String prefix) {
+	
+	public static ErrorParameter createInstance(Map<String, String> map, String prefix, int index) {
+		ErrorParameter errorParameter = null;
 		int i = 0;
-		if(map.containsKey(prefix + ".name")){
-			this.name = map.get(prefix + ".name");
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix)){
-			this.value = map.get(prefix);
+			
+		if (map.containsKey(prefix + "name")) {
+				errorParameter = (errorParameter == null) ? new ErrorParameter() : errorParameter;
+				errorParameter.setName(map.get(prefix + "name"));
 		}
+		if (map.containsKey(prefix.substring(0, prefix.length() - 1))) {
+				errorParameter = (errorParameter == null) ? new ErrorParameter() : errorParameter;
+				errorParameter.setValue(map.get(prefix.substring(0, prefix.length() - 1)));
+		}
+		return errorParameter;
 	}
-
+ 
 }

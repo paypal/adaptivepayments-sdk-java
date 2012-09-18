@@ -14,8 +14,7 @@ public class ErrorData{
 
 
 	/**
-	 * 	  
-	 *@Required	 
+	 * 	 
 	 */ 
 	private Integer errorId;
 
@@ -176,39 +175,60 @@ public class ErrorData{
 	 
 
 
-	public ErrorData(Map<String, String> map, String prefix) {
+	
+	public static ErrorData createInstance(Map<String, String> map, String prefix, int index) {
+		ErrorData errorData = null;
 		int i = 0;
-		if(map.containsKey(prefix + "errorId")){
-			this.errorId = Integer.valueOf(map.get(prefix + "errorId"));
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "domain")){
-			this.domain = map.get(prefix + "domain");
+			
+		if (map.containsKey(prefix + "errorId")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setErrorId(Integer.valueOf(map.get(prefix + "errorId")));
 		}
-		if(map.containsKey(prefix + "subdomain")){
-			this.subdomain = map.get(prefix + "subdomain");
+		if (map.containsKey(prefix + "domain")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setDomain(map.get(prefix + "domain"));
 		}
-		if(map.containsKey(prefix + "severity")){
-			this.severity = ErrorSeverity.fromValue(map.get(prefix + "severity"));
+		if (map.containsKey(prefix + "subdomain")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setSubdomain(map.get(prefix + "subdomain"));
 		}
-		if(map.containsKey(prefix + "category")){
-			this.category = ErrorCategory.fromValue(map.get(prefix + "category"));
+		if (map.containsKey(prefix + "severity")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setSeverity(ErrorSeverity.fromValue(map.get(prefix + "severity")));
 		}
-		if(map.containsKey(prefix + "message")){
-			this.message = map.get(prefix + "message");
+		if (map.containsKey(prefix + "category")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setCategory(ErrorCategory.fromValue(map.get(prefix + "category")));
 		}
-		if(map.containsKey(prefix + "exceptionId")){
-			this.exceptionId = map.get(prefix + "exceptionId");
+		if (map.containsKey(prefix + "message")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setMessage(map.get(prefix + "message"));
+		}
+		if (map.containsKey(prefix + "exceptionId")) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.setExceptionId(map.get(prefix + "exceptionId"));
 		}
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "parameter" + "(" + i + ")")){
-				String newPrefix = prefix + "parameter" + "(" + i + ")";
-				this.parameter.add(new ErrorParameter(map, newPrefix));
+			ErrorParameter parameter =  ErrorParameter.createInstance(map, prefix + "parameter", i);
+			if (parameter != null) {
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.getParameter().add(parameter);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
+		return errorData;
 	}
-
+ 
 }

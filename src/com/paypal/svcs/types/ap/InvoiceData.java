@@ -102,24 +102,40 @@ public class InvoiceData{
 		}
 		return sb.toString();
 	}
-	public InvoiceData(Map<String, String> map, String prefix) {
+	
+	public static InvoiceData createInstance(Map<String, String> map, String prefix, int index) {
+		InvoiceData invoiceData = null;
 		int i = 0;
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
+		}
+			
 		i = 0;
 		while(true) {
-			if(map.containsKey(prefix + "item" + "(" + i + ")" + ".name")){
-				String newPrefix = prefix + "item" + "(" + i + ")" + ".";
-				this.item.add(new InvoiceItem(map, newPrefix));
+			InvoiceItem item =  InvoiceItem.createInstance(map, prefix + "item", i);
+			if (item != null) {
+				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
+				invoiceData.getItem().add(item);
+				i++;
 			} else {
 				break;
 			}
-			i++;
 		}
-		if(map.containsKey(prefix + "totalTax")){
-			this.totalTax = Double.valueOf(map.get(prefix + "totalTax"));
+		if (map.containsKey(prefix + "totalTax")) {
+				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
+				invoiceData.setTotalTax(Double.valueOf(map.get(prefix + "totalTax")));
 		}
-		if(map.containsKey(prefix + "totalShipping")){
-			this.totalShipping = Double.valueOf(map.get(prefix + "totalShipping"));
+		if (map.containsKey(prefix + "totalShipping")) {
+				invoiceData = (invoiceData == null) ? new InvoiceData() : invoiceData;
+				invoiceData.setTotalShipping(Double.valueOf(map.get(prefix + "totalShipping")));
 		}
+		return invoiceData;
 	}
-
+ 
 }

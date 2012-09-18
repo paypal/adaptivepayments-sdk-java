@@ -211,40 +211,63 @@ public class RefundInfo{
 	 
 
 
-	public RefundInfo(Map<String, String> map, String prefix) {
+	
+	public static RefundInfo createInstance(Map<String, String> map, String prefix, int index) {
+		RefundInfo refundInfo = null;
 		int i = 0;
-		if(map.containsKey(prefix + "receiver" + ".amount")){
-			String newPrefix = prefix + "receiver" + ".";
-			this.receiver =  new Receiver(map, newPrefix);
+		if (index != -1) {
+				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+					prefix = prefix + "(" + index + ").";
+				}
+		} else {
+			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				prefix = prefix + ".";
+			}
 		}
-		if(map.containsKey(prefix + "refundStatus")){
-			this.refundStatus = map.get(prefix + "refundStatus");
+			
+		Receiver receiver =  Receiver.createInstance(map, prefix + "receiver", -1);
+		if (receiver != null) {
+			refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+			refundInfo.setReceiver(receiver);
 		}
-		if(map.containsKey(prefix + "refundNetAmount")){
-			this.refundNetAmount = Double.valueOf(map.get(prefix + "refundNetAmount"));
+		if (map.containsKey(prefix + "refundStatus")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setRefundStatus(map.get(prefix + "refundStatus"));
 		}
-		if(map.containsKey(prefix + "refundFeeAmount")){
-			this.refundFeeAmount = Double.valueOf(map.get(prefix + "refundFeeAmount"));
+		if (map.containsKey(prefix + "refundNetAmount")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setRefundNetAmount(Double.valueOf(map.get(prefix + "refundNetAmount")));
 		}
-		if(map.containsKey(prefix + "refundGrossAmount")){
-			this.refundGrossAmount = Double.valueOf(map.get(prefix + "refundGrossAmount"));
+		if (map.containsKey(prefix + "refundFeeAmount")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setRefundFeeAmount(Double.valueOf(map.get(prefix + "refundFeeAmount")));
 		}
-		if(map.containsKey(prefix + "totalOfAllRefunds")){
-			this.totalOfAllRefunds = Double.valueOf(map.get(prefix + "totalOfAllRefunds"));
+		if (map.containsKey(prefix + "refundGrossAmount")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setRefundGrossAmount(Double.valueOf(map.get(prefix + "refundGrossAmount")));
 		}
-		if(map.containsKey(prefix + "refundHasBecomeFull")){
-			this.refundHasBecomeFull = Boolean.valueOf(map.get(prefix + "refundHasBecomeFull"));
+		if (map.containsKey(prefix + "totalOfAllRefunds")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setTotalOfAllRefunds(Double.valueOf(map.get(prefix + "totalOfAllRefunds")));
 		}
-		if(map.containsKey(prefix + "encryptedRefundTransactionId")){
-			this.encryptedRefundTransactionId = map.get(prefix + "encryptedRefundTransactionId");
+		if (map.containsKey(prefix + "refundHasBecomeFull")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setRefundHasBecomeFull(Boolean.valueOf(map.get(prefix + "refundHasBecomeFull")));
 		}
-		if(map.containsKey(prefix + "refundTransactionStatus")){
-			this.refundTransactionStatus = map.get(prefix + "refundTransactionStatus");
+		if (map.containsKey(prefix + "encryptedRefundTransactionId")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setEncryptedRefundTransactionId(map.get(prefix + "encryptedRefundTransactionId"));
 		}
-		if(map.containsKey(prefix + "errorList" + ".error(0).errorId")){
-			String newPrefix = prefix + "errorList" + ".";
-			this.errorList =  new ErrorList(map, newPrefix);
+		if (map.containsKey(prefix + "refundTransactionStatus")) {
+				refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+				refundInfo.setRefundTransactionStatus(map.get(prefix + "refundTransactionStatus"));
 		}
+		ErrorList errorList =  ErrorList.createInstance(map, prefix + "errorList", -1);
+		if (errorList != null) {
+			refundInfo = (refundInfo == null) ? new RefundInfo() : refundInfo;
+			refundInfo.setErrorList(errorList);
+		}
+		return refundInfo;
 	}
-
+ 
 }
