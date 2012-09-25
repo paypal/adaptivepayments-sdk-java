@@ -50,7 +50,7 @@
 						<tr>
 							<th class="param_name">Amount*(Double)</th>
 							<th class="param_name">E-mail</th>
-							<th class="param_name">Primary Receiver???</th>
+							<th class="param_name">Primary Receiver</th>
 							<th class="param_name">Invoice ID</th>
 
 						</tr>

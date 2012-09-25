@@ -56,7 +56,7 @@
 						<tr>
 							<th class="param_name">Amount*(Double)</th>
 							<th class="param_name">E-mail</th>
-							<th class="param_name">Primary Receiver???</th>
+							<th class="param_name">Primary Receiver</th>
 							<th class="param_name">Payment Type</th>
 							<th class="param_name">Payment Sub Type</th>
 							<th class="param_name">Invoice ID</th>
@@ -102,7 +102,7 @@
 					<div class="params">
 						<div class="param_name">Sender Identifier Mail</div>
 						<div class="param_value">
-							<input type="text" name="senderMail" value="" />
+							<input type="text" name="senderIdentifierEmail" value="" />
 						</div>
 					</div>
 					<div class="param_name">Sender Phone</div>
