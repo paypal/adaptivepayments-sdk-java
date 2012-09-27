@@ -123,11 +123,16 @@ public abstract class HttpConnection {
 						"retry fails..  check log for more information");
 			}
 		} finally {
-			if (reader != null) {
-				reader.close();
-			}
-			if (writer != null) {
-				writer.close();
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+				if (writer != null) {
+					writer.close();
+				}
+			} finally {
+				reader = null;
+				writer = null;
 			}
 		}
 		return successResponse;

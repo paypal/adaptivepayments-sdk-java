@@ -199,9 +199,7 @@ public class SDKUtil {
 											LESSERTHAN))
 									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
 					.replaceAll(APOSTROPHE);
-		} else {
-			response = textContent;
-		}
+		} 
 		return response;
 	}
 

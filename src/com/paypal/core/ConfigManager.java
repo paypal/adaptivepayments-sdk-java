@@ -56,7 +56,8 @@ public final class ConfigManager {
 	 * @return Enumeration of keys from configuration property file.
 	 */
 	private Enumeration<Object> loadKeys() {
-		return properties.keys();
+		em = properties.keys();
+		return em;
 	}
 
 	/**
