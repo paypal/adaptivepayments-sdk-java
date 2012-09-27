@@ -14,7 +14,7 @@ import com.paypal.sdk.util.OAuthSignature;
 
 /**
  * @author lvairamani
- *
+ * 
  */
 public class AuthenticationService {
 	private Map<String, String> headers = new HashMap<String, String>();
@@ -44,8 +44,8 @@ public class AuthenticationService {
 		apiCred = cred.getCredentialObject(apiUsername);
 		config = ConfigManager.getInstance();
 		/* Add headers required for service authentication */
-		if ((Constants.EMPTY_STRING != accessToken && accessToken != null)
-				&& (Constants.EMPTY_STRING != tokenSecret && tokenSecret != null)) {
+		if ((accessToken != null && accessToken.length() == 0)
+				&& (tokenSecret != null && tokenSecret.length() == 0)) {
 			authString = generateAuthString(apiCred, accessToken, tokenSecret,
 					httpConfiguration.getEndPointUrl());
 			headers.put("X-PAYPAL-AUTHORIZATION", authString);
@@ -97,8 +97,8 @@ public class AuthenticationService {
 
 		StringBuffer soapMsg = new StringBuffer(
 				"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:ebay:api:PayPalAPI\" xmlns:ebl=\"urn:ebay:apis:eBLBaseComponents\" xmlns:cc=\"urn:ebay:apis:CoreComponentTypes\" xmlns:ed=\"urn:ebay:apis:EnhancedDataTypes\">");
-		if ((Constants.EMPTY_STRING != accessToken && accessToken != null)
-				&& (Constants.EMPTY_STRING != tokenSecret && tokenSecret != null)) {
+		if ((accessToken != null && accessToken.length() == 0)
+				&& (tokenSecret != null && tokenSecret.length() == 0)) {
 			soapMsg.append("<soapenv:Header>");
 			soapMsg.append("<urn:RequesterCredentials/>");
 			soapMsg.append("</soapenv:Header>");

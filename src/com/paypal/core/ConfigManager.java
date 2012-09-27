@@ -3,10 +3,11 @@ package com.paypal.core;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.HashMap;
 
 /**
  * 
@@ -75,9 +76,9 @@ public final class ConfigManager {
 	 * (eg: acct)
 	 * 
 	 * @param category
-	 * @return HashMap
+	 * @return Map
 	 */
-	public HashMap<String, String> getValuesByCategory(String category) {
+	public Map<String, String> getValuesByCategory(String category) {
 		loadKeys();
 		String key = Constants.EMPTY_STRING;
 		HashMap<String, String> map = new HashMap<String, String>();
