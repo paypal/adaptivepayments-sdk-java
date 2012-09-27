@@ -106,7 +106,7 @@ public class SDKUtil {
 	 * @return Replaced text
 	 */
 	public static String escapeInvalidXmlCharsRegex(String textContent) {
-		String response = null;
+		String response = "";
 		if (textContent != null && !textContent.isEmpty()) {
 			response = APOSTROPHE_REPLACE.matcher(
 					QUOT_REPLACE.matcher(
@@ -135,16 +135,7 @@ public class SDKUtil {
 		String textContent = null;
 		if (intContent != null) {
 			textContent = intContent.toString();
-			response = APOSTROPHE_REPLACE.matcher(
-					QUOT_REPLACE.matcher(
-							GREATERTHAN_REPLACE.matcher(
-									LESSERTHAN_REPLACE.matcher(
-											AMPERSAND_REPLACE.matcher(
-													textContent).replaceAll(
-													AMPERSAND)).replaceAll(
-											LESSERTHAN))
-									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
-					.replaceAll(APOSTROPHE);
+			response = escapeInvalidXmlCharsRegex(textContent);
 		}
 		return response;
 	}
@@ -162,16 +153,7 @@ public class SDKUtil {
 		String textContent = null;
 		if (boolContent != null) {
 			textContent = boolContent.toString();
-			response = APOSTROPHE_REPLACE.matcher(
-					QUOT_REPLACE.matcher(
-							GREATERTHAN_REPLACE.matcher(
-									LESSERTHAN_REPLACE.matcher(
-											AMPERSAND_REPLACE.matcher(
-													textContent).replaceAll(
-													AMPERSAND)).replaceAll(
-											LESSERTHAN))
-									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
-					.replaceAll(APOSTROPHE);
+			response = escapeInvalidXmlCharsRegex(textContent);
 		}
 		return response;
 	}
@@ -189,16 +171,7 @@ public class SDKUtil {
 		String textContent = null;
 		if (doubleContent != null) {
 			textContent = doubleContent.toString();
-			response = APOSTROPHE_REPLACE.matcher(
-					QUOT_REPLACE.matcher(
-							GREATERTHAN_REPLACE.matcher(
-									LESSERTHAN_REPLACE.matcher(
-											AMPERSAND_REPLACE.matcher(
-													textContent).replaceAll(
-													AMPERSAND)).replaceAll(
-											LESSERTHAN))
-									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
-					.replaceAll(APOSTROPHE);
+			response = escapeInvalidXmlCharsRegex(textContent);
 		} 
 		return response;
 	}
