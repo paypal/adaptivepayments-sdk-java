@@ -7,7 +7,7 @@ import java.util.Set;
 import com.paypal.exception.InvalidCredentialException;
 import com.paypal.exception.MissingCredentialException;
 
-public class CredentialManager {
+public final class CredentialManager {
 	private static CredentialManager instance = null;
 
 	private Map<String, ICredential> credentialMap = new HashMap<String, ICredential>();
@@ -81,10 +81,11 @@ public class CredentialManager {
 	public ICredential getCredentialObject(String userId)
 			throws InvalidCredentialException {
 		ICredential credObj = null;
-		if (userId == null)
+		if (userId == null) {
 			credObj = (ICredential) credentialMap.get(defaultAcctName);
-		else if (credentialMap.containsKey(userId))
+		} else if (credentialMap.containsKey(userId)) {
 			credObj = (ICredential) credentialMap.get(userId);
+		}
 		if (credObj == null) {
 			throw new InvalidCredentialException("Invalid userId" + userId);
 		}

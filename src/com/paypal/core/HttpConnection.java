@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.MalformedURLException;
-import java.net.UnknownHostException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -17,16 +15,18 @@ import com.paypal.exception.InvalidResponseDataException;
 import com.paypal.exception.SSLConfigurationException;
 
 public abstract class HttpConnection {
-	
+
 	protected boolean defaultSSL = true;
-	
+
 	/**
-	 * Subclasses must set the http configuration in the CreateAndconfigureHttpConnection() method.
+	 * Subclasses must set the http configuration in the
+	 * createAndconfigureHttpConnection() method.
 	 */
 	protected HttpConfiguration config;
-	
+
 	/**
-	 * Subclasses must create and set the connection in the CreateAndconfigureHttpConnection() method.
+	 * Subclasses must create and set the connection in the
+	 * createAndconfigureHttpConnection() method.
 	 */
 	protected HttpURLConnection connection;
 
@@ -43,17 +43,17 @@ public abstract class HttpConnection {
 	 * @throws HttpErrorException
 	 * @throws ClientActionRequiredException
 	 */
-	public String execute(String url, String payload, Map<String, String> headers)
-			throws InvalidResponseDataException, IOException,
-			InterruptedException, HttpErrorException,
+	public String execute(String url, String payload,
+			Map<String, String> headers) throws InvalidResponseDataException,
+			IOException, InterruptedException, HttpErrorException,
 			ClientActionRequiredException {
-		
+
 		String successResponse = Constants.EMPTY_STRING;
 		String errorResponse = Constants.EMPTY_STRING;
 		BufferedReader reader = null;
 		OutputStreamWriter writer = null;
 		connection.setRequestProperty("Content-Length", "" + payload.length());
-		if(headers != null){
+		if (headers != null) {
 			setHttpHeaders(this.connection, headers);
 		}
 		try {
@@ -72,16 +72,14 @@ public abstract class HttpConnection {
 				try {
 					writer = new OutputStreamWriter(
 							this.connection.getOutputStream());
-					writer.write(payload.toString());
+					writer.write(payload);
 					writer.flush();
-					writer.close();
 					int responsecode = connection.getResponseCode();
 					reader = new BufferedReader(new InputStreamReader(
 							connection.getInputStream(),
 							Constants.ENCODING_FORMAT));
 					if (responsecode == 200) {
 						successResponse = read(reader);
-						reader.close();
 						LoggingManager.debug(HttpConnection.class,
 								"Response : " + successResponse);
 						if (successResponse.length() <= 0) {
@@ -91,7 +89,6 @@ public abstract class HttpConnection {
 						break;
 					} else {
 						successResponse = read(reader);
-						reader.close();
 						throw new ClientActionRequiredException(
 								"Response Code : " + responsecode
 										+ " with response : " + successResponse);
@@ -105,7 +102,6 @@ public abstract class HttpConnection {
 									connection.getErrorStream(),
 									Constants.ENCODING_FORMAT));
 							errorResponse = read(reader);
-							reader.close();
 							LoggingManager.severe(HttpConnection.class,
 									"Error code : " + responsecode
 											+ " with response : "
@@ -148,23 +144,23 @@ public abstract class HttpConnection {
 			throws SSLConfigurationException;
 
 	/**
-	 * Create and configure HttpsURLConnection object
+	 * create and configure HttpsURLConnection object
 	 * 
 	 * @param clientConfiguration
 	 * @throws MalformedURLException
 	 * @throws IOException
 	 */
-	public abstract void CreateAndconfigureHttpConnection(HttpConfiguration clientConfiguration)
-			throws MalformedURLException, UnknownHostException, IOException;
+	public abstract void createAndconfigureHttpConnection(
+			HttpConfiguration clientConfiguration) throws IOException;
 
-	public boolean isDefaultSSL(){
+	public boolean isDefaultSSL() {
 		return defaultSSL;
 	}
 
-	public void setDefaultSSL(boolean defaultSSL){
+	public void setDefaultSSL(boolean defaultSSL) {
 		this.defaultSSL = defaultSSL;
 	}
-	
+
 	protected String read(BufferedReader reader) throws IOException {
 		String inputLine = Constants.EMPTY_STRING;
 		StringBuilder response = new StringBuilder();

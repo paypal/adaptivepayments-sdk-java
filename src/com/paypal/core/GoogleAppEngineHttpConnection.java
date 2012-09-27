@@ -2,17 +2,16 @@ package com.paypal.core;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 import com.paypal.exception.SSLConfigurationException;
 
 /**
  * A special HttpConnection for use on Google App Engine.
  * 
- * In order to activate this feature, set 'http.GoogleAppEngine = true' in the SDK config file.
+ * In order to activate this feature, set 'http.GoogleAppEngine = true' in the
+ * SDK config file.
  * 
  * @author Benjamin Possolo
  */
@@ -26,11 +25,11 @@ public class GoogleAppEngineHttpConnection extends HttpConnection {
 	}
 
 	@Override
-	public void CreateAndconfigureHttpConnection(HttpConfiguration clientConfiguration)
-			throws MalformedURLException, UnknownHostException, IOException {
-		
+	public void createAndconfigureHttpConnection(
+			HttpConfiguration clientConfiguration) throws IOException {
+
 		this.config = clientConfiguration;
-		
+
 		URL url = new URL(this.config.getEndPointUrl());
 		
 		//Google App Engine does not support the javax.net.ssl.HttpsURLConnection class.
