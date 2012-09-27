@@ -28,8 +28,8 @@ public class AuthenticationService {
 	 * @param connection
 	 * @param accessToken
 	 * @param tokenSecret
-	 * @param config
-	 * @return
+	 * @param httpConfiguration
+	 * @return map of HTTP headers to be added to request
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws MissingCredentialException
