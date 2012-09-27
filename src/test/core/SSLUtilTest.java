@@ -23,8 +23,7 @@ public class SSLUtilTest {
 
 	@Test
 	public void getDefaultSSLContextTest() throws SSLConfigurationException {
-		Assert.assertNotNull(SSLUtil.getDefaultSSLContext(true));
-		Assert.assertNotNull(SSLUtil.getDefaultSSLContext(false));
+		Assert.assertNotNull(SSLUtil.getDefaultSSLContext());
 	}
 
 	@Test
@@ -37,8 +36,7 @@ public class SSLUtilTest {
 		KeyStore ks = SSLUtil.p12ToKeyStore(UnitTestConstants.CERT_PATH,
 				UnitTestConstants.CERT_PASSWORD);
 		kmf.init(ks, UnitTestConstants.CERT_PASSWORD.toCharArray());
-		Assert.assertNotNull(SSLUtil.getSSLContext(kmf.getKeyManagers(), true));
-		Assert.assertNotNull(SSLUtil.getSSLContext(kmf.getKeyManagers(), false));
+		Assert.assertNotNull(SSLUtil.getSSLContext(kmf.getKeyManagers()));
 	}
 
 	@Test
@@ -52,13 +50,12 @@ public class SSLUtilTest {
 	@Test
 	public void setupClientSSLTest() throws SSLConfigurationException {
 		Assert.assertNotNull(SSLUtil.setupClientSSL(
-				UnitTestConstants.CERT_PATH, UnitTestConstants.CERT_PASSWORD,
-				true));
+				UnitTestConstants.CERT_PATH, UnitTestConstants.CERT_PASSWORD));
 	}
 
 	@Test(expectedExceptions = SSLConfigurationException.class)
 	public void setupClientSSLExceptionTest() throws Exception {
 		Assert.assertNotNull(SSLUtil.setupClientSSL("src/sdk_cert.p12",
-				UnitTestConstants.CERT_PASSWORD, true));
+				UnitTestConstants.CERT_PASSWORD));
 	}
 }

@@ -27,14 +27,13 @@ public class DefaultHttpConnection extends HttpConnection {
 	private SSLContext sslContext;
 
 	@Override
-	public void setupClientSSL(String certPath, String certKey, boolean trustAll)
+	public void setupClientSSL(String certPath, String certKey)
 			throws SSLConfigurationException {
 		try {
 			if (isDefaultSSL()) {
-				this.sslContext = SSLUtil.getDefaultSSLContext(trustAll);
+				this.sslContext = SSLUtil.getDefaultSSLContext();
 			} else {
-				this.sslContext = SSLUtil.setupClientSSL(certPath, certKey,
-						trustAll);
+				this.sslContext = SSLUtil.setupClientSSL(certPath, certKey);
 			}
 		} catch (Exception e) {
 			throw new SSLConfigurationException(e.getMessage(), e);

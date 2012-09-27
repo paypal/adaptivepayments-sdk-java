@@ -133,8 +133,6 @@ public class BaseService {
 	 *            (request parameters)
 	 * @param apiUsername
 	 *            (PayPal account)
-	 * @param tokenSecret
-	 * @param accessToken
 	 * @return String response
 	 * @throws HttpErrorException
 	 * @throws InterruptedException

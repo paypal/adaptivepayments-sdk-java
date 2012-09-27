@@ -20,7 +20,6 @@ public class HttpConfiguration {
 	private String endPointUrl;
 	private boolean googleAppEngine;
 
-	private boolean trustAll;
 	private int retryDelay;
 	private String ipAddress;
 
@@ -53,8 +52,6 @@ public class HttpConfiguration {
 		this.maxHttpConnection = 10;
 
 		this.endPointUrl = null;
-
-		this.trustAll = true;
 
 		this.retryDelay = 1000;
 		this.ipAddress = "127.0.0.1";
@@ -90,14 +87,6 @@ public class HttpConfiguration {
 
 	public void setRetryDelay(int retryDelay) {
 		this.retryDelay = retryDelay;
-	}
-
-	public boolean isTrustAll() {
-		return trustAll;
-	}
-
-	public void setTrustAll(boolean trustAll) {
-		this.trustAll = trustAll;
 	}
 
 	public String getEndPointUrl() {

@@ -31,7 +31,7 @@ public class HttpConnectionTest {
 	@Test(dataProvider = "configParams", dataProviderClass = DataProviderClass.class)
 	public void setupClientSSLTest(ConfigManager conf)
 			throws SSLConfigurationException {
-		connection.setupClientSSL(null, null, true);
+		connection.setupClientSSL(null, null);
 		if (Boolean.parseBoolean(conf.getValue("http.UseProxy"))) {
 			httpConfiguration.setProxyHost(conf.getValue("http.ProxyHost"));
 			httpConfiguration.setProxyPassword(conf

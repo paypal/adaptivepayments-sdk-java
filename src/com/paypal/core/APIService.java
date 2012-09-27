@@ -38,9 +38,6 @@ public class APIService {
 		config = ConfigManager.getInstance();
 		endPoint = config.getValue("service.EndPoint");
 		serviceBinding = config.getValue("service.Binding");
-		httpConfiguration.setTrustAll(Boolean.parseBoolean(config
-				.getValue("http.TrustAllConnection")));
-
 		httpConfiguration.setGoogleAppEngine(Boolean.parseBoolean(config.getValue("http.GoogleAppEngine")));
 		
 		try {
