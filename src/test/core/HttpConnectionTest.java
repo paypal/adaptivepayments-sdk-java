@@ -46,7 +46,7 @@ public class HttpConnectionTest {
 	@Test(expectedExceptions = MalformedURLException.class)
 	public void checkMalformedURLExceptionTest() throws Exception {
 		httpConfiguration.setEndPointUrl("ww.paypal.in");
-		connection.CreateAndconfigureHttpConnection(httpConfiguration);
+		connection.createAndconfigureHttpConnection(httpConfiguration);
 	}
 
 	@Test(expectedExceptions = InvocationTargetException.class)

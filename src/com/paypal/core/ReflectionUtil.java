@@ -9,10 +9,12 @@ import java.util.Map;
 
 public class ReflectionUtil {
 
-	public static Map<String, String> decodeResponseObject(Object responseType, String prefix) {
+	public static Map<String, String> decodeResponseObject(Object responseType,
+			String prefix) {
 		Map<String, String> returnMap = new HashMap<String, String>();
-		Map<String, Object> rMap = ReflectionUtil.generateMapFromResponse(responseType, "");
-		if(rMap != null && rMap.size() > 0) {
+		Map<String, Object> rMap = ReflectionUtil.generateMapFromResponse(
+				responseType, "");
+		if (rMap != null && rMap.size() > 0) {
 			for (String key : rMap.keySet()) {
 				returnMap.put(key, rMap.get(key).toString());
 			}
@@ -20,8 +22,8 @@ public class ReflectionUtil {
 		return returnMap;
 	}
 
-	public static Map<String, Object> generateMapFromResponse(Object responseType,
-			String prefix) {
+	public static Map<String, Object> generateMapFromResponse(
+			Object responseType, String prefix) {
 
 		if (responseType == null) {
 			return null;
@@ -63,22 +65,27 @@ public class ReflectionUtil {
 									List listObj = (List) returnObject;
 									int i = 0;
 									for (Object o : listObj) {
-										if (o.getClass().getPackage().getName().contains("com.paypal")) {
+										if (o.getClass().getPackage().getName()
+												.contains("com.paypal")) {
 											responseMap
-											.putAll(generateMapFromResponse(
-													o, propertyName + "(" + i
-															+ ")"));
+													.putAll(generateMapFromResponse(
+															o, propertyName
+																	+ "(" + i
+																	+ ")"));
 										} else {
-											responseMap.put(propertyName + "(" + i
-													+ ")", o);
+											responseMap.put(propertyName + "("
+													+ i + ")", o);
 										}
 										i++;
 									}
 
 								} else if (returnObject != null) {
-									if(responseType.getClass().getSimpleName().equalsIgnoreCase("ErrorParameter") &&
-											propertyName.endsWith("value")) {
-										propertyName = propertyName.substring(0, propertyName.lastIndexOf("."));
+									if (responseType.getClass().getSimpleName()
+											.equalsIgnoreCase("ErrorParameter")
+											&& propertyName.endsWith("value")) {
+										propertyName = propertyName.substring(
+												0,
+												propertyName.lastIndexOf('.'));
 									}
 									responseMap.put(propertyName, returnObject);
 								}

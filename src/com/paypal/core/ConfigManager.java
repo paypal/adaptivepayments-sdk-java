@@ -14,7 +14,7 @@ import java.util.Set;
  * classes
  * 
  */
-public class ConfigManager {
+public final class ConfigManager {
 	private static ConfigManager conf;
 	private Enumeration<Object> em;
 	private Properties properties;
@@ -56,8 +56,7 @@ public class ConfigManager {
 	 * @return Enumeration of keys from configuration property file.
 	 */
 	private Enumeration<Object> loadKeys() {
-		em = properties.keys();
-		return em;
+		return properties.keys();
 	}
 
 	/**
@@ -67,8 +66,7 @@ public class ConfigManager {
 	 * @return String value
 	 */
 	public String getValue(String key) {
-		String value = properties.getProperty(key);
-		return value;
+		return properties.getProperty(key);
 	}
 
 	/**
@@ -104,7 +102,7 @@ public class ConfigManager {
 		while (em.hasMoreElements()) {
 			key = (String) em.nextElement();
 			if (userName.equalsIgnoreCase(properties.getProperty(key))) {
-				int pos = key.indexOf(".");
+				int pos = key.indexOf('.');
 				acct = key.substring(0, pos);
 			}
 		}
@@ -124,7 +122,7 @@ public class ConfigManager {
 		while (em.hasMoreElements()) {
 			key = (String) em.nextElement();
 			if (key.contains("acct")) {
-				int pos = key.indexOf(".");
+				int pos = key.indexOf('.');
 				String acct = key.substring(0, pos);
 				set.add(acct);
 			}

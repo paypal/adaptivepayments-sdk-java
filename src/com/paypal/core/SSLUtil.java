@@ -1,8 +1,6 @@
-
 package com.paypal.core;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -19,8 +17,6 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import com.paypal.exception.SSLConfigurationException;
-
-
 
 /**
  * Default TrustManager to relax verification on server certificate.
@@ -45,7 +41,7 @@ class RelaxedX509TrustManager implements X509TrustManager {
 	public void checkServerTrusted(java.security.cert.X509Certificate[] chain,
 			String authType) {
 	}
-} 
+}
 
 public abstract class SSLUtil {
 	public static KeyManagerFactory kmf = null;
@@ -54,28 +50,28 @@ public abstract class SSLUtil {
 	 * @param keymanagers
 	 *            KeyManager[] The key managers
 	 * @return SSLContext with proper client certificate
-	 * @throws SSLConfigurationException 
+	 * @throws SSLConfigurationException
 	 * @throws IOException
 	 *             if an IOException occurs
 	 */
 	public static SSLContext getSSLContext(KeyManager[] keymanagers,
-			boolean trustAll) throws SSLConfigurationException  {
+			boolean trustAll) throws SSLConfigurationException {
 		try {
 			SSLContext ctx = SSLContext.getInstance("SSL"); // TLS, SSLv3, SSL
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
 			random.setSeed(System.currentTimeMillis());
 			if (trustAll) {
-				TrustManager[] tm = { new RelaxedX509TrustManager() }; 
+				TrustManager[] tm = { new RelaxedX509TrustManager() };
 				ctx.init(keymanagers, tm, random);
 			} else {
 				ctx.init(keymanagers, null, random);
 			}
 			return ctx;
-		}catch (Exception e) {
-			throw new SSLConfigurationException(e.getMessage(),e);
+		} catch (Exception e) {
+			throw new SSLConfigurationException(e.getMessage(), e);
 		}
-	} 
-	
+	}
+
 	/**
 	 * @param trustAll
 	 * @return default SSLContext if client certificate is not provided.
@@ -89,23 +85,24 @@ public abstract class SSLUtil {
 			random.setSeed(System.currentTimeMillis());
 
 			if (trustAll) {
-				TrustManager[] tm = { new RelaxedX509TrustManager() }; 
+				TrustManager[] tm = { new RelaxedX509TrustManager() };
 				ctx.init(null, tm, random);
 			} else {
 				ctx.init(null, null, random);
 			}
 			return ctx;
 		} catch (Exception e) {
-			throw new SSLConfigurationException(e.getMessage(),e);
+			throw new SSLConfigurationException(e.getMessage(), e);
 		}
 
 	}
-	
+
 	/**
 	 * loads certificate into java keystore
+	 * 
 	 * @param p12Path
 	 * @param password
-	 * @return keystore 
+	 * @return keystore
 	 * @throws NoSuchProviderException
 	 * @throws KeyStoreException
 	 * @throws CertificateException
@@ -115,38 +112,41 @@ public abstract class SSLUtil {
 	 */
 	public static KeyStore p12ToKeyStore(String p12Path, String password)
 			throws NoSuchProviderException, KeyStoreException,
-			CertificateException, NoSuchAlgorithmException,
-			FileNotFoundException, IOException {
-		/*
-		 * if (log.isDebugEnabled()) {
-		 * log.debug("PPCrypto.p12ToKeyStore, keystore = " + p12Path); }
-		 */
+			CertificateException, NoSuchAlgorithmException, IOException {
 		KeyStore ks = null;
 		ks = KeyStore.getInstance("PKCS12", "SunJSSE");
-		FileInputStream in;
-		in = new FileInputStream(p12Path);
-		ks.load(in, password.toCharArray());
+		FileInputStream in = null;
+		try {
+			in = new FileInputStream(p12Path);
+			ks.load(in, password.toCharArray());
+		} finally {
+			if (in != null) {
+				in.close();
+			}
+		}
 		return ks;
 	}
-	
+
 	/**
 	 * Create a SSLContext with certificate provided
-	 * @param cert_path
-	 * @param cert_password
+	 * 
+	 * @param certPath
+	 * @param certPassword
 	 * @param trustAll
 	 * @return SSLContext
 	 * @throws SSLConfigurationException
 	 */
-	public static SSLContext setupClientSSL(String cert_path, String cert_password, boolean trustAll)
+	public static SSLContext setupClientSSL(String certPath,
+			String certPassword, boolean trustAll)
 			throws SSLConfigurationException {
-		SSLContext sslContext=null;
+		SSLContext sslContext = null;
 		try {
-			
+
 			kmf = KeyManagerFactory.getInstance("SunX509");
-			KeyStore ks = p12ToKeyStore(cert_path, cert_password);
-			kmf.init(ks, cert_password.toCharArray());
-			sslContext=getSSLContext(kmf.getKeyManagers(), trustAll);
-			
+			KeyStore ks = p12ToKeyStore(certPath, certPassword);
+			kmf.init(ks, certPassword.toCharArray());
+			sslContext = getSSLContext(kmf.getKeyManagers(), trustAll);
+
 		} catch (NoSuchAlgorithmException e) {
 			throw new SSLConfigurationException(e.getMessage(), e);
 		} catch (KeyStoreException e) {

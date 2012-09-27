@@ -36,6 +36,16 @@ public class SDKUtil {
 	 */
 	private static final Pattern APOSTROPHE_REPLACE = Pattern.compile("'");
 
+	private static final String AMPERSAND = "&amp;";
+
+	private static final String GREATERTHAN = "&lt;";
+
+	private static final String LESSERTHAN = "&gt;";
+
+	private static final String QUOT = "&quot;";
+
+	private static final String APOSTROPHE = "&apos;";
+
 	/**
 	 * Method replaces invalid XML entities with proper escapes, this method
 	 * does not depend on regular expressions
@@ -65,19 +75,19 @@ public class SDKUtil {
 								&& textContent.charAt(i + 4) != 't') {
 							stringBuilder.append(ch);
 						} else {
-							stringBuilder.append("&amp;");
+							stringBuilder.append(AMPERSAND);
 						}
 					} else {
-						stringBuilder.append("&amp;");
+						stringBuilder.append(AMPERSAND);
 					}
 				} else if (ch == '<') {
-					stringBuilder.append("&lt;");
+					stringBuilder.append(LESSERTHAN);
 				} else if (ch == '>') {
-					stringBuilder.append("&gt;");
+					stringBuilder.append(GREATERTHAN);
 				} else if (ch == '"') {
-					stringBuilder.append("&quot;");
+					stringBuilder.append(QUOT);
 				} else if (ch == '\'') {
-					stringBuilder.append("&apos;");
+					stringBuilder.append(APOSTROPHE);
 				} else {
 					stringBuilder.append(ch);
 				}
@@ -104,12 +114,10 @@ public class SDKUtil {
 									LESSERTHAN_REPLACE.matcher(
 											AMPERSAND_REPLACE.matcher(
 													textContent).replaceAll(
-													"&amp;"))
-											.replaceAll("&lt;")).replaceAll(
-									"&gt;")).replaceAll("&quot;")).replaceAll(
-					"&apos;");
-		} else {
-			response = textContent;
+													AMPERSAND)).replaceAll(
+											LESSERTHAN))
+									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
+					.replaceAll(APOSTROPHE);
 		}
 		return response;
 	}
@@ -133,12 +141,10 @@ public class SDKUtil {
 									LESSERTHAN_REPLACE.matcher(
 											AMPERSAND_REPLACE.matcher(
 													textContent).replaceAll(
-													"&amp;"))
-											.replaceAll("&lt;")).replaceAll(
-									"&gt;")).replaceAll("&quot;")).replaceAll(
-					"&apos;");
-		} else {
-			response = textContent;
+													AMPERSAND)).replaceAll(
+											LESSERTHAN))
+									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
+					.replaceAll(APOSTROPHE);
 		}
 		return response;
 	}
@@ -162,12 +168,10 @@ public class SDKUtil {
 									LESSERTHAN_REPLACE.matcher(
 											AMPERSAND_REPLACE.matcher(
 													textContent).replaceAll(
-													"&amp;"))
-											.replaceAll("&lt;")).replaceAll(
-									"&gt;")).replaceAll("&quot;")).replaceAll(
-					"&apos;");
-		} else {
-			response = textContent;
+													AMPERSAND)).replaceAll(
+											LESSERTHAN))
+									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
+					.replaceAll(APOSTROPHE);
 		}
 		return response;
 	}
@@ -191,10 +195,10 @@ public class SDKUtil {
 									LESSERTHAN_REPLACE.matcher(
 											AMPERSAND_REPLACE.matcher(
 													textContent).replaceAll(
-													"&amp;"))
-											.replaceAll("&lt;")).replaceAll(
-									"&gt;")).replaceAll("&quot;")).replaceAll(
-					"&apos;");
+													AMPERSAND)).replaceAll(
+											LESSERTHAN))
+									.replaceAll(GREATERTHAN)).replaceAll(QUOT))
+					.replaceAll(APOSTROPHE);
 		} else {
 			response = textContent;
 		}

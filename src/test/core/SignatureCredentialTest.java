@@ -6,7 +6,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.paypal.core.CertificateCredential;
 import com.paypal.core.ICredential;
 import com.paypal.core.SignatureCredential;
 import com.paypal.exception.MissingCredentialException;
@@ -87,14 +86,14 @@ public class SignatureCredentialTest {
 				"1255077037",
 				"Abg0gYcQyxQvnf2HDJkKtA-p6pqhA1k-KTYE0Gcy1diujFio4io5Vqjf",
 				null);
-		((CertificateCredential) cred).validate();
+		((SignatureCredential) cred).validate();
 	}
 
 	@Test(expectedExceptions = MissingCredentialException.class, priority = 10)
 	public void validateTestForSignature() throws Exception {
 		cred = new SignatureCredential("platfo_1255077030_biz_api1.gmail.com",
 				"1255077037", null, "APP-80W284485P519543T");
-		((CertificateCredential) cred).validate();
+		((SignatureCredential) cred).validate();
 	}
 
 	@Test(expectedExceptions = MissingCredentialException.class, priority = 10)
@@ -103,7 +102,7 @@ public class SignatureCredentialTest {
 				null,
 				"Abg0gYcQyxQvnf2HDJkKtA-p6pqhA1k-KTYE0Gcy1diujFio4io5Vqjf",
 				"APP-80W284485P519543T");
-		((CertificateCredential) cred).validate();
+		((SignatureCredential) cred).validate();
 	}
 
 	@AfterClass

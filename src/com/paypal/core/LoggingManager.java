@@ -22,8 +22,7 @@ public final class LoggingManager {
 				}
 			}
 		}
-		Logger logger = loggerMap.get(thisClass);
-		return logger;
+		return loggerMap.get(thisClass);
 	}
 
 	public static void log(Level priority, Class<?> thisClass, Object message) {

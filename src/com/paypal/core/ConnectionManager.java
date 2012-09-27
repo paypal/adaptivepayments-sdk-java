@@ -1,6 +1,6 @@
 package com.paypal.core;
 
-public class ConnectionManager {
+public final class ConnectionManager {
 
 	private static ConnectionManager instance;
 
@@ -18,18 +18,18 @@ public class ConnectionManager {
 	}
 
 	/**
-	 * @return HttpConnection object 
+	 * @return HttpConnection object
 	 */
 	public HttpConnection getConnection() {
-		HttpConnection httpConnection = new DefaultHttpConnection();
-		return httpConnection;
+		return new DefaultHttpConnection();
 	}
-	
-	public HttpConnection getConnection(HttpConfiguration httpConfig){
-		
-		if( httpConfig.isGoogleAppEngine() )
+
+	public HttpConnection getConnection(HttpConfiguration httpConfig) {
+
+		if (httpConfig.isGoogleAppEngine()) {
 			return new GoogleAppEngineHttpConnection();
-		else
+		} else {
 			return new DefaultHttpConnection();
+		}
 	}
 }

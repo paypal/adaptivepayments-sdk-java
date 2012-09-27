@@ -3,12 +3,10 @@ package com.paypal.core;
 import java.io.IOException;
 import java.net.Authenticator;
 import java.net.InetSocketAddress;
-import java.net.MalformedURLException;
 import java.net.PasswordAuthentication;
 import java.net.Proxy;
 import java.net.SocketAddress;
 import java.net.URL;
-import java.net.UnknownHostException;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -23,7 +21,7 @@ import com.paypal.exception.SSLConfigurationException;
  * 
  */
 public class DefaultHttpConnection extends HttpConnection {
-	
+
 	private SSLContext sslContext;
 
 	@Override
@@ -42,9 +40,8 @@ public class DefaultHttpConnection extends HttpConnection {
 	}
 
 	@Override
-	public void CreateAndconfigureHttpConnection(
-			HttpConfiguration clientConfiguration)
-			throws MalformedURLException, UnknownHostException, IOException {
+	public void createAndconfigureHttpConnection(
+			HttpConfiguration clientConfiguration) throws IOException {
 		this.config = clientConfiguration;
 		try {
 
@@ -65,10 +62,10 @@ public class DefaultHttpConnection extends HttpConnection {
 						.openConnection(Proxy.NO_PROXY);
 			}
 
-			((HttpsURLConnection)this.connection).setSSLSocketFactory(this.sslContext
-					.getSocketFactory());
+			((HttpsURLConnection) this.connection)
+					.setSSLSocketFactory(this.sslContext.getSocketFactory());
 			if (isDefaultSSL()) {
-				((HttpsURLConnection)this.connection).setHostnameVerifier(hv);
+				((HttpsURLConnection) this.connection).setHostnameVerifier(hv);
 			}
 
 			if (this.config.getProxyUserName() != null
@@ -98,10 +95,6 @@ public class DefaultHttpConnection extends HttpConnection {
 					.getConnectionTimeout());
 			this.connection.setReadTimeout(this.config.getReadTimeout());
 
-		} catch (MalformedURLException me) {
-			throw me;
-		} catch (UnknownHostException uhe) {
-			throw uhe;
 		} catch (IOException ioe) {
 			throw ioe;
 		}
