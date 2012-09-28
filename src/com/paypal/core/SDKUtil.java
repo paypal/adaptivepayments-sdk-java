@@ -16,7 +16,7 @@ public class SDKUtil {
 	private static final Pattern AMPERSAND_REPLACE = Pattern
 			.compile("&(?!([amp;[lt;[gt;[apos;[quot;]]]]]))");
 
-/**
+    /**
 	 * Pattern for replacing Lesser-than '<' character
 	 */
 	private static final Pattern LESSERTHAN_REPLACE = Pattern.compile("<");
@@ -38,9 +38,9 @@ public class SDKUtil {
 
 	private static final String AMPERSAND = "&amp;";
 
-	private static final String GREATERTHAN = "&lt;";
+	private static final String GREATERTHAN = "&gt;";
 
-	private static final String LESSERTHAN = "&gt;";
+	private static final String LESSERTHAN = "&lt;";
 
 	private static final String QUOT = "&quot;";
 
