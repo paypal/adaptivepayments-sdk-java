@@ -33,9 +33,11 @@ public enum  AckCode {
 	}
 	
 	public static AckCode fromValue(String v) {
-		for (AckCode c : values())
-			if (c.value.equals(v))
+		for (AckCode c : values()) {
+			if (c.value.equals(v)) {
 				return c;
+			}
+		}
 		throw new IllegalArgumentException(v);
 	}
 

@@ -68,11 +68,11 @@ public class CurrencyList{
 		CurrencyList currencyList = null;
 		int i = 0;
 		if (index != -1) {
-				if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+				if (prefix != null && prefix.length() != 0 && !prefix.endsWith(".")) {
 					prefix = prefix + "(" + index + ").";
 				}
 		} else {
-			if (!prefix.isEmpty() && !prefix.endsWith(".")) {
+			if (prefix != null && prefix.length() != 0 && !prefix.endsWith(".")) {
 				prefix = prefix + ".";
 			}
 		}

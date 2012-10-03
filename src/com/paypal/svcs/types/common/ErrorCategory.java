@@ -22,9 +22,11 @@ public enum  ErrorCategory {
 	}
 	
 	public static ErrorCategory fromValue(String v) {
-		for (ErrorCategory c : values())
-			if (c.value.equals(v))
+		for (ErrorCategory c : values()) {
+			if (c.value.equals(v)) {
 				return c;
+			}
+		}
 		throw new IllegalArgumentException(v);
 	}
 

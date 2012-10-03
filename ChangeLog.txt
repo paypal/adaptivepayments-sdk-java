@@ -1,4 +1,10 @@
 
+Version 1.2.95 - September 28, 2012
+ 
+	- Updated SDK sample
+--------------------------------------------------------------------------------------------------
+
+
 Version 1.1.93 - August 13, 2012
  
 	- SDK refreshed to Release 1.8.1. Please refer https://www.x.com/developers/paypal/documentation-tools/release-notes#AdaptivePaymentsAPI

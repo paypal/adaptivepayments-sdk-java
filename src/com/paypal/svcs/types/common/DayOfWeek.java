@@ -32,9 +32,11 @@ public enum  DayOfWeek {
 	}
 	
 	public static DayOfWeek fromValue(String v) {
-		for (DayOfWeek c : values())
-			if (c.value.equals(v))
+		for (DayOfWeek c : values()) {
+			if (c.value.equals(v)) {
 				return c;
+			}
+		}
 		throw new IllegalArgumentException(v);
 	}
 

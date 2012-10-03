@@ -47,17 +47,17 @@ public class AdaptivePaymentsService extends BaseService{
 	public static final String SERVICE_NAME = "AdaptivePayments";
 
 	
-	public AdaptivePaymentsService(File configFile) throws IOException, FileNotFoundException {
+	public AdaptivePaymentsService(File configFile) throws IOException {
 		super(SERVICE_NAME, SERVICE_VERSION);
 		initConfig(configFile);
 	}		
 
-	public AdaptivePaymentsService(InputStream config) throws IOException, FileNotFoundException {
+	public AdaptivePaymentsService(InputStream config) throws IOException {
 		super(SERVICE_NAME, SERVICE_VERSION);
 		initConfig(config);
 	}
 
-	public AdaptivePaymentsService(String configFilePath) throws IOException, FileNotFoundException {
+	public AdaptivePaymentsService(String configFilePath) throws IOException {
 		super(SERVICE_NAME, SERVICE_VERSION);
 		initConfig(configFilePath);
 	}

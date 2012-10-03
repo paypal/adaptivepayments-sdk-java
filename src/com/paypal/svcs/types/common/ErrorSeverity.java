@@ -20,9 +20,11 @@ public enum  ErrorSeverity {
 	}
 	
 	public static ErrorSeverity fromValue(String v) {
-		for (ErrorSeverity c : values())
-			if (c.value.equals(v))
+		for (ErrorSeverity c : values()) {
+			if (c.value.equals(v)) {
 				return c;
+			}
+		}
 		throw new IllegalArgumentException(v);
 	}
 
