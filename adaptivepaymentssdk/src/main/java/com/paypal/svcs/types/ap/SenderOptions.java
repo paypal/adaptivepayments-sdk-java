@@ -8,6 +8,8 @@ import java.util.Map;
  */
 public class SenderOptions{
 
+	private static final String nameSpace="com.paypal.svcs.types.ap";
+	private static final String preferredPrefix="";
 
 	/**
 	 * Require the user to select a shipping address during the web

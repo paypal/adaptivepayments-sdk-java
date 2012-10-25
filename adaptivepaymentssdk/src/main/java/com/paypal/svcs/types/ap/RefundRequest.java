@@ -12,6 +12,8 @@ import com.paypal.core.NVPUtil;
  */
 public class RefundRequest{
 
+	private static final String nameSpace="com.paypal.svcs.types.ap";
+	private static final String preferredPrefix="";
 
 	/**
 	 * 	  

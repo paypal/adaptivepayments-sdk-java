@@ -13,6 +13,8 @@ import com.paypal.core.NVPUtil;
  */
 public class PreapprovalRequest{
 
+	private static final String nameSpace="com.paypal.svcs.types.ap";
+	private static final String preferredPrefix="";
 
 	/**
 	 * 	  
@@ -118,6 +120,11 @@ public class PreapprovalRequest{
 	 * 	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
+
+	/**
+	 * 	 
+	 */ 
+	private Boolean requireInstantFundingSource;
 
 	
 
@@ -418,6 +425,20 @@ public class PreapprovalRequest{
 	 	this.displayMaxTotalAmount = displayMaxTotalAmount;
 	 }
 	 
+	/**
+	 * Getter for requireInstantFundingSource
+	 */
+	 public Boolean getRequireInstantFundingSource() {
+	 	return requireInstantFundingSource;
+	 }
+	 
+	/**
+	 * Setter for requireInstantFundingSource
+	 */
+	 public void setRequireInstantFundingSource(Boolean requireInstantFundingSource) {
+	 	this.requireInstantFundingSource = requireInstantFundingSource;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -504,6 +525,10 @@ public class PreapprovalRequest{
 		}
 		if (displayMaxTotalAmount != null) {
 			sb.append(prefix).append("displayMaxTotalAmount=").append(displayMaxTotalAmount);
+			sb.append("&");
+		}
+		if (requireInstantFundingSource != null) {
+			sb.append(prefix).append("requireInstantFundingSource=").append(requireInstantFundingSource);
 			sb.append("&");
 		}
 		return sb.toString();

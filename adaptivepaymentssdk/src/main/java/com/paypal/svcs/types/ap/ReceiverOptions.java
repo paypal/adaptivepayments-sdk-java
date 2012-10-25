@@ -11,6 +11,8 @@ import java.util.Map;
  */
 public class ReceiverOptions{
 
+	private static final String nameSpace="com.paypal.svcs.types.ap";
+	private static final String preferredPrefix="";
 
 	/**
 	 * 	 

@@ -8,6 +8,8 @@ import java.util.Map;
  */
 public class InstitutionCustomer{
 
+	private static final String nameSpace="com.paypal.svcs.types.ap";
+	private static final String preferredPrefix="";
 
 	/**
 	 * The unique identifier as assigned to the institution. 	  
