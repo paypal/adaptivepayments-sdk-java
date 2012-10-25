@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.paypal.core.NVPUtil;
-import com.paypal.core.ReflectionUtil;
 import com.paypal.exception.ClientActionRequiredException;
 import com.paypal.exception.HttpErrorException;
 import com.paypal.exception.InvalidCredentialException;
@@ -132,8 +130,7 @@ public class PreapprovalServlet extends HttpServlet {
 		if (request.getParameter("endingDate") != "")
 			req.setEndingDate(request.getParameter("endingDate"));
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getServletContext().getRealPath("/")
-				+ "/WEB-INF/sdk_config.properties");
+				.getClass().getResourceAsStream("/sdk_config.properties"));
 		try {
 			PreapprovalResponse resp = service.preapproval(req);
 			response.setContentType("text/html");
