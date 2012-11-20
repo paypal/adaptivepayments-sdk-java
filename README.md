@@ -70,7 +70,7 @@ For example,
 
           AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
 		  //userName is optional
-	      PayResponse payResponse = service.pay(payRequest,userName);
+	      PayResponse payResponse = adaptivePaymentsService.pay(payRequest,userName);
 		  
 
 SDK Logging:
