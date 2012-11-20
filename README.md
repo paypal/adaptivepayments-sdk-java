@@ -1,32 +1,37 @@
-Prerequisites:
---------------
-*	Java jdk-1.5 or higher
+This repository contains java sdk and samples for Adaptive Payments API.
 
-Using SDK:
-----------
+Prerequisities:
+---------------
+*	Java jdk-1.5 or higher
+*	Apache Maven 2 or higher
+
 SDK Integration:
 ----------------
-*	Download the project from github, build project using build.xml with default ant target, which will create 			    'adaptivepayments-java-sdk_1.2.95.jar' inside 'dist' folder.
+*	Create a new maven web application.
 
-*	Copy 'adaptivepayments-java-sdk_1.2.95.jar' inside 'dist' folder under SDK root, to your class path.
-
-*	Copy the configuration file 'sdk_config.properties' in SDK 'resource' folder to your project.
-
+*	Add dependency to sdk in your application's pom.xml as below.
+		
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>adaptivepaymentssdk</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
 *	Import AdaptivePaymentsService.java into your code.
-
-*	Load the configuration file into your application with the below method calls as required.
+		
+*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. And load it using,  
+*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. And load it using,  
+		  
+		  new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
+	
+*	Or load the configuration file from any location using absolute path with the below method calls as required.
 
           new AdaptivePaymentsService(new File(" .../sdk_config.properties"));
                                  Or
-          new AdaptivePaymentsService(new InputStream(new File(" .../sdk_config.properties")));
+		  new AdaptivePaymentsService(new InputStream(new File(" .../sdk_config.properties")));
                                  Or
           new AdaptivePaymentsService(" .../sdk_config.properties");
-
-Eg. if your sdk_config.properties file is in your WEB-INF/ folder, you can initialize the AdaptivePaymentsService as below:	
-	
-		  new AdaptivePaymentsService(this.getServletContext().getRealPath("/") + "/WEB-INF/sdk_config.properties");
-		
-
+  
 *	Create a service wrapper object.
 
 *	Create a request object as per your project needs. 
@@ -58,40 +63,28 @@ For example,
 		  ReceiverList receiverlst = new ReceiverList(receiver);
 	      ...
 	  
-	      PayRequest request = new PayRequest();
-	      request.setReceiverList(receiverlst);
-	      request.setRequestEnvelope(env);
+	      PayRequest payRequest = new PayRequest();
+	      payRequest.setReceiverList(receiverlst);
+	      payRequest.setRequestEnvelope(env);
           ...
 
-          //userName is optional
-          AdaptivePaymentsService service = new AdaptivePaymentsService(".../sdk_config.properties");
-	      PayResponse ret = service.pay(req,userName);
-
-
-SDK Testing:
------------
-
-*	To run test cases, 'testng.jar' in SDK lib folder is required in class path.
-
-*	Run default ant target "dist" to compile and test the sdk classes.
-
-*	Junit reports are generated in testReport folder.
-
-*   'UnitTestConstants.java' in test folder contains constants for testing. It will mimic the API User Details and resource details in properties file. Replace the constants with your own appropriate values.
-
+          AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
+		  //userName is optional
+	      PayResponse payResponse = service.pay(payRequest,userName);
+		  
 
 SDK Logging:
 ------------
 *	For logging - java.util.logging has been used. To change the default configuration, edit the
  
-logging.properties file in 'jre/lib' folder under your JDK root.
+logging.properties file in 'jre/lib' folder under your JDK root.		  
 
-
+		  
 SDK Configuration:
 ------------------
 The SDK uses .properties format configuration file. Sample of this file is at 
  
-'resource/'. You can use the 'sdk_config.properties' configuration file to configure
+'adaptivepaymentssample/src/main/resources/'. You can use the 'sdk_config.properties' configuration file to configure
 
 *	(Multiple) API account credentials.
 
@@ -99,5 +92,9 @@ The SDK uses .properties format configuration file. Sample of this file is at
 
 *	Service configuration.
 
-Please refer to the sample config file provided with this bundle.
+
+For additional information on Adaptive Payments API, please refer to https://www.x.com/developers/paypal/documentation-tools/api
+
+
+
 
