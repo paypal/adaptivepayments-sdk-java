@@ -1,6 +1,6 @@
 This repository contains java sdk and samples for Adaptive Payments API.
 
-Prerequisities:
+Prerequisites:
 ---------------
 *	Java jdk-1.5 or higher
 *	Apache Maven 2 or higher
