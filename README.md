@@ -20,7 +20,7 @@ For Maven Users:
         mvn install:install-file -Dfile=commons-codec-1.3.jar -DgroupId=commons-codec -DartifactId=commons-codec -Dversion=1.3 -Dpackaging=jar
         mvn install:install-file -Dfile=paypal-auth-signature-1.0.jar -DgroupId=com.paypal.sdk -DartifactId=paypal-auth-signature -Dversion=1.0 -Dpackaging=jar
         mvn install:install-file -Dfile=paypal-core-1.0.jar -DgroupId=com.paypal.sdk -DartifactId=paypal-core -Dversion=1.0 -Dpackaging=jar
-		mvn install:install-file -Dfile=adaptivepaymentssdk-2.2.96.jar -DgroupId=com.paypal.sdk -DartifactId=adaptivepaymentssdk -Dversion=2.2.96 -Dpackaging=jar	
+		mvn install:install-file -Dfile=adaptivepaymentssdk-2.0.96.jar -DgroupId=com.paypal.sdk -DartifactId=adaptivepaymentssdk -Dversion=2.0.96 -Dpackaging=jar	
 
 *	Create a new maven application.
 
@@ -29,7 +29,7 @@ For Maven Users:
 		<dependency>
 			<groupId>com.paypal.sdk</groupId>
 			<artifactId>adaptivepaymentssdk</artifactId>
-			<version>2.2.96</version>
+			<version>2.0.96</version>
 		</dependency>
 		
 To make an API call:
