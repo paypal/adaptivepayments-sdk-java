@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.paypal.sdk</groupId>
   <artifactId>adaptivepaymentssample</artifactId>
-  <version>1.2.95</version>
+  <version>2.0.96</version>
   <packaging>war</packaging>
   <name>AdaptivePaymentsSample</name>
    <dependencies>
   	<dependency>
   		<groupId>com.paypal.sdk</groupId>
   		<artifactId>adaptivepaymentssdk</artifactId>
-  		<version>1.2.95</version>
+  		<version>2.0.96</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.servlet</groupId>

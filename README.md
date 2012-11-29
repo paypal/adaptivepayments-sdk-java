@@ -5,22 +5,13 @@ Prerequisites:
 *	Java jdk-1.5 or higher
 *	Apache Maven 2 or higher
 
+To build sdk and samples:
+--------------------------
+*	First, build core files in https://github.com/paypal/sdk-core-java, because it is a dependency for sdk.
+*	Then, run 'mvn install' to build sdk jar and sample war files.
+
 SDK Integration:
 ----------------
-For Non-Maven Users:
---------------------
-*   Create a new application.
-
-*   Copy  all the jar files present inside 'lib' folder to your application.
-
-For Maven Users:
-----------------
-*   Install all the jar files present inside 'lib' folder manually to local repository. 
-
-        mvn install:install-file -Dfile=commons-codec-1.3.jar -DgroupId=commons-codec -DartifactId=commons-codec -Dversion=1.3 -Dpackaging=jar
-        mvn install:install-file -Dfile=paypal-core-1.0.jar -DgroupId=com.paypal.sdk -DartifactId=paypal-core -Dversion=1.0 -Dpackaging=jar
-		mvn install:install-file -Dfile=adaptivepaymentssdk-2.0.96.jar -DgroupId=com.paypal.sdk -DartifactId=adaptivepaymentssdk -Dversion=2.0.96 -Dpackaging=jar	
-
 *	Create a new maven application.
 
 *	Add dependency to sdk in your application's pom.xml as below.

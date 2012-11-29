@@ -1,4 +1,17 @@
 
+Version 2.0.96 - November 28, 2012
+ 
+	- SDK refreshed to Release 96
+    - Added Maven support for SDK core, SDK and Samples projects
+    - Added support for passing in credentials dynamically for Authentication, now the call 
+      wrappers have an argument for passing credentials
+    - New type ThirdPartyAuthorization has been added to support Subject and Token based Authorizations. The earlier
+      setAccessToken and setTokenSecret have been deprecated. You can set an instance of ThirdPartyAuthorization to an 
+      ICredntial and pass ICredential as a parameter to  API call 
+    - Java code Refactoring bug fixed (refer : https://github.com/paypal/SDKs/issues/34)    
+--------------------------------------------------------------------------------------------------
+
+
 Version 1.2.95 - September 28, 2012
  
 	- Updated SDK sample

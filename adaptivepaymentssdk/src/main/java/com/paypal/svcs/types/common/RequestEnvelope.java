@@ -9,8 +9,6 @@ import com.paypal.core.NVPUtil;
  */
 public class RequestEnvelope{
 
-	private static final String nameSpace="com.paypal.svcs.types.common";
-	private static final String preferredPrefix="";
 
 	/**
 	 * This specifies the required detail level that is needed by a

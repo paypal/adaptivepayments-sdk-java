@@ -8,8 +8,6 @@ import com.paypal.core.NVPUtil;
  */
 public class PreapprovalDetailsRequest{
 
-	private static final String nameSpace="com.paypal.svcs.types.ap";
-	private static final String preferredPrefix="";
 
 	/**
 	 * 	  

@@ -2,6 +2,7 @@ package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.ResponseEnvelope;
 import com.paypal.svcs.types.ap.PayErrorList;
 import com.paypal.svcs.types.ap.FundingPlan;
+import com.paypal.svcs.types.ap.WarningDataList;
 import java.util.List;
 import java.util.ArrayList;
 import com.paypal.svcs.types.common.ErrorData;
@@ -42,6 +43,11 @@ public class PayResponse{
 	 * 	 
 	 */ 
 	private FundingPlan defaultFundingPlan;
+
+	/**
+	 * 	 
+	 */ 
+	private WarningDataList warningDataList;
 
 	/**
 	 * 	 
@@ -127,6 +133,20 @@ public class PayResponse{
 	 }
 	 
 	/**
+	 * Getter for warningDataList
+	 */
+	 public WarningDataList getWarningDataList() {
+	 	return warningDataList;
+	 }
+	 
+	/**
+	 * Setter for warningDataList
+	 */
+	 public void setWarningDataList(WarningDataList warningDataList) {
+	 	this.warningDataList = warningDataList;
+	 }
+	 
+	/**
 	 * Getter for error
 	 */
 	 public List<ErrorData> getError() {
@@ -178,6 +198,11 @@ public class PayResponse{
 		if (defaultFundingPlan != null) {
 			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
 			payResponse.setDefaultFundingPlan(defaultFundingPlan);
+		}
+		WarningDataList warningDataList =  WarningDataList.createInstance(map, prefix + "warningDataList", -1);
+		if (warningDataList != null) {
+			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+			payResponse.setWarningDataList(warningDataList);
 		}
 		i = 0;
 		while(true) {

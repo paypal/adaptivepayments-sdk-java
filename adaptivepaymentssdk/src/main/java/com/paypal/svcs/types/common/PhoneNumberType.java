@@ -8,8 +8,6 @@ import java.util.Map;
  */
 public class PhoneNumberType{
 
-	private static final String nameSpace="com.paypal.svcs.types.common";
-	private static final String preferredPrefix="";
 
 	/**
 	 * 	  

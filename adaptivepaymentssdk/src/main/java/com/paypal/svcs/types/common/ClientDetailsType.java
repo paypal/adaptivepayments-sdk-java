@@ -8,8 +8,6 @@ import com.paypal.core.NVPUtil;
  */
 public class ClientDetailsType{
 
-	private static final String nameSpace="com.paypal.svcs.types.common";
-	private static final String preferredPrefix="";
 
 	/**
 	 * 	 

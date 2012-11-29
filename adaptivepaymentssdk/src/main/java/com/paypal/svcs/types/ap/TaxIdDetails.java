@@ -9,8 +9,6 @@ import java.util.Map;
  */
 public class TaxIdDetails{
 
-	private static final String nameSpace="com.paypal.svcs.types.ap";
-	private static final String preferredPrefix="";
 
 	/**
 	 * Tax id of the merchant/business. 	 
