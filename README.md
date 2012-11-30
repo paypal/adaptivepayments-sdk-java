@@ -4,10 +4,11 @@ Prerequisites:
 ---------------
 *	Java jdk-1.5 or higher
 *	Apache Maven 2 or higher
+*	Please refer http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html for any help in Maven.
 
 To build sdk and samples:
 --------------------------
-*	First, build core files in https://github.com/paypal/sdk-core-java, because it is a dependency for sdk.
+*	Build core files from https://github.com/paypal/sdk-core-java, as it is a dependency for sdk.
 *	Then, run 'mvn install' to build sdk jar and sample war files.
 
 SDK Integration:
