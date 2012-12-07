@@ -19,15 +19,12 @@ public class IPNListenerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		IPNMessage testipnlistener = null;
 		IPNMessage ipnlistener=null;
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		try{
 			
-			testipnlistener = new IPNMessage(request);
-			Map<String,String> testmap = testipnlistener.getIpnParamValueMap();
-			ipnlistener = new IPNMessage(testmap);
+			ipnlistener = new IPNMessage(request);
 
 		}catch(IOException io){
 			LoggingManager.debug(IPNListenerServlet.class, io.getMessage());
