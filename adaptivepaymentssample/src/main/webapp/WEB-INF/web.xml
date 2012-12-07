@@ -162,4 +162,14 @@
 		<servlet-name>GetAvailableShippingAddressesServlet</servlet-name>
 		<url-pattern>/GetAvailableShippingAddresses</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>IPNListenerServlet</display-name>
+		<servlet-name>IPNListenerServlet</servlet-name>
+		<servlet-class>com.sample.ipn.IPNListenerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IPNListenerServlet</servlet-name>
+		<url-pattern>/IPNListener</url-pattern>
+	</servlet-mapping>
 </web-app>
