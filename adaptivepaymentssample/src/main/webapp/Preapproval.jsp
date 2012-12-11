@@ -48,7 +48,7 @@
 						<tr>
 							<th class="param_name">Cancel URL*</th>
 							<th class="param_name">Return URL*</th>
-							<th class="param_name">IPN Notification URL</th>
+							<th class="param_name">IPN Notification URL (For receiving IPN call back from PayPal)</th>
 						</tr>
 						<tr>
 							<td class="param_value"><input type="text" name="cancelURL"
