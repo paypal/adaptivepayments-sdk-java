@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.net.URL"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -47,7 +48,7 @@
 					</div>
 					<div class="param_name">IPN Notification URL (For receiving IPN call back from PayPal)</div>
 					<div class="param_value">
-						<input type="text" name="ipnNotificationURL" value="<%=ipnNotificationURL%>" />
+						<input type="text" name="ipnNotificationURL" value="" />
 					</div>
 					<div class="section_header">ReceiverList</div>
 					<div class="note">Receiver is the party where funds are
