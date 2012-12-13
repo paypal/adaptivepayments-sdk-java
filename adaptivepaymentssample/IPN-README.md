@@ -9,18 +9,18 @@ a response string "VERIFIED" or "INVALID".
 
 IPN configuration :
 -----------------
-    * Ipn endpoint url is specified in 'sdk_config.properties' as 'service.IPNEndpoint'. This will be used for ipn post back.
-    * A util class 'IPNMessage' is provided in java sdk-core for ipn message validation. IPN Listener can use this class 
-      for message validation.
+* Ipn endpoint url is specified in 'sdk_config.properties' as 'service.IPNEndpoint'. This will be used for ipn post back.
+* A util class 'IPNMessage' is provided in java sdk-core for ipn message validation. IPN Listener can use this class 
+  for message validation.
     
 IPN How to run?
 --------------
-	* Ipn Listener sample provided under the package com/sample/ipn/IPNListenerServlet.java.
-	* Deploy IPN Listener sample in Cloud environment or you can expose your server port using any third party 
-	  LocalTunneling software , so that you can receive PayPal IPN call back.
-	* Make an PayPal api call (eg: Pay request), setting the IpnNotificationUrl field of api request class
-	  to the url of deployed IPNLIstener sample (eg: http://DNS-Name/adaptivepaymentssample/IPNListener).
-	* You will receive ipn call back from PayPal , which will be logged in to log file in case of IPN sample.   
+* Ipn Listener sample provided under the package com/sample/ipn/IPNListenerServlet.java.
+* Deploy IPN Listener sample in Cloud environment or you can expose your server port using any third party 
+  LocalTunneling software , so that you can receive PayPal IPN call back.
+* Make an PayPal api call (eg: Pay request), setting the IpnNotificationUrl field of api request class
+  to the url of deployed IPNLIstener sample (eg: http://DNS-Name/adaptivepaymentssample/IPNListener).
+* You will receive ipn call back from PayPal , which will be logged in to log file in case of IPN sample.   
 
        
 IPN variables :
@@ -28,69 +28,69 @@ IPN variables :
 
 [Transaction]
 -------------
-transaction_type,
-action_type,
-transaction[n].amount,
-transaction[n].id,
-transaction[n].id_for_sender,
-transaction[n].invoiceId,
-transaction[n].is_primary_receiver,
-transaction[n].receiver,
-transaction[n].refund_account_charged,
-transaction[n].refund_amount,
-transaction[n].refund_id,
-transaction[n].status,
-transaction[n].status_for _sender_txn,
-transaction[n].id_for_sender_txn, 
-transaction[n].pending_reason, 
-ipn_notification_url,
-verify_sign,
-notify_version,          
-test_ipn,                
-reverse_all_parallel_payments_on_error, 
-log_default_shipping_address_in_transaction
+* transaction_type
+* action_type
+* transaction[n].amount
+* transaction[n].id
+* transaction[n].id_for_sender
+* transaction[n].invoiceId
+* transaction[n].is_primary_receiver
+* transaction[n].receiver
+* transaction[n].refund_account_charged
+* transaction[n].refund_amount
+* transaction[n].refund_id
+* transaction[n].status
+* transaction[n].status_for _sender_txn,
+* transaction[n].id_for_sender_txn 
+* transaction[n].pending_reason 
+* ipn_notification_url
+* verify_sign
+* notify_version          
+* test_ipn                
+* reverse_all_parallel_payments_on_error 
+* log_default_shipping_address_in_transaction
 
 [BuyerInfo]
 -----------
-sender_email,
-fees_payer,
-pin_type,
+* sender_email
+* fees_payer
+* pin_type
     
 [DisputeResolution]
 -------------------
-reason_code
+* reason_code
 
 [RecurringPayment]
 ------------------
-current_number_of_payments,
-current_period_attempts,
-current_total_amount_of_all_payments,
-date_of_month,
-day_of_week,
-ending_date,
-max_amount_per_payment,
-max_number_of_payments,
-max_total_amount_of_all_payments,
-payment_period,
-starting_date,
-payment_period,
+* current_number_of_payments
+* current_period_attempts
+* current_total_amount_of_all_payments
+* date_of_month
+* day_of_week
+* ending_date
+* max_amount_per_payment
+* max_number_of_payments
+* max_total_amount_of_all_payments
+* payment_period
+* starting_date
+* payment_period
     
 
 [Paymentinfo]
 -------------
-pay_key,
-payment_request_date,
-preapproval_key,
-memo,
-payment_request_date,    
-preapproval_key,
-currencyCode,
-status,
-return_url,              
-cancel_url,
-approved,
-charset,
-trackingId,
+* pay_key
+* payment_request_date
+* preapproval_key
+* memo
+* payment_request_date    
+* preapproval_key
+* currencyCode
+* status
+* return_url              
+* cancel_url
+* approved
+* charset
+* trackingId
     
       
  
