@@ -1,21 +1,21 @@
 IPN Overview :
 ------------
-* PayPal Instant Payment Notification is call back system that initiated once a tranction is completed(eg: When 
+* PayPal Instant Payment Notification is a call back system that will get initiated once a tranction is completed(eg: When 
 a payment transaction completed successfully).
-* you will receive the transaction related ipn variables on your call back url that you have specified in your request.
-*  You have to send this ipn variable back to PayPal system for varification, Upon varification PayPal will send
+* You will receive the transaction related ipn variables on your call back url that you have specified in your request.
+* You have to send this ipn variable back to PayPal system for verification, Upon verification PayPal will send
 a response string "VERIFIED" or "INVALID".
-* PayPal will continuously resend this ipn, if a wrong ipn is send.
+* PayPal will continuously resend this ipn, if a wrong ipn is sent.
 
 IPN configuration :
 -----------------
 * Ipn endpoint url is specified in 'sdk_config.properties' as 'service.IPNEndpoint'. This will be used for ipn post back.
-* A util class 'IPNMessage' is provided in java sdk-core for ipn message validation. IPN Listener can use this class 
-  for message validation.
+* A util class 'IPNMessage' is provided in 'sdk-core-java' repository for ipn message validation. IPN Listener can use this class 
+for message validation.
     
 IPN How to run?
 --------------
-* Ipn Listener sample provided under the package com/sample/ipn/IPNListenerServlet.java.
+* Ipn Listener sample 'IPNListenerServlet.java' is provided under the package 'com/sample/ipn'.
 * Deploy IPN Listener sample in Cloud environment or you can expose your server port using any third party 
   LocalTunneling software , so that you can receive PayPal IPN call back.
 * Make an PayPal api call (eg: Pay request), setting the IpnNotificationUrl field of api request class
