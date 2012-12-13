@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.paypal.core.ConfigManager;
 import com.paypal.core.LoggingManager;
 import com.paypal.ipn.IPNMessage;
-import com.paypal.svcs.services.AdaptivePaymentsService;
 
 public class IPNListenerServlet extends HttpServlet {
 	
