@@ -18,7 +18,7 @@ IPN How to run?
 * Ipn Listener sample 'IPNListenerServlet.java' is provided under the package 'com/sample/ipn'.
 * Deploy IPN Listener sample in Cloud environment or you can expose your server port using any third party 
   LocalTunneling software , so that you can receive PayPal IPN call back.
-* Make an PayPal api call (eg: Pay request), setting the IpnNotificationUrl field of api request class
+* Make a PayPal api call (eg: Pay request), setting the IpnNotificationUrl field of api request class
   to the url of deployed IPNLIstener sample (eg: http://DNS-Name/adaptivepaymentssample/IPNListener).
 * You will receive ipn call back from PayPal , which will be logged in to log file in case of IPN sample.   
 
