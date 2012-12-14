@@ -51,10 +51,10 @@ public class AdaptivePaymentsService extends BaseService {
 	public static final String SERVICE_NAME = "AdaptivePayments";
 
 	//SDK Name
-	private static final String SDK_NAME="sdkname";
+	private static final String SDK_NAME="adaptivepayments-java-sdk";
 	
 	//SDK Version
-	private static final String SDK_VERSION="sdkversion";
+	private static final String SDK_VERSION="2.1.96";
 
 	
 	public AdaptivePaymentsService(File configFile) throws IOException {
