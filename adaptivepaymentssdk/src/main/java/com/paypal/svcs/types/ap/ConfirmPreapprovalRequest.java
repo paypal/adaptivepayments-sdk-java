@@ -111,20 +111,20 @@ public class ConfirmPreapprovalRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (preapprovalKey != null) {
-			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(preapprovalKey));
+		if (this.preapprovalKey != null) {
+			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(this.preapprovalKey));
 			sb.append("&");
 		}
-		if (fundingSourceId != null) {
-			sb.append(prefix).append("fundingSourceId=").append(NVPUtil.encodeUrl(fundingSourceId));
+		if (this.fundingSourceId != null) {
+			sb.append(prefix).append("fundingSourceId=").append(NVPUtil.encodeUrl(this.fundingSourceId));
 			sb.append("&");
 		}
-		if (pin != null) {
-			sb.append(prefix).append("pin=").append(NVPUtil.encodeUrl(pin));
+		if (this.pin != null) {
+			sb.append(prefix).append("pin=").append(NVPUtil.encodeUrl(this.pin));
 			sb.append("&");
 		}
 		return sb.toString();

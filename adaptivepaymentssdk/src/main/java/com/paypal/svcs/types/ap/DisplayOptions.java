@@ -102,20 +102,20 @@ public class DisplayOptions{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (emailHeaderImageUrl != null) {
-			sb.append(prefix).append("emailHeaderImageUrl=").append(NVPUtil.encodeUrl(emailHeaderImageUrl));
+		if (this.emailHeaderImageUrl != null) {
+			sb.append(prefix).append("emailHeaderImageUrl=").append(NVPUtil.encodeUrl(this.emailHeaderImageUrl));
 			sb.append("&");
 		}
-		if (emailMarketingImageUrl != null) {
-			sb.append(prefix).append("emailMarketingImageUrl=").append(NVPUtil.encodeUrl(emailMarketingImageUrl));
+		if (this.emailMarketingImageUrl != null) {
+			sb.append(prefix).append("emailMarketingImageUrl=").append(NVPUtil.encodeUrl(this.emailMarketingImageUrl));
 			sb.append("&");
 		}
-		if (headerImageUrl != null) {
-			sb.append(prefix).append("headerImageUrl=").append(NVPUtil.encodeUrl(headerImageUrl));
+		if (this.headerImageUrl != null) {
+			sb.append(prefix).append("headerImageUrl=").append(NVPUtil.encodeUrl(this.headerImageUrl));
 			sb.append("&");
 		}
-		if (businessName != null) {
-			sb.append(prefix).append("businessName=").append(NVPUtil.encodeUrl(businessName));
+		if (this.businessName != null) {
+			sb.append(prefix).append("businessName=").append(NVPUtil.encodeUrl(this.businessName));
 			sb.append("&");
 		}
 		return sb.toString();

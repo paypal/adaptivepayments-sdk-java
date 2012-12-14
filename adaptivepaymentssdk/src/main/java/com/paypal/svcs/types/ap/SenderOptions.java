@@ -64,12 +64,12 @@ public class SenderOptions{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requireShippingAddressSelection != null) {
-			sb.append(prefix).append("requireShippingAddressSelection=").append(requireShippingAddressSelection);
+		if (this.requireShippingAddressSelection != null) {
+			sb.append(prefix).append("requireShippingAddressSelection=").append(this.requireShippingAddressSelection);
 			sb.append("&");
 		}
-		if (referrerCode != null) {
-			sb.append(prefix).append("referrerCode=").append(NVPUtil.encodeUrl(referrerCode));
+		if (this.referrerCode != null) {
+			sb.append(prefix).append("referrerCode=").append(NVPUtil.encodeUrl(this.referrerCode));
 			sb.append("&");
 		}
 		return sb.toString();

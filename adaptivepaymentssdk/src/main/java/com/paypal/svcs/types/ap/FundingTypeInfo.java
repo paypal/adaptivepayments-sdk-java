@@ -52,8 +52,8 @@ public class FundingTypeInfo{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (fundingType != null) {
-			sb.append(prefix).append("fundingType=").append(NVPUtil.encodeUrl(fundingType));
+		if (this.fundingType != null) {
+			sb.append(prefix).append("fundingType=").append(NVPUtil.encodeUrl(this.fundingType));
 			sb.append("&");
 		}
 		return sb.toString();

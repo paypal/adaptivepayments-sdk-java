@@ -55,10 +55,10 @@ public class CurrencyList{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (currency != null) {
-			for(int i=0; i < currency.size(); i++) {
+		if (this.currency != null) {
+			for(int i=0; i < this.currency.size(); i++) {
 				String newPrefix = prefix + "currency" + "(" + i + ").";
-				sb.append(currency.get(i).toNVPString(newPrefix));
+				sb.append(this.currency.get(i).toNVPString(newPrefix));
 			}
 		}
 		return sb.toString();

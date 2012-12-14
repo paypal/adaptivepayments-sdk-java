@@ -55,10 +55,10 @@ public class FundingTypeList{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (fundingTypeInfo != null) {
-			for(int i=0; i < fundingTypeInfo.size(); i++) {
+		if (this.fundingTypeInfo != null) {
+			for(int i=0; i < this.fundingTypeInfo.size(); i++) {
 				String newPrefix = prefix + "fundingTypeInfo" + "(" + i + ").";
-				sb.append(fundingTypeInfo.get(i).toNVPString(newPrefix));
+				sb.append(this.fundingTypeInfo.get(i).toNVPString(newPrefix));
 			}
 		}
 		return sb.toString();

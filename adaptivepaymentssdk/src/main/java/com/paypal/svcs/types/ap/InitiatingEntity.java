@@ -48,9 +48,9 @@ public class InitiatingEntity{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (institutionCustomer != null) {
+		if (this.institutionCustomer != null) {
 			String newPrefix = prefix + "institutionCustomer.";
-			sb.append(institutionCustomer.toNVPString(newPrefix));
+			sb.append(this.institutionCustomer.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}

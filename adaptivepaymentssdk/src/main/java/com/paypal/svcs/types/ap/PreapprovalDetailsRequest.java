@@ -92,16 +92,16 @@ public class PreapprovalDetailsRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (preapprovalKey != null) {
-			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(preapprovalKey));
+		if (this.preapprovalKey != null) {
+			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(this.preapprovalKey));
 			sb.append("&");
 		}
-		if (getBillingAddress != null) {
-			sb.append(prefix).append("getBillingAddress=").append(getBillingAddress);
+		if (this.getBillingAddress != null) {
+			sb.append(prefix).append("getBillingAddress=").append(this.getBillingAddress);
 			sb.append("&");
 		}
 		return sb.toString();

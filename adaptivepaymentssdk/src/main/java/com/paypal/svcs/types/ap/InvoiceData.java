@@ -86,18 +86,18 @@ public class InvoiceData{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (item != null) {
-			for(int i=0; i < item.size(); i++) {
+		if (this.item != null) {
+			for(int i=0; i < this.item.size(); i++) {
 				String newPrefix = prefix + "item" + "(" + i + ").";
-				sb.append(item.get(i).toNVPString(newPrefix));
+				sb.append(this.item.get(i).toNVPString(newPrefix));
 			}
 		}
-		if (totalTax != null) {
-			sb.append(prefix).append("totalTax=").append(totalTax);
+		if (this.totalTax != null) {
+			sb.append(prefix).append("totalTax=").append(this.totalTax);
 			sb.append("&");
 		}
-		if (totalShipping != null) {
-			sb.append(prefix).append("totalShipping=").append(totalShipping);
+		if (this.totalShipping != null) {
+			sb.append(prefix).append("totalShipping=").append(this.totalShipping);
 			sb.append("&");
 		}
 		return sb.toString();

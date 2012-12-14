@@ -111,20 +111,20 @@ public class ExecutePaymentRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (payKey != null) {
-			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(payKey));
+		if (this.payKey != null) {
+			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(this.payKey));
 			sb.append("&");
 		}
-		if (actionType != null) {
-			sb.append(prefix).append("actionType=").append(NVPUtil.encodeUrl(actionType));
+		if (this.actionType != null) {
+			sb.append(prefix).append("actionType=").append(NVPUtil.encodeUrl(this.actionType));
 			sb.append("&");
 		}
-		if (fundingPlanId != null) {
-			sb.append(prefix).append("fundingPlanId=").append(NVPUtil.encodeUrl(fundingPlanId));
+		if (this.fundingPlanId != null) {
+			sb.append(prefix).append("fundingPlanId=").append(NVPUtil.encodeUrl(this.fundingPlanId));
 			sb.append("&");
 		}
 		return sb.toString();

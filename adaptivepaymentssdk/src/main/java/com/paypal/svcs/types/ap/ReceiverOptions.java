@@ -131,24 +131,24 @@ public class ReceiverOptions{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (description != null) {
-			sb.append(prefix).append("description=").append(NVPUtil.encodeUrl(description));
+		if (this.description != null) {
+			sb.append(prefix).append("description=").append(NVPUtil.encodeUrl(this.description));
 			sb.append("&");
 		}
-		if (customId != null) {
-			sb.append(prefix).append("customId=").append(NVPUtil.encodeUrl(customId));
+		if (this.customId != null) {
+			sb.append(prefix).append("customId=").append(NVPUtil.encodeUrl(this.customId));
 			sb.append("&");
 		}
-		if (invoiceData != null) {
+		if (this.invoiceData != null) {
 			String newPrefix = prefix + "invoiceData.";
-			sb.append(invoiceData.toNVPString(newPrefix));
+			sb.append(this.invoiceData.toNVPString(newPrefix));
 		}
-		if (receiver != null) {
+		if (this.receiver != null) {
 			String newPrefix = prefix + "receiver.";
-			sb.append(receiver.toNVPString(newPrefix));
+			sb.append(this.receiver.toNVPString(newPrefix));
 		}
-		if (referrerCode != null) {
-			sb.append(prefix).append("referrerCode=").append(NVPUtil.encodeUrl(referrerCode));
+		if (this.referrerCode != null) {
+			sb.append(prefix).append("referrerCode=").append(NVPUtil.encodeUrl(this.referrerCode));
 			sb.append("&");
 		}
 		return sb.toString();

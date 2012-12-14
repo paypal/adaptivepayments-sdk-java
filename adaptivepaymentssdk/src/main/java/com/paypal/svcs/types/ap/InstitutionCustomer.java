@@ -181,32 +181,32 @@ public class InstitutionCustomer{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (institutionId != null) {
-			sb.append(prefix).append("institutionId=").append(NVPUtil.encodeUrl(institutionId));
+		if (this.institutionId != null) {
+			sb.append(prefix).append("institutionId=").append(NVPUtil.encodeUrl(this.institutionId));
 			sb.append("&");
 		}
-		if (firstName != null) {
-			sb.append(prefix).append("firstName=").append(NVPUtil.encodeUrl(firstName));
+		if (this.firstName != null) {
+			sb.append(prefix).append("firstName=").append(NVPUtil.encodeUrl(this.firstName));
 			sb.append("&");
 		}
-		if (lastName != null) {
-			sb.append(prefix).append("lastName=").append(NVPUtil.encodeUrl(lastName));
+		if (this.lastName != null) {
+			sb.append(prefix).append("lastName=").append(NVPUtil.encodeUrl(this.lastName));
 			sb.append("&");
 		}
-		if (displayName != null) {
-			sb.append(prefix).append("displayName=").append(NVPUtil.encodeUrl(displayName));
+		if (this.displayName != null) {
+			sb.append(prefix).append("displayName=").append(NVPUtil.encodeUrl(this.displayName));
 			sb.append("&");
 		}
-		if (institutionCustomerId != null) {
-			sb.append(prefix).append("institutionCustomerId=").append(NVPUtil.encodeUrl(institutionCustomerId));
+		if (this.institutionCustomerId != null) {
+			sb.append(prefix).append("institutionCustomerId=").append(NVPUtil.encodeUrl(this.institutionCustomerId));
 			sb.append("&");
 		}
-		if (countryCode != null) {
-			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(countryCode));
+		if (this.countryCode != null) {
+			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(this.countryCode));
 			sb.append("&");
 		}
-		if (email != null) {
-			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(email));
+		if (this.email != null) {
+			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(this.email));
 			sb.append("&");
 		}
 		return sb.toString();

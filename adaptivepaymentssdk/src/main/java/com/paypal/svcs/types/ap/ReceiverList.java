@@ -54,10 +54,10 @@ public class ReceiverList{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (receiver != null) {
-			for(int i=0; i < receiver.size(); i++) {
+		if (this.receiver != null) {
+			for(int i=0; i < this.receiver.size(); i++) {
 				String newPrefix = prefix + "receiver" + "(" + i + ").";
-				sb.append(receiver.get(i).toNVPString(newPrefix));
+				sb.append(this.receiver.get(i).toNVPString(newPrefix));
 			}
 		}
 		return sb.toString();

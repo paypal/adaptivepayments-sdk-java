@@ -174,34 +174,34 @@ public class SetPaymentOptionsRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (payKey != null) {
-			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(payKey));
+		if (this.payKey != null) {
+			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(this.payKey));
 			sb.append("&");
 		}
-		if (initiatingEntity != null) {
+		if (this.initiatingEntity != null) {
 			String newPrefix = prefix + "initiatingEntity.";
-			sb.append(initiatingEntity.toNVPString(newPrefix));
+			sb.append(this.initiatingEntity.toNVPString(newPrefix));
 		}
-		if (displayOptions != null) {
+		if (this.displayOptions != null) {
 			String newPrefix = prefix + "displayOptions.";
-			sb.append(displayOptions.toNVPString(newPrefix));
+			sb.append(this.displayOptions.toNVPString(newPrefix));
 		}
-		if (shippingAddressId != null) {
-			sb.append(prefix).append("shippingAddressId=").append(NVPUtil.encodeUrl(shippingAddressId));
+		if (this.shippingAddressId != null) {
+			sb.append(prefix).append("shippingAddressId=").append(NVPUtil.encodeUrl(this.shippingAddressId));
 			sb.append("&");
 		}
-		if (senderOptions != null) {
+		if (this.senderOptions != null) {
 			String newPrefix = prefix + "senderOptions.";
-			sb.append(senderOptions.toNVPString(newPrefix));
+			sb.append(this.senderOptions.toNVPString(newPrefix));
 		}
-		if (receiverOptions != null) {
-			for(int i=0; i < receiverOptions.size(); i++) {
+		if (this.receiverOptions != null) {
+			for(int i=0; i < this.receiverOptions.size(); i++) {
 				String newPrefix = prefix + "receiverOptions" + "(" + i + ").";
-				sb.append(receiverOptions.get(i).toNVPString(newPrefix));
+				sb.append(this.receiverOptions.get(i).toNVPString(newPrefix));
 			}
 		}
 		return sb.toString();

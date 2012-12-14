@@ -53,9 +53,9 @@ public class CurrencyCodeList{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (currencyCode != null) {
-			for(int i=0; i < currencyCode.size(); i++) {
-				sb.append(prefix).append("currencyCode(").append(i).append(")=").append(NVPUtil.encodeUrl(currencyCode.get(i)));
+		if (this.currencyCode != null) {
+			for(int i=0; i < this.currencyCode.size(); i++) {
+				sb.append(prefix).append("currencyCode(").append(i).append(")=").append(NVPUtil.encodeUrl(this.currencyCode.get(i)));
 				sb.append("&");
 			}
 		}

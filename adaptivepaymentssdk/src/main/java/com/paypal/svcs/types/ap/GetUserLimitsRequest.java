@@ -139,25 +139,25 @@ public class GetUserLimitsRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (user != null) {
+		if (this.user != null) {
 			String newPrefix = prefix + "user.";
-			sb.append(user.toNVPString(newPrefix));
+			sb.append(this.user.toNVPString(newPrefix));
 		}
-		if (country != null) {
-			sb.append(prefix).append("country=").append(NVPUtil.encodeUrl(country));
+		if (this.country != null) {
+			sb.append(prefix).append("country=").append(NVPUtil.encodeUrl(this.country));
 			sb.append("&");
 		}
-		if (currencyCode != null) {
-			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(currencyCode));
+		if (this.currencyCode != null) {
+			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(this.currencyCode));
 			sb.append("&");
 		}
-		if (limitType != null) {
-			for(int i=0; i < limitType.size(); i++) {
-				sb.append(prefix).append("limitType(").append(i).append(")=").append(NVPUtil.encodeUrl(limitType.get(i)));
+		if (this.limitType != null) {
+			for(int i=0; i < this.limitType.size(); i++) {
+				sb.append(prefix).append("limitType(").append(i).append(")=").append(NVPUtil.encodeUrl(this.limitType.get(i)));
 				sb.append("&");
 			}
 		}

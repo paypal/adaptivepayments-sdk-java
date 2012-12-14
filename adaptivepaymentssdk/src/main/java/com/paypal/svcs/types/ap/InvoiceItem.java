@@ -120,24 +120,24 @@ public class InvoiceItem{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (name != null) {
-			sb.append(prefix).append("name=").append(NVPUtil.encodeUrl(name));
+		if (this.name != null) {
+			sb.append(prefix).append("name=").append(NVPUtil.encodeUrl(this.name));
 			sb.append("&");
 		}
-		if (identifier != null) {
-			sb.append(prefix).append("identifier=").append(NVPUtil.encodeUrl(identifier));
+		if (this.identifier != null) {
+			sb.append(prefix).append("identifier=").append(NVPUtil.encodeUrl(this.identifier));
 			sb.append("&");
 		}
-		if (price != null) {
-			sb.append(prefix).append("price=").append(price);
+		if (this.price != null) {
+			sb.append(prefix).append("price=").append(this.price);
 			sb.append("&");
 		}
-		if (itemPrice != null) {
-			sb.append(prefix).append("itemPrice=").append(itemPrice);
+		if (this.itemPrice != null) {
+			sb.append(prefix).append("itemPrice=").append(this.itemPrice);
 			sb.append("&");
 		}
-		if (itemCount != null) {
-			sb.append(prefix).append("itemCount=").append(itemCount);
+		if (this.itemCount != null) {
+			sb.append(prefix).append("itemCount=").append(this.itemCount);
 			sb.append("&");
 		}
 		return sb.toString();

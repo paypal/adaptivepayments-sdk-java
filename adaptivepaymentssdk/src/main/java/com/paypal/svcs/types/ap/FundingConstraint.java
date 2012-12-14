@@ -45,9 +45,9 @@ public class FundingConstraint{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (allowedFundingType != null) {
+		if (this.allowedFundingType != null) {
 			String newPrefix = prefix + "allowedFundingType.";
-			sb.append(allowedFundingType.toNVPString(newPrefix));
+			sb.append(this.allowedFundingType.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}

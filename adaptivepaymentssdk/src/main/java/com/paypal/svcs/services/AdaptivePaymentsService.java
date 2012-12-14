@@ -1,5 +1,6 @@
 package com.paypal.svcs.services;
 import java.io.*;
+import java.util.Properties;
 import com.paypal.core.BaseService;
 import com.paypal.exception.*;
 import com.paypal.core.credential.ICredential;
@@ -40,7 +41,7 @@ import com.paypal.svcs.types.ap.GetUserLimitsRequest;
 import com.paypal.svcs.types.ap.GetUserLimitsResponse;
 import com.paypal.sdk.exceptions.OAuthException;
 
-public class AdaptivePaymentsService extends BaseService{
+public class AdaptivePaymentsService extends BaseService {
 
 
 	// Service Version
@@ -50,10 +51,10 @@ public class AdaptivePaymentsService extends BaseService{
 	public static final String SERVICE_NAME = "AdaptivePayments";
 
 	//SDK Name
-	private static final String SDK_NAME="adaptivepayments-java-sdk";
+	private static final String SDK_NAME="sdkname";
 	
 	//SDK Version
-	private static final String SDK_VERSION="2.0.96";
+	private static final String SDK_VERSION="sdkversion";
 
 	
 	public AdaptivePaymentsService(File configFile) throws IOException {
@@ -67,10 +68,13 @@ public class AdaptivePaymentsService extends BaseService{
 	public AdaptivePaymentsService(String configFilePath) throws IOException {
 		initConfig(configFilePath);
 	}
+	
+	public AdaptivePaymentsService(Properties properties) {
+		initConfig(properties);
+	}
 
 
 
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -86,9 +90,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public CancelPreapprovalResponse cancelPreapproval(CancelPreapprovalRequest cancelPreapprovalRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(cancelPreapprovalRequest.toNVPString(), SERVICE_NAME, "CancelPreapproval", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return CancelPreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -125,13 +131,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public CancelPreapprovalResponse cancelPreapproval(CancelPreapprovalRequest cancelPreapprovalRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(cancelPreapprovalRequest.toNVPString(), SERVICE_NAME, "CancelPreapproval", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return CancelPreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -147,9 +154,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ConfirmPreapprovalResponse confirmPreapproval(ConfirmPreapprovalRequest confirmPreapprovalRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(confirmPreapprovalRequest.toNVPString(), SERVICE_NAME, "ConfirmPreapproval", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return ConfirmPreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -186,13 +195,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ConfirmPreapprovalResponse confirmPreapproval(ConfirmPreapprovalRequest confirmPreapprovalRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(confirmPreapprovalRequest.toNVPString(), SERVICE_NAME, "ConfirmPreapproval", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return ConfirmPreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -208,9 +218,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ConvertCurrencyResponse convertCurrency(ConvertCurrencyRequest convertCurrencyRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(convertCurrencyRequest.toNVPString(), SERVICE_NAME, "ConvertCurrency", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return ConvertCurrencyResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -247,13 +259,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ConvertCurrencyResponse convertCurrency(ConvertCurrencyRequest convertCurrencyRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(convertCurrencyRequest.toNVPString(), SERVICE_NAME, "ConvertCurrency", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return ConvertCurrencyResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -269,9 +282,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ExecutePaymentResponse executePayment(ExecutePaymentRequest executePaymentRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(executePaymentRequest.toNVPString(), SERVICE_NAME, "ExecutePayment", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return ExecutePaymentResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -308,13 +323,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public ExecutePaymentResponse executePayment(ExecutePaymentRequest executePaymentRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(executePaymentRequest.toNVPString(), SERVICE_NAME, "ExecutePayment", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return ExecutePaymentResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -330,9 +346,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetAllowedFundingSourcesResponse getAllowedFundingSources(GetAllowedFundingSourcesRequest getAllowedFundingSourcesRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getAllowedFundingSourcesRequest.toNVPString(), SERVICE_NAME, "GetAllowedFundingSources", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetAllowedFundingSourcesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -369,13 +387,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetAllowedFundingSourcesResponse getAllowedFundingSources(GetAllowedFundingSourcesRequest getAllowedFundingSourcesRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getAllowedFundingSourcesRequest.toNVPString(), SERVICE_NAME, "GetAllowedFundingSources", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetAllowedFundingSourcesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -391,9 +410,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetPaymentOptionsResponse getPaymentOptions(GetPaymentOptionsRequest getPaymentOptionsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getPaymentOptionsRequest.toNVPString(), SERVICE_NAME, "GetPaymentOptions", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetPaymentOptionsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -430,13 +451,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetPaymentOptionsResponse getPaymentOptions(GetPaymentOptionsRequest getPaymentOptionsRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getPaymentOptionsRequest.toNVPString(), SERVICE_NAME, "GetPaymentOptions", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetPaymentOptionsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -452,9 +474,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PaymentDetailsResponse paymentDetails(PaymentDetailsRequest paymentDetailsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(paymentDetailsRequest.toNVPString(), SERVICE_NAME, "PaymentDetails", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PaymentDetailsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -491,13 +515,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PaymentDetailsResponse paymentDetails(PaymentDetailsRequest paymentDetailsRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(paymentDetailsRequest.toNVPString(), SERVICE_NAME, "PaymentDetails", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PaymentDetailsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -513,9 +538,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PayResponse pay(PayRequest payRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(payRequest.toNVPString(), SERVICE_NAME, "Pay", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PayResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -552,13 +579,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PayResponse pay(PayRequest payRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(payRequest.toNVPString(), SERVICE_NAME, "Pay", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PayResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -574,9 +602,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PreapprovalDetailsResponse preapprovalDetails(PreapprovalDetailsRequest preapprovalDetailsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(preapprovalDetailsRequest.toNVPString(), SERVICE_NAME, "PreapprovalDetails", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PreapprovalDetailsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -613,13 +643,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PreapprovalDetailsResponse preapprovalDetails(PreapprovalDetailsRequest preapprovalDetailsRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(preapprovalDetailsRequest.toNVPString(), SERVICE_NAME, "PreapprovalDetails", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PreapprovalDetailsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -635,9 +666,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PreapprovalResponse preapproval(PreapprovalRequest preapprovalRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(preapprovalRequest.toNVPString(), SERVICE_NAME, "Preapproval", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -674,13 +707,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public PreapprovalResponse preapproval(PreapprovalRequest preapprovalRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(preapprovalRequest.toNVPString(), SERVICE_NAME, "Preapproval", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return PreapprovalResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -696,9 +730,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public RefundResponse refund(RefundRequest refundRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(refundRequest.toNVPString(), SERVICE_NAME, "Refund", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return RefundResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -735,13 +771,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public RefundResponse refund(RefundRequest refundRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(refundRequest.toNVPString(), SERVICE_NAME, "Refund", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return RefundResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -757,9 +794,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public SetPaymentOptionsResponse setPaymentOptions(SetPaymentOptionsRequest setPaymentOptionsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(setPaymentOptionsRequest.toNVPString(), SERVICE_NAME, "SetPaymentOptions", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return SetPaymentOptionsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -796,13 +835,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public SetPaymentOptionsResponse setPaymentOptions(SetPaymentOptionsRequest setPaymentOptionsRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(setPaymentOptionsRequest.toNVPString(), SERVICE_NAME, "SetPaymentOptions", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return SetPaymentOptionsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -818,9 +858,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetFundingPlansResponse getFundingPlans(GetFundingPlansRequest getFundingPlansRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getFundingPlansRequest.toNVPString(), SERVICE_NAME, "GetFundingPlans", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetFundingPlansResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -857,13 +899,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetFundingPlansResponse getFundingPlans(GetFundingPlansRequest getFundingPlansRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getFundingPlansRequest.toNVPString(), SERVICE_NAME, "GetFundingPlans", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetFundingPlansResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -879,9 +922,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetAvailableShippingAddressesResponse getAvailableShippingAddresses(GetAvailableShippingAddressesRequest getAvailableShippingAddressesRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getAvailableShippingAddressesRequest.toNVPString(), SERVICE_NAME, "GetAvailableShippingAddresses", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetAvailableShippingAddressesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -918,13 +963,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetAvailableShippingAddressesResponse getAvailableShippingAddresses(GetAvailableShippingAddressesRequest getAvailableShippingAddressesRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getAvailableShippingAddressesRequest.toNVPString(), SERVICE_NAME, "GetAvailableShippingAddresses", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetAvailableShippingAddressesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -940,9 +986,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetShippingAddressesResponse getShippingAddresses(GetShippingAddressesRequest getShippingAddressesRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getShippingAddressesRequest.toNVPString(), SERVICE_NAME, "GetShippingAddresses", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetShippingAddressesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -979,13 +1027,14 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetShippingAddressesResponse getShippingAddresses(GetShippingAddressesRequest getShippingAddressesRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getShippingAddressesRequest.toNVPString(), SERVICE_NAME, "GetShippingAddresses", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetShippingAddressesResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}
-		
 	/**	
 	 * AUTO_GENERATED
 	 * @throws SSLConfigurationException
@@ -1001,9 +1050,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetUserLimitsResponse getUserLimits(GetUserLimitsRequest getUserLimitsRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getUserLimitsRequest.toNVPString(), SERVICE_NAME, "GetUserLimits", apiUsername, getAccessToken(), getTokenSecret());
 	    ((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetUserLimitsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
@@ -1040,9 +1091,11 @@ public class AdaptivePaymentsService extends BaseService{
 	 */
 	 public GetUserLimitsResponse getUserLimits(GetUserLimitsRequest getUserLimitsRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
 	 	APICallPreHandler apiCallPreHandler = null;
+	 	String portName = "AdaptivePayments";
 		apiCallPreHandler = new PlatformAPICallPreHandler(getUserLimitsRequest.toNVPString(), SERVICE_NAME, "GetUserLimits", credential);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkName(SDK_NAME);
 		((PlatformAPICallPreHandler) apiCallPreHandler).setSdkVersion(SDK_VERSION);
+		((PlatformAPICallPreHandler) apiCallPreHandler).setPortName(portName);
 	 	String response = call(apiCallPreHandler);
 		return GetUserLimitsResponse.createInstance(NVPUtil.decode(response), "", -1);
 	}

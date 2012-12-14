@@ -92,16 +92,16 @@ public class PhoneNumberType{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (countryCode != null) {
-			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(countryCode));
+		if (this.countryCode != null) {
+			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(this.countryCode));
 			sb.append("&");
 		}
-		if (phoneNumber != null) {
-			sb.append(prefix).append("phoneNumber=").append(NVPUtil.encodeUrl(phoneNumber));
+		if (this.phoneNumber != null) {
+			sb.append(prefix).append("phoneNumber=").append(NVPUtil.encodeUrl(this.phoneNumber));
 			sb.append("&");
 		}
-		if (extension != null) {
-			sb.append(prefix).append("extension=").append(NVPUtil.encodeUrl(extension));
+		if (this.extension != null) {
+			sb.append(prefix).append("extension=").append(NVPUtil.encodeUrl(this.extension));
 			sb.append("&");
 		}
 		return sb.toString();

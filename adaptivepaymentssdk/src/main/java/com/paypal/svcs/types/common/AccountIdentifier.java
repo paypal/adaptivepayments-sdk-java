@@ -64,13 +64,13 @@ public class AccountIdentifier{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (email != null) {
-			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(email));
+		if (this.email != null) {
+			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(this.email));
 			sb.append("&");
 		}
-		if (phone != null) {
+		if (this.phone != null) {
 			String newPrefix = prefix + "phone.";
-			sb.append(phone.toNVPString(newPrefix));
+			sb.append(this.phone.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}

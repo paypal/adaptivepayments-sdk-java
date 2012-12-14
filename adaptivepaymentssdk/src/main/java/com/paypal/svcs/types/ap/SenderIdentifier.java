@@ -67,13 +67,13 @@ public class SenderIdentifier extends AccountIdentifier {
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toNVPString(prefix));
-		if (useCredentials != null) {
-			sb.append(prefix).append("useCredentials=").append(useCredentials);
+		if (this.useCredentials != null) {
+			sb.append(prefix).append("useCredentials=").append(this.useCredentials);
 			sb.append("&");
 		}
-		if (taxIdDetails != null) {
+		if (this.taxIdDetails != null) {
 			String newPrefix = prefix + "taxIdDetails.";
-			sb.append(taxIdDetails.toNVPString(newPrefix));
+			sb.append(this.taxIdDetails.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}

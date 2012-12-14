@@ -111,20 +111,20 @@ public class PaymentDetailsRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (payKey != null) {
-			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(payKey));
+		if (this.payKey != null) {
+			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(this.payKey));
 			sb.append("&");
 		}
-		if (transactionId != null) {
-			sb.append(prefix).append("transactionId=").append(NVPUtil.encodeUrl(transactionId));
+		if (this.transactionId != null) {
+			sb.append(prefix).append("transactionId=").append(NVPUtil.encodeUrl(this.transactionId));
 			sb.append("&");
 		}
-		if (trackingId != null) {
-			sb.append(prefix).append("trackingId=").append(NVPUtil.encodeUrl(trackingId));
+		if (this.trackingId != null) {
+			sb.append(prefix).append("trackingId=").append(NVPUtil.encodeUrl(this.trackingId));
 			sb.append("&");
 		}
 		return sb.toString();

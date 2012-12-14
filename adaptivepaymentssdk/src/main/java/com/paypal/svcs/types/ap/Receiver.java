@@ -170,32 +170,32 @@ public class Receiver{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (amount != null) {
-			sb.append(prefix).append("amount=").append(amount);
+		if (this.amount != null) {
+			sb.append(prefix).append("amount=").append(this.amount);
 			sb.append("&");
 		}
-		if (email != null) {
-			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(email));
+		if (this.email != null) {
+			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(this.email));
 			sb.append("&");
 		}
-		if (phone != null) {
+		if (this.phone != null) {
 			String newPrefix = prefix + "phone.";
-			sb.append(phone.toNVPString(newPrefix));
+			sb.append(this.phone.toNVPString(newPrefix));
 		}
-		if (primary != null) {
-			sb.append(prefix).append("primary=").append(primary);
+		if (this.primary != null) {
+			sb.append(prefix).append("primary=").append(this.primary);
 			sb.append("&");
 		}
-		if (invoiceId != null) {
-			sb.append(prefix).append("invoiceId=").append(NVPUtil.encodeUrl(invoiceId));
+		if (this.invoiceId != null) {
+			sb.append(prefix).append("invoiceId=").append(NVPUtil.encodeUrl(this.invoiceId));
 			sb.append("&");
 		}
-		if (paymentType != null) {
-			sb.append(prefix).append("paymentType=").append(NVPUtil.encodeUrl(paymentType));
+		if (this.paymentType != null) {
+			sb.append(prefix).append("paymentType=").append(NVPUtil.encodeUrl(this.paymentType));
 			sb.append("&");
 		}
-		if (paymentSubType != null) {
-			sb.append(prefix).append("paymentSubType=").append(NVPUtil.encodeUrl(paymentSubType));
+		if (this.paymentSubType != null) {
+			sb.append(prefix).append("paymentSubType=").append(NVPUtil.encodeUrl(this.paymentSubType));
 			sb.append("&");
 		}
 		return sb.toString();

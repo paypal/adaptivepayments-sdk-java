@@ -177,36 +177,36 @@ public class ClientDetailsType{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (ipAddress != null) {
-			sb.append(prefix).append("ipAddress=").append(NVPUtil.encodeUrl(ipAddress));
+		if (this.ipAddress != null) {
+			sb.append(prefix).append("ipAddress=").append(NVPUtil.encodeUrl(this.ipAddress));
 			sb.append("&");
 		}
-		if (deviceId != null) {
-			sb.append(prefix).append("deviceId=").append(NVPUtil.encodeUrl(deviceId));
+		if (this.deviceId != null) {
+			sb.append(prefix).append("deviceId=").append(NVPUtil.encodeUrl(this.deviceId));
 			sb.append("&");
 		}
-		if (applicationId != null) {
-			sb.append(prefix).append("applicationId=").append(NVPUtil.encodeUrl(applicationId));
+		if (this.applicationId != null) {
+			sb.append(prefix).append("applicationId=").append(NVPUtil.encodeUrl(this.applicationId));
 			sb.append("&");
 		}
-		if (model != null) {
-			sb.append(prefix).append("model=").append(NVPUtil.encodeUrl(model));
+		if (this.model != null) {
+			sb.append(prefix).append("model=").append(NVPUtil.encodeUrl(this.model));
 			sb.append("&");
 		}
-		if (geoLocation != null) {
-			sb.append(prefix).append("geoLocation=").append(NVPUtil.encodeUrl(geoLocation));
+		if (this.geoLocation != null) {
+			sb.append(prefix).append("geoLocation=").append(NVPUtil.encodeUrl(this.geoLocation));
 			sb.append("&");
 		}
-		if (customerType != null) {
-			sb.append(prefix).append("customerType=").append(NVPUtil.encodeUrl(customerType));
+		if (this.customerType != null) {
+			sb.append(prefix).append("customerType=").append(NVPUtil.encodeUrl(this.customerType));
 			sb.append("&");
 		}
-		if (partnerName != null) {
-			sb.append(prefix).append("partnerName=").append(NVPUtil.encodeUrl(partnerName));
+		if (this.partnerName != null) {
+			sb.append(prefix).append("partnerName=").append(NVPUtil.encodeUrl(this.partnerName));
 			sb.append("&");
 		}
-		if (customerId != null) {
-			sb.append(prefix).append("customerId=").append(NVPUtil.encodeUrl(customerId));
+		if (this.customerId != null) {
+			sb.append(prefix).append("customerId=").append(NVPUtil.encodeUrl(this.customerId));
 			sb.append("&");
 		}
 		return sb.toString();

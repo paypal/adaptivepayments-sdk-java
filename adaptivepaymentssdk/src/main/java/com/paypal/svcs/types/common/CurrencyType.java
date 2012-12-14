@@ -73,12 +73,12 @@ public class CurrencyType{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (code != null) {
-			sb.append(prefix).append("code=").append(NVPUtil.encodeUrl(code));
+		if (this.code != null) {
+			sb.append(prefix).append("code=").append(NVPUtil.encodeUrl(this.code));
 			sb.append("&");
 		}
-		if (amount != null) {
-			sb.append(prefix).append("amount=").append(amount);
+		if (this.amount != null) {
+			sb.append(prefix).append("amount=").append(this.amount);
 			sb.append("&");
 		}
 		return sb.toString();

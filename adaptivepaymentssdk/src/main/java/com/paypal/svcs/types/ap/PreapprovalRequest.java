@@ -445,88 +445,88 @@ public class PreapprovalRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (clientDetails != null) {
+		if (this.clientDetails != null) {
 			String newPrefix = prefix + "clientDetails.";
-			sb.append(clientDetails.toNVPString(newPrefix));
+			sb.append(this.clientDetails.toNVPString(newPrefix));
 		}
-		if (cancelUrl != null) {
-			sb.append(prefix).append("cancelUrl=").append(NVPUtil.encodeUrl(cancelUrl));
+		if (this.cancelUrl != null) {
+			sb.append(prefix).append("cancelUrl=").append(NVPUtil.encodeUrl(this.cancelUrl));
 			sb.append("&");
 		}
-		if (currencyCode != null) {
-			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(currencyCode));
+		if (this.currencyCode != null) {
+			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(this.currencyCode));
 			sb.append("&");
 		}
-		if (dateOfMonth != null) {
-			sb.append(prefix).append("dateOfMonth=").append(dateOfMonth);
+		if (this.dateOfMonth != null) {
+			sb.append(prefix).append("dateOfMonth=").append(this.dateOfMonth);
 			sb.append("&");
 		}
-		if (dayOfWeek != null) {
-			sb.append(prefix).append("dayOfWeek=").append(dayOfWeek.getValue());
+		if (this.dayOfWeek != null) {
+			sb.append(prefix).append("dayOfWeek=").append(this.dayOfWeek.getValue());
 			sb.append("&");
 		}
-		if (endingDate != null) {
-			sb.append(prefix).append("endingDate=").append(NVPUtil.encodeUrl(endingDate));
+		if (this.endingDate != null) {
+			sb.append(prefix).append("endingDate=").append(NVPUtil.encodeUrl(this.endingDate));
 			sb.append("&");
 		}
-		if (maxAmountPerPayment != null) {
-			sb.append(prefix).append("maxAmountPerPayment=").append(maxAmountPerPayment);
+		if (this.maxAmountPerPayment != null) {
+			sb.append(prefix).append("maxAmountPerPayment=").append(this.maxAmountPerPayment);
 			sb.append("&");
 		}
-		if (maxNumberOfPayments != null) {
-			sb.append(prefix).append("maxNumberOfPayments=").append(maxNumberOfPayments);
+		if (this.maxNumberOfPayments != null) {
+			sb.append(prefix).append("maxNumberOfPayments=").append(this.maxNumberOfPayments);
 			sb.append("&");
 		}
-		if (maxNumberOfPaymentsPerPeriod != null) {
-			sb.append(prefix).append("maxNumberOfPaymentsPerPeriod=").append(maxNumberOfPaymentsPerPeriod);
+		if (this.maxNumberOfPaymentsPerPeriod != null) {
+			sb.append(prefix).append("maxNumberOfPaymentsPerPeriod=").append(this.maxNumberOfPaymentsPerPeriod);
 			sb.append("&");
 		}
-		if (maxTotalAmountOfAllPayments != null) {
-			sb.append(prefix).append("maxTotalAmountOfAllPayments=").append(maxTotalAmountOfAllPayments);
+		if (this.maxTotalAmountOfAllPayments != null) {
+			sb.append(prefix).append("maxTotalAmountOfAllPayments=").append(this.maxTotalAmountOfAllPayments);
 			sb.append("&");
 		}
-		if (paymentPeriod != null) {
-			sb.append(prefix).append("paymentPeriod=").append(NVPUtil.encodeUrl(paymentPeriod));
+		if (this.paymentPeriod != null) {
+			sb.append(prefix).append("paymentPeriod=").append(NVPUtil.encodeUrl(this.paymentPeriod));
 			sb.append("&");
 		}
-		if (returnUrl != null) {
-			sb.append(prefix).append("returnUrl=").append(NVPUtil.encodeUrl(returnUrl));
+		if (this.returnUrl != null) {
+			sb.append(prefix).append("returnUrl=").append(NVPUtil.encodeUrl(this.returnUrl));
 			sb.append("&");
 		}
-		if (memo != null) {
-			sb.append(prefix).append("memo=").append(NVPUtil.encodeUrl(memo));
+		if (this.memo != null) {
+			sb.append(prefix).append("memo=").append(NVPUtil.encodeUrl(this.memo));
 			sb.append("&");
 		}
-		if (ipnNotificationUrl != null) {
-			sb.append(prefix).append("ipnNotificationUrl=").append(NVPUtil.encodeUrl(ipnNotificationUrl));
+		if (this.ipnNotificationUrl != null) {
+			sb.append(prefix).append("ipnNotificationUrl=").append(NVPUtil.encodeUrl(this.ipnNotificationUrl));
 			sb.append("&");
 		}
-		if (senderEmail != null) {
-			sb.append(prefix).append("senderEmail=").append(NVPUtil.encodeUrl(senderEmail));
+		if (this.senderEmail != null) {
+			sb.append(prefix).append("senderEmail=").append(NVPUtil.encodeUrl(this.senderEmail));
 			sb.append("&");
 		}
-		if (startingDate != null) {
-			sb.append(prefix).append("startingDate=").append(NVPUtil.encodeUrl(startingDate));
+		if (this.startingDate != null) {
+			sb.append(prefix).append("startingDate=").append(NVPUtil.encodeUrl(this.startingDate));
 			sb.append("&");
 		}
-		if (pinType != null) {
-			sb.append(prefix).append("pinType=").append(NVPUtil.encodeUrl(pinType));
+		if (this.pinType != null) {
+			sb.append(prefix).append("pinType=").append(NVPUtil.encodeUrl(this.pinType));
 			sb.append("&");
 		}
-		if (feesPayer != null) {
-			sb.append(prefix).append("feesPayer=").append(NVPUtil.encodeUrl(feesPayer));
+		if (this.feesPayer != null) {
+			sb.append(prefix).append("feesPayer=").append(NVPUtil.encodeUrl(this.feesPayer));
 			sb.append("&");
 		}
-		if (displayMaxTotalAmount != null) {
-			sb.append(prefix).append("displayMaxTotalAmount=").append(displayMaxTotalAmount);
+		if (this.displayMaxTotalAmount != null) {
+			sb.append(prefix).append("displayMaxTotalAmount=").append(this.displayMaxTotalAmount);
 			sb.append("&");
 		}
-		if (requireInstantFundingSource != null) {
-			sb.append(prefix).append("requireInstantFundingSource=").append(requireInstantFundingSource);
+		if (this.requireInstantFundingSource != null) {
+			sb.append(prefix).append("requireInstantFundingSource=").append(this.requireInstantFundingSource);
 			sb.append("&");
 		}
 		return sb.toString();

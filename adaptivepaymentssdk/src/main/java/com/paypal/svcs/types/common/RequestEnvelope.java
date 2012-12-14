@@ -77,12 +77,12 @@ public class RequestEnvelope{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (detailLevel != null) {
-			sb.append(prefix).append("detailLevel=").append(detailLevel.getValue());
+		if (this.detailLevel != null) {
+			sb.append(prefix).append("detailLevel=").append(this.detailLevel.getValue());
 			sb.append("&");
 		}
-		if (errorLanguage != null) {
-			sb.append(prefix).append("errorLanguage=").append(NVPUtil.encodeUrl(errorLanguage));
+		if (this.errorLanguage != null) {
+			sb.append(prefix).append("errorLanguage=").append(NVPUtil.encodeUrl(this.errorLanguage));
 			sb.append("&");
 		}
 		return sb.toString();

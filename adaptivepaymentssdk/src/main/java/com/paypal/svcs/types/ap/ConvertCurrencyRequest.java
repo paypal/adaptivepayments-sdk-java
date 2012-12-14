@@ -136,24 +136,24 @@ public class ConvertCurrencyRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (baseAmountList != null) {
+		if (this.baseAmountList != null) {
 			String newPrefix = prefix + "baseAmountList.";
-			sb.append(baseAmountList.toNVPString(newPrefix));
+			sb.append(this.baseAmountList.toNVPString(newPrefix));
 		}
-		if (convertToCurrencyList != null) {
+		if (this.convertToCurrencyList != null) {
 			String newPrefix = prefix + "convertToCurrencyList.";
-			sb.append(convertToCurrencyList.toNVPString(newPrefix));
+			sb.append(this.convertToCurrencyList.toNVPString(newPrefix));
 		}
-		if (countryCode != null) {
-			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(countryCode));
+		if (this.countryCode != null) {
+			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(this.countryCode));
 			sb.append("&");
 		}
-		if (conversionType != null) {
-			sb.append(prefix).append("conversionType=").append(NVPUtil.encodeUrl(conversionType));
+		if (this.conversionType != null) {
+			sb.append(prefix).append("conversionType=").append(NVPUtil.encodeUrl(this.conversionType));
 			sb.append("&");
 		}
 		return sb.toString();

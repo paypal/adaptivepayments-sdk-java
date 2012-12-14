@@ -74,12 +74,12 @@ public class GetAllowedFundingSourcesRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (key != null) {
-			sb.append(prefix).append("key=").append(NVPUtil.encodeUrl(key));
+		if (this.key != null) {
+			sb.append(prefix).append("key=").append(NVPUtil.encodeUrl(this.key));
 			sb.append("&");
 		}
 		return sb.toString();

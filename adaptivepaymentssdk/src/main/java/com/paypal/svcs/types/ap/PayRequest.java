@@ -371,73 +371,73 @@ public class PayRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (clientDetails != null) {
+		if (this.clientDetails != null) {
 			String newPrefix = prefix + "clientDetails.";
-			sb.append(clientDetails.toNVPString(newPrefix));
+			sb.append(this.clientDetails.toNVPString(newPrefix));
 		}
-		if (actionType != null) {
-			sb.append(prefix).append("actionType=").append(NVPUtil.encodeUrl(actionType));
+		if (this.actionType != null) {
+			sb.append(prefix).append("actionType=").append(NVPUtil.encodeUrl(this.actionType));
 			sb.append("&");
 		}
-		if (cancelUrl != null) {
-			sb.append(prefix).append("cancelUrl=").append(NVPUtil.encodeUrl(cancelUrl));
+		if (this.cancelUrl != null) {
+			sb.append(prefix).append("cancelUrl=").append(NVPUtil.encodeUrl(this.cancelUrl));
 			sb.append("&");
 		}
-		if (currencyCode != null) {
-			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(currencyCode));
+		if (this.currencyCode != null) {
+			sb.append(prefix).append("currencyCode=").append(NVPUtil.encodeUrl(this.currencyCode));
 			sb.append("&");
 		}
-		if (feesPayer != null) {
-			sb.append(prefix).append("feesPayer=").append(NVPUtil.encodeUrl(feesPayer));
+		if (this.feesPayer != null) {
+			sb.append(prefix).append("feesPayer=").append(NVPUtil.encodeUrl(this.feesPayer));
 			sb.append("&");
 		}
-		if (ipnNotificationUrl != null) {
-			sb.append(prefix).append("ipnNotificationUrl=").append(NVPUtil.encodeUrl(ipnNotificationUrl));
+		if (this.ipnNotificationUrl != null) {
+			sb.append(prefix).append("ipnNotificationUrl=").append(NVPUtil.encodeUrl(this.ipnNotificationUrl));
 			sb.append("&");
 		}
-		if (memo != null) {
-			sb.append(prefix).append("memo=").append(NVPUtil.encodeUrl(memo));
+		if (this.memo != null) {
+			sb.append(prefix).append("memo=").append(NVPUtil.encodeUrl(this.memo));
 			sb.append("&");
 		}
-		if (pin != null) {
-			sb.append(prefix).append("pin=").append(NVPUtil.encodeUrl(pin));
+		if (this.pin != null) {
+			sb.append(prefix).append("pin=").append(NVPUtil.encodeUrl(this.pin));
 			sb.append("&");
 		}
-		if (preapprovalKey != null) {
-			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(preapprovalKey));
+		if (this.preapprovalKey != null) {
+			sb.append(prefix).append("preapprovalKey=").append(NVPUtil.encodeUrl(this.preapprovalKey));
 			sb.append("&");
 		}
-		if (receiverList != null) {
+		if (this.receiverList != null) {
 			String newPrefix = prefix + "receiverList.";
-			sb.append(receiverList.toNVPString(newPrefix));
+			sb.append(this.receiverList.toNVPString(newPrefix));
 		}
-		if (reverseAllParallelPaymentsOnError != null) {
-			sb.append(prefix).append("reverseAllParallelPaymentsOnError=").append(reverseAllParallelPaymentsOnError);
+		if (this.reverseAllParallelPaymentsOnError != null) {
+			sb.append(prefix).append("reverseAllParallelPaymentsOnError=").append(this.reverseAllParallelPaymentsOnError);
 			sb.append("&");
 		}
-		if (senderEmail != null) {
-			sb.append(prefix).append("senderEmail=").append(NVPUtil.encodeUrl(senderEmail));
+		if (this.senderEmail != null) {
+			sb.append(prefix).append("senderEmail=").append(NVPUtil.encodeUrl(this.senderEmail));
 			sb.append("&");
 		}
-		if (returnUrl != null) {
-			sb.append(prefix).append("returnUrl=").append(NVPUtil.encodeUrl(returnUrl));
+		if (this.returnUrl != null) {
+			sb.append(prefix).append("returnUrl=").append(NVPUtil.encodeUrl(this.returnUrl));
 			sb.append("&");
 		}
-		if (trackingId != null) {
-			sb.append(prefix).append("trackingId=").append(NVPUtil.encodeUrl(trackingId));
+		if (this.trackingId != null) {
+			sb.append(prefix).append("trackingId=").append(NVPUtil.encodeUrl(this.trackingId));
 			sb.append("&");
 		}
-		if (fundingConstraint != null) {
+		if (this.fundingConstraint != null) {
 			String newPrefix = prefix + "fundingConstraint.";
-			sb.append(fundingConstraint.toNVPString(newPrefix));
+			sb.append(this.fundingConstraint.toNVPString(newPrefix));
 		}
-		if (sender != null) {
+		if (this.sender != null) {
 			String newPrefix = prefix + "sender.";
-			sb.append(sender.toNVPString(newPrefix));
+			sb.append(this.sender.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}

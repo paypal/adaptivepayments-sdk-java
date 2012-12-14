@@ -73,12 +73,12 @@ public class GetPaymentOptionsRequest{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (requestEnvelope != null) {
+		if (this.requestEnvelope != null) {
 			String newPrefix = prefix + "requestEnvelope.";
-			sb.append(requestEnvelope.toNVPString(newPrefix));
+			sb.append(this.requestEnvelope.toNVPString(newPrefix));
 		}
-		if (payKey != null) {
-			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(payKey));
+		if (this.payKey != null) {
+			sb.append(prefix).append("payKey=").append(NVPUtil.encodeUrl(this.payKey));
 			sb.append("&");
 		}
 		return sb.toString();

@@ -1,3 +1,13 @@
+Version 2.1.96 - December 14, 2012
+ 
+	- Added support for Instant Payment Notification (Refer IPN-README.md for more details)
+	- Added new feature for supporting multiple endpoints based on portname for using different sdks together.
+	- Added new feature in which that service wrapper class have constructor that takes java.util.Properties (https://github.com/paypal/merchant-sdk-java/issues/2)
+	- Fixes for serialization issue (https://github.com/paypal/merchant-sdk-java/issues/1)   
+	
+You can see source code of this release in github under https://github.com/paypal/adaptivepayments-sdk-java/tree/v2.1.96.
+--------------------------------------------------------------------------------------------------
+
 
 Version 2.0.96 - November 28, 2012
  
@@ -50,4 +60,3 @@ Version 0.7.88 - March 11, 2012
 
 Version 0.6.86 - February 27, 2012
  - This release contains new AdaptivePayments SDK (NVP) and samples for AdaptivePayments api's.
-

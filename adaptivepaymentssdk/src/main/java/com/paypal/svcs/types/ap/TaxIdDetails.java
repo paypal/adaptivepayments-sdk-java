@@ -64,12 +64,12 @@ public class TaxIdDetails{
 	
 	public String toNVPString(String prefix) throws UnsupportedEncodingException {
 		StringBuilder sb = new StringBuilder();
-		if (taxId != null) {
-			sb.append(prefix).append("taxId=").append(NVPUtil.encodeUrl(taxId));
+		if (this.taxId != null) {
+			sb.append(prefix).append("taxId=").append(NVPUtil.encodeUrl(this.taxId));
 			sb.append("&");
 		}
-		if (taxIdType != null) {
-			sb.append(prefix).append("taxIdType=").append(NVPUtil.encodeUrl(taxIdType));
+		if (this.taxIdType != null) {
+			sb.append(prefix).append("taxIdType=").append(NVPUtil.encodeUrl(this.taxIdType));
 			sb.append("&");
 		}
 		return sb.toString();
