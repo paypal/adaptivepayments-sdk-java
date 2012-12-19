@@ -1,10 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 	<groupId>com.paypal.sdk</groupId>
 	<artifactId>adaptivepaymentssdk</artifactId>
 	<version>2.1.96</version>
+	<packaging>jar</packaging>
 	<name>AdaptivePaymentsSDK</name>
+	<description>The PayPal Adaptive Payments SDK provides Java APIs to create, process and manage simple and complex (parallel and chained) payments, and pre-approvals using the Adaptive Payments API.</description>
+	<url>https://developer.paypal.com/</url>
+	<scm>
+		<connection>scm:git:git://github.com/paypal/adaptivepayments-sdk-java.git</connection>
+		<url>https://github.com/paypal/adaptivepayments-sdk-java.git</url>
+	</scm>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.paypal.sdk</groupId>
@@ -17,6 +32,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -29,6 +45,28 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>
+								jar
+							</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+	<licenses>
+		<license>
+			<name>PayPal SDK License</name>
+			<url>https://github.com/paypal/adaptivepayments-sdk-java/blob/master/LICENSE.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 </project>
