@@ -28,7 +28,6 @@ To make an API call:
 *	Import AdaptivePaymentsService.java into your code.
 		
 *	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. And load it using,  
-*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. And load it using,  
 		  
 		  new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
 	
