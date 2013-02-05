@@ -10,6 +10,6 @@ To build and run this application:
 ----------------------------------
 
 *   Update the 'sdk_config.properties' in the 'adaptivepaymentssample/src/main/resources' directory with your API credentials.
-*	Simply run mvn install to build war file.
+*	Simply run `mvn install` to build war file.
 *	Run `mvn jetty:run` to run the war file.
-*	Access `http://localhost:9091/adaptivepaymentssample-2.1.96/` in your browser to play with the test pages.
+*	Access `http://localhost:<jetty-port>/adaptivepaymentssample-2.1.96/` in your browser to play with the test pages.<jetty-port> is configurable in `pom.xml`.
