@@ -1,11 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 	<groupId>com.paypal.sdk</groupId>
 	<artifactId>adaptivepaymentssdk</artifactId>
 	<version>2.2.98</version>
@@ -17,6 +12,18 @@
 		<connection>scm:git:git://github.com/paypal/adaptivepayments-sdk-java.git</connection>
 		<url>https://github.com/paypal/adaptivepayments-sdk-java.git</url>
 	</scm>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>${sonatypeOssDistMgmtSnapshotsUrl}</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>Nexus Release Repository</name>
+			<url>${sonatypeNexusStagingUrl}</url>
+		</repository>
+	</distributionManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -69,4 +76,14 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	<developers>
+		<developer>
+			<id>DL-PP-Platform-Java-SDK</id>
+			<name>DL-PP-Platform-Java-SDK</name>
+			<email>DL-PP-Platform-Java-SDK@ebay.com</email>
+			<url>http://www.paypal.com</url>
+			<organization>PayPal</organization>
+			<organizationUrl>http://www.paypal.com</organizationUrl>
+		</developer>
+	</developers>
 </project>
