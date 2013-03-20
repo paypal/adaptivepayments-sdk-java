@@ -27,21 +27,22 @@ To make an API call:
 --------------------			
 *	Import AdaptivePaymentsService.java into your code.
 		
-*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. And load it using,  
-		  
-    ```java
-    new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
-    ```
-	
-*	Or load the configuration file from any location using absolute path with the below method calls as required.
-
-    ```java
-    new AdaptivePaymentsService(new File(" .../sdk_config.properties"));
+*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. Use the default constructor to run in default configuration. 
+	```java
+	new AdaptivePaymentsService();
+	```
+*	For Dynamic configuration(configuration is valid for the lifetime of the service object)
+	```java
+	new AdaptivePaymentsService(new File("/pathto/sdk_config.properties"));
                          Or
-    new AdaptivePaymentsService(new InputStream(new File(" .../sdk_config.properties")));
+	new AdaptivePaymentsService(new FileInputStream(new File("/pathto/sdk_config.properties")));
                          Or
-    new AdaptivePaymentsService(" .../sdk_config.properties");
-    ```
+	new AdaptivePaymentsService("/pathto/sdk_config.properties");
+                         Or
+	new AdaptivePaymentsService(Map<String, String> customConfigurationMap);
+                         Or
+	new AdaptivePaymentsService(Properties customProperties);
+	```
   
 *	Create a service wrapper object.
 
@@ -75,8 +76,7 @@ To make an API call:
     payRequest.setRequestEnvelope(env);
     ...
 
-    AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService(
-                                                        this.getClass().getResourceAsStream("/sdk_config.properties"));
+    AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService();
     //userName is optional
     PayResponse payResponse = adaptivePaymentsService.pay(payRequest,userName);
     ```
@@ -94,9 +94,11 @@ The SDK uses .properties format configuration file. Sample of this file is at
  
 'adaptivepaymentssample/src/main/resources/'. You can use the 'sdk_config.properties' configuration file to configure
 
-*	(Multiple) API account credentials.
+*	Mode is specified using the parameter name 'mode' with values 'sandbox' or 'live', if specified 'service.EndPoint' parameter is not required and the SDK chooses the sandbox or live endpoints automatically.
 
-*	HTTP connection parameters.
+*	(Multiple) API account credentials, by appending a '.' (dot) character and the service name to 'service.EndPoint' parameter.
+
+*	HTTP connection parameters, if certain connection parameters are not specified, the SDK will assume defaults for them.
 
 *	Service configuration.
 
