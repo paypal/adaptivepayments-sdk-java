@@ -29,15 +29,19 @@ To make an API call:
 		
 *	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. And load it using,  
 		  
-		  new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
+    ```java
+    new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
+    ```
 	
 *	Or load the configuration file from any location using absolute path with the below method calls as required.
 
-          new AdaptivePaymentsService(new File(" .../sdk_config.properties"));
-                                 Or
-		  new AdaptivePaymentsService(new InputStream(new File(" .../sdk_config.properties")));
-                                 Or
-          new AdaptivePaymentsService(" .../sdk_config.properties");
+    ```java
+    new AdaptivePaymentsService(new File(" .../sdk_config.properties"));
+                         Or
+    new AdaptivePaymentsService(new InputStream(new File(" .../sdk_config.properties")));
+                         Or
+    new AdaptivePaymentsService(" .../sdk_config.properties");
+    ```
   
 *	Create a service wrapper object.
 
@@ -45,40 +49,37 @@ To make an API call:
 
 *	Invoke the appropriate method on the service wrapper object.
 
-For example,
+    For example,
 
           
-	  import com.paypal.svcs.services.AdaptivePaymentsService;
-	  import com.paypal.svcs.types.common.RequestEnvelope;
-	  import com.paypal.svcs.types.ap.PayRequest;
-      import com.paypal.svcs.types.ap.PayResponse;
-	  import com.paypal.svcs.types.ap.Receiver;
-      import com.paypal.svcs.types.ap.ReceiverList;
-	  ...
-	  
-          
-          
-          RequestEnvelope env = new RequestEnvelope();
-	      env.setErrorLanguage("en_US");
-          ...
-          
-          List<Receiver> receiver = new ArrayList<Receiver>();
-		  Receiver rec = new Receiver();
-		  rec.setAmount("2.0");
-		  rec.setEmail(request.getParameter("sdk@gmail.com"));
-		  receiver.add(rec);
-		  ReceiverList receiverlst = new ReceiverList(receiver);
-	      ...
-	  
-	      PayRequest payRequest = new PayRequest();
-	      payRequest.setReceiverList(receiverlst);
-	      payRequest.setRequestEnvelope(env);
-          ...
+    ```java
+    import com.paypal.svcs.services.AdaptivePaymentsService;
+    import com.paypal.svcs.types.common.RequestEnvelope;
+    import com.paypal.svcs.types.ap.*;
+    ...
+      
+    RequestEnvelope env = new RequestEnvelope();
+    env.setErrorLanguage("en_US");
+    ...
 
-          AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService(this.getClass().getResourceAsStream("/sdk_config.properties"));
-		  //userName is optional
-	      PayResponse payResponse = adaptivePaymentsService.pay(payRequest,userName);
-		  
+    List<Receiver> receiver = new ArrayList<Receiver>();
+    Receiver rec = new Receiver();
+    rec.setAmount("2.0");
+    rec.setEmail(request.getParameter("sdk@gmail.com"));
+    receiver.add(rec);
+    ReceiverList receiverlst = new ReceiverList(receiver);
+    ...
+
+    PayRequest payRequest = new PayRequest();
+    payRequest.setReceiverList(receiverlst);
+    payRequest.setRequestEnvelope(env);
+    ...
+
+    AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService(
+                                                        this.getClass().getResourceAsStream("/sdk_config.properties"));
+    //userName is optional
+    PayResponse payResponse = adaptivePaymentsService.pay(payRequest,userName);
+    ```
 
 SDK Logging:
 ------------
@@ -154,6 +155,4 @@ For additional information on Adaptive Payments API, please refer to https://www
 Instant Payment Notification(IPN) 
 ---------------------------------
 * Please refer readme  at 'adaptivepaymentssample/IPN-README.md'
-
-
 
