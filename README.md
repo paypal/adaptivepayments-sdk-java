@@ -33,11 +33,11 @@ To make an API call:
 	```
 *	For Dynamic configuration(configuration is valid for the lifetime of the service object)
 	```java
-	new AdaptivePaymentsService(new File("/pathto/sdk_config.properties"));
+	new AdaptivePaymentsService(new File("/pathto/custom.properties"));
                          Or
-	new AdaptivePaymentsService(new FileInputStream(new File("/pathto/sdk_config.properties")));
+	new AdaptivePaymentsService(new FileInputStream(new File("/pathto/custom.properties")));
                          Or
-	new AdaptivePaymentsService("/pathto/sdk_config.properties");
+	new AdaptivePaymentsService("/pathto/custom.properties");
                          Or
 	new AdaptivePaymentsService(Map<String, String> customConfigurationMap);
                          Or
