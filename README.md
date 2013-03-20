@@ -43,7 +43,8 @@ To make an API call:
                          Or
 	new AdaptivePaymentsService(Properties customProperties);
 	```
-  
+*	The SDK assumes defaults for certain parameters(refer sdk_config.properties for defaults). Either 'mode' or 'service.Endpoint' is a mandatory configuration. Account credentials are treated as mandatory parameters.
+
 *	Create a service wrapper object.
 
 *	Create a request object as per your project needs. 
