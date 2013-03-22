@@ -20,7 +20,7 @@ SDK Integration:
     ```xml
     <dependency>
         <groupId>com.paypal.sdk</groupId>
-        <artifactId>adaptiveaccountssdk</artifactId>
+        <artifactId>adaptivepaymentssdk</artifactId>
         <version>2.2.98</version>
     </dependency>
     ```
