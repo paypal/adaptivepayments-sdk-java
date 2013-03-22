@@ -17,21 +17,23 @@ SDK Integration:
 
 *	Add dependency to sdk in your application's pom.xml as below.
 		
-		<dependency>
-			<groupId>com.paypal.sdk</groupId>
-			<artifactId>adaptivepaymentssdk</artifactId>
-			<version>2.2.98</version>
-		</dependency>
-		
+    ```xml
+    <dependency>
+        <groupId>com.paypal.sdk</groupId>
+        <artifactId>adaptiveaccountssdk</artifactId>
+        <version>2.2.98</version>
+    </dependency>
+    ```
+
 To make an API call:
 --------------------			
 *	Import AdaptivePaymentsService.java into your code.
 		
-*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. Use the default constructor to run in default configuration. 
+*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. Use the default constructor to run in default configuration(configuration used from sdk_config.properties found in classpath).
 	```java
 	new AdaptivePaymentsService();
 	```
-*	For Dynamic configuration(configuration is valid for the lifetime of the service object)
+*	For Dynamic configuration(configuration is tied to the lifetime of the service object)
 	```java
 	new AdaptivePaymentsService(new File("/pathto/custom.properties"));
                          Or
@@ -43,7 +45,7 @@ To make an API call:
                          Or
 	new AdaptivePaymentsService(Properties customProperties);
 	```
-*	The SDK assumes defaults for certain parameters(refer sdk_config.properties for defaults). Either 'mode' or 'service.Endpoint' is a mandatory configuration. Account credentials are treated as mandatory parameters.
+*	The SDK takes defaults for certain parameters(refer sdk_config.properties for defaults). Account Credentials and either of 'mode' or 'service.Endpoint' are mandatory parameters.
 
 *	Create a service wrapper object.
 
@@ -78,7 +80,11 @@ To make an API call:
     ...
 
     AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService();
-    //userName is optional
+			Or
+    Map<String, String> customConfigurationMap = new HashMap<String, String>();
+    customConfigurationMap.put("mode", "sandbox"); // Load the map with all mandatory parameters
+    ...
+    AdaptivePaymentsService adaptivePaymentsService = new AdaptivePaymentsService(Map<String, String> customConfigurationMap);
     PayResponse payResponse = adaptivePaymentsService.pay(payRequest,userName);
     ```
 
@@ -103,7 +109,7 @@ The SDK uses .properties format configuration file. Sample of this file is at
 
 *	Service configuration.
 
-Multiple End-points Support
+Multiple SDK usage (Multiple End-points Support)
 ---------------------------
 Multiple end-points configuration can be done by specifying mulitple end-points identified by specific property keys. 
 When using multiple SDKs in combination, like Merchant and Permissions etc..configure the endpoints as shown below 
