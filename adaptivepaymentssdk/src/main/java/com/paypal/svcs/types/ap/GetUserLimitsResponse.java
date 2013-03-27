@@ -8,30 +8,30 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * A response that contains a list of remaining limits 
+ *  A response that contains a list of remaining limits 
  */
 public class GetUserLimitsResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private List<UserLimit> userLimit = new ArrayList<UserLimit>();
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private WarningDataList warningDataList;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

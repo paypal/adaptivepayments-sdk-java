@@ -2,34 +2,34 @@ package com.paypal.svcs.types.ap;
 import java.util.Map;
 
 /**
- * Funding source information. 
+ *  Funding source information. 
  */
 public class FundingSource{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String lastFourOfAccountNumber;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String type;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String displayName;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String fundingSourceId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean allowed;
 

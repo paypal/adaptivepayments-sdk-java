@@ -8,41 +8,41 @@ import com.paypal.svcs.types.ap.FundingPlanCharge;
 import java.util.Map;
 
 /**
- * FundingPlan describes the funding sources to be used for a
- * specific payment. 
+ *  FundingPlan describes the funding sources to be used for a
+ *  specific payment. 
  */
 public class FundingPlan{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String fundingPlanId;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private CurrencyType fundingAmount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private FundingSource backupFundingSource;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private CurrencyType senderFees;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private CurrencyConversion currencyConversion;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private List<FundingPlanCharge> charge = new ArrayList<FundingPlanCharge>();

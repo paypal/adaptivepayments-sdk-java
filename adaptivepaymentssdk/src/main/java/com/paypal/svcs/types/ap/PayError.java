@@ -4,20 +4,20 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The error that resulted from an attempt to make a payment to
- * a receiver. 
+ *  The error that resulted from an attempt to make a payment to
+ *  a receiver. 
  */
 public class PayError{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private Receiver receiver;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ErrorData error;

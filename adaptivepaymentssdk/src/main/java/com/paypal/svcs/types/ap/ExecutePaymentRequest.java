@@ -4,30 +4,30 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * The request to execute the payment request. 
+ *  The request to execute the payment request. 
  */
 public class ExecutePaymentRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * Describes the action that is performed by this API 	 
+	*  Describes the action that is performed by this API 	 
 	 */ 
 	private String actionType;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String fundingPlanId;
 

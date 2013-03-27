@@ -2,159 +2,165 @@ package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.ResponseEnvelope;
 import com.paypal.svcs.types.common.DayOfWeek;
 import com.paypal.svcs.types.ap.AddressList;
+import com.paypal.svcs.types.ap.SenderIdentifier;
 import java.util.List;
 import java.util.ArrayList;
 import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The details of the Preapproval as specified in the
- * Preapproval operation. 
+ *  The details of the Preapproval as specified in the
+ *  Preapproval operation. 
  */
 public class PreapprovalDetailsResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private Boolean approved;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private Integer curPayments;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private Double curPaymentsAmount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer curPeriodAttempts;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String curPeriodEndingDate;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer dateOfMonth;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private DayOfWeek dayOfWeek;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String endingDate;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double maxAmountPerPayment;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer maxNumberOfPayments;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double maxTotalAmountOfAllPayments;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String paymentPeriod;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String pinType;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String memo;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String startingDate;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String status;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private AddressList addressList;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
 
 	/**
-	 * 	 
+	*  	 
+	 */ 
+	private SenderIdentifier sender;
+
+	/**
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
@@ -531,6 +537,20 @@ public class PreapprovalDetailsResponse{
 	 }
 	 
 	/**
+	 * Getter for sender
+	 */
+	 public SenderIdentifier getSender() {
+	 	return sender;
+	 }
+	 
+	/**
+	 * Setter for sender
+	 */
+	 public void setSender(SenderIdentifier sender) {
+	 	this.sender = sender;
+	 }
+	 
+	/**
 	 * Getter for error
 	 */
 	 public List<ErrorData> getError() {
@@ -665,6 +685,11 @@ public class PreapprovalDetailsResponse{
 		if (map.containsKey(prefix + "displayMaxTotalAmount")) {
 				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
 				preapprovalDetailsResponse.setDisplayMaxTotalAmount(Boolean.valueOf(map.get(prefix + "displayMaxTotalAmount")));
+		}
+		SenderIdentifier sender =  SenderIdentifier.createInstance(map, prefix + "sender", -1);
+		if (sender != null) {
+			preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+			preapprovalDetailsResponse.setSender(sender);
 		}
 		i = 0;
 		while(true) {

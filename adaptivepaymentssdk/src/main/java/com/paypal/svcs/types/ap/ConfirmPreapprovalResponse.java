@@ -6,19 +6,19 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The result of the ConfirmPreapprovalRequest. 
+ *  The result of the ConfirmPreapprovalRequest. 
  */
 public class ConfirmPreapprovalResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

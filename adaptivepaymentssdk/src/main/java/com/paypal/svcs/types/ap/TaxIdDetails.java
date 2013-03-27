@@ -4,19 +4,19 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * Details about the payer's tax info passed in by the merchant
- * or partner. 
+ *  Details about the payer's tax info passed in by the merchant
+ *  or partner. 
  */
 public class TaxIdDetails{
 
 
 	/**
-	 * Tax id of the merchant/business. 	 
+	*  Tax id of the merchant/business. 	 
 	 */ 
 	private String taxId;
 
 	/**
-	 * Tax type of the Tax Id. 	 
+	*  Tax type of the Tax Id. 	 
 	 */ 
 	private String taxIdType;
 

@@ -7,25 +7,25 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The response to get the shipping addresses available for a
- * payment. 
+ *  The response to get the shipping addresses available for a
+ *  payment. 
  */
 public class GetAvailableShippingAddressesResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<Address> availableAddress = new ArrayList<Address>();
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

@@ -7,49 +7,49 @@ import com.paypal.svcs.types.common.ErrorParameter;
 import java.util.Map;
 
 /**
- * This type contains the detailed error information resulting
- * from the service operation. 
+ *  This type contains the detailed error information resulting
+ *  from the service operation. 
  */
 public class ErrorData{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer errorId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String domain;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String subdomain;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private ErrorSeverity severity;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private ErrorCategory category;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String message;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String exceptionId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorParameter> parameter = new ArrayList<ErrorParameter>();
 

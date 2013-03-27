@@ -4,25 +4,25 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * The request to look up the details of a Preapproval. 
+ *  The request to look up the details of a Preapproval. 
  */
 public class PreapprovalDetailsRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean getBillingAddress;
 

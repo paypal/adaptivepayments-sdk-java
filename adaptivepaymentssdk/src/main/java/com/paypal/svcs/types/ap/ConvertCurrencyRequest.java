@@ -6,38 +6,38 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * A request to convert one or more currencies into their
- * estimated values in other currencies. 
+ *  A request to convert one or more currencies into their
+ *  estimated values in other currencies. 
  */
 public class ConvertCurrencyRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private CurrencyList baseAmountList;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private CurrencyCodeList convertToCurrencyList;
 
 	/**
-	 * The two-character ISO country code where fx suppposed to
-	 * happen 	 
+	*  The two-character ISO country code where fx suppposed to
+	*  happen 	 
 	 */ 
 	private String countryCode;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String conversionType;
 

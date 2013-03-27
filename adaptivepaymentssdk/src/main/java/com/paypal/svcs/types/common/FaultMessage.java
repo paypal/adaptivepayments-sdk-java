@@ -6,20 +6,20 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * This specifies a fault, encapsulating error data, with
- * specific error codes. 
+ *  This specifies a fault, encapsulating error data, with
+ *  specific error codes. 
  */
 public class FaultMessage{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

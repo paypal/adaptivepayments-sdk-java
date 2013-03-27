@@ -2,127 +2,133 @@ package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import com.paypal.svcs.types.common.ClientDetailsType;
 import com.paypal.svcs.types.common.DayOfWeek;
+import com.paypal.svcs.types.ap.SenderIdentifier;
 import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * A request to create a Preapproval. A Preapproval is an
- * agreement between a Paypal account holder (the sender) and
- * the API caller (the service invoker) to make payment(s) on
- * the the sender's behalf with various limitations defined. 
+ *  A request to create a Preapproval. A Preapproval is an
+ *  agreement between a Paypal account holder (the sender) and
+ *  the API caller (the service invoker) to make payment(s) on
+ *  the the sender's behalf with various limitations defined. 
  */
 public class PreapprovalRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private ClientDetailsType clientDetails;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer dateOfMonth;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private DayOfWeek dayOfWeek;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String endingDate;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double maxAmountPerPayment;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer maxNumberOfPayments;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double maxTotalAmountOfAllPayments;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String paymentPeriod;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String memo;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String startingDate;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String pinType;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean requireInstantFundingSource;
+
+	/**
+	*  	 
+	 */ 
+	private SenderIdentifier sender;
 
 	
 
@@ -437,6 +443,20 @@ public class PreapprovalRequest{
 	 	this.requireInstantFundingSource = requireInstantFundingSource;
 	 }
 	 
+	/**
+	 * Getter for sender
+	 */
+	 public SenderIdentifier getSender() {
+	 	return sender;
+	 }
+	 
+	/**
+	 * Setter for sender
+	 */
+	 public void setSender(SenderIdentifier sender) {
+	 	this.sender = sender;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -528,6 +548,10 @@ public class PreapprovalRequest{
 		if (this.requireInstantFundingSource != null) {
 			sb.append(prefix).append("requireInstantFundingSource=").append(this.requireInstantFundingSource);
 			sb.append("&");
+		}
+		if (this.sender != null) {
+			String newPrefix = prefix + "sender.";
+			sb.append(this.sender.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}

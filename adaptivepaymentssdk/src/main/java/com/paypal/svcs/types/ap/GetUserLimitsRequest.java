@@ -7,37 +7,37 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * The request to get the remaining limits for a user 
+ *  The request to get the remaining limits for a user 
  */
 public class GetUserLimitsRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * The account identifier for the user 	  
+	*  The account identifier for the user 	  
 	 *@Required	 
 	 */ 
 	private AccountIdentifier user;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String country;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * List of limit types 	  
+	*  List of limit types 	  
 	 *@Required	 
 	 */ 
 	private List<String> limitType = new ArrayList<String>();

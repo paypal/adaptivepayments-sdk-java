@@ -1,36 +1,42 @@
 package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.ResponseEnvelope;
 import com.paypal.svcs.types.ap.PayErrorList;
+import com.paypal.svcs.types.ap.PostPaymentDisclosureList;
 import java.util.List;
 import java.util.ArrayList;
 import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The result of a payment execution. 
+ *  The result of a payment execution. 
  */
 public class ExecutePaymentResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String paymentExecStatus;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private PayErrorList payErrorList;
 
 	/**
-	 * 	 
+	*  	 
+	 */ 
+	private PostPaymentDisclosureList postPaymentDisclosureList;
+
+	/**
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
@@ -85,6 +91,20 @@ public class ExecutePaymentResponse{
 	 }
 	 
 	/**
+	 * Getter for postPaymentDisclosureList
+	 */
+	 public PostPaymentDisclosureList getPostPaymentDisclosureList() {
+	 	return postPaymentDisclosureList;
+	 }
+	 
+	/**
+	 * Setter for postPaymentDisclosureList
+	 */
+	 public void setPostPaymentDisclosureList(PostPaymentDisclosureList postPaymentDisclosureList) {
+	 	this.postPaymentDisclosureList = postPaymentDisclosureList;
+	 }
+	 
+	/**
 	 * Getter for error
 	 */
 	 public List<ErrorData> getError() {
@@ -127,6 +147,11 @@ public class ExecutePaymentResponse{
 		if (payErrorList != null) {
 			executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
 			executePaymentResponse.setPayErrorList(payErrorList);
+		}
+		PostPaymentDisclosureList postPaymentDisclosureList =  PostPaymentDisclosureList.createInstance(map, prefix + "postPaymentDisclosureList", -1);
+		if (postPaymentDisclosureList != null) {
+			executePaymentResponse = (executePaymentResponse == null) ? new ExecutePaymentResponse() : executePaymentResponse;
+			executePaymentResponse.setPostPaymentDisclosureList(postPaymentDisclosureList);
 		}
 		i = 0;
 		while(true) {

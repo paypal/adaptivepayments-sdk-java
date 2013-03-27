@@ -6,13 +6,13 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * 
+ *  
  */
 public class ReceiverList{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private List<Receiver> receiver = new ArrayList<Receiver>();

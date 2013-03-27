@@ -9,108 +9,108 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The details of the PayRequest as specified in the Pay
- * operation. 
+ *  The details of the PayRequest as specified in the Pay
+ *  operation. 
  */
 public class PaymentDetailsResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String memo;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private PaymentInfoList paymentInfoList;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String status;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String trackingId;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String actionType;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean reverseAllParallelPaymentsOnError;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private FundingConstraint fundingConstraint;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private SenderIdentifier sender;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

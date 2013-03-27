@@ -4,33 +4,33 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * Describes an individual item for an invoice. 
+ *  Describes an individual item for an invoice. 
  */
 public class InvoiceItem{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String name;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String identifier;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double price;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double itemPrice;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer itemCount;
 

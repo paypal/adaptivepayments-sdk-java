@@ -6,35 +6,35 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * Options that apply to the receiver of a payment, allows
- * setting additional details for payment using invoice. 
+ *  Options that apply to the receiver of a payment, allows
+ *  setting additional details for payment using invoice. 
  */
 public class ReceiverOptions{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String description;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String customId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private InvoiceData invoiceData;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ReceiverIdentifier receiver;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String referrerCode;
 

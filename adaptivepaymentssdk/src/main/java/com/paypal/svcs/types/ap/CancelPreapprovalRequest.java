@@ -4,19 +4,19 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * The request to cancel a Preapproval. 
+ *  The request to cancel a Preapproval. 
  */
 public class CancelPreapprovalRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String preapprovalKey;

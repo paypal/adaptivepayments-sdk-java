@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.PayError;
 import java.util.Map;
 
 /**
- * 
+ *  
  */
 public class PayErrorList{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private List<PayError> payError = new ArrayList<PayError>();

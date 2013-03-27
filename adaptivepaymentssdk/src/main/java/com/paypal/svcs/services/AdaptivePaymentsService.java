@@ -40,22 +40,24 @@ import com.paypal.svcs.types.ap.GetShippingAddressesRequest;
 import com.paypal.svcs.types.ap.GetShippingAddressesResponse;
 import com.paypal.svcs.types.ap.GetUserLimitsRequest;
 import com.paypal.svcs.types.ap.GetUserLimitsResponse;
+import com.paypal.svcs.types.ap.GetPrePaymentDisclosureRequest;
+import com.paypal.svcs.types.ap.GetPrePaymentDisclosureResponse;
 import com.paypal.sdk.exceptions.OAuthException;
 
 public class AdaptivePaymentsService extends BaseService {
 
 
 	// Service Version
-	public static final String SERVICE_VERSION = "1.8.2";
+	public static final String SERVICE_VERSION = "1.8.4";
 
 	// Service Name
 	public static final String SERVICE_NAME = "AdaptivePayments";
 
 	//SDK Name
-	private static final String SDK_NAME = "sdkname";
+	private static final String SDK_NAME = "adaptivepayments-java-sdk";
 	
 	//SDK Version
-	private static final String SDK_VERSION = "sdkversion";
+	private static final String SDK_VERSION = "2.3.100";
 
 
 	/**
@@ -149,7 +151,7 @@ public class AdaptivePaymentsService extends BaseService {
 
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -166,7 +168,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -185,7 +187,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -204,7 +206,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -221,7 +223,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -240,7 +242,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -259,7 +261,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -276,7 +278,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -295,7 +297,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -314,7 +316,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -331,7 +333,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -350,7 +352,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -369,7 +371,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -386,7 +388,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -405,7 +407,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -424,7 +426,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -441,7 +443,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -460,7 +462,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -479,7 +481,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -496,7 +498,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -515,7 +517,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -534,7 +536,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -551,7 +553,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -570,7 +572,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -589,7 +591,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -606,7 +608,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -625,7 +627,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -644,7 +646,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -661,7 +663,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -680,7 +682,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -699,7 +701,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -716,7 +718,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -735,7 +737,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -754,7 +756,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -771,7 +773,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -790,7 +792,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -809,7 +811,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -826,7 +828,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -845,7 +847,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -864,7 +866,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -881,7 +883,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -900,7 +902,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -919,7 +921,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -936,7 +938,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -955,7 +957,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -974,7 +976,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -991,7 +993,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -1010,7 +1012,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	 * AUTO_GENERATED
+	*  
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -1026,6 +1028,61 @@ public class AdaptivePaymentsService extends BaseService {
 		APICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(getUserLimitsRequest.toNVPString(), SERVICE_NAME, "GetUserLimits", apiUsername, getAccessToken(), getTokenSecret(), SDK_NAME, SDK_VERSION, "AdaptivePayments", this.configurationMap);
 	 	String response = call(apiCallPreHandler);
 		return GetUserLimitsResponse.createInstance(NVPUtil.decode(response), "", -1);
+	 }
+
+	/** 
+	*  
+	 * @throws SSLConfigurationException
+	 * @throws InvalidCredentialException
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 * @throws HttpErrorException
+	 * @throws InvalidResponseDataException
+	 * @throws ClientActionRequiredException
+	 * @throws MissingCredentialException
+	 * @throws InterruptedException
+	 * @throws OAuthException
+	 */
+	 public GetPrePaymentDisclosureResponse getPrePaymentDisclosure(GetPrePaymentDisclosureRequest getPrePaymentDisclosureRequest) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
+	 	return getPrePaymentDisclosure(getPrePaymentDisclosureRequest, (String) null);
+	 }
+
+	/** 
+	*  
+	 * @throws SSLConfigurationException
+	 * @throws InvalidCredentialException
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 * @throws HttpErrorException
+	 * @throws InvalidResponseDataException
+	 * @throws ClientActionRequiredException
+	 * @throws MissingCredentialException
+	 * @throws InterruptedException
+	 * @throws OAuthException
+	 */
+	 public GetPrePaymentDisclosureResponse getPrePaymentDisclosure(GetPrePaymentDisclosureRequest getPrePaymentDisclosureRequest, ICredential credential) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
+		APICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(getPrePaymentDisclosureRequest.toNVPString(), SERVICE_NAME, "GetPrePaymentDisclosure", credential, SDK_NAME, SDK_VERSION, "AdaptivePayments", this.configurationMap);
+	 	String response = call(apiCallPreHandler);
+		return GetPrePaymentDisclosureResponse.createInstance(NVPUtil.decode(response), "", -1);
+	}
+	
+	/**	
+	*  
+	 * @throws SSLConfigurationException
+	 * @throws InvalidCredentialException
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 * @throws HttpErrorException
+	 * @throws InvalidResponseDataException
+	 * @throws ClientActionRequiredException
+	 * @throws MissingCredentialException
+	 * @throws InterruptedException
+	 * @throws OAuthException
+	 */
+	 public GetPrePaymentDisclosureResponse getPrePaymentDisclosure(GetPrePaymentDisclosureRequest getPrePaymentDisclosureRequest, String apiUsername) throws SSLConfigurationException, InvalidCredentialException, UnsupportedEncodingException, IOException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, InterruptedException, OAuthException {
+		APICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(getPrePaymentDisclosureRequest.toNVPString(), SERVICE_NAME, "GetPrePaymentDisclosure", apiUsername, getAccessToken(), getTokenSecret(), SDK_NAME, SDK_VERSION, "AdaptivePayments", this.configurationMap);
+	 	String response = call(apiCallPreHandler);
+		return GetPrePaymentDisclosureResponse.createInstance(NVPUtil.decode(response), "", -1);
 	 }
 
 }

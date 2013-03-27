@@ -7,31 +7,31 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The result of a Refund request. 
+ *  The result of a Refund request. 
  */
 public class RefundResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RefundInfoList refundInfoList;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

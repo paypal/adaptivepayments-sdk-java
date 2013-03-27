@@ -5,16 +5,16 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * Details about the party that initiated this payment. The API
- * user is making this payment on behalf of the initiator. The
- * initiator can simply be an institution or a customer of the
- * institution. 
+ *  Details about the party that initiated this payment. The API
+ *  user is making this payment on behalf of the initiator. The
+ *  initiator can simply be an institution or a customer of the
+ *  institution. 
  */
 public class InitiatingEntity{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private InstitutionCustomer institutionCustomer;
 

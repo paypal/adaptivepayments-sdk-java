@@ -7,13 +7,13 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * A list of ISO currencies. 
+ *  A list of ISO currencies. 
  */
 public class CurrencyList{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private List<CurrencyType> currency = new ArrayList<CurrencyType>();

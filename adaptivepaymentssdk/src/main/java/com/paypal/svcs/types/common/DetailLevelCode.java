@@ -1,9 +1,8 @@
 package com.paypal.svcs.types.common;
 
 /**
- * 
  *  DetailLevelCodeType
- * 
+ *   
  */
 public enum  DetailLevelCode {
 

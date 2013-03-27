@@ -4,54 +4,54 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * The customer of the initiating institution 
+ *  The customer of the initiating institution 
  */
 public class InstitutionCustomer{
 
 
 	/**
-	 * The unique identifier as assigned to the institution. 	  
+	*  The unique identifier as assigned to the institution. 	  
 	 *@Required	 
 	 */ 
 	private String institutionId;
 
 	/**
-	 * The first (given) name of the end consumer as known by the
-	 * institution. 	  
+	*  The first (given) name of the end consumer as known by the
+	*  institution. 	  
 	 *@Required	 
 	 */ 
 	private String firstName;
 
 	/**
-	 * The last (family) name of the end consumer as known by the
-	 * institution. 	  
+	*  The last (family) name of the end consumer as known by the
+	*  institution. 	  
 	 *@Required	 
 	 */ 
 	private String lastName;
 
 	/**
-	 * The full name of the end consumer as known by the
-	 * institution. 	  
+	*  The full name of the end consumer as known by the
+	*  institution. 	  
 	 *@Required	 
 	 */ 
 	private String displayName;
 
 	/**
-	 * The unique identifier as assigned to the end consumer by the
-	 * institution. 	  
+	*  The unique identifier as assigned to the end consumer by the
+	*  institution. 	  
 	 *@Required	 
 	 */ 
 	private String institutionCustomerId;
 
 	/**
-	 * The two-character ISO country code of the home country of
-	 * the end consumer 	  
+	*  The two-character ISO country code of the home country of
+	*  the end consumer 	  
 	 *@Required	 
 	 */ 
 	private String countryCode;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String email;
 

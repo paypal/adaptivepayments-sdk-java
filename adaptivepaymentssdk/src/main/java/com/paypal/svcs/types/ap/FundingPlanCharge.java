@@ -4,19 +4,19 @@ import com.paypal.svcs.types.ap.FundingSource;
 import java.util.Map;
 
 /**
- * Amount to be charged to a particular funding source. 
+ *  Amount to be charged to a particular funding source. 
  */
 public class FundingPlanCharge{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private CurrencyType charge;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private FundingSource fundingSource;

@@ -5,13 +5,13 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * 
+ *  
  */
 public class FundingConstraint{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private FundingTypeList allowedFundingType;
 

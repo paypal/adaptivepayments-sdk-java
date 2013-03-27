@@ -5,49 +5,54 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * Receiver is the party where funds are transferred to. A
- * primary receiver receives a payment directly from the sender
- * in a chained split payment. A primary receiver should not be
- * specified when making a single or parallel split payment. 
+ *  Receiver is the party where funds are transferred to. A
+ *  primary receiver receives a payment directly from the sender
+ *  in a chained split payment. A primary receiver should not be
+ *  specified when making a single or parallel split payment. 
  */
 public class Receiver{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private Double amount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String email;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private PhoneNumberType phone;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean primary;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String invoiceId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String paymentType;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String paymentSubType;
+
+	/**
+	*  	 
+	 */ 
+	private String accountId;
 
 	
 
@@ -162,6 +167,20 @@ public class Receiver{
 	 	this.paymentSubType = paymentSubType;
 	 }
 	 
+	/**
+	 * Getter for accountId
+	 */
+	 public String getAccountId() {
+	 	return accountId;
+	 }
+	 
+	/**
+	 * Setter for accountId
+	 */
+	 public void setAccountId(String accountId) {
+	 	this.accountId = accountId;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -196,6 +215,10 @@ public class Receiver{
 		}
 		if (this.paymentSubType != null) {
 			sb.append(prefix).append("paymentSubType=").append(NVPUtil.encodeUrl(this.paymentSubType));
+			sb.append("&");
+		}
+		if (this.accountId != null) {
+			sb.append(prefix).append("accountId=").append(NVPUtil.encodeUrl(this.accountId));
 			sb.append("&");
 		}
 		return sb.toString();
@@ -242,6 +265,10 @@ public class Receiver{
 		if (map.containsKey(prefix + "paymentSubType")) {
 				receiver = (receiver == null) ? new Receiver() : receiver;
 				receiver.setPaymentSubType(map.get(prefix + "paymentSubType"));
+		}
+		if (map.containsKey(prefix + "accountId")) {
+				receiver = (receiver == null) ? new Receiver() : receiver;
+				receiver.setAccountId(map.get(prefix + "accountId"));
 		}
 		return receiver;
 	}

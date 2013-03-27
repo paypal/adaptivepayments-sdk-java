@@ -7,13 +7,13 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * 
+ *  
  */
 public class FundingTypeList{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private List<FundingTypeInfo> fundingTypeInfo = new ArrayList<FundingTypeInfo>();

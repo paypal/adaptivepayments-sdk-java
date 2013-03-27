@@ -3,49 +3,49 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * Details about the end user of the application invoking this
- * service. 
+ *  Details about the end user of the application invoking this
+ *  service. 
  */
 public class ClientDetailsType{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String ipAddress;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String deviceId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String applicationId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String model;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String geoLocation;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String customerType;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String partnerName;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String customerId;
 

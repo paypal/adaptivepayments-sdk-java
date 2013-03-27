@@ -7,26 +7,26 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * A response that contains a table of estimated converted
- * currencies based on the Convert Currency Request. 
+ *  A response that contains a table of estimated converted
+ *  currencies based on the Convert Currency Request. 
  */
 public class ConvertCurrencyResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private CurrencyConversionTable estimatedAmountTable;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

@@ -4,20 +4,20 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * The request to get the allowed funding sources available for
- * a preapproval. 
+ *  The request to get the allowed funding sources available for
+ *  a preapproval. 
  */
 public class GetAllowedFundingSourcesRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String key;

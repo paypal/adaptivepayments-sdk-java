@@ -4,29 +4,29 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * Customizable options that a client application can specify
- * for display purposes. 
+ *  Customizable options that a client application can specify
+ *  for display purposes. 
  */
 public class DisplayOptions{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String emailHeaderImageUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String emailMarketingImageUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String headerImageUrl;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String businessName;
 

@@ -5,42 +5,42 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * A request to make a refund based on various criteria. A
- * refund can be made against the entire payKey, an individual
- * transaction belonging to a payKey, a tracking id, or a
- * specific receiver of a payKey. 
+ *  A request to make a refund based on various criteria. A
+ *  refund can be made against the entire payKey, an individual
+ *  transaction belonging to a payKey, a tracking id, or a
+ *  specific receiver of a payKey. 
  */
 public class RefundRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String transactionId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String trackingId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private ReceiverList receiverList;
 

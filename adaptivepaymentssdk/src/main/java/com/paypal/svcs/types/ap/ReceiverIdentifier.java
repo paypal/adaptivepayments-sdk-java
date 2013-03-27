@@ -5,8 +5,8 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * The sender identifier type contains information to identify
- * a PayPal account. 
+ *  The sender identifier type contains information to identify
+ *  a PayPal account. 
  */
 public class ReceiverIdentifier extends AccountIdentifier {
 
@@ -48,6 +48,7 @@ public class ReceiverIdentifier extends AccountIdentifier {
 			receiverIdentifier = (receiverIdentifier == null) ? new ReceiverIdentifier() : receiverIdentifier;
 			receiverIdentifier.setEmail(accountIdentifier.getEmail());
 			receiverIdentifier.setPhone(accountIdentifier.getPhone());
+			receiverIdentifier.setAccountId(accountIdentifier.getAccountId());
 		}
 			
 		return receiverIdentifier;

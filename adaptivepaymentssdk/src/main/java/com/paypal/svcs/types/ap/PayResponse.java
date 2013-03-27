@@ -9,48 +9,48 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The PayResponse contains the result of the Pay operation.
- * The payKey and execution status of the request should always
- * be provided. 
+ *  The PayResponse contains the result of the Pay operation.
+ *  The payKey and execution status of the request should always
+ *  be provided. 
  */
 public class PayResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String paymentExecStatus;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private PayErrorList payErrorList;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private FundingPlan defaultFundingPlan;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private WarningDataList warningDataList;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

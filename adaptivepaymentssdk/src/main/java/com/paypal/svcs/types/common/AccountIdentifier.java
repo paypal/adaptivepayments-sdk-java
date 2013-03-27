@@ -5,20 +5,25 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- * 
+ *  
  */
 public class AccountIdentifier{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String email;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private PhoneNumberType phone;
+
+	/**
+	*  	 
+	 */ 
+	private String accountId;
 
 	
 
@@ -56,6 +61,20 @@ public class AccountIdentifier{
 	 	this.phone = phone;
 	 }
 	 
+	/**
+	 * Getter for accountId
+	 */
+	 public String getAccountId() {
+	 	return accountId;
+	 }
+	 
+	/**
+	 * Setter for accountId
+	 */
+	 public void setAccountId(String accountId) {
+	 	this.accountId = accountId;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -71,6 +90,10 @@ public class AccountIdentifier{
 		if (this.phone != null) {
 			String newPrefix = prefix + "phone.";
 			sb.append(this.phone.toNVPString(newPrefix));
+		}
+		if (this.accountId != null) {
+			sb.append(prefix).append("accountId=").append(NVPUtil.encodeUrl(this.accountId));
+			sb.append("&");
 		}
 		return sb.toString();
 	}
@@ -96,6 +119,10 @@ public class AccountIdentifier{
 		if (phone != null) {
 			accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
 			accountIdentifier.setPhone(phone);
+		}
+		if (map.containsKey(prefix + "accountId")) {
+				accountIdentifier = (accountIdentifier == null) ? new AccountIdentifier() : accountIdentifier;
+				accountIdentifier.setAccountId(map.get(prefix + "accountId"));
 		}
 		return accountIdentifier;
 	}

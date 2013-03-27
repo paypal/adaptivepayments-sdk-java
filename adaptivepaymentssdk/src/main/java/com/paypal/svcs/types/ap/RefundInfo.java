@@ -4,60 +4,60 @@ import com.paypal.svcs.types.ap.ErrorList;
 import java.util.Map;
 
 /**
- * RefundInfo represents the refund attempt made to a Receiver
- * of a PayRequest. 
+ *  RefundInfo represents the refund attempt made to a Receiver
+ *  of a PayRequest. 
  */
 public class RefundInfo{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private Receiver receiver;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String refundStatus;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double refundNetAmount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double refundFeeAmount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double refundGrossAmount;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Double totalOfAllRefunds;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Boolean refundHasBecomeFull;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String encryptedRefundTransactionId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String refundTransactionStatus;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private ErrorList errorList;
 

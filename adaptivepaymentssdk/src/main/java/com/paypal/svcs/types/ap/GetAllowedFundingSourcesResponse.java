@@ -7,25 +7,25 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- * The response to get the backup funding sources available for
- * a preapproval. 
+ *  The response to get the backup funding sources available for
+ *  a preapproval. 
  */
 public class GetAllowedFundingSourcesResponse{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<FundingSource> fundingSource = new ArrayList<FundingSource>();
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

@@ -2,19 +2,19 @@ package com.paypal.svcs.types.ap;
 import java.util.Map;
 
 /**
- * This type contains the detailed warning information
- * resulting from the service operation. 
+ *  This type contains the detailed warning information
+ *  resulting from the service operation. 
  */
 public class WarningData{
 
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private Integer warningId;
 
 	/**
-	 * 	 
+	*  	 
 	 */ 
 	private String message;
 

@@ -4,20 +4,20 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- * The request to get the funding plans available for a
- * payment. 
+ *  The request to get the funding plans available for a
+ *  payment. 
  */
 public class GetFundingPlansRequest{
 
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	 * 	  
+	*  	  
 	 *@Required	 
 	 */ 
 	private String payKey;
