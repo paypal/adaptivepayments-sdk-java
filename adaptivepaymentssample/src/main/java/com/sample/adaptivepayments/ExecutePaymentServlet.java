@@ -62,10 +62,23 @@ public class ExecutePaymentServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='PaymentDetails'>PaymentDetails</a></li><li><a href='GetPaymentOptions'>GetPaymentOptions</a></li><li><a href='Refund'>Refund</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		ExecutePaymentRequest req = new ExecutePaymentRequest();
+		/*
+		 * (Optional) The pay key that identifies the payment to be executed. 
+		 *  This is the pay key returned in the PayResponse message.
+		 */
 		req.setPayKey(request.getParameter("payKey"));
+		/*
+		 * The ExecutePayment API operation lets you execute a payment set up 
+		 * with the Pay API operation with the actionType CREATE
+		 * use this option to set up the payment instructions with the Pay request
+		 * and then execute the	payment at a later time with the ExecutePayment
+		 * request.
+		 */
 		req.setActionType(request.getParameter("actionType"));
+		//(Optional) The ID of the funding plan from which to make this payment. 
 		req.setFundingPlanId(request.getParameter("fundingPlanID"));
 		req.setRequestEnvelope(requestEnvelope);
+		
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		response.setContentType("text/html");

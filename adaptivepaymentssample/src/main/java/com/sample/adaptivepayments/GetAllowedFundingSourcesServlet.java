@@ -64,6 +64,7 @@ public class GetAllowedFundingSourcesServlet extends HttpServlet {
 				"<ul><li><a href='Preapproval'>Preapproval</a></li><li><a href='Refund'>Refund</a></li><li><a href='GetFundingPlans'>GetFundingPlans</a></li></ul>");
 		GetAllowedFundingSourcesRequest req = new GetAllowedFundingSourcesRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+		//(Required) The preapproval key that identifies the preapproval
 		req.setKey(request.getParameter("preapprovalKey"));
 		req.setRequestEnvelope(requestEnvelope);
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this

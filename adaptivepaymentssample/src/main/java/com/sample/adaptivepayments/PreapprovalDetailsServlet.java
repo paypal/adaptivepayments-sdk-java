@@ -63,11 +63,21 @@ public class PreapprovalDetailsServlet extends HttpServlet {
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		PreapprovalDetailsRequest req = new PreapprovalDetailsRequest();
 		req.setRequestEnvelope(requestEnvelope);
+		
+		/*
+		 *  A preapproval key that identifies the preapproval for which you want to retrieve details.
+		 *  The preapproval key is returned in the PreapprovalResponse message.
+		 */
 		if (request.getParameter("preapprovalKey") != "")
 			req.setPreapprovalKey(request.getParameter("preapprovalKey"));
+		/*
+		 *  (Optional) An option that lets you retrieve a list of billing addresses for the sender.
+    		true – Includes the billing address in the response
+    		false – Omits the billing address from the response (default)
+		 */
 		if (request.getParameter("getBillingAddress") != "")
-			req.setGetBillingAddress(Boolean.parseBoolean(request
-					.getParameter("getBillingAddress")));
+			req.setGetBillingAddress(Boolean.parseBoolean(request.getParameter("getBillingAddress")));
+		
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		try {

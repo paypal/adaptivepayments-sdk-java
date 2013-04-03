@@ -64,6 +64,10 @@ public class GetPaymentOptionsServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='PaymentDetails'>PaymentDetails</a></li><li><a href='Refund'>Refund</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		GetPaymentOptionsRequest req = new GetPaymentOptionsRequest();
+		/*
+		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
+		 * The pay key is valid for 3 hours.
+		 */
 		if (request.getParameter("payKey") != "")
 			req.setPayKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);

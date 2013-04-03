@@ -66,67 +66,171 @@ public class PreapprovalServlet extends HttpServlet {
 		PreapprovalRequest req = new PreapprovalRequest();
 
 		ClientDetailsType clientDetails = new ClientDetailsType();
+
+		//(Optional) Your application's identification, such as the name of your application 
 		if (request.getParameter("applicationID") != "")
-			clientDetails.setApplicationId(request
-					.getParameter("applicationID"));
+			clientDetails.setApplicationId(request.getParameter("applicationID"));
+		// (Optional) Your ID for this sender Maximum length: 127 characters 
 		if (request.getParameter("customerID") != "")
 			clientDetails.setCustomerId(request.getParameter("customerID"));
+		//(Optional) Your identification of the type of customer Maximum length: 127 characters 
 		if (request.getParameter("customerType") != "")
 			clientDetails.setCustomerType(request.getParameter("customerType"));
+		/*
+		 *  (Optional) Sender's device ID, such as a mobile device's IMEI number or a web browser cookie.
+		 *   If a device ID was passed with the PayRequest, use the same ID here. Maximum length: 127 characters 
+		 */
 		if (request.getParameter("deviceID") != "")
 			clientDetails.setDeviceId(request.getParameter("deviceID"));
+		// (Optional) Sender's geographic location Maximum length: 127 characters 
 		if (request.getParameter("location") != "")
 			clientDetails.setGeoLocation(request.getParameter("location"));
+		/*
+		 * (Optional) Sender's IP address. 
+		 * If an IP addressed was passed with the PayRequest, use the same ID here.
+		 */
 		if (request.getParameter("ipAddress") != "")
 			clientDetails.setIpAddress(request.getParameter("ipAddress"));
+		// (Optional) A sub-identification of the application Maximum length: 127 characters
 		if (request.getParameter("model") != "")
 			clientDetails.setModel(request.getParameter("model"));
+		//(Optional) Your organization's name or ID Maximum length: 127 characters
 		if (request.getParameter("partnerName") != "")
 			clientDetails.setPartnerName(request.getParameter("partnerName"));
+		
 		req.setClientDetails(clientDetails);
+		
+		/*
+		 *  (Optional) The day of the month on which a monthly payment is to be made.
+		 *   Allowable values are numbers between 0 and 31.
+		 *   A number between 1 and 31 indicates the date of the month.
+		 *   Specifying 0 indicates that payment can be made on any day of the month. 
+		 */
 		if (request.getParameter("dateOfMonth") != "")
-			req.setDateOfMonth(Integer.parseInt(request
-					.getParameter("dateOfMonth")));
+			req.setDateOfMonth(Integer.parseInt(request.getParameter("dateOfMonth")));
+		/*
+		 *  (Optional) The day of the week that a weekly payment is to be made. Allowable values are: 
+		 *      NO_DAY_SPECIFIED
+			    SUNDAY
+			    MONDAY
+			    TUESDAY
+			    WEDNESDAY
+			    THURSDAY
+			    FRIDAY
+			    SATURDAY
+		 */
 		if (request.getParameter("dayOfWeek") != "")
-			req.setDayOfWeek(DayOfWeek.fromValue(request
-					.getParameter("dayOfWeek")));
+			req.setDayOfWeek(DayOfWeek.fromValue(request.getParameter("dayOfWeek")));
+		/*
+		 *  (Optional) Whether to display the maximum total amount of this preapproval. It is one of the following values:
+			   TRUE – Display the amount
+			   FALSE – Do not display the amount (default)
+		 */
 		if (request.getParameter("displayMaxTotalAmount") != "")
-			req.setDisplayMaxTotalAmount(Boolean.parseBoolean(request
-					.getParameter("displayMaxTotalAmount")));
+			req.setDisplayMaxTotalAmount(Boolean.parseBoolean(request.getParameter("displayMaxTotalAmount")));
+		/*
+		 *  (Optional) The payer of PayPal fees. Allowable values are:
+		    SENDER – Sender pays all fees (for personal, implicit simple/parallel payments; do not use for chained or unilateral payments)
+		    PRIMARYRECEIVER – Primary receiver pays all fees (chained payments only)
+		    EACHRECEIVER – Each receiver pays their own fee (default, personal and unilateral payments)
+		    SECONDARYONLY – Secondary receivers pay all fees (use only for chained payments with one secondary receiver)
+		 */
 		if (request.getParameter("feesPayer") != "")
 			req.setFeesPayer(request.getParameter("feesPayer"));
+		
+		/*
+		 * (Optional) The URL to which you want all IPN messages for this preapproval to be sent.
+		 *  This URL supersedes the IPN notification URL in your profile.
+		 *   Maximum length: 1024 characters 
+		 */
 		if (request.getParameter("ipnNotificationURL") != "")
-			req.setIpnNotificationUrl(request
-					.getParameter("ipnNotificationURL"));
+			req.setIpnNotificationUrl(request.getParameter("ipnNotificationURL"));
+		/*
+		 * (Optional) The preapproved maximum amount per payment.
+		 * It cannot exceed the preapproved maximum total amount of all payments. 
+		 */
 		if (request.getParameter("maxAmountPerPayment") != "")
-			req.setMaxAmountPerPayment(Double.parseDouble(request
-					.getParameter("maxAmountPerPayment")));
+			req.setMaxAmountPerPayment(Double.parseDouble(request.getParameter("maxAmountPerPayment")));
+		/*
+		 *  (Optional) The preapproved maximum number of payments.
+		 *   It cannot exceed the preapproved maximum total number of all payments. 
+		 */
 		if (request.getParameter("maxNumberOfPayments") != "")
-			req.setMaxNumberOfPayments(Integer.parseInt(request
-					.getParameter("maxNumberOfPayments")));
+			req.setMaxNumberOfPayments(Integer.parseInt(request.getParameter("maxNumberOfPayments")));
+		/*
+		 * (Optional) The preapproved maximum number of all payments per period. 
+		 *  You must specify a value unless you have specific permission from PayPal. 
+		 */
 		if (request.getParameter("maxNumberOfPaymentsPerPeriod") != "")
-			req.setMaxNumberOfPaymentsPerPeriod(Integer.parseInt(request
-					.getParameter("maxNumberOfPaymentsPerPeriod")));
+			req.setMaxNumberOfPaymentsPerPeriod(Integer.parseInt(request.getParameter("maxNumberOfPaymentsPerPeriod")));
+		/*
+		 * (Optional) The preapproved maximum total amount of all payments.
+		 *  It cannot exceed $2,000 USD or its equivalent in other currencies
+		 */
 		if (request.getParameter("totalAmountOfAllPayments") != "")
 			req.setMaxTotalAmountOfAllPayments(Double.parseDouble(request
 					.getParameter("totalAmountOfAllPayments")));
+		/*
+		 * (Optional) A note about the preapproval. 
+		 * Maximum length: 1000 characters, including newline characters 
+		 */
 		if (request.getParameter("memo") != "")
 			req.setMemo(request.getParameter("memo"));
+		/*
+		 * (Optional) The payment period. It is one of the following values:
+		    NO_PERIOD_SPECIFIED
+		    DAILY – Each day
+		    WEEKLY – Each week
+		    BIWEEKLY – Every other week
+		    SEMIMONTHLY – Twice a month
+		    MONTHLY – Each month
+		    ANNUALLY – Each year
+		 */
 		if (request.getParameter("paymentPeriod") != "")
 			req.setPaymentPeriod(request.getParameter("paymentPeriod"));
+		/*
+		 * (Optional) Whether a personal identification number (PIN) is required. It is one of the following values:
+		    NOT_REQUIRED – A PIN is not required (default)
+		    REQUIRED – A PIN is required; the sender must specify a PIN when setting up the preapproval on PayPal
+		 */
 		if (request.getParameter("pinType") != "")
 			req.setPinType(request.getParameter("pinType"));
+		/*
+		 * (Optional) Sender's email address. If not specified,
+		 *  the email address of the sender who logs in to approve
+		 *  the request becomes the email address associated with the preapproval key.
+		 *  Maximum length: 127 characters 
+		 */
 		if (request.getParameter("senderEmail") != "")
 			req.setSenderEmail(request.getParameter("senderEmail"));
+		//URL to redirect the sender's browser to after canceling the preapproval 
 		if (request.getParameter("cancelURL") != "")
 			req.setCancelUrl(request.getParameter("cancelURL"));
+		/*
+		 * The code for the currency in which the payment is made; 
+		 * you can specify only one currency, regardless of the number of receivers 
+		 */
 		if (request.getParameter("currencyCode") != "")
 			req.setCurrencyCode(request.getParameter("currencyCode"));
+		/*
+		 * URL to redirect the sender's browser
+		 * to after the sender has logged into PayPal and confirmed the preapproval 
+		 */
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
+		
 		req.setRequestEnvelope(requestEnvelope);
+		/*
+		 * First date for which the preapproval is valid. 
+		 * It cannot be before today's date or after the ending date. 
+		 */
 		if (request.getParameter("startingDate") != "")
 			req.setStartingDate(request.getParameter("startingDate"));
+		/*
+		 * Last date for which the preapproval is valid. 
+		 * It cannot be later than one year from the starting date. 
+		 * Contact PayPal if you do not want to specify an ending date
+		 */
 		if (request.getParameter("endingDate") != "")
 			req.setEndingDate(request.getParameter("endingDate"));
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this

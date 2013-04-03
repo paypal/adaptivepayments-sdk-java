@@ -62,6 +62,10 @@ public class GetShippingAddressesServlet extends HttpServlet {
 				"<ul><li><li><a href='Pay'>Pay</a></li><li><a href='GetAvailableShippingAddresses'>GetAvailableShippingAddresses</a></li></ul>");
 		GetShippingAddressesRequest req = new GetShippingAddressesRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+		/*
+		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
+		 * The pay key is valid for 3 hours.
+		 */
 		req.setKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this

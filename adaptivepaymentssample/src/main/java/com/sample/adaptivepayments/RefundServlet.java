@@ -68,24 +68,40 @@ public class RefundServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='PaymentDetails'>PaymentDetails</a></li><li><a href='GetPaymentOptions'>GetPaymentOptions</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		RefundRequest req = new RefundRequest(requestEnvelope);
-
+		//The key used to create the payment that you want to refund
 		if (request.getParameter("payKey") != "")
 			req.setPayKey(request.getParameter("payKey"));
+		/*
+		 * The currency code. You must specify the currency code that matches
+		 * the currency code of the original payment unless you also specify the payment key
+		 */
 		req.setCurrencyCode(request.getParameter("currencyCode"));
+		/*
+		 * A PayPal transaction ID associated with the receiver whose payment 
+		 * you want to refund to the sender. Use field name characters exactly as shown.
+		 */
 		if (request.getParameter("transactionID") != "")
 			req.setTransactionId(request.getParameter("transactionID"));
+		//(Optional) The tracking ID associated with the payment that you want to refund. 
 		if (request.getParameter("trackingID") != "")
 			req.setTrackingId(request.getParameter("trackingID"));
+		
 		List<Receiver> receiver = new ArrayList<Receiver>();
 
 		Receiver rec = new Receiver();
+		//(Required) Amount to be credited to the receiver's account.
 		if (request.getParameter("amount") != "")
 			rec.setAmount(Double.parseDouble(request.getParameter("amount")));
+		//(Required) Receiver's email address.
 		if (request.getParameter("mail") != "")
 			rec.setEmail(request.getParameter("mail"));
+		//Optional) This fields is not used.
 		if (request.getParameter("invoiceID") != "")
 			rec.setInvoiceId(request.getParameter("invoiceID"));
-
+		/*
+		 * (Optional) A type to specify the receiver's phone number. 
+		 * The PayRequest must pass either an email address or a phone number as the payment receiver.
+		 */
 		if (request.getParameter("phoneNumber") != "") {
 			PhoneNumberType phone = new PhoneNumberType(
 					request.getParameter("countryCode"),
@@ -93,12 +109,22 @@ public class RefundServlet extends HttpServlet {
 			phone.setExtension(request.getParameter("extension"));
 			rec.setPhone(phone);
 		}
+		/*
+		 *  (Optional) Whether this receiver is the primary receiver, 
+		 *  which makes this a refund for a chained payment. 
+		 *  You can specify at most one primary receiver. 
+		 *  Omit this field for refunds for simple and parallel payments.
+			Allowable values are:
+			    true – Primary receiver
+			    false – Secondary receiver (default)
+		 */
 		if (request.getParameter("setPrimary") != "")
 			rec.setPrimary(Boolean.parseBoolean(request
 					.getParameter("setPrimary")));
 		receiver.add(rec);
 		ReceiverList receiverlst = new ReceiverList(receiver);
 		req.setReceiverList(receiverlst);
+		
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		try {

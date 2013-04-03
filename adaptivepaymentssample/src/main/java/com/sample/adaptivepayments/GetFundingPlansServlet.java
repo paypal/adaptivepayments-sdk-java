@@ -64,6 +64,10 @@ public class GetFundingPlansServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='Refund'>Refund</a></li><li><a href='GetAllowedFundingSources'>GetAllowedFundingSources</a></li></ul>");
 		GetFundingPlansRequest req = new GetFundingPlansRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+		/*
+		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
+		 * The pay key is valid for 3 hours.
+		 */
 		req.setPayKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this

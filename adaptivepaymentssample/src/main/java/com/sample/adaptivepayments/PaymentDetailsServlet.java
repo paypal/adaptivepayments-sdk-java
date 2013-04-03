@@ -62,12 +62,25 @@ public class PaymentDetailsServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='Refund'>Refund</a></li><li><a href='GetPaymentOptions'>GetPaymentOptions</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		PaymentDetailsRequest req = new PaymentDetailsRequest(requestEnvelope);
+		/*
+		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
+		 * The pay key is valid for 3 hours.
+		 */
 		if (request.getParameter("payKey") != "")
 			req.setPayKey(request.getParameter("payKey"));
+		/*
+		 *  (Optional) The PayPal transaction ID associated with the payment.
+		 *  The IPN message associated with the payment contains the transaction ID. 
+		 */
 		if (request.getParameter("transactionID") != "")
 			req.setTransactionId(request.getParameter("transactionID"));
+		/*
+		 * (Optional) The tracking ID that was specified for this payment in the PayRequest message.
+		 *  Maximum length: 127 characters 
+		 */
 		if (request.getParameter("trackingID") != "")
 			req.setTrackingId(request.getParameter("trackingID"));
+		
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		response.setContentType("text/html");

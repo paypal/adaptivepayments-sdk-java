@@ -68,25 +68,46 @@ public class ConvertCurrencyServlet extends HttpServlet {
 				"relatedUrl",
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='Refund'>Refund</a></li><li><a href='Preapproval'>Preapproval</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+		
 		List<CurrencyType> currency = new ArrayList<CurrencyType>();
 		CurrencyType type1 = new CurrencyType();
+		//(Required) The amount to be converted.
 		if (request.getParameter("amount") != "")
 			type1.setAmount(Double.parseDouble(request.getParameter("amount")));
+	    
+		//(Required) The currency code.
 		if (request.getParameter("code") != "")
 			type1.setCode(request.getParameter("code"));
 		currency.add(type1);
 		CurrencyList baseAmountList = new CurrencyList(currency);
 		List<String> currencyCode = new ArrayList<String>();
+		
+		//(Required) A list of currencies to convert to.
 		if (request.getParameter("convertTo") != "")
 			currencyCode.add(request.getParameter("convertTo"));
+		
 		CurrencyCodeList convertToCurrencyList = new CurrencyCodeList(
 				currencyCode);
+		
 		ConvertCurrencyRequest req = new ConvertCurrencyRequest(
 				requestEnvelope, baseAmountList, convertToCurrencyList);
+		/*
+		 * (Optional)The conversion type allows you to determine the converted amounts 
+		 * for a PayPal user in different currency conversion scenarios, e.g., 
+		 * sending a payment in a different currency than what this user holds, 
+		 * accepting payment in a different currency than what the user holds, 
+		 * or converting a balance to a different currency than the user holds.. 
+		 * The default value is SENDER_SIDE 
+		 */
 		if (request.getParameter("conversionType") != "")
 			req.setConversionType(request.getParameter("conversionType"));
+		/*
+		 * (Optional)The two-character ISO code for the country where the
+		 *  function is supposed to happen. The default value is US.
+		 */
 		if (request.getParameter("countryCode") != "")
 			req.setCountryCode(request.getParameter("countryCode"));
+		
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		response.setContentType("text/html");

@@ -63,12 +63,19 @@ public class ConfirmPreapprovalServlet extends HttpServlet {
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		ConfirmPreapprovalRequest req = new ConfirmPreapprovalRequest();
 		req.setRequestEnvelope(requestEnvelope);
+		//Funding source ID.
 		if (request.getParameter("fundingSourceID") != "")
 			req.setFundingSourceId(request.getParameter("fundingSourceID"));
+		
 		if (request.getParameter("pin") != "")
 			req.setPin(request.getParameter("pin"));
+		/*
+		 * A preapproval key that identifies the preapproval requested. You can use this
+		 * key in other Adaptive Payment requests to identify this preapproval.
+		 */
 		if (request.getParameter("preapprovalKey") != "")
 			req.setPreapprovalKey(request.getParameter("preapprovalKey"));
+		
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
 				.getClass().getResourceAsStream("/sdk_config.properties"));
 		response.setContentType("text/html");
