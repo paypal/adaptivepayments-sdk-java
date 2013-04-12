@@ -71,18 +71,18 @@ public class ConvertCurrencyServlet extends HttpServlet {
 		
 		List<CurrencyType> currency = new ArrayList<CurrencyType>();
 		CurrencyType type1 = new CurrencyType();
-		//(Required) The amount to be converted.
+		/** (Required) The amount to be converted. */
 		if (request.getParameter("amount") != "")
 			type1.setAmount(Double.parseDouble(request.getParameter("amount")));
 	    
-		//(Required) The currency code.
+		/** (Required) The currency code. */
 		if (request.getParameter("code") != "")
 			type1.setCode(request.getParameter("code"));
 		currency.add(type1);
 		CurrencyList baseAmountList = new CurrencyList(currency);
 		List<String> currencyCode = new ArrayList<String>();
 		
-		//(Required) A list of currencies to convert to.
+		/** (Required) A list of currencies to convert to. */
 		if (request.getParameter("convertTo") != "")
 			currencyCode.add(request.getParameter("convertTo"));
 		
@@ -91,8 +91,8 @@ public class ConvertCurrencyServlet extends HttpServlet {
 		
 		ConvertCurrencyRequest req = new ConvertCurrencyRequest(
 				requestEnvelope, baseAmountList, convertToCurrencyList);
-		/*
-		 * (Optional)The conversion type allows you to determine the converted amounts 
+		/**
+		 *  (Optional)The conversion type allows you to determine the converted amounts 
 		 * for a PayPal user in different currency conversion scenarios, e.g., 
 		 * sending a payment in a different currency than what this user holds, 
 		 * accepting payment in a different currency than what the user holds, 
@@ -101,8 +101,7 @@ public class ConvertCurrencyServlet extends HttpServlet {
 		 */
 		if (request.getParameter("conversionType") != "")
 			req.setConversionType(request.getParameter("conversionType"));
-		/*
-		 * (Optional)The two-character ISO code for the country where the
+		/** (Optional)The two-character ISO code for the country where the
 		 *  function is supposed to happen. The default value is US.
 		 */
 		if (request.getParameter("countryCode") != "")
@@ -123,20 +122,32 @@ public class ConvertCurrencyServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					Correlation identifier. It is a 13-character, alphanumeric string 
+					(for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+					Note:
+					You must log and store this data for every response you receive. 
+					PayPal Technical Support uses the information to assist with reported issues.
+					*/
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/**
+					 *  Date on which the response was sent, for example:
+						2012-04-02T22:33:35.774-07:00
+						Note:
+						You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues.
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
 					Iterator<CurrencyConversionList> iterator = resp
 							.getEstimatedAmountTable()
 							.getCurrencyConversionList().iterator();
 					int index = 1;
 					while (iterator.hasNext()) {
 						CurrencyConversionList currencyList = iterator.next();
-						map.put("Amount to be converted" + index, currencyList.getBaseAmount()
-								.getAmount());
-						Iterator<CurrencyType> currencyIterator = currencyList
-								.getCurrencyList().getCurrency().iterator();
+						map.put("Amount to be converted" + index, currencyList.getBaseAmount().getAmount());
+						Iterator<CurrencyType> currencyIterator = currencyList.getCurrencyList().getCurrency().iterator();
 						int innerIndex = 1;
 						while (currencyIterator.hasNext()) {
 							CurrencyType currencyType = currencyIterator.next();

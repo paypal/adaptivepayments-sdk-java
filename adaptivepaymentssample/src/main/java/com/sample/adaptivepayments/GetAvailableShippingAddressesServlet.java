@@ -64,8 +64,8 @@ public class GetAvailableShippingAddressesServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='GetShippingAddresses'>GetShippingAddresses</a></li></ul>");
 		GetAvailableShippingAddressesRequest req = new GetAvailableShippingAddressesRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
-		/*
-		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
+		/**
+		 *  The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
 		 * The pay key is valid for 3 hours.
 		 */
 		req.setKey(request.getParameter("payKey"));
@@ -85,23 +85,30 @@ public class GetAvailableShippingAddressesServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
 					Iterator<Address> iterator = resp.getAvailableAddress()
 							.iterator();
 					int index = 1;
 					while (iterator.hasNext()) {
 						Address address = iterator.next();
-						map.put("Addressee Name" + index,
-								address.getAddresseeName());
-						map.put("Line 1" + index, address.getBaseAddress()
-								.getLine1());
-						map.put("City" + index, address.getBaseAddress()
-								.getCity());
-						map.put("State" + index, address.getBaseAddress()
-								.getState());
+						map.put("Addressee Name" + index,address.getAddresseeName());
+						map.put("Line 1" + index, address.getBaseAddress().getLine1());
+						map.put("City" + index, address.getBaseAddress().getCity());
+						map.put("State" + index, address.getBaseAddress().getState());
 						index++;
 					}
 					session.setAttribute("map", map);

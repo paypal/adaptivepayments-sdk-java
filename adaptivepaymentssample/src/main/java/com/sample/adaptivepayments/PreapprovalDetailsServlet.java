@@ -91,12 +91,44 @@ public class PreapprovalDetailsServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
+					
+					/**
+					 * Whether the preapproval request was approved. Possible values are:
+					    true – The request was approved
+					    false – The request was denied
+					 */
 					map.put("Approval", resp.getApproved());
+					
+					/**
+					 * The payer of PayPal fees. Allowable values are:
+					    SENDER – Sender pays all fees (for personal, implicit simple/parallel payments; do not use for chained or unilateral payments)
+					    PRIMARYRECEIVER – Primary receiver pays all fees (chained payments only)
+					    EACHRECEIVER – Each receiver pays their own fee (default, personal and unilateral payments)
+					    SECONDARYONLY – Secondary receivers pay all fees (use only for chained payments with one secondary receiver)
+					 */
 					map.put("FeesPayer", resp.getFeesPayer());
+					
+					/**
+					 * The preapproved maximum total amount of all payments.
+						Note:
+						You must specify a value unless you have specific permission from 
+						PayPal to omit this value.
+					 */
 					map.put("Maximum Total Amount",
 							resp.getMaxTotalAmountOfAllPayments());
 					session.setAttribute("map", map);

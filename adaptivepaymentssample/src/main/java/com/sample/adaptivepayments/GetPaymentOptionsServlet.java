@@ -64,7 +64,7 @@ public class GetPaymentOptionsServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='PaymentDetails'>PaymentDetails</a></li><li><a href='Refund'>Refund</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		GetPaymentOptionsRequest req = new GetPaymentOptionsRequest();
-		/*
+		/** 
 		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
 		 * The pay key is valid for 3 hours.
 		 */
@@ -85,17 +85,28 @@ public class GetPaymentOptionsServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
-					Iterator<ReceiverOptions> iterator = resp
-							.getReceiverOptions().iterator();
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
+					Iterator<ReceiverOptions> iterator = resp.getReceiverOptions().iterator();
 					int index = 1;
 					while (iterator.hasNext()) {
 						ReceiverOptions receiverOptions = iterator.next();
-						map.put("Receiver Email" + index, receiverOptions
-								.getReceiver().getEmail());
+						
+						/** Receiver's email address.  */
+						map.put("Receiver Email" + index, receiverOptions.getReceiver().getEmail());
 						index++;
 					}
 

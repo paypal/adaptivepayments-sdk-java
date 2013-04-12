@@ -60,11 +60,14 @@ public class CancelPreapprovalServlet extends HttpServlet {
 		session.setAttribute(
 				"relatedUrl",
 				"<ul><li><a href='Preapproval'>Preapproval</a></li><li><a href='PreapprovalDetails'>PreapprovalDetails</a></li><li><a href='ConfirmPreapproval'>ConfirmPreapproval</a></li><li><a href='CancelPreapproval'>CancelPreapproval</a></li></ul>");
+		
+		/** (Required) RFC 3066 language in which error messages are returned; 
+		 * by default it is en_US, which is the only language currently supported. */
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		CancelPreapprovalRequest req = new CancelPreapprovalRequest();
 		req.setRequestEnvelope(requestEnvelope);
 		
-		//(Required) The preapproval key that identifies the preapproval to be canceled. 
+		/** (Required) The preapproval key that identifies the preapproval to be canceled. */ 
 		if (request.getParameter("preapprovalKey") != "")
 		req.setPreapprovalKey(request.getParameter("preapprovalKey"));
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
@@ -80,10 +83,23 @@ public class CancelPreapprovalServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/** Correlation identifier. It is a 13-character, alphanumeric string 
+					(for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+					Note:
+
+					You must log and store this data for every response you receive. 
+					PayPal Technical Support uses the information to assist with reported issues.
+					*/
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** Date on which the response was sent, for example:
+						2012-04-02T22:33:35.774-07:00
+						Note:
+						You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues.
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
 				} else {

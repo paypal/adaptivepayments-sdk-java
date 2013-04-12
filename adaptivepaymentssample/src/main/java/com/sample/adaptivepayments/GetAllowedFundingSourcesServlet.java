@@ -64,7 +64,7 @@ public class GetAllowedFundingSourcesServlet extends HttpServlet {
 				"<ul><li><a href='Preapproval'>Preapproval</a></li><li><a href='Refund'>Refund</a></li><li><a href='GetFundingPlans'>GetFundingPlans</a></li></ul>");
 		GetAllowedFundingSourcesRequest req = new GetAllowedFundingSourcesRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
-		//(Required) The preapproval key that identifies the preapproval
+		/** (Required) The preapproval key that identifies the preapproval */
 		req.setKey(request.getParameter("preapprovalKey"));
 		req.setRequestEnvelope(requestEnvelope);
 		AdaptivePaymentsService service = new AdaptivePaymentsService(this
@@ -81,17 +81,34 @@ public class GetAllowedFundingSourcesServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
 					Iterator<FundingSource> iterator = resp.getFundingSource()
 							.iterator();
 					int index = 1;
 					while (iterator.hasNext()) {
 						FundingSource fundingSource = iterator.next();
-						map.put("Funding Source ID" + index,
-								fundingSource.getFundingSourceId());
+						/** Funding source ID. */
+						map.put("Funding Source ID" + index,fundingSource.getFundingSourceId());
+						
+						/**
+						 * Whether the funding source is allowed for this payment:
+						    true – You can use this funding source for the payment
+						    false – You cannot use this funding source (default)
+						 */
 						map.put("Allowed" + index, fundingSource.getAllowed());
 						index++;
 					}

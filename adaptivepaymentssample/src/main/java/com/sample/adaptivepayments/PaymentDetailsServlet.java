@@ -62,19 +62,19 @@ public class PaymentDetailsServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='Refund'>Refund</a></li><li><a href='GetPaymentOptions'>GetPaymentOptions</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li><li><a href='SetPaymentOptions'>SetPaymentOptions</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		PaymentDetailsRequest req = new PaymentDetailsRequest(requestEnvelope);
-		/*
-		 * The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
+		/**
+		 *  The pay key, which is a token you use in other Adaptive Payment APIs to identify the payment.
 		 * The pay key is valid for 3 hours.
 		 */
 		if (request.getParameter("payKey") != "")
 			req.setPayKey(request.getParameter("payKey"));
-		/*
+		/**
 		 *  (Optional) The PayPal transaction ID associated with the payment.
 		 *  The IPN message associated with the payment contains the transaction ID. 
 		 */
 		if (request.getParameter("transactionID") != "")
 			req.setTransactionId(request.getParameter("transactionID"));
-		/*
+		/**
 		 * (Optional) The tracking ID that was specified for this payment in the PayRequest message.
 		 *  Maximum length: 127 characters 
 		 */
@@ -94,13 +94,55 @@ public class PaymentDetailsServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
+					
+					/**
+					 * The pay key that identifies this payment. This is a token that is assigned by the 
+					 * Pay API after a PayRequest message is received and can be used in other Adaptive 
+					 * Payments Methods, as well as the cancelURL and returnURL to identify this payment. 
+					 * The pay key is valid for 3 hours. 
+					 */
 					map.put("Pay Key", resp.getPayKey());
+					
+					/**
+					 *  Whether the Pay request is set up to create a payment request with the 
+					 *  SetPaymentOptions request, and then fulfill the payment with the 
+					 *  ExecutePayment request. Possible values are:
+
+					    PAY – Use this option if you are not using the Pay request in combination with ExecutePayment.
+					    CREATE – Use this option to set up the payment instructions with SetPaymentOptions and then execute the payment at a later time with the ExecutePayment.
+					    PAY_PRIMARY – For chained payments only, specify this value to delay payments to the secondary receivers; only the payment to the primary receiver is processed.
+					 */
 					map.put("Action Type", resp.getActionType());
+					
+					/** The sender's email address */
 					map.put("Sender Email", resp.getSenderEmail());
+					
+					/**
+					 * The status of the payment. Possible values are:
+					
+					    CREATED – The payment request was received; funds will be transferred once the payment is approved
+					    COMPLETED – The payment was successful
+					    INCOMPLETE – Some transfers succeeded and some failed for a parallel payment or, for a delayed chained payment, secondary receivers have not been paid
+					    ERROR – The payment failed and all attempted transfers failed or all completed transfers were successfully reversed
+					    REVERSALERROR – One or more transfers failed when attempting to reverse a payment
+					    PROCESSING – The payment is in progress
+					    PENDING – The payment is awaiting processing
+					 */
 					map.put("Status", resp.getStatus());
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");

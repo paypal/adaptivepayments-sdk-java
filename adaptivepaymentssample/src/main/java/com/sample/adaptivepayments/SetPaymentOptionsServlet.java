@@ -73,7 +73,7 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 				"<ul><li><a href='Pay'>Pay</a></li><li><a href='PaymentDetails'>PaymentDetails</a></li><li><a href='Refund'>Refund</a></li><li><a href='GetPaymentOptions'>GetPaymentOptions</a></li><li><a href='ExecutePayment'>ExecutePayment</a></li></ul>");
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		SetPaymentOptionsRequest req = new SetPaymentOptionsRequest();
-		/*
+		/**
 		 * (Required) The pay key that identifies the payment for which you want to set payment options. 
 		 * This is the pay key returned in the PayResponse message.
 		 */
@@ -81,11 +81,11 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 			req.setPayKey(request.getParameter("payKey"));
 		
 		DisplayOptions displayOptions = new DisplayOptions();
-		//(Optional) The business name to display. The name cannot exceed 128 characters.
+		/** (Optional) The business name to display. The name cannot exceed 128 characters. */
 		if (request.getParameter("businessName") != "")
 			displayOptions
 					.setBusinessName(request.getParameter("businessName"));
-		/*
+		/**
 		 * (Optional) The URL of the image that displays in the in the header of customer emails.
 		 *  The URL cannot exceed 1,024 characters. 
 		 *  The image dimensions are 43 pixels high x 240 pixels wide.
@@ -93,7 +93,7 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		if (request.getParameter("emailHeaderImageURL") != "")
 			displayOptions.setEmailHeaderImageUrl(request
 					.getParameter("emailHeaderImageURL"));
-		/*
+		/**
 		 * (Optional) The URL of the image that displays in the in customer emails. 
 		 * The URL cannot exceed 1,024 characters. 
 		 * The image dimensions are 80 pixels high x 530 pixels wide.
@@ -101,7 +101,7 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		if (request.getParameter("emailHeaderMarketingURL") != "")
 			displayOptions.setEmailMarketingImageUrl(request
 					.getParameter("emailHeaderMarketingURL"));
-		/*
+		/**
 		 * (Optional) The URL of an image that displays in the header of a payment page.
 		 *  If set, it overrides the header image URL specified in your account's Profile.
 		 *  The URL cannot exceed 1,024 characters. The image dimensions are 90 pixels high x 750 pixels wide.
@@ -112,7 +112,7 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		req.setDisplayOptions(displayOptions);
 		
 		InitiatingEntity initiatingEntity = new InitiatingEntity();
-		/*
+		/**
 		 *  institutionId: (Required) The unique identifier assigned to the institution.
 		 *  firstName: (Required) The first name of the consumer as known by the institution.
 		 *  lastName: Required) The last name of the consumer as known by the institution.
@@ -142,19 +142,19 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		}
 		req.setInitiatingEntity(initiatingEntity);
 		
-		//(Optional) Sender's shipping address ID.
+		/** (Optional) Sender's shipping address ID. */
 		if (request.getParameter("shippingAddressID") != "")
 			req.setShippingAddressId(request.getParameter("shippingAddressID"));
 
 		List<ReceiverOptions> receiverOptionsList = new ArrayList<ReceiverOptions>();
 		ReceiverIdentifier receiver = new ReceiverIdentifier();
 		
-		//(Optional) Receiver's email address. 
+		/** (Optional) Receiver's email address. */ 
 		if (request.getParameter("receiverMail") != "")
 			receiver.setEmail(request.getParameter("receiverMail"));
 		
 		PhoneNumberType receiverPhone = null;
-		/*
+		/**
 		 * (Required) Telephone country code.
 		 * (Required) Telephone number. 
 		 * (Optional) Telephone extension. 
@@ -175,7 +175,7 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		//(Optional) An external reference or identifier you want to associate with the payment. 
 		if (request.getParameter("customID") != "")
 			receiverOptions.setCustomId(request.getParameter("customID"));
-		/*
+		/**
 		 * (Optional) A description you want to associate with the payment.
 		 *  This overrides the value of the memo in Pay API for each receiver.
 		 *   If this is not specified the value in the memo will be used.
@@ -187,18 +187,18 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		List<InvoiceItem> invoiceItemList = new ArrayList<InvoiceItem>();
 		InvoiceItem invoiceItem = new InvoiceItem();
 		
-		//(Optional) External reference to item or item ID.
+		/** (Optional) External reference to item or item ID. */
 		if (request.getParameter("invoiceIdentifier") != "")
 			invoiceItem.setIdentifier(request.getParameter("invoiceIdentifier"));
 
 		Double itemPrice = null;
 		Integer itemCount = null;
-		//(Optional) Item quantity. 
+		/** (Optional) Item quantity. */ 
 		if (request.getParameter("invoiceItemCount") != "") {
 			itemCount = Integer.parseInt(request.getParameter("invoiceItemCount"));
 			invoiceItem.setItemCount(itemCount);
 		}
-		//(Optional) Price of an individual item.
+		/** (Optional) Price of an individual item. */
 		if (request.getParameter("invoiceItemPrice") != "") {
 			itemPrice = Double.parseDouble(request.getParameter("invoiceItemPrice"));
 			invoiceItem.setItemPrice(itemPrice);
@@ -209,28 +209,28 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 			Double price = itemCount * itemPrice;
 			invoiceItem.setPrice(price);
 		}
-		//(Optional) Name of item. 
+		/** (Optional) Name of item. */ 
 		if (request.getParameter("invoiceName") != "")
 			invoiceItem.setName(request.getParameter("invoiceName"));
 		invoiceItemList.add(invoiceItem);
 		invoiceData.setItem(invoiceItemList);
-		//(Optional) Total shipping charge associated with the payment. 
+		/** (Optional) Total shipping charge associated with the payment. */ 
 		if (request.getParameter("invoiceTotalShipping") != "")
 			invoiceData.setTotalShipping(Double.parseDouble(request
 					.getParameter("invoiceTotalShipping")));
-		//(Optional) Total tax associated with the payment
+		/** (Optional) Total tax associated with the payment */
 		if (request.getParameter("invoiceTotalTax") != "")
 			invoiceData.setTotalTax(Double.parseDouble(request
 					.getParameter("invoiceTotalTax")));
 		receiverOptions.setInvoiceData(invoiceData);
-		////(Optional) A code that identifies the partner associated with this transaction. 
+		/** (Optional) A code that identifies the partner associated with this transaction. */ 
 		if (request.getParameter("receiverReferrerCode") != "")
 			receiverOptions.setReferrerCode(request.getParameter("receiverReferrerCode"));
 		receiverOptionsList.add(receiverOptions);
 		req.setReceiverOptions(receiverOptionsList);
 
 		SenderOptions senderOptions = new SenderOptions();
-		/*
+		/**
 		 * (Optional) If true, * require the sender to select a shipping address 
 		 * during the embedded payment flow; default is false.
 		 */
@@ -238,10 +238,9 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 			senderOptions.setRequireShippingAddressSelection(Boolean
 					.parseBoolean(request
 							.getParameter("requireShippingAddressSelection")));
-		//(Optional) A code that identifies the partner associated with this transaction. 
+		/** (Optional) A code that identifies the partner associated with this transaction. */ 
 		if (request.getParameter("senderReferrerCode") != "")
-			senderOptions.setReferrerCode(request
-					.getParameter("senderReferrerCode"));
+			senderOptions.setReferrerCode(request.getParameter("senderReferrerCode"));
 		req.setSenderOptions(senderOptions);
 		req.setRequestEnvelope(requestEnvelope);
 
@@ -258,10 +257,21 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
 				} else {

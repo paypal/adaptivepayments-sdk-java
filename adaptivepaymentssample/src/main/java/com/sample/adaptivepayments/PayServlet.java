@@ -76,10 +76,10 @@ public class PayServlet extends HttpServlet {
 		List<Receiver> receiver = new ArrayList<Receiver>();
 
 		Receiver rec = new Receiver();
-		//(Required) Amount to be paid to the receiver
+		/** (Required) Amount to be paid to the receiver */
 		if (request.getParameter("amount") != "")
 			rec.setAmount(Double.parseDouble(request.getParameter("amount")));
-		/*
+		/**
 		 *  Receiver's email address. This address can be unregistered with paypal.com.
 		 *  If so, a receiver cannot claim the payment until a PayPal account is linked
 		 *  to the email address. The PayRequest must pass either an email address or a phone number. 
@@ -87,17 +87,17 @@ public class PayServlet extends HttpServlet {
 		 */
 		if (request.getParameter("mail") != "")
 			rec.setEmail(request.getParameter("mail"));
-		/*
-		 *  (Optional) The invoice number for the payment. 
+		/**
+		 * (Optional) The invoice number for the payment. 
 		 *  This data in this field shows on the Transaction Details report. 
 		 *  Maximum length: 127 characters 
 		 */
 		if (request.getParameter("invoiceID") != "")
 			rec.setInvoiceId(request.getParameter("invoiceID"));
-		//(Optional) The transaction subtype for the payment. 
+		/** (Optional) The transaction subtype for the payment. */ 
 		if (request.getParameter("paymentSubType") != "")
 			rec.setPaymentSubType(request.getParameter("paymentSubType"));
-		/*
+		/**
 		 * (Optional) The transaction type for the payment. Allowable values are:
 		    GOODS – This is a payment for non-digital goods
 		    SERVICE – This is a payment for services (default)
@@ -108,7 +108,7 @@ public class PayServlet extends HttpServlet {
 		 */
 		if (request.getParameter("paymentType") != "")
 			rec.setPaymentType(request.getParameter("paymentType"));
-		/*
+		/**
 		 * A type to specify the receiver's phone number.
 		 * The PayRequest must pass either an email address or a phone number as the payment receiver. 
 		 */
@@ -119,7 +119,7 @@ public class PayServlet extends HttpServlet {
 			phone.setExtension(request.getParameter("extension"));
 			rec.setPhone(phone);
 		}
-		/*
+		/**
 		 * (Optional) Whether this receiver is the primary receiver, 
 		 * which makes the payment a chained payment.You can specify at most one primary receiver. 
 		 *  Omit this field for simple and parallel payments. Allowable values are:
@@ -135,61 +135,61 @@ public class PayServlet extends HttpServlet {
 		req.setReceiverList(receiverlst);
 		req.setRequestEnvelope(requestEnvelope);
 		ClientDetailsType clientDetails = new ClientDetailsType();
-		//(Optional) Your application's identification, such as the name of your application 
+		/** (Optional) Your application's identification, such as the name of your application */ 
 		if (request.getParameter("applicationID") != "")
 			clientDetails.setApplicationId(request.getParameter("applicationID"));
-		// (Optional) Your ID for this sender Maximum length: 127 characters 
+		/**  (Optional) Your ID for this sender Maximum length: 127 characters */ 
 		if (request.getParameter("customerID") != "")
 			clientDetails.setCustomerId(request.getParameter("customerID"));
-		//(Optional) Your identification of the type of customer Maximum length: 127 characters 
+		/** (Optional) Your identification of the type of customer Maximum length: 127 characters */ 
 		if (request.getParameter("customerType") != "")
 			clientDetails.setCustomerType(request.getParameter("customerType"));
-		/*
+		/**
 		 *  (Optional) Sender's device ID, such as a mobile device's IMEI number or a web browser cookie.
 		 *  If a device ID was passed with the PayRequest, use the same ID here. Maximum length: 127 characters
 		 */
 		if (request.getParameter("deviceID") != "")
 			clientDetails.setDeviceId(request.getParameter("deviceID"));
-		//(Optional) Sender's geographic location Maximum length: 127 characters 
+		/** (Optional) Sender's geographic location Maximum length: 127 characters */ 
 		if (request.getParameter("location") != "")
 			clientDetails.setGeoLocation(request.getParameter("location"));
-		/*
+		/**
 		 * (Optional) Sender's IP address.
 		 *  If an IP addressed was passed with the PayRequest, use the same ID here. 
 		 */
 		if (request.getParameter("ipAddress") != "")
 			clientDetails.setIpAddress(request.getParameter("ipAddress"));
-		//(Optional) A sub-identification of the application Maximum length: 127 characters 
+		/** (Optional) A sub-identification of the application Maximum length: 127 characters */ 
 		if (request.getParameter("model") != "")
 			clientDetails.setModel(request.getParameter("model"));
-		//(Optional) Your organization's name or ID Maximum length: 127 characters 
+		/** (Optional) Your organization's name or ID Maximum length: 127 characters */ 
 		if (request.getParameter("partnerName") != "")
 			clientDetails.setPartnerName(request.getParameter("partnerName"));
 		
 		req.setClientDetails(clientDetails);
-		/*
+		/**
 		 * (Optional) The URL to which you want all IPN messages for this payment to be sent. 
 		 * Maximum length: 1024 characters 
 		 */
 		if (request.getParameter("ipnNotificationURL") != "")
 			req.setIpnNotificationUrl(request.getParameter("ipnNotificationURL"));
-		/*
+		/**
 		 * (Optional) A note associated with the payment (text, not HTML). 
 		 * Maximum length: 1000 characters, including newline characters 
 		 */
 		if (request.getParameter("memo") != "")
 			req.setMemo(request.getParameter("memo"));
-		/*
+		/**
 		 * (Optional) The sender's personal identification number, 
 		 * which was specified when the sender signed up for a preapproval. 
 		 */
 		if (request.getParameter("pin") != "")
 			req.setPin(request.getParameter("pin"));
 		
-		// (Optional) Sender's email address. Maximum length: 127 characters 
+		/**  (Optional) Sender's email address. Maximum length: 127 characters */ 
 		if (request.getParameter("senderEmail") != "")
 			req.setSenderEmail(request.getParameter("senderEmail"));
-		/*
+		/**
 		 * (Optional) The payer of PayPal fees. Allowable values are: 
 	       SENDER – Sender pays all fees (for personal, implicit simple/parallel payments; do not use for chained or unilateral payments)
 		   PRIMARYRECEIVER – Primary receiver pays all fees (chained payments only)
@@ -202,7 +202,7 @@ public class PayServlet extends HttpServlet {
 		FundingConstraint fundingConstraint = new FundingConstraint();
 		List<FundingTypeInfo> fundingTypeInfoList = new ArrayList<FundingTypeInfo>();
 		
-		/*
+		/**
 		 * (Required) Specifies a list of allowed funding selections for the payment. 
 		 * This is a list of funding selections that can be combined in any order to
 		 * allow payments to use the indicated funding type. If this field is omitted, 
@@ -221,10 +221,10 @@ public class PayServlet extends HttpServlet {
 				fundingTypeInfoList);
 		fundingConstraint.setAllowedFundingType(fundingTypeList);
 		req.setFundingConstraint(fundingConstraint);
-		//Preapproval key for the approval set up between you and the sender
+		/** Preapproval key for the approval set up between you and the sender */
 		if (request.getParameter("preapprovalKey") != "")
 			req.setPreapprovalKey(request.getParameter("preapprovalKey"));
-		/*
+		/**
 		 * Whether to reverse parallel payments. Possible values are:
 			 true – Each parallel payment is reversed if an error occurs
 			 false – Each parallel payment is not reversed if an error occurs
@@ -238,8 +238,8 @@ public class PayServlet extends HttpServlet {
 		if (request.getParameter("senderIdentifierEmail") != "")
 			senderIdentifier.setEmail(request.getParameter("senderIdentifierEmail"));
 		
-		/*
-		 * Telephone country code
+		/**
+		 *  Telephone country code
 		 * Telephone number
 		 * Telephone extension
 		 */
@@ -254,36 +254,36 @@ public class PayServlet extends HttpServlet {
 			senderIdentifier.setPhone(senderPhone);
 		}
 		
-		//(Optional) If true, use credentials to identify the sender; default is false. 
+		/** (Optional) If true, use credentials to identify the sender; default is false. */ 
 		if (request.getParameter("useCredentials") != "")
 			senderIdentifier.setUseCredentials(Boolean.parseBoolean(request
 					.getParameter("useCredentials")));
 		
 		req.setSender(senderIdentifier);
-		//(Optional) A unique ID that you specify to track the payment.
+		/** (Optional) A unique ID that you specify to track the payment. */
 		if (request.getParameter("trackingID") != "")
 			req.setTrackingId(request.getParameter("trackingID"));
-		/*
-		 *  The action for this request. Possible values are:
+		/**
+		 * The action for this request. Possible values are:
 		    PAY – Use this option if you are not using the Pay request in combination with ExecutePayment.
 		    CREATE – Use this option to set up the payment instructions with SetPaymentOptions and then execute the payment at a later time with the ExecutePayment.
 		    PAY_PRIMARY – For chained payments only, specify this value to delay payments to the secondary receivers; only the payment to the primary receiver is processed.
 		 */
 		if (request.getParameter("actionType") != "")
 			req.setActionType(request.getParameter("actionType"));
-		/*
-		 *  URL to redirect the sender's browser to after canceling the approval for a payment;
+		/**
+		 * URL to redirect the sender's browser to after canceling the approval for a payment;
 		 *  it is always required but only used for payments that require approval (explicit payments) 
 		 */
 		if (request.getParameter("cancelURL") != "")
 			req.setCancelUrl(request.getParameter("cancelURL"));
-		/*
+		/**
 		 * The code for the currency in which the payment is made;
 		 * you can specify only one currency, regardless of the number of receivers
 		 */
 		if (request.getParameter("currencyCode") != "")
 			req.setCurrencyCode(request.getParameter("currencyCode"));
-		/*
+		/**
 		 * URL to redirect the sender's browser to after the sender has logged into PayPal and approved a payment; 
 		 * it is always required but only used if a payment requires explicit approval 
 		 */
@@ -303,16 +303,46 @@ public class PayServlet extends HttpServlet {
 						.equalsIgnoreCase("SUCCESS")) {
 					Map<Object, Object> map = new LinkedHashMap<Object, Object>();
 					map.put("Ack", resp.getResponseEnvelope().getAck());
-					map.put("Correlation ID", resp.getResponseEnvelope()
-							.getCorrelationId());
-					map.put("Time Stamp", resp.getResponseEnvelope()
-							.getTimestamp());
+					
+					/**
+					 * Correlation identifier. It is a 13-character, alphanumeric string 
+					  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+						Note: You must log and store this data for every response you receive. 
+						PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+					
+					/** 
+					 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+					   Note: You must log and store this data for every response you receive. 
+					   PayPal Technical Support uses the information to assist with reported issues. 
+					 */
+					map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
+					
+					/**
+					 * The pay key, which is a token you use in other Adaptive Payment APIs 
+					 * (such as the Refund Method) to identify this payment. 
+					 * The pay key is valid for 3 hours; the payment must be approved while the 
+					 * pay key is valid. 
+					 */
 					map.put("Pay Key", resp.getPayKey());
-					map.put("Payment Execution Status",
-							resp.getPaymentExecStatus());
-					if (resp.getDefaultFundingPlan() != null)
-						map.put("Default Funding Plan", resp
-								.getDefaultFundingPlan().getFundingPlanId());
+					
+					/**
+					 * The status of the payment. Possible values are:
+				    CREATED – The payment request was received; funds will be transferred once the payment is approved
+				    COMPLETED – The payment was successful
+				    INCOMPLETE – Some transfers succeeded and some failed for a parallel payment or, for a delayed chained payment, secondary receivers have not been paid
+				    ERROR – The payment failed and all attempted transfers failed or all completed transfers were successfully reversed
+				    REVERSALERROR – One or more transfers failed when attempting to reverse a payment
+				    PROCESSING – The payment is in progress
+				    PENDING – The payment is awaiting processing
+				    */
+					map.put("Payment Execution Status",resp.getPaymentExecStatus());
+					if (resp.getDefaultFundingPlan() != null){
+						/** Default funding plan.  */
+						map.put("Default Funding Plan", resp.getDefaultFundingPlan().getFundingPlanId());
+					}	
+					
 					map.put("Redirect URL",
 							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
 									+ resp.getPayKey()
