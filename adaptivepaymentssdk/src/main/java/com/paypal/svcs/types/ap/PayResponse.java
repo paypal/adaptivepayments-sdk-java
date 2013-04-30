@@ -1,6 +1,8 @@
 package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.ResponseEnvelope;
 import com.paypal.svcs.types.ap.PayErrorList;
+import com.paypal.svcs.types.ap.PaymentInfoList;
+import com.paypal.svcs.types.ap.SenderIdentifier;
 import com.paypal.svcs.types.ap.FundingPlan;
 import com.paypal.svcs.types.ap.WarningDataList;
 import java.util.List;
@@ -38,6 +40,17 @@ public class PayResponse{
 	*  	 
 	 */ 
 	private PayErrorList payErrorList;
+
+	/**
+	*  	  
+	 *@Required	 
+	 */ 
+	private PaymentInfoList paymentInfoList;
+
+	/**
+	*  	 
+	 */ 
+	private SenderIdentifier sender;
 
 	/**
 	*  	 
@@ -119,6 +132,34 @@ public class PayResponse{
 	 }
 	 
 	/**
+	 * Getter for paymentInfoList
+	 */
+	 public PaymentInfoList getPaymentInfoList() {
+	 	return paymentInfoList;
+	 }
+	 
+	/**
+	 * Setter for paymentInfoList
+	 */
+	 public void setPaymentInfoList(PaymentInfoList paymentInfoList) {
+	 	this.paymentInfoList = paymentInfoList;
+	 }
+	 
+	/**
+	 * Getter for sender
+	 */
+	 public SenderIdentifier getSender() {
+	 	return sender;
+	 }
+	 
+	/**
+	 * Setter for sender
+	 */
+	 public void setSender(SenderIdentifier sender) {
+	 	this.sender = sender;
+	 }
+	 
+	/**
 	 * Getter for defaultFundingPlan
 	 */
 	 public FundingPlan getDefaultFundingPlan() {
@@ -193,6 +234,16 @@ public class PayResponse{
 		if (payErrorList != null) {
 			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
 			payResponse.setPayErrorList(payErrorList);
+		}
+		PaymentInfoList paymentInfoList =  PaymentInfoList.createInstance(map, prefix + "paymentInfoList", -1);
+		if (paymentInfoList != null) {
+			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+			payResponse.setPaymentInfoList(paymentInfoList);
+		}
+		SenderIdentifier sender =  SenderIdentifier.createInstance(map, prefix + "sender", -1);
+		if (sender != null) {
+			payResponse = (payResponse == null) ? new PayResponse() : payResponse;
+			payResponse.setSender(sender);
 		}
 		FundingPlan defaultFundingPlan =  FundingPlan.createInstance(map, prefix + "defaultFundingPlan", -1);
 		if (defaultFundingPlan != null) {
