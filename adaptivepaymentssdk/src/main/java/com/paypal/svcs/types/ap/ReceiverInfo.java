@@ -4,25 +4,25 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  ReceiverInfo needs to be populate for the receiver who
- *  doesn't have paypal account. 
+ * ReceiverInfo needs to be populate for the receiver who
+ * doesn't have paypal account. 
  */
 public class ReceiverInfo extends AccountIdentifier {
 
 
 	/**
-	*  The two-character ISO country code of the home country of
-	*  the Receiver 	 
+	 * The two-character ISO country code of the home country of
+	 * the Receiver 	 
 	 */ 
 	private String countryCode;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String firstName;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String lastName;
 

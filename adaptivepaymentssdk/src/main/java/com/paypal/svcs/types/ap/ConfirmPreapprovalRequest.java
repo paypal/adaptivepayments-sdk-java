@@ -4,30 +4,30 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  The request to confirm a Preapproval. 
+ * The request to confirm a Preapproval. 
  */
 public class ConfirmPreapprovalRequest{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String fundingSourceId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String pin;
 

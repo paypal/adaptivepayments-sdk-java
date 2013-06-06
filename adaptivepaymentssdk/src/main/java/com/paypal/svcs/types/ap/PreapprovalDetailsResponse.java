@@ -9,158 +9,158 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- *  The details of the Preapproval as specified in the
- *  Preapproval operation. 
+ * The details of the Preapproval as specified in the
+ * Preapproval operation. 
  */
 public class PreapprovalDetailsResponse{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Boolean approved;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Integer curPayments;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Double curPaymentsAmount;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer curPeriodAttempts;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String curPeriodEndingDate;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer dateOfMonth;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private DayOfWeek dayOfWeek;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String endingDate;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double maxAmountPerPayment;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPayments;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double maxTotalAmountOfAllPayments;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String paymentPeriod;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String pinType;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String startingDate;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String status;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private AddressList addressList;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private SenderIdentifier sender;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 
