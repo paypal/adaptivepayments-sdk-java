@@ -1,51 +1,62 @@
 package com.paypal.svcs.types.common;
+import java.io.UnsupportedEncodingException;
+import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class BaseAddress{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String line1;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String line2;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String city;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String state;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String postalCode;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String countryCode;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String type;
 
 	
+
+	/**
+	 * Constructor with arguments
+	 */
+	public BaseAddress (String line1, String city, String countryCode){
+		this.line1 = line1;
+		this.city = city;
+		this.countryCode = countryCode;
+	}	
 
 	/**
 	 * Default Constructor
@@ -153,6 +164,42 @@ public class BaseAddress{
 	 
 
 
+	public String toNVPString() throws UnsupportedEncodingException {
+		return toNVPString("");
+	}
+	
+	public String toNVPString(String prefix) throws UnsupportedEncodingException {
+		StringBuilder sb = new StringBuilder();
+		if (this.line1 != null) {
+			sb.append(prefix).append("line1=").append(NVPUtil.encodeUrl(this.line1));
+			sb.append("&");
+		}
+		if (this.line2 != null) {
+			sb.append(prefix).append("line2=").append(NVPUtil.encodeUrl(this.line2));
+			sb.append("&");
+		}
+		if (this.city != null) {
+			sb.append(prefix).append("city=").append(NVPUtil.encodeUrl(this.city));
+			sb.append("&");
+		}
+		if (this.state != null) {
+			sb.append(prefix).append("state=").append(NVPUtil.encodeUrl(this.state));
+			sb.append("&");
+		}
+		if (this.postalCode != null) {
+			sb.append(prefix).append("postalCode=").append(NVPUtil.encodeUrl(this.postalCode));
+			sb.append("&");
+		}
+		if (this.countryCode != null) {
+			sb.append(prefix).append("countryCode=").append(NVPUtil.encodeUrl(this.countryCode));
+			sb.append("&");
+		}
+		if (this.type != null) {
+			sb.append(prefix).append("type=").append(NVPUtil.encodeUrl(this.type));
+			sb.append("&");
+		}
+		return sb.toString();
+	}
 	
 	public static BaseAddress createInstance(Map<String, String> map, String prefix, int index) {
 		BaseAddress baseAddress = null;

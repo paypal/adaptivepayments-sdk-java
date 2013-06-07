@@ -5,14 +5,14 @@ import com.paypal.svcs.types.ap.CurrencyConversionList;
 import java.util.Map;
 
 /**
- *  A table that contains a list of estimated currency
- *  conversions for a base currency in each row. 
+ * A table that contains a list of estimated currency
+ * conversions for a base currency in each row. 
  */
 public class CurrencyConversionTable{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<CurrencyConversionList> currencyConversionList = new ArrayList<CurrencyConversionList>();

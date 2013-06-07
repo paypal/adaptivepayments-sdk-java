@@ -10,45 +10,45 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  The request to set the options of a payment request. 
+ * The request to set the options of a payment request. 
  */
 public class SetPaymentOptionsRequest{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String payKey;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private InitiatingEntity initiatingEntity;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private DisplayOptions displayOptions;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String shippingAddressId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private SenderOptions senderOptions;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<ReceiverOptions> receiverOptions = new ArrayList<ReceiverOptions>();
 

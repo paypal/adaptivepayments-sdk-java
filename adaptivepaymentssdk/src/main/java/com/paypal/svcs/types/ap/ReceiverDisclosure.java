@@ -6,44 +6,44 @@ import com.paypal.svcs.types.ap.FeeDisclosure;
 import java.util.Map;
 
 /**
- *  ReceiverDisclosure contains the disclosure related to
- *  Receiver/Receivers. 
+ * ReceiverDisclosure contains the disclosure related to
+ * Receiver/Receivers. 
  */
 public class ReceiverDisclosure{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private AccountIdentifier accountIdentifier;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType amountReceivedFromSender;
 
 	/**
-	*  The two-character ISO country code of the home country of
-	*  the Receiver 	  
+	 * The two-character ISO country code of the home country of
+	 * the Receiver 	  
 	 *@Required	 
 	 */ 
 	private String countryCode;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ConversionRate conversionRate;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private FeeDisclosure feeDisclosure;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType totalAmountReceived;

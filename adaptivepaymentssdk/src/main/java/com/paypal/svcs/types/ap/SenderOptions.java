@@ -4,19 +4,19 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  Options that apply to the sender of a payment. 
+ * Options that apply to the sender of a payment. 
  */
 public class SenderOptions{
 
 
 	/**
-	*  Require the user to select a shipping address during the web
-	*  flow. 	 
+	 * Require the user to select a shipping address during the web
+	 * flow. 	 
 	 */ 
 	private Boolean requireShippingAddressSelection;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String referrerCode;
 

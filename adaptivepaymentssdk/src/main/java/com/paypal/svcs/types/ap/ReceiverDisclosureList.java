@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.ReceiverDisclosure;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class ReceiverDisclosureList{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<ReceiverDisclosure> receiverDisclosure = new ArrayList<ReceiverDisclosure>();

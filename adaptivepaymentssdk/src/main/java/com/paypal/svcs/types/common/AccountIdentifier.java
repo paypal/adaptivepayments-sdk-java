@@ -5,23 +5,23 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class AccountIdentifier{
 
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String email;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private PhoneNumberType phone;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String accountId;
 
