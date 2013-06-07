@@ -57,7 +57,7 @@ public class AdaptivePaymentsService extends BaseService {
 	private static final String SDK_NAME = "adaptivepayments-java-sdk";
 	
 	//SDK Version
-	private static final String SDK_VERSION = "2.3.101";
+	private static final String SDK_VERSION = "2.0.103";
 
 
 	/**
@@ -151,7 +151,7 @@ public class AdaptivePaymentsService extends BaseService {
 
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -168,7 +168,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -187,7 +187,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -206,7 +206,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -223,7 +223,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -242,7 +242,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -261,7 +261,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -278,7 +278,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -297,7 +297,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -316,7 +316,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -333,7 +333,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -352,7 +352,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -371,7 +371,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -388,7 +388,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -407,7 +407,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -426,7 +426,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -443,7 +443,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -462,7 +462,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -481,7 +481,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -498,7 +498,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -517,7 +517,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -536,7 +536,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -553,7 +553,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -572,7 +572,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -591,7 +591,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -608,7 +608,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -627,7 +627,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -646,7 +646,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -663,7 +663,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -682,7 +682,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -701,7 +701,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -718,7 +718,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -737,7 +737,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -756,7 +756,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -773,7 +773,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -792,7 +792,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -811,7 +811,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -828,7 +828,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -847,7 +847,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -866,7 +866,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -883,7 +883,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -902,7 +902,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -921,7 +921,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -938,7 +938,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -957,7 +957,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -976,7 +976,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -993,7 +993,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -1012,7 +1012,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -1031,7 +1031,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -1048,7 +1048,7 @@ public class AdaptivePaymentsService extends BaseService {
 	 }
 
 	/** 
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException
@@ -1067,7 +1067,7 @@ public class AdaptivePaymentsService extends BaseService {
 	}
 	
 	/**	
-	*  
+	 * 
 	 * @throws SSLConfigurationException
 	 * @throws InvalidCredentialException
 	 * @throws UnsupportedEncodingException

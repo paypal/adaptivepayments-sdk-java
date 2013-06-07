@@ -4,19 +4,19 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class CurrencyType{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String code;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Double amount;

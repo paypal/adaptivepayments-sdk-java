@@ -6,19 +6,19 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  The sender identifier type contains information to identify
- *  a PayPal account. 
+ * The sender identifier type contains information to identify
+ * a PayPal account. 
  */
 public class SenderIdentifier extends AccountIdentifier {
 
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Boolean useCredentials;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private TaxIdDetails taxIdDetails;
 

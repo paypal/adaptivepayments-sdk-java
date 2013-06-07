@@ -3,19 +3,19 @@ import com.paypal.svcs.types.common.CurrencyType;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class UserLimit{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String limitType;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType limitAmount;

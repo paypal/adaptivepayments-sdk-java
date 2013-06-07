@@ -7,24 +7,24 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  Describes a payment for a particular receiver (merchant),
- *  contains list of additional per item details. 
+ * Describes a payment for a particular receiver (merchant),
+ * contains list of additional per item details. 
  */
 public class InvoiceData{
 
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<InvoiceItem> item = new ArrayList<InvoiceItem>();
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double totalTax;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double totalShipping;
 

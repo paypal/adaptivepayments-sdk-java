@@ -3,52 +3,52 @@ import com.paypal.svcs.types.ap.Receiver;
 import java.util.Map;
 
 /**
- *  PaymentInfo represents the payment attempt made to a
- *  Receiver of a PayRequest. If the execution of the payment
- *  has not yet completed, there will not be any transaction
- *  details. 
+ * PaymentInfo represents the payment attempt made to a
+ * Receiver of a PayRequest. If the execution of the payment
+ * has not yet completed, there will not be any transaction
+ * details. 
  */
 public class PaymentInfo{
 
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String transactionId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String transactionStatus;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Receiver receiver;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double refundedAmount;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Boolean pendingRefund;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String senderTransactionId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String senderTransactionStatus;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String pendingReason;
 

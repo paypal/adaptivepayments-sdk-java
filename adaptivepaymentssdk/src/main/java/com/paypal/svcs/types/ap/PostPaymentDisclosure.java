@@ -3,26 +3,26 @@ import com.paypal.svcs.types.common.AccountIdentifier;
 import java.util.Map;
 
 /**
- *  Contains information related to Post Payment Disclosure
- *  Details This contains 1.Receivers information 2.Funds
- *  Avalibility Date 
+ * Contains information related to Post Payment Disclosure
+ * Details This contains 1.Receivers information 2.Funds
+ * Avalibility Date 
  */
 public class PostPaymentDisclosure{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private AccountIdentifier accountIdentifier;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String fundsAvailabilityDate;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String fundsAvailabilityDateDisclaimerText;
 

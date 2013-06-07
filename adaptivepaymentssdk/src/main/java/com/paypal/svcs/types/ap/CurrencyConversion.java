@@ -3,25 +3,25 @@ import com.paypal.svcs.types.common.CurrencyType;
 import java.util.Map;
 
 /**
- *  Describes the conversion between 2 currencies. 
+ * Describes the conversion between 2 currencies. 
  */
 public class CurrencyConversion{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType from;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType to;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Double exchangeRate;
