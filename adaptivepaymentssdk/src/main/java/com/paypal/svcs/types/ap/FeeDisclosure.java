@@ -3,20 +3,20 @@ import com.paypal.svcs.types.common.CurrencyType;
 import java.util.Map;
 
 /**
- *  FeeDisclosure contains the information related to Fees and
- *  taxes. 
+ * FeeDisclosure contains the information related to Fees and
+ * taxes. 
  */
 public class FeeDisclosure{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType fee;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType taxes;

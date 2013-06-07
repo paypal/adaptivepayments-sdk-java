@@ -10,44 +10,44 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- *  The response message for the GetPaymentOption request 
+ * The response message for the GetPaymentOption request 
  */
 public class GetPaymentOptionsResponse{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private InitiatingEntity initiatingEntity;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private DisplayOptions displayOptions;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String shippingAddressId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private SenderOptions senderOptions;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<ReceiverOptions> receiverOptions = new ArrayList<ReceiverOptions>();
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

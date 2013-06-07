@@ -2,26 +2,26 @@ package com.paypal.svcs.types.ap;
 import java.util.Map;
 
 /**
- *  This holds the conversion rate from "Sender currency for one
- *  bucks to equivalent value in the receivers currency" 
+ * This holds the conversion rate from "Sender currency for one
+ * bucks to equivalent value in the receivers currency" 
  */
 public class ConversionRate{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String senderCurrency;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String receiverCurrency;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private Double exchangeRate;

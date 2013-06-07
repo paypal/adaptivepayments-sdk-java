@@ -7,25 +7,25 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- *  The response to get the funding plans available for a
- *  payment. 
+ * The response to get the funding plans available for a
+ * payment. 
  */
 public class GetFundingPlansResponse{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ResponseEnvelope responseEnvelope;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<FundingPlan> fundingPlan = new ArrayList<FundingPlan>();
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();
 

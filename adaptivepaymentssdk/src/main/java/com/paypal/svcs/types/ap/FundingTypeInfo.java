@@ -4,13 +4,13 @@ import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  FundingTypeInfo represents one allowed funding type. 
+ * FundingTypeInfo represents one allowed funding type. 
  */
 public class FundingTypeInfo{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String fundingType;

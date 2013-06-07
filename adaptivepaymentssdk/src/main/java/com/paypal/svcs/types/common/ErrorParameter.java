@@ -2,19 +2,19 @@ package com.paypal.svcs.types.common;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class ErrorParameter{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String name;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String value;

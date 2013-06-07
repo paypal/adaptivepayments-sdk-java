@@ -21,7 +21,7 @@ SDK Integration:
     <dependency>
         <groupId>com.paypal.sdk</groupId>
         <artifactId>adaptivepaymentssdk</artifactId>
-        <version>2.3.101</version>
+        <version>2.4.103</version>
     </dependency>
     ```
 

@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.PostPaymentDisclosure;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class PostPaymentDisclosureList{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<PostPaymentDisclosure> postPaymentDisclosure = new ArrayList<PostPaymentDisclosure>();

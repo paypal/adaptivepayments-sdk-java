@@ -5,13 +5,13 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  A list of ISO currency codes. 
+ * A list of ISO currency codes. 
  */
 public class CurrencyCodeList{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<String> currencyCode = new ArrayList<String>();

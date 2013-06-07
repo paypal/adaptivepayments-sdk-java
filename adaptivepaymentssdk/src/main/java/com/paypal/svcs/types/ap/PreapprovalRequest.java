@@ -7,126 +7,126 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  A request to create a Preapproval. A Preapproval is an
- *  agreement between a Paypal account holder (the sender) and
- *  the API caller (the service invoker) to make payment(s) on
- *  the the sender's behalf with various limitations defined. 
+ * A request to create a Preapproval. A Preapproval is an
+ * agreement between a Paypal account holder (the sender) and
+ * the API caller (the service invoker) to make payment(s) on
+ * the the sender's behalf with various limitations defined. 
  */
 public class PreapprovalRequest{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private ClientDetailsType clientDetails;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer dateOfMonth;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private DayOfWeek dayOfWeek;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String endingDate;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double maxAmountPerPayment;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPayments;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Integer maxNumberOfPaymentsPerPeriod;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Double maxTotalAmountOfAllPayments;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String paymentPeriod;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String startingDate;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String pinType;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Boolean displayMaxTotalAmount;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Boolean requireInstantFundingSource;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private SenderIdentifier sender;
 

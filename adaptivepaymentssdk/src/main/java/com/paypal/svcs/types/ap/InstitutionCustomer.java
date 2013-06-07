@@ -1,59 +1,75 @@
 package com.paypal.svcs.types.ap;
+import com.paypal.svcs.types.common.BaseAddress;
 import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 import java.util.Map;
 
 /**
- *  The customer of the initiating institution 
+ * The customer of the initiating institution 
  */
 public class InstitutionCustomer{
 
 
 	/**
-	*  The unique identifier as assigned to the institution. 	  
+	 * The unique identifier as assigned to the institution. 	  
 	 *@Required	 
 	 */ 
 	private String institutionId;
 
 	/**
-	*  The first (given) name of the end consumer as known by the
-	*  institution. 	  
+	 * The first (given) name of the end consumer as known by the
+	 * institution. 	  
 	 *@Required	 
 	 */ 
 	private String firstName;
 
 	/**
-	*  The last (family) name of the end consumer as known by the
-	*  institution. 	  
+	 * The last (family) name of the end consumer as known by the
+	 * institution. 	  
 	 *@Required	 
 	 */ 
 	private String lastName;
 
 	/**
-	*  The full name of the end consumer as known by the
-	*  institution. 	  
+	 * 	 
+	 */ 
+	private String middleName;
+
+	/**
+	 * The full name of the end consumer as known by the
+	 * institution. 	  
 	 *@Required	 
 	 */ 
 	private String displayName;
 
 	/**
-	*  The unique identifier as assigned to the end consumer by the
-	*  institution. 	  
+	 * The unique identifier as assigned to the end consumer by the
+	 * institution. 	  
 	 *@Required	 
 	 */ 
 	private String institutionCustomerId;
 
 	/**
-	*  The two-character ISO country code of the home country of
-	*  the end consumer 	  
+	 * The two-character ISO country code of the home country of
+	 * the end consumer 	  
 	 *@Required	 
 	 */ 
 	private String countryCode;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String email;
+
+	/**
+	 * 	 
+	 */ 
+	private String dateOfBirth;
+
+	/**
+	 * 	 
+	 */ 
+	private BaseAddress address;
 
 	
 
@@ -118,6 +134,20 @@ public class InstitutionCustomer{
 	 }
 	 
 	/**
+	 * Getter for middleName
+	 */
+	 public String getMiddleName() {
+	 	return middleName;
+	 }
+	 
+	/**
+	 * Setter for middleName
+	 */
+	 public void setMiddleName(String middleName) {
+	 	this.middleName = middleName;
+	 }
+	 
+	/**
 	 * Getter for displayName
 	 */
 	 public String getDisplayName() {
@@ -173,6 +203,34 @@ public class InstitutionCustomer{
 	 	this.email = email;
 	 }
 	 
+	/**
+	 * Getter for dateOfBirth
+	 */
+	 public String getDateOfBirth() {
+	 	return dateOfBirth;
+	 }
+	 
+	/**
+	 * Setter for dateOfBirth
+	 */
+	 public void setDateOfBirth(String dateOfBirth) {
+	 	this.dateOfBirth = dateOfBirth;
+	 }
+	 
+	/**
+	 * Getter for address
+	 */
+	 public BaseAddress getAddress() {
+	 	return address;
+	 }
+	 
+	/**
+	 * Setter for address
+	 */
+	 public void setAddress(BaseAddress address) {
+	 	this.address = address;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -193,6 +251,10 @@ public class InstitutionCustomer{
 			sb.append(prefix).append("lastName=").append(NVPUtil.encodeUrl(this.lastName));
 			sb.append("&");
 		}
+		if (this.middleName != null) {
+			sb.append(prefix).append("middleName=").append(NVPUtil.encodeUrl(this.middleName));
+			sb.append("&");
+		}
 		if (this.displayName != null) {
 			sb.append(prefix).append("displayName=").append(NVPUtil.encodeUrl(this.displayName));
 			sb.append("&");
@@ -208,6 +270,14 @@ public class InstitutionCustomer{
 		if (this.email != null) {
 			sb.append(prefix).append("email=").append(NVPUtil.encodeUrl(this.email));
 			sb.append("&");
+		}
+		if (this.dateOfBirth != null) {
+			sb.append(prefix).append("dateOfBirth=").append(NVPUtil.encodeUrl(this.dateOfBirth));
+			sb.append("&");
+		}
+		if (this.address != null) {
+			String newPrefix = prefix + "address.";
+			sb.append(this.address.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}
@@ -237,6 +307,10 @@ public class InstitutionCustomer{
 				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
 				institutionCustomer.setLastName(map.get(prefix + "lastName"));
 		}
+		if (map.containsKey(prefix + "middleName")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setMiddleName(map.get(prefix + "middleName"));
+		}
 		if (map.containsKey(prefix + "displayName")) {
 				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
 				institutionCustomer.setDisplayName(map.get(prefix + "displayName"));
@@ -252,6 +326,15 @@ public class InstitutionCustomer{
 		if (map.containsKey(prefix + "email")) {
 				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
 				institutionCustomer.setEmail(map.get(prefix + "email"));
+		}
+		if (map.containsKey(prefix + "dateOfBirth")) {
+				institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+				institutionCustomer.setDateOfBirth(map.get(prefix + "dateOfBirth"));
+		}
+		BaseAddress address =  BaseAddress.createInstance(map, prefix + "address", -1);
+		if (address != null) {
+			institutionCustomer = (institutionCustomer == null) ? new InstitutionCustomer() : institutionCustomer;
+			institutionCustomer.setAddress(address);
 		}
 		return institutionCustomer;
 	}

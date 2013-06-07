@@ -4,24 +4,24 @@ import com.paypal.svcs.types.ap.FeeDisclosure;
 import java.util.Map;
 
 /**
- *  SenderDisclosure contains the disclosure related to Sender 
+ * SenderDisclosure contains the disclosure related to Sender 
  */
 public class SenderDisclosure{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType amountToTransfer;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private FeeDisclosure feeDisclosure;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType totalAmountToTransfer;

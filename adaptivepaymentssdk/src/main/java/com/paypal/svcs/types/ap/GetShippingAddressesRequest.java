@@ -4,21 +4,21 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  The request to get the addresses available for a payment. 
+ * The request to get the addresses available for a payment. 
  */
 public class GetShippingAddressesRequest{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	*  The key for which to provide the available addresses. Key
-	*  can be an AdaptivePayments key such as payKey or
-	*  preapprovalKey 	  
+	 * The key for which to provide the available addresses. Key
+	 * can be an AdaptivePayments key such as payKey or
+	 * preapprovalKey 	  
 	 *@Required	 
 	 */ 
 	private String key;
