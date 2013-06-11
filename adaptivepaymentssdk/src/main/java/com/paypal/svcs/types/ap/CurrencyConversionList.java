@@ -4,20 +4,20 @@ import com.paypal.svcs.types.ap.CurrencyList;
 import java.util.Map;
 
 /**
- *  A list of estimated currency conversions for a base
- *  currency. 
+ * A list of estimated currency conversions for a base
+ * currency. 
  */
 public class CurrencyConversionList{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyType baseAmount;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private CurrencyList currencyList;

@@ -3,32 +3,32 @@ import com.paypal.svcs.types.common.AckCode;
 import java.util.Map;
 
 /**
- *  This specifies a list of parameters with every response from
- *  a service. 
+ * This specifies a list of parameters with every response from
+ * a service. 
  */
 public class ResponseEnvelope{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String timestamp;
 
 	/**
-	*  Application level acknowledgment code. 	  
+	 * Application level acknowledgment code. 	  
 	 *@Required	 
 	 */ 
 	private AckCode ack;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String correlationId;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String build;

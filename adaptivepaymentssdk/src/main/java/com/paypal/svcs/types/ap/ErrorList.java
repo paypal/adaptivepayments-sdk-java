@@ -5,13 +5,13 @@ import com.paypal.svcs.types.common.ErrorData;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class ErrorList{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<ErrorData> error = new ArrayList<ErrorData>();

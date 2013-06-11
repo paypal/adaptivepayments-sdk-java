@@ -4,31 +4,31 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  The request to look up the details of a PayRequest. The
- *  PaymentDetailsRequest can be made with either a payKey,
- *  trackingId, or a transactionId of the PayRequest. 
+ * The request to look up the details of a PayRequest. The
+ * PaymentDetailsRequest can be made with either a payKey,
+ * trackingId, or a transactionId of the PayRequest. 
  */
 public class PaymentDetailsRequest{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String payKey;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String transactionId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String trackingId;
 

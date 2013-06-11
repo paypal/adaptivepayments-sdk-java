@@ -5,13 +5,13 @@ import com.paypal.svcs.types.ap.WarningData;
 import java.util.Map;
 
 /**
- *  
+ * 
  */
 public class WarningDataList{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private List<WarningData> warningData = new ArrayList<WarningData>();

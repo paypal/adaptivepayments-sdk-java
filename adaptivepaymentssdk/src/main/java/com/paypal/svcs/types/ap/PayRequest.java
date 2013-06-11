@@ -8,100 +8,100 @@ import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
 /**
- *  The PayRequest contains the payment instructions to make
- *  from sender to receivers. 
+ * The PayRequest contains the payment instructions to make
+ * from sender to receivers. 
  */
 public class PayRequest{
 
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private RequestEnvelope requestEnvelope;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private ClientDetailsType clientDetails;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String actionType;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String cancelUrl;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String currencyCode;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String feesPayer;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String ipnNotificationUrl;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String memo;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String pin;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String preapprovalKey;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private ReceiverList receiverList;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private Boolean reverseAllParallelPaymentsOnError;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String senderEmail;
 
 	/**
-	*  	  
+	 * 	  
 	 *@Required	 
 	 */ 
 	private String returnUrl;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private String trackingId;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private FundingConstraint fundingConstraint;
 
 	/**
-	*  	 
+	 * 	 
 	 */ 
 	private SenderIdentifier sender;
 
