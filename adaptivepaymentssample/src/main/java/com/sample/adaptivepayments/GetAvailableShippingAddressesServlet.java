@@ -71,8 +71,7 @@ public class GetAvailableShippingAddressesServlet extends HttpServlet {
 		req.setKey(request.getParameter("payKey"));
 		
 		req.setRequestEnvelope(requestEnvelope);
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
 		try {
 			GetAvailableShippingAddressesResponse resp = service
 					.getAvailableShippingAddresses(req);

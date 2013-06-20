@@ -244,8 +244,7 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		req.setSenderOptions(senderOptions);
 		req.setRequestEnvelope(requestEnvelope);
 
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			SetPaymentOptionsResponse resp = service.setPaymentOptions(req);
