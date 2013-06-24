@@ -107,7 +107,7 @@ The SDK uses dynamic configuration map or '*.properties' format configuration fi
 
 *	Service configuration.
 
-*   You can refer full list of configuration parameters at [https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters]
+*   You can refer full list of configuration parameters at [https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters]
 
 Multiple SDK usage (Multiple End-points Support)
 ---------------------------
