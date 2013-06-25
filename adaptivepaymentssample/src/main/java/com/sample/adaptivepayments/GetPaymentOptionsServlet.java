@@ -72,7 +72,7 @@ public class GetPaymentOptionsServlet extends HttpServlet {
 			req.setPayKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);
 
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			GetPaymentOptionsResponse resp = service.getPaymentOptions(req);

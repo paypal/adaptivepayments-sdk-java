@@ -68,7 +68,7 @@ public class GetShippingAddressesServlet extends HttpServlet {
 		 */
 		req.setKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			GetShippingAddressesResponse resp = service

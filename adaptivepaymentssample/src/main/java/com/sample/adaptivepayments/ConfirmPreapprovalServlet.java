@@ -76,7 +76,7 @@ public class ConfirmPreapprovalServlet extends HttpServlet {
 		if (request.getParameter("preapprovalKey") != "")
 			req.setPreapprovalKey(request.getParameter("preapprovalKey"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			ConfirmPreapprovalResponse resp = service.confirmPreapproval(req);

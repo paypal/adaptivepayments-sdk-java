@@ -80,7 +80,7 @@ public class ExecutePaymentServlet extends HttpServlet {
 		req.setFundingPlanId(request.getParameter("fundingPlanID"));
 		req.setRequestEnvelope(requestEnvelope);
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			ExecutePaymentResponse resp = service.executePayment(req);

@@ -233,7 +233,7 @@ public class PreapprovalServlet extends HttpServlet {
 		 */
 		if (request.getParameter("endingDate") != "")
 			req.setEndingDate(request.getParameter("endingDate"));
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		try {
 			PreapprovalResponse resp = service.preapproval(req);
 			response.setContentType("text/html");

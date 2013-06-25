@@ -70,7 +70,7 @@ public class GetFundingPlansServlet extends HttpServlet {
 		 */
 		req.setPayKey(request.getParameter("payKey"));
 		req.setRequestEnvelope(requestEnvelope);
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			GetFundingPlansResponse resp = service.getFundingPlans(req);

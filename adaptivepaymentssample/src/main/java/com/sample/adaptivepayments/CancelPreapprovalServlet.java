@@ -70,7 +70,7 @@ public class CancelPreapprovalServlet extends HttpServlet {
 		/** (Required) The preapproval key that identifies the preapproval to be canceled. */ 
 		if (request.getParameter("preapprovalKey") != "")
 		req.setPreapprovalKey(request.getParameter("preapprovalKey"));
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			CancelPreapprovalResponse resp = service.cancelPreapproval(req);

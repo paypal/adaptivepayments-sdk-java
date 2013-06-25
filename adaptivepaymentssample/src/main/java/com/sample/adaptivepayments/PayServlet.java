@@ -290,7 +290,7 @@ public class PayServlet extends HttpServlet {
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		try {
 			PayResponse resp = service.pay(req);
 			response.setContentType("text/html");

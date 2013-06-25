@@ -107,7 +107,7 @@ public class ConvertCurrencyServlet extends HttpServlet {
 		if (request.getParameter("countryCode") != "")
 			req.setCountryCode(request.getParameter("countryCode"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 

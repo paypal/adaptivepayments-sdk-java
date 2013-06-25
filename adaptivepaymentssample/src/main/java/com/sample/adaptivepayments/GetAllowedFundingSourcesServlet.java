@@ -67,7 +67,7 @@ public class GetAllowedFundingSourcesServlet extends HttpServlet {
 		/** (Required) The preapproval key that identifies the preapproval */
 		req.setKey(request.getParameter("preapprovalKey"));
 		req.setRequestEnvelope(requestEnvelope);
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		response.setContentType("text/html");
 		try {
 			GetAllowedFundingSourcesResponse resp = service

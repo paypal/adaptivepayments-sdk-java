@@ -78,7 +78,7 @@ public class PreapprovalDetailsServlet extends HttpServlet {
 		if (request.getParameter("getBillingAddress") != "")
 			req.setGetBillingAddress(Boolean.parseBoolean(request.getParameter("getBillingAddress")));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Utility.getSignatureConfig());
+		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
 		try {
 			PreapprovalDetailsResponse resp = service.preapprovalDetails(req);
 			response.setContentType("text/html");
