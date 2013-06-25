@@ -29,7 +29,7 @@ To make an API call:
 --------------------			
 *	Import AdaptivePaymentsService.java into your code.
 		
-*	Copy the configuration file 'sdk_config.properties' in 'adaptivepaymentssample/src/main/resources' folder to your application 'src/main/resources'. Use the default constructor to run in default configuration(configuration used from sdk_config.properties found in classpath).
+*	Create a configuration file 'sdk_config.properties' with parameters specified in configuration section (make sure the file is in class path). Use the default constructor to run with configuration used from 'sdk_config.properties' found in classpath.
 	```java
 	new AdaptivePaymentsService();
 	```
@@ -45,7 +45,7 @@ To make an API call:
                          Or
 	new AdaptivePaymentsService(Properties customProperties);
 	```
-*	The SDK takes defaults for certain parameters(refer sdk_config.properties for defaults). Account Credentials and either of 'mode' or 'service.Endpoint' are mandatory parameters.
+*	The SDK takes defaults for certain parameters (eg: Account Credentials and either of 'mode' or 'service.Endpoint' are mandatory parameters).
 
 *	Create a service wrapper object.
 
@@ -97,9 +97,7 @@ logging.properties file in 'jre/lib' folder under your JDK root.
 		  
 SDK Configuration:
 ------------------
-The SDK uses .properties format configuration file. Sample of this file is at 
- 
-'adaptivepaymentssample/src/main/resources/'. You can use the 'sdk_config.properties' configuration file to configure
+The SDK uses dynamic configuration map or '*.properties' format configuration file as shown in code snippet above, to configure
 
 *	Mode is specified using the parameter name 'mode' with values 'sandbox' or 'live', if specified 'service.EndPoint' parameter is not required and the SDK chooses the sandbox or live endpoints automatically.
 
@@ -108,6 +106,8 @@ The SDK uses .properties format configuration file. Sample of this file is at
 *	HTTP connection parameters, if certain connection parameters are not specified, the SDK will assume defaults for them.
 
 *	Service configuration.
+
+*   You can refer full list of configuration parameters at [https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters]
 
 Multiple SDK usage (Multiple End-points Support)
 ---------------------------
