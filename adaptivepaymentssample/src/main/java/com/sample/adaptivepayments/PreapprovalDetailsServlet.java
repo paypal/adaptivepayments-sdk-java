@@ -78,7 +78,14 @@ public class PreapprovalDetailsServlet extends HttpServlet {
 		if (request.getParameter("getBillingAddress") != "")
 			req.setGetBillingAddress(Boolean.parseBoolean(request.getParameter("getBillingAddress")));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer at 
+		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		try {
 			PreapprovalDetailsResponse resp = service.preapprovalDetails(req);
 			response.setContentType("text/html");

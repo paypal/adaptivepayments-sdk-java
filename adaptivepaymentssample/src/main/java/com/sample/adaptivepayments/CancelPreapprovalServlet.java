@@ -70,7 +70,15 @@ public class CancelPreapprovalServlet extends HttpServlet {
 		/** (Required) The preapproval key that identifies the preapproval to be canceled. */ 
 		if (request.getParameter("preapprovalKey") != "")
 		req.setPreapprovalKey(request.getParameter("preapprovalKey"));
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
+		
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer at 
+		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		response.setContentType("text/html");
 		try {
 			CancelPreapprovalResponse resp = service.cancelPreapproval(req);

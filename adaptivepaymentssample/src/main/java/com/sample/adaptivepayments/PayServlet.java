@@ -290,7 +290,14 @@ public class PayServlet extends HttpServlet {
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer at 
+		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		try {
 			PayResponse resp = service.pay(req);
 			response.setContentType("text/html");

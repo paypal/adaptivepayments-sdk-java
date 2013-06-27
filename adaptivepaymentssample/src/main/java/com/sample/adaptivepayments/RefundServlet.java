@@ -125,7 +125,14 @@ public class RefundServlet extends HttpServlet {
 		ReceiverList receiverlst = new ReceiverList(receiver);
 		req.setReceiverList(receiverlst);
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer at 
+		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		try {
 			RefundResponse resp = service.refund(req);
 			response.setContentType("text/html");

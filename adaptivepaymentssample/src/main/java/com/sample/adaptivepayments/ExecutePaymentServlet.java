@@ -80,7 +80,14 @@ public class ExecutePaymentServlet extends HttpServlet {
 		req.setFundingPlanId(request.getParameter("fundingPlanID"));
 		req.setRequestEnvelope(requestEnvelope);
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(Configuration.getSignatureConfig());
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer at 
+		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		response.setContentType("text/html");
 		try {
 			ExecutePaymentResponse resp = service.executePayment(req);
