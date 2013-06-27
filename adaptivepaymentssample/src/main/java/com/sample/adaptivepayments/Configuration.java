@@ -25,7 +25,7 @@ public class Configuration {
 		return configMap;
 	}
 	
-	//Creates a configuration map containing signature credentials and other required configuration parameters.
+	//Creates a configuration map containing certificate credentials and other required configuration parameters.
 	public static final Map<String,String> getCertificateConfig(){
 		Map<String,String> configMap = new HashMap<String,String>();
 		
