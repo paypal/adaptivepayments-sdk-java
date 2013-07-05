@@ -172,4 +172,49 @@
 		<servlet-name>IPNListenerServlet</servlet-name>
 		<url-pattern>/IPNListener</url-pattern>
 	</servlet-mapping>
+	
+	<!--  Usecase Samples  -->
+	<servlet>
+		<description></description>
+		<display-name>SimplePaymentServlet</display-name>
+		<servlet-name>SimplePaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.SimplePaymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SimplePaymentServlet</servlet-name>
+		<url-pattern>/SimplePayment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>ParallelPaymentServlet</display-name>
+		<servlet-name>ParallelPaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.ParallelPaymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ParallelPaymentServlet</servlet-name>
+		<url-pattern>/ParallelPayment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>ChainedPaymentServlet</display-name>
+		<servlet-name>ChainedPaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.ChainedPaymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ChainedPaymentServlet</servlet-name>
+		<url-pattern>/ChainedPayment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DelayedPayment</display-name>
+		<servlet-name>DelayedPayment</servlet-name>
+		<servlet-class>com.sample.usecase.DelayedPayment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelayedPayment</servlet-name>
+		<url-pattern>/CreatePayment</url-pattern>
+	</servlet-mapping>
 </web-app>
