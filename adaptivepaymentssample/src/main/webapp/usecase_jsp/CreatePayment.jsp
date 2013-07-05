@@ -15,9 +15,8 @@
 	<div id="wrapper">
 		<div id="header">
 			<h3>Delayed Payment</h3>
-			<div id="apidetails"><p>The Pay API operation is used to transfer
-				funds from a sender's PayPal account to one or more receivers'
-				PayPal accounts.</p></div>
+			<div id="apidetails"><p> Delayed payment is a combination of two  Creating a Payment (Using  Pay api with actionType variable set as create) 
+			and Executing a Payment (using ExecutingPayment api) . Here the sender Email should be the email of api caller(whose credential are used for api call)</p></div>
 		</div>
 		<form method="POST">
 			<div id="request_form">
@@ -47,6 +46,11 @@
 						<input type="text" name="ipnNotificationURL" value="" />
 					</div>
 					
+					<div class="param_name">Sender Email</div>
+					<div class="param_value">
+						<input type="text" name="senderEmail" value="jb-us-seller@paypal.com" />
+					</div>
+					
 					<div class="section_header">ReceiverList</div>
 					<div class="note">Receiver is the party where funds are
 						transferred to. </div>
@@ -61,7 +65,7 @@
 								value="2.00" />
 							</td>
 							<td class="param_value"><input type="text" name="mail"
-								value="" />
+								value="platfo_1255612361_per@gmail.com" />
 							</td>
 						</tr>
 
@@ -73,7 +77,15 @@
 				</div>
 			</div>
 		</form>
-
+		<div id="relatedcalls">
+			The payment is just created when a  <b><i>Pay</i></b> api is called with the request parameter actionType as 'CREATE'. To complete the 
+			Payment at a later date , you have to execute the payment using <i><b>ExecutePayment</i></b> api. If  You have to set payment Option, 
+			You need to call the optional api <i><b>SetPaymentOptions</i></b> before <i><b>ExecutePayment</i></b> api.			
+			<ul>
+				<li><a href='ExecutePayment'>ExecutePayment</a></li>
+				<li><a href='SetPaymentOptions'>SetPaymentOptions</a></li>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>

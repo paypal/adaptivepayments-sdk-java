@@ -217,4 +217,15 @@
 		<servlet-name>DelayedPayment</servlet-name>
 		<url-pattern>/CreatePayment</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DelayedPayment</display-name>
+		<servlet-name>DelayedPayment</servlet-name>
+		<servlet-class>com.sample.usecase.DelayedPayment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelayedPayment</servlet-name>
+		<url-pattern>/ExecutePayment</url-pattern>
+	</servlet-mapping>
 </web-app>

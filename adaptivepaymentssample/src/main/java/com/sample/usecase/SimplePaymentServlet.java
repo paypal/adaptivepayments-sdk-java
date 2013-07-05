@@ -40,10 +40,30 @@ public class SimplePaymentServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		PayRequest req = new PayRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+		req.setRequestEnvelope(requestEnvelope);
+		
 		List<Receiver> receiver = new ArrayList<Receiver>();
 		Receiver rec = new Receiver();
+		/** (Required) Amount to be paid to the receiver */
+		if (request.getParameter("amount") != "")
+			rec.setAmount(Double.parseDouble(request.getParameter("amount")));
+
+		/**
+		 * Receiver's email address. This address can be unregistered with
+		 * paypal.com. If so, a receiver cannot claim the payment until a PayPal
+		 * account is linked to the email address. The PayRequest must pass
+		 * either an email address or a phone number. Maximum length: 127
+		 * characters
+		 */
+		if (request.getParameter("mail") != "")
+			rec.setEmail(request.getParameter("mail"));
+
+		receiver.add(rec);
+		ReceiverList receiverlst = new ReceiverList(receiver);
+		req.setReceiverList(receiverlst);
 		
 		/**  (Optional) Sender's email address. Maximum length: 127 characters */ 
 		if (request.getParameter("senderEmail") != "")
@@ -80,25 +100,7 @@ public class SimplePaymentServlet extends HttpServlet {
 		 */
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
-		/** (Required) Amount to be paid to the receiver */
-		if (request.getParameter("amount") != "")
-			rec.setAmount(Double.parseDouble(request.getParameter("amount")));
-
-		/**
-		 * Receiver's email address. This address can be unregistered with
-		 * paypal.com. If so, a receiver cannot claim the payment until a PayPal
-		 * account is linked to the email address. The PayRequest must pass
-		 * either an email address or a phone number. Maximum length: 127
-		 * characters
-		 */
-		if (request.getParameter("mail") != "")
-			rec.setEmail(request.getParameter("mail"));
-
-		receiver.add(rec);
-		ReceiverList receiverlst = new ReceiverList(receiver);
-		req.setReceiverList(receiverlst);
-		req.setRequestEnvelope(requestEnvelope);
-
+		
 		/**
 		 * (Optional) The URL to which you want all IPN messages for this
 		 * payment to be sent. Maximum length: 1024 characters
