@@ -49,10 +49,27 @@
 
 	<a href="index.html">Home</a>
 	<a href="<%=session.getAttribute("url")%>">Back</a>
+	<br/>
+	<%if(session.getAttribute("relatedUrl") != null){ %>
 	<div id="related_calls">
-		See also
+		See also :<br/>
 		<%=session.getAttribute("relatedUrl")%>
+		<%session.removeAttribute("relatedUrl");%>
 	</div>
-
+	<% }%>
+	<script>
+	window.onload = function(){
+		 if(window.opener){
+			 window.close();
+		} 
+		 else{
+			 if(top.dg.isOpen() == true){
+	              top.dg.closeFlow();
+	              return true;
+	          }
+	     }                              
+	};                             
+	</script>
+	
 </body>
 </html>

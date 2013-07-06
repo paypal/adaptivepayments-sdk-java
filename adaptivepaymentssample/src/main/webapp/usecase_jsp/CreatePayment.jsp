@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adaptive Payments - Delayed Payment</title>
+<title>Adaptive Payments - Deferred Payment</title>
 <%
 	URL currentURL = new URL(request.getRequestURL().toString());
 	URL returnURL = new URL(currentURL, "../index.html");
@@ -14,9 +14,10 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<h3>Delayed Payment</h3>
-			<div id="apidetails"><p> Delayed payment is a combination of two  Creating a Payment (Using  Pay api with actionType variable set as create) 
-			and Executing a Payment (using ExecutingPayment api) . Here the sender Email should be the email of api caller(whose credential are used for api call)</p></div>
+			<h3>Deferred Payment</h3>
+			<div id="apidetails"><p> Deferred payment is about  Creating a Payment (Using  Pay api with [actionType:create]) 
+			and Executing a Payment later(using ExecutingPayment api) . Here the sender Email should be the email of api caller(whose credential are used for api call),
+			 the payment needs to be approved for a deferred payment.</p></div>
 		</div>
 		<form method="POST">
 			<div id="request_form">
@@ -46,7 +47,7 @@
 						<input type="text" name="ipnNotificationURL" value="" />
 					</div>
 					
-					<div class="param_name">Sender Email</div>
+					<div class="param_name">Sender Email*</div>
 					<div class="param_value">
 						<input type="text" name="senderEmail" value="jb-us-seller@paypal.com" />
 					</div>
@@ -57,7 +58,7 @@
 					<table>
 						<tr>
 							<th class="param_name">Amount*(Double)</th>
-							<th class="param_name">E-mail</th>
+							<th class="param_name">E-mail*</th>
 
 						</tr>
 						<tr>
@@ -73,18 +74,16 @@
 					<div class="submit">
 						<input type="submit" name="PayBtn" value="Pay" />
 					</div>
-					<br /> <a href="../index.html">Home</a>
+					<br /> <a href="index.html">Home</a>
 				</div>
 			</div>
 		</form>
+		<br/>
+		<b>Note:</b>
 		<div id="relatedcalls">
-			The payment is just created when a  <b><i>Pay</i></b> api is called with the request parameter actionType as 'CREATE'. To complete the 
+			The payment will be created with  <b><i>Pay</i></b> api request,with the request parameter actionType as 'CREATE'. To complete the 
 			Payment at a later date , you have to execute the payment using <i><b>ExecutePayment</i></b> api. If  You have to set payment Option, 
-			You need to call the optional api <i><b>SetPaymentOptions</i></b> before <i><b>ExecutePayment</i></b> api.			
-			<ul>
-				<li><a href='ExecutePayment'>ExecutePayment</a></li>
-				<li><a href='SetPaymentOptions'>SetPaymentOptions</a></li>
-			</ul>
+			You need to call the optional api <i><b>SetPaymentOptions</i></b> before <i><b>ExecutePayment</i></b>.			
 		</div>
 	</div>
 </body>

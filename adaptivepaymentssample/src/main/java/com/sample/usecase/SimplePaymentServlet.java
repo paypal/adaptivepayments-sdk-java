@@ -12,20 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.paypal.exception.ClientActionRequiredException;
-import com.paypal.exception.HttpErrorException;
-import com.paypal.exception.InvalidCredentialException;
-import com.paypal.exception.InvalidResponseDataException;
-import com.paypal.exception.MissingCredentialException;
-import com.paypal.exception.SSLConfigurationException;
-import com.paypal.sdk.exceptions.OAuthException;
 import com.paypal.svcs.services.AdaptivePaymentsService;
 import com.paypal.svcs.types.ap.PayRequest;
 import com.paypal.svcs.types.ap.PayResponse;
 import com.paypal.svcs.types.ap.Receiver;
 import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
-import com.sample.adaptivepayments.Configuration;
 
 public class SimplePaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1012983719723L;

@@ -13,14 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.paypal.svcs.services.AdaptivePaymentsService;
+import com.paypal.svcs.types.ap.ExecutePaymentRequest;
+import com.paypal.svcs.types.ap.ExecutePaymentResponse;
 import com.paypal.svcs.types.ap.PayRequest;
 import com.paypal.svcs.types.ap.PayResponse;
 import com.paypal.svcs.types.ap.Receiver;
 import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
-import com.sample.adaptivepayments.Configuration;
 
-public class DelayedPayment extends HttpServlet{
+public class DeferredPayment extends HttpServlet{
 	private static final long serialVersionUID = 5798879182722L;
 
 	protected void doGet(HttpServletRequest request,
@@ -41,7 +42,8 @@ public class DelayedPayment extends HttpServlet{
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		// Create a Payment that can be executed later.
+		//*********** Create a Payment now and  execute it later. ***************
+		
 		if(request.getRequestURI().contains("CreatePayment")){
 			
 			PayRequest req = new PayRequest();
@@ -123,6 +125,7 @@ public class DelayedPayment extends HttpServlet{
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("url", request.getRequestURI());
+			session.setAttribute("relatedUrl","<ul> To comlete payment at a later date you need to call <li><a href='ExecutePayment'>ExecutePayment</a></li></ul>");
 			try {
 				PayResponse resp = service.pay(req);
 				response.setContentType("text/html");
@@ -199,9 +202,92 @@ public class DelayedPayment extends HttpServlet{
 			} 
 		}
 		
-		// Execute a payment , that is created earlier
+		//********** Execute a payment , that is created earlier ***********
+		
 		if(request.getRequestURI().contains("ExecutePayment")){
+			// TODO Auto-generated method stub
+			RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+			ExecutePaymentRequest req = new ExecutePaymentRequest();
+			/**
+			 *  (Optional) The pay key that identifies the payment to be executed. 
+			 *  This is the pay key returned in the PayResponse message.
+			 */
+			req.setPayKey(request.getParameter("payKey"));
+			/**
+			 *  The ExecutePayment API operation lets you execute a payment set up 
+			 * with the Pay API operation with the actionType CREATE
+			 * use this option to set up the payment instructions with the Pay request
+			 * and then execute the	payment at a later time with the ExecutePayment
+			 * request.
+			 */
+			req.setActionType(request.getParameter("actionType"));
 			
+			/** (Optional) The ID of the funding plan from which to make this payment. */ 
+			req.setFundingPlanId(request.getParameter("fundingPlanID"));
+			req.setRequestEnvelope(requestEnvelope);
+			
+			// Configuration map containing signature credentials and other required configuration.
+			// For a full list of configuration parameters refer at 
+			// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+			Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+			
+			// Creating service wrapper object to make an API call by loading configuration map. 
+			AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("url", request.getRequestURI());
+			session.setAttribute("relatedUrl","<ul> Your payment is completed.</ul>");
+			response.setContentType("text/html");
+			try {
+				ExecutePaymentResponse resp = service.executePayment(req);
+				if (resp != null) {
+					session.setAttribute("RESPONSE_OBJECT", resp);
+					session.setAttribute("lastReq", service.getLastRequest());
+					session.setAttribute("lastResp", service.getLastResponse());
+					if (resp.getResponseEnvelope().getAck().toString()
+							.equalsIgnoreCase("SUCCESS")) {
+						Map<Object, Object> map = new LinkedHashMap<Object, Object>();
+						map.put("Ack", resp.getResponseEnvelope().getAck());
+						/**
+						 * Correlation identifier. It is a 13-character, alphanumeric string 
+						  (for example, db87c705a910e) that is used only by PayPal Merchant Technical Support.
+							Note: You must log and store this data for every response you receive. 
+							PayPal Technical Support uses the information to assist with reported issues. 
+						 */
+						map.put("Correlation ID", resp.getResponseEnvelope().getCorrelationId());
+						
+						/** 
+						 * Date on which the response was sent, for example: 2012-04-02T22:33:35.774-07:00
+						   Note: You must log and store this data for every response you receive. 
+						   PayPal Technical Support uses the information to assist with reported issues. 
+						 */
+						map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
+						
+						/**
+						 * The status of the payment. Possible values are:
+
+						    CREATED – The payment request was received; funds will be transferred once the payment is approved
+						    COMPLETED – The payment was successful
+						    INCOMPLETE – Some transfers succeeded and some failed for a parallel payment
+						    ERROR – The payment failed and all attempted transfers failed or all completed transfers were successfully reversed
+						    REVERSALERROR – One or more transfers failed when attempting to reverse a payment
+						    
+						    Important: You must test the value of paymentExecStatus for an error even 
+						    if responseEnvelope.ack is Success. If the PaymentExecStatus is ERROR, 
+						    the Pay Key can no longer be used. 
+						 */
+						map.put("Payment Execution Status",resp.getPaymentExecStatus());
+						session.setAttribute("map", map);
+						response.sendRedirect("Response.jsp");
+					} else {
+						session.setAttribute("Error", resp.getError());
+						response.sendRedirect("Error.jsp");
+					}
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 			
 		}
 	}

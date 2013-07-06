@@ -100,7 +100,7 @@
 					<div class="submit">
 						<input type="submit" name="PayBtn" value="Pay" />
 					</div>
-					<br /> <a href="../index.html">Home</a>
+					<br /> <a href="index.html">Home</a>
 				</div>
 			</div>
 		</form>

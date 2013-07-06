@@ -19,52 +19,48 @@ import com.paypal.svcs.types.ap.Receiver;
 import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
 
-public class ChainedPaymentServlet extends HttpServlet{
-
-	private static final long serialVersionUID = 5798879182722L;
+public class EmbeddedPayment extends HttpServlet {
+	private static final long serialVersionUID = 1012983719723L;
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		getServletConfig().getServletContext()
-				.getRequestDispatcher("/usecase_jsp/ChainedPayment.jsp")
+				.getRequestDispatcher("/usecase_jsp/EmbeddedPayment.jsp")
 				.forward(request, response);
 
 	}
-	
+
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		PayRequest req = new PayRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
+		req.setRequestEnvelope(requestEnvelope);
+		
 		List<Receiver> receiver = new ArrayList<Receiver>();
-		
-		String[] amount = request.getParameterValues("amount");
-		String[] email = request.getParameterValues("mail");
-		String[] primaryReceiver = request.getParameterValues("primaryReceiver");
-		for(int i=0; i< email.length; i++ ){
-			Receiver rec = new Receiver();
-			
-			/**
-			 * Receiver's email address. This address can be unregistered with
-			 * paypal.com. If so, a receiver cannot claim the payment until a PayPal
-			 * account is linked to the email address. The PayRequest must pass
-			 * either an email address or a phone number. Maximum length: 127
-			 * characters
-			 */
-			rec.setEmail(email[i]);
-			
-			// (Required) Amount to be paid to the receiver 
-			rec.setAmount(Double.parseDouble(amount[i]));
-			// 
-			rec.setPrimary(Boolean.parseBoolean(primaryReceiver[i]));
-			receiver.add(rec);
-		}
-		
+		Receiver rec = new Receiver();
+		/** (Required) Amount to be paid to the receiver */
+		if (request.getParameter("amount") != "")
+			rec.setAmount(Double.parseDouble(request.getParameter("amount")));
+
+		/**
+		 * Receiver's email address. This address can be unregistered with
+		 * paypal.com. If so, a receiver cannot claim the payment until a PayPal
+		 * account is linked to the email address. The PayRequest must pass
+		 * either an email address or a phone number. Maximum length: 127
+		 * characters
+		 */
+		if (request.getParameter("mail") != "")
+			rec.setEmail(request.getParameter("mail"));
+
+		receiver.add(rec);
 		ReceiverList receiverlst = new ReceiverList(receiver);
 		req.setReceiverList(receiverlst);
 		
 		/**  (Optional) Sender's email address. Maximum length: 127 characters */ 
 		if (request.getParameter("senderEmail") != "")
 			req.setSenderEmail(request.getParameter("senderEmail"));
+		
 		/**
 		 * The action for this request. Possible values are: PAY – Use this
 		 * option if you are not using the Pay request in combination with
@@ -97,10 +93,6 @@ public class ChainedPaymentServlet extends HttpServlet{
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
 		
-		
-		
-		req.setRequestEnvelope(requestEnvelope);
-
 		/**
 		 * (Optional) The URL to which you want all IPN messages for this
 		 * payment to be sent. Maximum length: 1024 characters
@@ -183,14 +175,9 @@ public class ChainedPaymentServlet extends HttpServlet{
 						map.put("Default Funding Plan", resp
 								.getDefaultFundingPlan().getFundingPlanId());
 					}
-
-					map.put("Redirect URL",
-							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-									+ resp.getPayKey()
-									+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-									+ resp.getPayKey() + "</a>");
 					session.setAttribute("map", map);
-					response.sendRedirect("Response.jsp");
+					//response.sendRedirect("Response.jsp");
+					response.sendRedirect("https://www.sandbox.paypal.com/incontext?token="+resp.getPayKey());
 				} else {
 					session.setAttribute("Error", resp.getError());
 					response.sendRedirect("Error.jsp");
@@ -200,5 +187,6 @@ public class ChainedPaymentServlet extends HttpServlet{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+
 	}
 }

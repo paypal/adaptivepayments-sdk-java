@@ -8,7 +8,7 @@
 <title>Adaptive Payments - Simple Pay</title>
 <%
 	URL currentURL = new URL(request.getRequestURL().toString());
-	URL returnURL = new URL(currentURL, "../index.html");
+	URL returnURL = new URL(currentURL, "index.html");
 %>
 </head>
 <body>
@@ -50,7 +50,7 @@
 					<div class="param_value">
 						<input type="text" name="senderEmail" value="jb-us-seller@paypal.com" />
 					</div>
-					<div class="section_header">ReceiverList</div>
+					<div class="section_header">ReceiverList:</div>
 					<div class="note">Receiver is the party where funds are
 						transferred to. </div>
 					<table>
@@ -64,7 +64,7 @@
 								value="2.00" />
 							</td>
 							<td class="param_value"><input type="text" name="mail"
-								value="" />
+								value="pp15@paypal.com" />
 							</td>
 						</tr>
 
@@ -72,7 +72,7 @@
 					<div class="submit">
 						<input type="submit" name="PayBtn" value="Pay" />
 					</div>
-					<br /> <a href="../index.html">Home</a>
+					<br /> <a href="index.html">Home</a>
 				</div>
 			</div>
 		</form>
