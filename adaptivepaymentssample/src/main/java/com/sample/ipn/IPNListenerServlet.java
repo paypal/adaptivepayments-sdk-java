@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.paypal.core.LoggingManager;
 import com.paypal.ipn.IPNMessage;
-import com.sample.adaptivepayments.Configuration;
+import com.sample.util.Configuration;
 
 public class IPNListenerServlet extends HttpServlet {
 	

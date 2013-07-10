@@ -18,6 +18,7 @@ import com.paypal.svcs.types.ap.PayResponse;
 import com.paypal.svcs.types.ap.Receiver;
 import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 public class SimplePaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1012983719723L;

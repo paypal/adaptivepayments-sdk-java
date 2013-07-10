@@ -21,6 +21,7 @@ import com.paypal.svcs.services.AdaptivePaymentsService;
 import com.paypal.svcs.types.ap.CancelPreapprovalRequest;
 import com.paypal.svcs.types.ap.CancelPreapprovalResponse;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class CancelPreapprovalServlet

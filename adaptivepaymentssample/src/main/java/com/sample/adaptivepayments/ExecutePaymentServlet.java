@@ -21,6 +21,7 @@ import com.paypal.svcs.services.AdaptivePaymentsService;
 import com.paypal.svcs.types.ap.ExecutePaymentRequest;
 import com.paypal.svcs.types.ap.ExecutePaymentResponse;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class ExecutePaymentServlet

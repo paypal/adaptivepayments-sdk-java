@@ -23,6 +23,7 @@ import com.paypal.svcs.types.ap.FundingSource;
 import com.paypal.svcs.types.ap.GetAllowedFundingSourcesRequest;
 import com.paypal.svcs.types.ap.GetAllowedFundingSourcesResponse;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class GetAllowedFundingSourcesServlet

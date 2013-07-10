@@ -21,6 +21,7 @@ import com.paypal.svcs.types.ap.Receiver;
 import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.DayOfWeek;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 public class PreapprovalPayment extends HttpServlet {
 	private static final long serialVersionUID = 97034234203978L;
