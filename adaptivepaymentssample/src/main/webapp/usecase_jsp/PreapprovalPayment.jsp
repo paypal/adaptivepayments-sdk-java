@@ -17,10 +17,10 @@
 		<div id="header">
 			<h3>Preapproval Payment</h3>
 			<div id="apidetails">The Pay API operation can use PreapprovalKey, setup between
-			  you and sender to transfer funds from a sender's PayPal account receivers'
+			  you and sender to transfer funds from a sender's PayPal account to receiver's
 				PayPal accounts.</div>
 		</div>
-		<form method="POST">
+		<form method="POST" onsubmit="return check();">
 			<div id="request_form">
 				<div class="params">
 					<div class="param_name">Currency Code*</div>
@@ -45,13 +45,13 @@
 					<div class="param_name">IPN Notification URL (For receiving
 						IPN call back from PayPal)</div>
 					<div class="param_value">
-						<input type="text" name="ipnNotificationURL" value="" />
+						<input type="text" size="50" name="ipnNotificationURL" value="" />
 					</div>
 					<div class="param_name">
 						PreApproval Key(Get PreApproval Key via <a href="Preapprove">Preapproval</a>)
 					</div>
 					<div class="param_value">
-						<input type="text" name="preapprovalKey" value="<%=(session.getAttribute("preapprovalKey")!=null)?((String)session.getAttribute("preapprovalKey")):"" %>" />
+						<input type="text" size="30" id="preapprovalKey" name="preapprovalKey" value="<%=(session.getAttribute("preapprovalKey")!=null)?((String)session.getAttribute("preapprovalKey")):"" %>" />
 						<%session.removeAttribute("preapprovalKey"); %>
 					</div>
 					<div class="section_header">ReceiverList</div>
@@ -86,5 +86,15 @@
 			make a Preapproval api call and create an agreement between you and sender. 			
 		</div>
 	</div>
+	<script>
+		function check(){
+			var value = document.getElementById("preapprovalKey").value;
+			if(value == ""){
+				alert("Please enter Preapproval Key");
+				return false;
+			}
+			return true;
+		}
+	</script>
 </body>
 </html>
