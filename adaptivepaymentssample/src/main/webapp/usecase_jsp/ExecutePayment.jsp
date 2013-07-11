@@ -7,6 +7,10 @@
 <title>Adaptive Payments - ExecutePayment</title>
 </head>
 <body>
+	<%
+		String fundingId = (String)session.getAttribute("fundingId");
+		String payKey = (String)session.getAttribute("payKey");
+	%>
 	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
 	<div id="wrapper">
 		<div id="header">
@@ -22,14 +26,14 @@
 						Pay Key*(Get PayKey via <a href='Pay'>Pay</a>)
 					</div>
 					<div class="param_value">
-						<input type="text" name="payKey" value="" />
+						<input type="text" name="payKey" value="<%= payKey %>" />
 					</div>
 
 				</div>
 				<div class="params">
 					<div class="param_name">Funding Plan ID* (Get it in a Pay response)</div>
 					<div class="param_value">
-						<input type="text" name="fundingPlanID" value="" />
+						<input type="text" name="fundingPlanID" value="<%= fundingId %>" />
 					</div>
 
 				</div>

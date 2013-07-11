@@ -22,7 +22,7 @@ import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import com.sample.util.Configuration;
 
-public class DeferredPayment extends HttpServlet{
+public class DeferredPaymentServlet extends HttpServlet{
 	private static final long serialVersionUID = 5798879182722L;
 
 	protected void doGet(HttpServletRequest request,
@@ -189,7 +189,8 @@ public class DeferredPayment extends HttpServlet{
 							map.put("Default Funding Plan", resp
 									.getDefaultFundingPlan().getFundingPlanId());
 						}
-
+						session.setAttribute("payKey", resp.getPayKey());
+						session.setAttribute("fundingId", resp.getDefaultFundingPlan().getFundingPlanId());
 						session.setAttribute("map", map);
 						response.sendRedirect("Response.jsp");
 					} else {

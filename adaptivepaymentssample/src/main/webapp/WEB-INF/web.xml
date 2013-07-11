@@ -209,42 +209,42 @@
 	
 	<servlet>
 		<description></description>
-		<display-name>DeferredPayment</display-name>
-		<servlet-name>DeferredPayment</servlet-name>
-		<servlet-class>com.sample.usecase.DeferredPayment</servlet-class>
+		<display-name>DeferredPaymentServlet</display-name>
+		<servlet-name>DeferredPaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.DeferredPaymentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>DeferredPayment</servlet-name>
+		<servlet-name>DeferredPaymentServlet</servlet-name>
 		<url-pattern>/CreatePayment</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>DeferredPayment</servlet-name>
+		<servlet-name>DeferredPaymentServlet</servlet-name>
 		<url-pattern>/ExecutePayment</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
 		<description></description>
-		<display-name>PreapprovalPayment</display-name>
-		<servlet-name>PreapprovalPayment</servlet-name>
-		<servlet-class>com.sample.usecase.PreapprovalPayment</servlet-class>
+		<display-name>PreapprovalPaymentServlet</display-name>
+		<servlet-name>PreapprovalPaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.PreapprovalPaymentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>PreapprovalPayment</servlet-name>
+		<servlet-name>PreapprovalPaymentServlet</servlet-name>
 		<url-pattern>/PreapprovalPayment</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>PreapprovalPayment</servlet-name>
+		<servlet-name>PreapprovalPaymentServlet</servlet-name>
 		<url-pattern>/Preapprove</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
 		<description></description>
-		<display-name>EmbeddedPayment</display-name>
-		<servlet-name>EmbeddedPayment</servlet-name>
-		<servlet-class>com.sample.usecase.EmbeddedPayment</servlet-class>
+		<display-name>EmbeddedPaymentServlet</display-name>
+		<servlet-name>EmbeddedPaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.EmbeddedPaymentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>EmbeddedPayment</servlet-name>
+		<servlet-name>EmbeddedPaymentServlet</servlet-name>
 		<url-pattern>/EmbeddedPayment</url-pattern>
 	</servlet-mapping>
 </web-app>
