@@ -222,6 +222,7 @@
 		<url-pattern>/ExecutePayment</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Preapproval payment -->
 	<servlet>
 		<description></description>
 		<display-name>PreapprovalPaymentServlet</display-name>

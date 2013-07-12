@@ -1,10 +1,14 @@
 package com.sample.usecase;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +27,7 @@ import com.paypal.svcs.types.common.DayOfWeek;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import com.sample.util.Configuration;
 
-public class PreapprovalPayment extends HttpServlet {
+public class PreapprovalPaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 97034234203978L;
 
 	protected void doGet(HttpServletRequest request,
@@ -306,7 +310,7 @@ public class PreapprovalPayment extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("url", request.getRequestURI());
-			session.setAttribute("relatedUrl","<ul> Payment completed using preapprovalKey</ul>");
+			
 			try {
 				PayResponse resp = service.pay(req);
 				response.setContentType("text/html");
