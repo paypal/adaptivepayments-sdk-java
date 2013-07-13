@@ -26,22 +26,20 @@
 						Pay Key*(Get PayKey via <a href='Pay'>Pay</a>)
 					</div>
 					<div class="param_value">
-						<input type="text" name="payKey" value="<%= payKey %>" />
+						<input type="text" name="payKey" value="<%= payKey!=null?payKey:"" %>" />
 					</div>
 
 				</div>
 				<div class="params">
 					<div class="param_name">Funding Plan ID* (Get it in a Pay response)</div>
 					<div class="param_value">
-						<input type="text" name="fundingPlanID" value="<%= fundingId %>" />
+						<input type="text" name="fundingPlanID" value="<%= fundingId !=null?fundingId:"" %>" />
 					</div>
 
 				</div>
 				<div class="param_name">Action Type*</div>
 				<div class="param_value">
-					<select name="actionType">
-						<option value="CREATE">Create</option>
-					</select>
+					<input type="text" name="actionType" value="PAY" />
 				</div>
 				<div class="submit">
 					<input type="submit" name="ExecutePaymentBtn"

@@ -17,7 +17,7 @@
 		<div id="header">
 			<h3>Deferred Payment</h3>
 			<div id="apidetails"><p> Deferred payment is about  Creating a Payment (Using  Pay api with [actionType:create]) 
-			and Executing a Payment later(using ExecutingPayment api) . Here the sender Email should be the email of api caller(whose credential are used for api call),
+			and Executing a Payment later(using ExecutingPayment API) . Here the sender Email should be the email of api caller(whose credential are used for api call),
 			 the payment needs to be approved for a deferred payment.</p></div>
 		</div>
 		<form method="POST">
@@ -30,9 +30,7 @@
 
 					<div class="param_name">Action Type*</div>
 					<div class="param_value">
-						<select name="actionType">
-							<option value="CREATE">Create</option>
-						</select>
+						<input type="text" name="actionType" value="CREATE" readonly>
 					</div>
 					<div class="param_name">Cancel URL*</div>
 					<div class="param_value">

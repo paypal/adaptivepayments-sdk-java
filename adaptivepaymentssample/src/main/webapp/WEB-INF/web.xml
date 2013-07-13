@@ -238,14 +238,16 @@
 		<url-pattern>/Preapprove</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Delayed Chained Payment -->
 	<servlet>
 		<description></description>
-		<display-name>EmbeddedPaymentServlet</display-name>
-		<servlet-name>EmbeddedPaymentServlet</servlet-name>
-		<servlet-class>com.sample.usecase.EmbeddedPaymentServlet</servlet-class>
+		<display-name>DelayedChainedPaymentServlet</display-name>
+		<servlet-name>DelayedChainedPaymentServlet</servlet-name>
+		<servlet-class>com.sample.usecase.DelayedChainedPaymentServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>EmbeddedPaymentServlet</servlet-name>
-		<url-pattern>/EmbeddedPayment</url-pattern>
+		<servlet-name>DelayedChainedPaymentServlet</servlet-name>
+		<url-pattern>/DelayedChainedPayment</url-pattern>
 	</servlet-mapping>
+	
 </web-app>

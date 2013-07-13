@@ -39,9 +39,7 @@
 
 					<div class="param_name">Action Type*</div>
 					<div class="param_value">
-						<select name="actionType">
-							<option value="PAY">Pay</option>
-						</select>
+						<input type="text" name="actionType" value="PAY" readonly>
 					</div>
 					<div class="param_name">Cancel URL*</div>
 					<div class="param_value">

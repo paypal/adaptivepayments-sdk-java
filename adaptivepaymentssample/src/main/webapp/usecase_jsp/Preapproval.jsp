@@ -9,7 +9,7 @@
 <%
 	String host = request.getServerName();
 	String port = String.valueOf(request.getServerPort());
-	URL currentURL = new URL("http://"+ host +":"+ port + "/adaptivepaymentssample/Preapprove");
+	URL cancelURL = new URL("http://"+ host +":"+ port + "/adaptivepaymentssample/Preapprove");
 	URL returnURL = new URL("http://"+ host +":"+ port + "/adaptivepaymentssample/PreapprovalPayment");
 %>
 </head>
@@ -54,7 +54,7 @@
 						</tr>
 						<tr>
 							<td class="param_value"><input type="text" name="cancelURL"
-								value="<%=returnURL%>" /></td>
+								value="<%=cancelURL%>" /></td>
 							<td class="param_value"><input type="text" name="returnURL"
 								value="<%=returnURL%>" /></td>
 							<td class="param_value"><input type="text"
