@@ -16,12 +16,6 @@ IPN configuration :
 		// Endpoints are varied depending on whether sandbox OR live is chosen for mode
 		configMap.put("mode", "sandbox");
 		
-		//Connection Information
-		configMap.put("http.ConnectionTimeOut", "5000");
-		configMap.put("http.Retry", "2");
-		configMap.put("http.ReadTimeOut", "30000");
-		configMap.put("http.MaxConnection", "100");
-			
 		IPNMessage ipnlistener = new IPNMessage(request,configMap);
     ```
 * IPNMessage is provided in 'sdk-core-java' repository. IPN Listener can use this class for message validation.
