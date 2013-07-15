@@ -20,11 +20,10 @@ public class IPNListenerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		// Configuration map containing signature credentials and other required configuration.
 		// For a full list of configuration parameters refer at 
 		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-		Map<String,String> configurationMap =  Configuration.getIpnConfig();
-		IPNMessage 	ipnlistener = new IPNMessage(request,configurationMap);
+		Map<String,String> mode =  Configuration.getMode();
+		IPNMessage 	ipnlistener = new IPNMessage(request,mode);
 		boolean isIpnVerified = ipnlistener.validate();
 		String transactionType = ipnlistener.getTransactionType();
 		Map<String,String> map = ipnlistener.getIpnMap();

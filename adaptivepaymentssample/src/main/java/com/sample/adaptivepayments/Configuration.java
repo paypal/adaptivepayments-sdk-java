@@ -42,10 +42,10 @@ public class Configuration {
 		return configMap;
 	}
 	
-	public static final Map<String,String> getIpnConfig(){
-		Map<String,String> configMap = new HashMap<String,String>();
+	public static final Map<String,String> getMode(){
+		Map<String,String> mode = new HashMap<String,String>();
 		// Endpoints are varied depending on whether sandbox OR live is chosen for mode
-		configMap.put("mode", "sandbox");
-		return configMap;
+		mode.put("mode", "sandbox");
+		return mode;
 	}
 }

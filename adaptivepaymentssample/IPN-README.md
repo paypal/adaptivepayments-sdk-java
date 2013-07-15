@@ -11,12 +11,12 @@ IPN configuration :
 -----------------
 * Initialize IPNMessage constructor with a configuration map containing, mode (sandbox or live) and connection parameters as shown below.
    ```java
-		Map<String,String> configMap = new HashMap<String,String>();
+		Map<String,String> mode = new HashMap<String,String>();
 		
 		// Endpoints are varied depending on whether sandbox OR live is chosen for mode
-		configMap.put("mode", "sandbox");
+		mode.put("mode", "sandbox");
 		
-		IPNMessage ipnlistener = new IPNMessage(request,configMap);
+		IPNMessage ipnlistener = new IPNMessage(request,mode);
     ```
 * IPNMessage is provided in 'sdk-core-java' repository. IPN Listener can use this class for message validation.
     
