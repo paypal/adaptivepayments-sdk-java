@@ -16,11 +16,11 @@ IPN configuration :
 		// Endpoints are varied depending on whether sandbox OR live is chosen for mode
 		configMap.put("mode", "sandbox");
 		
-		//Connection Information
-		configMap.put("http.ConnectionTimeOut", "5000");
-		configMap.put("http.Retry", "2");
-		configMap.put("http.ReadTimeOut", "30000");
-		configMap.put("http.MaxConnection", "100");
+		// Connection Information. These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
+		// configMap.put("http.ConnectionTimeOut", "5000");
+		// configMap.put("http.Retry", "2");
+		// configMap.put("http.ReadTimeOut", "30000");
+		// configMap.put("http.MaxConnection", "100");
 			
 		IPNMessage ipnlistener = new IPNMessage(request,configMap);
     ```

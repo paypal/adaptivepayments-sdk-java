@@ -14,6 +14,11 @@ import com.sample.adaptivepayments.Configuration;
 
 public class IPNListenerServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/* 
 	 * receiver for PayPal ipn call back.
 	 */
@@ -23,7 +28,7 @@ public class IPNListenerServlet extends HttpServlet {
 		// Configuration map containing signature credentials and other required configuration.
 		// For a full list of configuration parameters refer at 
 		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-		Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+		Map<String,String> configurationMap =  Configuration.getConfig();
 		IPNMessage 	ipnlistener = new IPNMessage(request,configurationMap);
 		boolean isIpnVerified = ipnlistener.validate();
 		String transactionType = ipnlistener.getTransactionType();
