@@ -244,8 +244,14 @@ public class SetPaymentOptionsServlet extends HttpServlet {
 		req.setSenderOptions(senderOptions);
 		req.setRequestEnvelope(requestEnvelope);
 
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer at 
+		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		response.setContentType("text/html");
 		try {
 			SetPaymentOptionsResponse resp = service.setPaymentOptions(req);
