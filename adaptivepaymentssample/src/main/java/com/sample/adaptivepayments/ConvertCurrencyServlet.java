@@ -28,6 +28,7 @@ import com.paypal.svcs.types.ap.CurrencyConversionList;
 import com.paypal.svcs.types.ap.CurrencyList;
 import com.paypal.svcs.types.common.CurrencyType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class ConvertCurrencyServlet

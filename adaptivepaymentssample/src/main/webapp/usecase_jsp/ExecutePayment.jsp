@@ -7,13 +7,17 @@
 <title>Adaptive Payments - ExecutePayment</title>
 </head>
 <body>
+	<%
+		String fundingId = (String)session.getAttribute("fundingId");
+		String payKey = (String)session.getAttribute("payKey");
+	%>
 	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
 	<div id="wrapper">
 		<div id="header">
 			<h3>ExecutePayment</h3>
 			<div id="apidetails">ExecutePayment API operation lets you
 				execute a payment set up with the Pay API operation with the
-				actionType CREATE.</div>
+				actionType CREATE at later date.</div>
 		</div>
 		<form method="POST">
 			<div id="request_form">
@@ -22,25 +26,20 @@
 						Pay Key*(Get PayKey via <a href='Pay'>Pay</a>)
 					</div>
 					<div class="param_value">
-						<input type="text" name="payKey" value="" />
+						<input type="text" name="payKey" value="<%= payKey!=null?payKey:"" %>" />
 					</div>
 
 				</div>
 				<div class="params">
-					<div class="param_name">Funding Plan ID</div>
+					<div class="param_name">Funding Plan ID* (Get it in a Pay response)</div>
 					<div class="param_value">
-						<input type="text" name="fundingPlanID" value="" />
+						<input type="text" name="fundingPlanID" value="<%= fundingId !=null?fundingId:"" %>" />
 					</div>
 
 				</div>
 				<div class="param_name">Action Type*</div>
 				<div class="param_value">
-					<select name="actionType">
-						<option value="">--Select a value--</option>
-						<option value="PAY">Pay</option>
-						<option value="CREATE">Create</option>
-						<option value="PAY_PRIMARY">Pay Primary</option>
-					</select>
+					<input type="text" name="actionType" value="PAY" />
 				</div>
 				<div class="submit">
 					<input type="submit" name="ExecutePaymentBtn"
@@ -49,16 +48,7 @@
 				<a href="index.html">Home</a>
 			</div>
 		</form>
-		<div id="relatedcalls">
-			See also
-			<ul>
-				<li><a href='Pay'>Pay</a></li>
-				<li><a href='PaymentDetails'>PaymentDetails</a></li>
-				<li><a href='GetPaymentOptions'>GetPaymentOptions</a></li>
-				<li><a href='Refund'>Refund</a></li>
-				<li><a href='SetPaymentOptions'>SetPaymentOptions</a></li>
-			</ul>
-		</div>
+		<br/>
 	</div>
 </body>
 </html>

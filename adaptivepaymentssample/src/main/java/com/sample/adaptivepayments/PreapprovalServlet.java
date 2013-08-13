@@ -23,6 +23,7 @@ import com.paypal.svcs.types.ap.PreapprovalResponse;
 import com.paypal.svcs.types.common.ClientDetailsType;
 import com.paypal.svcs.types.common.DayOfWeek;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class PreapprovalServlet

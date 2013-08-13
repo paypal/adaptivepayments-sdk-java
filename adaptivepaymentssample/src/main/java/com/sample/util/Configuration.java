@@ -1,4 +1,4 @@
-package com.sample.adaptivepayments;
+package com.sample.util;
 
 import java.util.HashMap;
 import java.util.Map;

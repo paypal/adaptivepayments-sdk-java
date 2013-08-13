@@ -7,10 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Adaptive Payments - Preapproval</title>
 <%
-	URL currentURL = new URL(request.getRequestURL().toString());
-	URL returnURL = new URL(currentURL, "index.html");
+	String host = request.getServerName();
+	String port = String.valueOf(request.getServerPort());
+	URL cancelURL = new URL("http://"+ host +":"+ port + "/adaptivepaymentssample/Preapprove");
+	URL returnURL = new URL("http://"+ host +":"+ port + "/adaptivepaymentssample/PreapprovalPayment");
 %>
 </head>
+
 <body>
 	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
 	<div id="wrapper">
@@ -37,11 +40,9 @@
 							<th class="param_name">Ending Date</th>
 						</tr>
 						<tr>
-							<td class="param_value"><input type="text"
-								name="startingDate" value="2013-12-18" /></td>
+							<td class="param_value"><input type="text" name="startingDate" id="startingDate" value="" /></td>
 
-							<td class="param_value"><input type="text" name="endingDate"
-								value="" /></td>
+							<td class="param_value"><input type="text" name="endingDate" value="" /></td>
 						</tr>
 					</table>
 					<div class="input_header">URLs</div>
@@ -53,7 +54,7 @@
 						</tr>
 						<tr>
 							<td class="param_value"><input type="text" name="cancelURL"
-								value="<%=returnURL%>" /></td>
+								value="<%=cancelURL%>" /></td>
 							<td class="param_value"><input type="text" name="returnURL"
 								value="<%=returnURL%>" /></td>
 							<td class="param_value"><input type="text"
@@ -64,18 +65,7 @@
 					<div class="param_value">
 						<input type="text" name="senderEmail" value="" />
 					</div>
-					<div class="param_name">Fees Payer</div>
-					<div class="param_value">
-						<input type="text" name="feesPayer" value="" />
-					</div>
-					<div class="param_name">Pin Type</div>
-					<div class="param_value">
-						<input type="text" name="pinType" value="" />
-					</div>
-					<div class="param_name">Memo</div>
-					<div class="param_value">
-						<input type="text" name="memo" value="" />
-					</div>
+					
 					<table>
 						<tr>
 							<th class="param_name">Date Of Month</th>
@@ -83,7 +73,7 @@
 						</tr>
 						<tr>
 							<td class="param_value"><input type="text"
-								name="dateOfMonth" value="" /></td>
+								name="dateOfMonth" value="1" /></td>
 							<td class="param_value"><select name="dayOfWeek">
 									<option value="">--Select a value--</option>
 									<option value="NO_DAY_SPECIFIED">No Day Specified</option>
@@ -97,37 +87,7 @@
 							</select></td>
 						</tr>
 					</table>
-					<div class="input_header">Client Details</div>
-					<table>
-						<tr>
-							<th class="param_name">Device ID</th>
-							<th class="param_name">Application ID</th>
-							<th class="param_name">Customer ID</th>
-							<th class="param_name">Customer Type</th>
-							<th class="param_name">IP Address</th>
-							<th class="param_name">Geo Location</th>
-							<th class="param_name">Partner Name</th>
-							<th class="param_name">Model</th>
-						</tr>
-						<tr>
-							<td class="param_value"><input type="text" name="deviceID"
-								value="" /></td>
-							<td class="param_value"><input type="text"
-								name="applicationID" value="" /></td>
-							<td class="param_value"><input type="text" name="customerID"
-								value="" /></td>
-							<td class="param_value"><input type="text"
-								name="customerType" value="" /></td>
-							<td class="param_value"><input type="text" name="ipAddress"
-								value="" /></td>
-							<td class="param_value"><input type="text" name="location"
-								value="" /></td>
-							<td class="param_value"><input type="text"
-								name="partnerName" value="" /></td>
-							<td class="param_value"><input type="text" name="model"
-								value="" /></td>
-						</tr>
-					</table>
+					
 					<div class="input_header">Payment Details</div>
 					<table>
 						<tr>
@@ -140,15 +100,25 @@
 						</tr>
 						<tr>
 							<td class="param_value"><input type="text"
-								name="maxAmountPerPayment" value="" /></td>
+								name="maxAmountPerPayment" value="1.00" /></td>
 							<td class="param_value"><input type="text"
-								name="maxNumberOfPayments" value="" /></td>
+								name="maxNumberOfPayments" value="2" /></td>
 							<td class="param_value"><input type="text"
-								name="maxNumberOfPaymentsPerPeriod" value="" /></td>
+								name="maxNumberOfPaymentsPerPeriod" value="2" /></td>
 							<td class="param_value"><input type="text"
-								name="totalAmountOfAllPayments" value="" /></td>
-							<td class="param_value"><input type="text"
-								name="paymentPeriod" value="" /></td>
+								name="totalAmountOfAllPayments" value="10.00" /></td>
+							<td class="param_value">
+								<select name="paymentPeriod">
+									<option value="">--Select a value--</option>
+									<option value="NO_PERIOD_SPECIFIED">NO_PERIOD_SPECIFIED</option>
+									<option value="DAILY">DAILY</option>
+									<option value="WEEKLY">WEEKLY</option>
+									<option value="BIWEEKLY">BIWEEKLY</option>
+									<option value="SEMIMONTHLY">SEMIMONTHLY</option>
+									<option value="MONTHLY">MONTHLY</option>
+									<option value="ANNUALLY">ANNUALLY</option>
+								</select>
+								</td>
 							<td class="param_value"><select name="displayMaxTotalAmount">
 									<option value="">--Select a value--</option>
 									<option value="true">True</option>
@@ -163,14 +133,13 @@
 				<a href="index.html">Home</a>
 			</div>
 		</form>
-		<div id="relatedcalls">
-			See also
-			<ul>
-				<li><a href='PreapprovalDetails'>PreapprovalDetails</a></li>
-				<li><a href='ConfirmPreapproval'>ConfirmPreapproval</a></li>
-				<li><a href='CancelPreapproval'>CancelPreapproval</a></li>
-			</ul>
-		</div>
 	</div>
+	<script lang="text/javascript">
+	var currentDate = new Date();
+	var date = currentDate.getDate();
+	var month = currentDate.getMonth();
+	var year = currentDate.getFullYear();
+	document.getElementById("startingDate").value = year + "-" + (month <= 9 ? "0" : "") + (month+1) + "-" + (date <= 9 ? "0" : "") + date;
+	</script>
 </body>
 </html>

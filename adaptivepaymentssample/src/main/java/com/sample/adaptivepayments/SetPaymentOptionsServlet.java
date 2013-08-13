@@ -32,6 +32,7 @@ import com.paypal.svcs.types.ap.SetPaymentOptionsRequest;
 import com.paypal.svcs.types.ap.SetPaymentOptionsResponse;
 import com.paypal.svcs.types.common.PhoneNumberType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class SetPaymentOptionsServlet

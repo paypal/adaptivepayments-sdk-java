@@ -28,6 +28,7 @@ import com.paypal.svcs.types.ap.RefundRequest;
 import com.paypal.svcs.types.ap.RefundResponse;
 import com.paypal.svcs.types.common.PhoneNumberType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class RefundServlet
