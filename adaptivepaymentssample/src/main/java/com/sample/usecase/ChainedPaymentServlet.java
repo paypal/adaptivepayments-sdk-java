@@ -184,6 +184,7 @@ public class ChainedPaymentServlet extends HttpServlet {
 						map.put("Default Funding Plan", resp
 								.getDefaultFundingPlan().getFundingPlanId());
 					}
+					// Skipping for Implicit Payments
 					if (!resp.getPaymentExecStatus().equalsIgnoreCase(
 							"Completed")) {
 						map.put("Redirect URL",
