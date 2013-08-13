@@ -8,6 +8,7 @@
 <title>Response Page</title>
 </head>
 <body>
+	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
 	<h2>Response Page</h2>
 	<div class="section_header">
 		<h3>Key values from the response</h3>
@@ -49,10 +50,34 @@
 
 	<a href="index.html">Home</a>
 	<a href="<%=session.getAttribute("url")%>">Back</a>
+	<br/>
+	<%if(session.getAttribute("relatedUrl") != null){ %>
 	<div id="related_calls">
-		See also
+		See also :<br/>
 		<%=session.getAttribute("relatedUrl")%>
+		<%session.removeAttribute("relatedUrl");%>
 	</div>
-
+	<% }%>
+	<script src='https://www.paypalobjects.com/js/external/dg.js' type='text/javascript'></script>
+	<script>
+	var dg = new PAYPAL.apps.DGFlow(
+			{
+				trigger: 'paypal_submit',
+				expType: 'instant'
+				 //PayPal will decide the experience type for the buyer based on his/her 'Remember me on your computer' option.
+			});
+	window.onload = function(){
+		 if(window.opener){
+			 window.close();
+		} 
+		 else{
+			 if(top.dg.isOpen() == true){
+	              top.dg.closeFlow();
+	              return true;
+	          }
+	     }                              
+	};                             
+	</script>
+	
 </body>
 </html>

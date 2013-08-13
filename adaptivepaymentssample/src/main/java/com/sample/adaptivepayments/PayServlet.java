@@ -31,6 +31,7 @@ import com.paypal.svcs.types.ap.SenderIdentifier;
 import com.paypal.svcs.types.common.ClientDetailsType;
 import com.paypal.svcs.types.common.PhoneNumberType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class PayServlet

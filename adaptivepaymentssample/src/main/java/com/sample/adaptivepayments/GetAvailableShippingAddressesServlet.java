@@ -23,6 +23,7 @@ import com.paypal.svcs.types.ap.Address;
 import com.paypal.svcs.types.ap.GetAvailableShippingAddressesRequest;
 import com.paypal.svcs.types.ap.GetAvailableShippingAddressesResponse;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class GetAvailableShippingAddressesServlet

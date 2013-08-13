@@ -23,6 +23,7 @@ import com.paypal.svcs.types.ap.FundingPlan;
 import com.paypal.svcs.types.ap.GetFundingPlansRequest;
 import com.paypal.svcs.types.ap.GetFundingPlansResponse;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class GetFundingPlansServlet

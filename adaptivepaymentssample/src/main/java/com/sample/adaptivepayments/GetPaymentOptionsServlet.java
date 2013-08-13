@@ -23,6 +23,7 @@ import com.paypal.svcs.types.ap.GetPaymentOptionsRequest;
 import com.paypal.svcs.types.ap.GetPaymentOptionsResponse;
 import com.paypal.svcs.types.ap.ReceiverOptions;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class GetPaymentOptionsServlet
