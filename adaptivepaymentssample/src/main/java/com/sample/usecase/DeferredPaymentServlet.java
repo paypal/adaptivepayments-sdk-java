@@ -118,7 +118,7 @@ public class DeferredPaymentServlet extends HttpServlet{
 			// configuration.
 			// For a full list of configuration parameters refer at
 			// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-			Map<String, String> configurationMap = Configuration.getSignatureConfig();
+			Map<String, String> configurationMap = Configuration.getAcctAndConfig();
 
 			// Creating service wrapper object to make an API call by loading
 			// configuration map.
@@ -190,7 +190,6 @@ public class DeferredPaymentServlet extends HttpServlet{
 									.getDefaultFundingPlan().getFundingPlanId());
 						}
 						session.setAttribute("payKey", resp.getPayKey());
-						session.setAttribute("fundingId", resp.getDefaultFundingPlan().getFundingPlanId());
 						session.setAttribute("map", map);
 						response.sendRedirect("Response.jsp");
 					} else {
@@ -231,7 +230,7 @@ public class DeferredPaymentServlet extends HttpServlet{
 			// Configuration map containing signature credentials and other required configuration.
 			// For a full list of configuration parameters refer at 
 			// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-			Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+			Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
 			
 			// Creating service wrapper object to make an API call by loading configuration map. 
 			AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);

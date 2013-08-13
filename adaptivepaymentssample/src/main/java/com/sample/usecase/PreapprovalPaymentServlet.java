@@ -1,14 +1,10 @@
 package com.sample.usecase;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -174,7 +170,7 @@ public class PreapprovalPaymentServlet extends HttpServlet {
 			// Configuration map containing signature credentials and other required configuration.
 			// For a full list of configuration parameters refer at 
 			// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-			Map<String,String> configurationMap =  Configuration.getSignatureConfig();
+			Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
 			
 			// Creating service wrapper object to make an API call by loading configuration map. 
 			AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
@@ -302,7 +298,7 @@ public class PreapprovalPaymentServlet extends HttpServlet {
 			// configuration.
 			// For a full list of configuration parameters refer at
 			// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-			Map<String, String> configurationMap = Configuration.getSignatureConfig();
+			Map<String, String> configurationMap = Configuration.getAcctAndConfig();
 
 			// Creating service wrapper object to make an API call by loading
 			// configuration map.

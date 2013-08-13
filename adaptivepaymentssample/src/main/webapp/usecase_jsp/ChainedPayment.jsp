@@ -49,7 +49,7 @@
 					<div class="param_value">
 						<input type="text" name="ipnNotificationURL" value="" />
 					</div>
-					<div class="param_name">Sender Email</div>
+					<div class="param_name">Sender Email (Here, we are showcasing implicit payments, sender email should be same as the API caller. For explicit payments you can skip this parameter or set this to email other than the API caller)</div>
 					<div class="param_value">
 						<input type="text" name="senderEmail" value="jb-us-seller@paypal.com" />
 					</div>

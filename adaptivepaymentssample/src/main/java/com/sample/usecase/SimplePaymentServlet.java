@@ -33,11 +33,11 @@ public class SimplePaymentServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		PayRequest req = new PayRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		req.setRequestEnvelope(requestEnvelope);
-		
+
 		List<Receiver> receiver = new ArrayList<Receiver>();
 		Receiver rec = new Receiver();
 		/** (Required) Amount to be paid to the receiver */
@@ -57,11 +57,11 @@ public class SimplePaymentServlet extends HttpServlet {
 		receiver.add(rec);
 		ReceiverList receiverlst = new ReceiverList(receiver);
 		req.setReceiverList(receiverlst);
-		
-		/**  (Optional) Sender's email address. Maximum length: 127 characters */ 
+
+		/** (Optional) Sender's email address. Maximum length: 127 characters */
 		if (request.getParameter("senderEmail") != "")
 			req.setSenderEmail(request.getParameter("senderEmail"));
-		
+
 		/**
 		 * The action for this request. Possible values are: PAY – Use this
 		 * option if you are not using the Pay request in combination with
@@ -93,7 +93,7 @@ public class SimplePaymentServlet extends HttpServlet {
 		 */
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
-		
+
 		/**
 		 * (Optional) The URL to which you want all IPN messages for this
 		 * payment to be sent. Maximum length: 1024 characters
@@ -106,12 +106,13 @@ public class SimplePaymentServlet extends HttpServlet {
 		// configuration.
 		// For a full list of configuration parameters refer at
 		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-		Map<String, String> configurationMap = Configuration.getSignatureConfig();
+		Map<String, String> configurationMap = Configuration.getAcctAndConfig();
 
 		// Creating service wrapper object to make an API call by loading
 		// configuration map.
-		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
-		
+		AdaptivePaymentsService service = new AdaptivePaymentsService(
+				configurationMap);
+
 		HttpSession session = request.getSession();
 		session.setAttribute("url", request.getRequestURI());
 		try {
@@ -176,12 +177,14 @@ public class SimplePaymentServlet extends HttpServlet {
 						map.put("Default Funding Plan", resp
 								.getDefaultFundingPlan().getFundingPlanId());
 					}
-
-					map.put("Redirect URL",
-							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-									+ resp.getPayKey()
-									+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-									+ resp.getPayKey() + "</a>");
+					if (!resp.getPaymentExecStatus().equalsIgnoreCase(
+							"Completed")) {
+						map.put("Redirect URL",
+								"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+										+ resp.getPayKey()
+										+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+										+ resp.getPayKey() + "</a>");
+					}
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
 				} else {
@@ -192,7 +195,7 @@ public class SimplePaymentServlet extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 
 	}
 }

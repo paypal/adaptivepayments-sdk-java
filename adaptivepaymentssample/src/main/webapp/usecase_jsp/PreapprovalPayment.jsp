@@ -8,7 +8,7 @@
 <title>Adaptive Payments - Preapproval Payment</title>
 <%
 	URL currentURL = new URL(request.getRequestURL().toString());
-	URL returnURL = new URL(currentURL, "index.html");
+	URL returnURL = new URL(currentURL, "../index.html");
 %>
 </head>
 <body>

@@ -33,7 +33,7 @@ public class DelayedChainedPaymentServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		PayRequest req = new PayRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		List<Receiver> receiver = new ArrayList<Receiver>();
@@ -116,8 +116,7 @@ public class DelayedChainedPaymentServlet extends HttpServlet {
 		// configuration.
 		// For a full list of configuration parameters refer at
 		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-		Map<String, String> configurationMap = Configuration
-				.getSignatureConfig();
+		Map<String, String> configurationMap = Configuration.getAcctAndConfig();
 
 		// Creating service wrapper object to make an API call by loading
 		// configuration map.
@@ -136,65 +135,65 @@ public class DelayedChainedPaymentServlet extends HttpServlet {
 				map.put("Ack", resp.getResponseEnvelope().getAck());
 
 				/**
-				 * Correlation identifier. It is a 13-character,
-				 * alphanumeric string (for example, db87c705a910e) that is
-				 * used only by PayPal Merchant Technical Support. Note: You
-				 * must log and store this data for every response you
-				 * receive. PayPal Technical Support uses the information to
-				 * assist with reported issues.
+				 * Correlation identifier. It is a 13-character, alphanumeric
+				 * string (for example, db87c705a910e) that is used only by
+				 * PayPal Merchant Technical Support. Note: You must log and
+				 * store this data for every response you receive. PayPal
+				 * Technical Support uses the information to assist with
+				 * reported issues.
 				 */
 				map.put("Correlation ID", resp.getResponseEnvelope()
 						.getCorrelationId());
 
 				/**
 				 * Date on which the response was sent, for example:
-				 * 2012-04-02T22:33:35.774-07:00 Note: You must log and
-				 * store this data for every response you receive. PayPal
-				 * Technical Support uses the information to assist with
-				 * reported issues.
+				 * 2012-04-02T22:33:35.774-07:00 Note: You must log and store
+				 * this data for every response you receive. PayPal Technical
+				 * Support uses the information to assist with reported issues.
 				 */
-				map.put("Time Stamp", resp.getResponseEnvelope()
-						.getTimestamp());
+				map.put("Time Stamp", resp.getResponseEnvelope().getTimestamp());
 
 				/**
 				 * The pay key, which is a token you use in other Adaptive
 				 * Payment APIs (such as the Refund Method) to identify this
-				 * payment. The pay key is valid for 3 hours; the payment
-				 * must be approved while the pay key is valid.
+				 * payment. The pay key is valid for 3 hours; the payment must
+				 * be approved while the pay key is valid.
 				 */
 				map.put("Pay Key", resp.getPayKey());
 
 				/**
-				 * The status of the payment. Possible values are: CREATED –
-				 * The payment request was received; funds will be
-				 * transferred once the payment is approved COMPLETED – The
-				 * payment was successful INCOMPLETE – Some transfers
-				 * succeeded and some failed for a parallel payment or, for
-				 * a delayed chained payment, secondary receivers have not
-				 * been paid ERROR – The payment failed and all attempted
-				 * transfers failed or all completed transfers were
-				 * successfully reversed REVERSALERROR – One or more
-				 * transfers failed when attempting to reverse a payment
-				 * PROCESSING – The payment is in progress PENDING – The
+				 * The status of the payment. Possible values are: CREATED – The
+				 * payment request was received; funds will be transferred once
+				 * the payment is approved COMPLETED – The payment was
+				 * successful INCOMPLETE – Some transfers succeeded and some
+				 * failed for a parallel payment or, for a delayed chained
+				 * payment, secondary receivers have not been paid ERROR – The
+				 * payment failed and all attempted transfers failed or all
+				 * completed transfers were successfully reversed REVERSALERROR
+				 * – One or more transfers failed when attempting to reverse a
+				 * payment PROCESSING – The payment is in progress PENDING – The
 				 * payment is awaiting processing
 				 */
-				map.put("Payment Execution Status",resp.getPaymentExecStatus());
-				/*if (resp.getDefaultFundingPlan() != null) {
-					*//** Default funding plan. *//*
-					map.put("Default Funding Plan", resp
-							.getDefaultFundingPlan().getFundingPlanId());
-				}*/
-
-				map.put("Redirect URL",
-						"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-								+ resp.getPayKey()
-								+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-								+ resp.getPayKey() + "</a>");
+				map.put("Payment Execution Status", resp.getPaymentExecStatus());
+				/*
+				 * if (resp.getDefaultFundingPlan() != null) {
+				 *//** Default funding plan. */
+				/*
+				 * map.put("Default Funding Plan", resp
+				 * .getDefaultFundingPlan().getFundingPlanId()); }
+				 */
+				if (!resp.getPaymentExecStatus().equalsIgnoreCase("Completed")) {
+					map.put("Redirect URL",
+							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+									+ resp.getPayKey()
+									+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+									+ resp.getPayKey() + "</a>");
+				}
 				session.setAttribute("map", map);
 				response.sendRedirect("Response.jsp");
 				session.setAttribute("payKey", resp.getPayKey());
-				//response.sendRedirect("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-					//	+ resp.getPayKey());
+				// response.sendRedirect("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+				// + resp.getPayKey());
 			} else {
 				session.setAttribute("Error", resp.getError());
 				response.sendRedirect("Error.jsp");

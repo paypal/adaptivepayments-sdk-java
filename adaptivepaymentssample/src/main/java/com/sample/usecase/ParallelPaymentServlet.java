@@ -20,7 +20,7 @@ import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
 import com.sample.util.Configuration;
 
-public class ParallelPaymentServlet extends HttpServlet{
+public class ParallelPaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 89234234980L;
 
 	protected void doGet(HttpServletRequest request,
@@ -30,39 +30,39 @@ public class ParallelPaymentServlet extends HttpServlet{
 				.forward(request, response);
 
 	}
-	
+
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		PayRequest req = new PayRequest();
 		RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
 		List<Receiver> receiver = new ArrayList<Receiver>();
-		
+
 		String[] amount = request.getParameterValues("amount");
 		String[] email = request.getParameterValues("mail");
-		for(int i=0; i< email.length; i++ ){
+		for (int i = 0; i < email.length; i++) {
 			Receiver rec = new Receiver();
-			
+
 			/**
 			 * Receiver's email address. This address can be unregistered with
-			 * paypal.com. If so, a receiver cannot claim the payment until a PayPal
-			 * account is linked to the email address. The PayRequest must pass
-			 * either an email address or a phone number. Maximum length: 127
-			 * characters
+			 * paypal.com. If so, a receiver cannot claim the payment until a
+			 * PayPal account is linked to the email address. The PayRequest
+			 * must pass either an email address or a phone number. Maximum
+			 * length: 127 characters
 			 */
 			rec.setEmail(email[i]);
-			
+
 			/** (Required) Amount to be paid to the receiver */
 			rec.setAmount(Double.parseDouble(amount[i]));
 			receiver.add(rec);
 		}
-		
+
 		ReceiverList receiverlst = new ReceiverList(receiver);
 		req.setReceiverList(receiverlst);
-		
-		/**  (Optional) Sender's email address. Maximum length: 127 characters */ 
+
+		/** (Optional) Sender's email address. Maximum length: 127 characters */
 		if (request.getParameter("senderEmail") != "")
 			req.setSenderEmail(request.getParameter("senderEmail"));
-		
+
 		/**
 		 * The action for this request. Possible values are: PAY – Use this
 		 * option if you are not using the Pay request in combination with
@@ -94,9 +94,7 @@ public class ParallelPaymentServlet extends HttpServlet{
 		 */
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
-		
-		
-		
+
 		req.setRequestEnvelope(requestEnvelope);
 
 		/**
@@ -111,12 +109,13 @@ public class ParallelPaymentServlet extends HttpServlet{
 		// configuration.
 		// For a full list of configuration parameters refer at
 		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
-		Map<String, String> configurationMap = Configuration.getSignatureConfig();
+		Map<String, String> configurationMap = Configuration.getAcctAndConfig();
 
 		// Creating service wrapper object to make an API call by loading
 		// configuration map.
-		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
-		
+		AdaptivePaymentsService service = new AdaptivePaymentsService(
+				configurationMap);
+
 		HttpSession session = request.getSession();
 		session.setAttribute("url", request.getRequestURI());
 		try {
@@ -181,12 +180,14 @@ public class ParallelPaymentServlet extends HttpServlet{
 						map.put("Default Funding Plan", resp
 								.getDefaultFundingPlan().getFundingPlanId());
 					}
-
-					map.put("Redirect URL",
-							"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-									+ resp.getPayKey()
-									+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
-									+ resp.getPayKey() + "</a>");
+					if (!resp.getPaymentExecStatus().equalsIgnoreCase(
+							"Completed")) {
+						map.put("Redirect URL",
+								"<a href=https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+										+ resp.getPayKey()
+										+ ">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey="
+										+ resp.getPayKey() + "</a>");
+					}
 					session.setAttribute("map", map);
 					response.sendRedirect("Response.jsp");
 				} else {
@@ -197,6 +198,6 @@ public class ParallelPaymentServlet extends HttpServlet{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 	}
 }

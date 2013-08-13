@@ -56,7 +56,7 @@
 					<div class="param_value">
 						<input type="text" name="ipnNotificationURL" value="" />
 					</div>
-					<div class="param_name">Sender Email (Email other than API caller)</div>
+					<div class="param_name">Sender Email (Email other than the API caller)</div>
 					<div class="param_value">
 						<input type="text" name="senderEmail"
 							value="platfo_1255077030_biz@gmail.com" />
