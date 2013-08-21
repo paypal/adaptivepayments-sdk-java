@@ -219,7 +219,7 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>DeferredPaymentServlet</servlet-name>
-		<url-pattern>/ExecutePayment</url-pattern>
+		<url-pattern>/DeferredExecutePayment</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Preapproval payment -->
