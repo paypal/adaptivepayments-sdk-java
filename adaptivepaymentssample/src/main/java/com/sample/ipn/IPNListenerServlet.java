@@ -25,8 +25,8 @@ public class IPNListenerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		// For a full list of configuration parameters refer at 
-		// (https://github.com/paypal/adaptivepayments-sdk-java/wiki/SDK-Configuration-Parameters)
+		// For a full list of configuration parameters refer in wiki page
+		// (https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters)
 		Map<String,String> configurationMap =  Configuration.getConfig();
 		IPNMessage 	ipnlistener = new IPNMessage(request,configurationMap);
 
