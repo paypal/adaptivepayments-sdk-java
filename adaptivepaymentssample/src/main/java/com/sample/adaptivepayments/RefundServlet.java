@@ -28,6 +28,7 @@ import com.paypal.svcs.types.ap.RefundRequest;
 import com.paypal.svcs.types.ap.RefundResponse;
 import com.paypal.svcs.types.common.PhoneNumberType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class RefundServlet
@@ -125,8 +126,14 @@ public class RefundServlet extends HttpServlet {
 		ReceiverList receiverlst = new ReceiverList(receiver);
 		req.setReceiverList(receiverlst);
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer in wiki page
+		// (https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		try {
 			RefundResponse resp = service.refund(req);
 			response.setContentType("text/html");

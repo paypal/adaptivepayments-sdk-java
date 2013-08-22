@@ -21,6 +21,7 @@ import com.paypal.svcs.services.AdaptivePaymentsService;
 import com.paypal.svcs.types.ap.ConfirmPreapprovalRequest;
 import com.paypal.svcs.types.ap.ConfirmPreapprovalResponse;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class ConfirmPreapprovalServlet
@@ -76,8 +77,14 @@ public class ConfirmPreapprovalServlet extends HttpServlet {
 		if (request.getParameter("preapprovalKey") != "")
 			req.setPreapprovalKey(request.getParameter("preapprovalKey"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer in wiki page
+		// (https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		response.setContentType("text/html");
 		try {
 			ConfirmPreapprovalResponse resp = service.confirmPreapproval(req);

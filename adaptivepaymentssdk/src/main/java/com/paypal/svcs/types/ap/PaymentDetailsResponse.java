@@ -3,6 +3,7 @@ import com.paypal.svcs.types.common.ResponseEnvelope;
 import com.paypal.svcs.types.ap.PaymentInfoList;
 import com.paypal.svcs.types.ap.FundingConstraint;
 import com.paypal.svcs.types.ap.SenderIdentifier;
+import com.paypal.svcs.types.ap.ShippingAddressInfo;
 import java.util.List;
 import java.util.ArrayList;
 import com.paypal.svcs.types.common.ErrorData;
@@ -108,6 +109,16 @@ public class PaymentDetailsResponse{
 	 * 	 
 	 */ 
 	private SenderIdentifier sender;
+
+	/**
+	 * 	 
+	 */ 
+	private ShippingAddressInfo shippingAddress;
+
+	/**
+	 * 	 
+	 */ 
+	private String payKeyExpirationDate;
 
 	/**
 	 * 	 
@@ -361,6 +372,34 @@ public class PaymentDetailsResponse{
 	 }
 	 
 	/**
+	 * Getter for shippingAddress
+	 */
+	 public ShippingAddressInfo getShippingAddress() {
+	 	return shippingAddress;
+	 }
+	 
+	/**
+	 * Setter for shippingAddress
+	 */
+	 public void setShippingAddress(ShippingAddressInfo shippingAddress) {
+	 	this.shippingAddress = shippingAddress;
+	 }
+	 
+	/**
+	 * Getter for payKeyExpirationDate
+	 */
+	 public String getPayKeyExpirationDate() {
+	 	return payKeyExpirationDate;
+	 }
+	 
+	/**
+	 * Setter for payKeyExpirationDate
+	 */
+	 public void setPayKeyExpirationDate(String payKeyExpirationDate) {
+	 	this.payKeyExpirationDate = payKeyExpirationDate;
+	 }
+	 
+	/**
 	 * Getter for error
 	 */
 	 public List<ErrorData> getError() {
@@ -461,6 +500,15 @@ public class PaymentDetailsResponse{
 		if (sender != null) {
 			paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
 			paymentDetailsResponse.setSender(sender);
+		}
+		ShippingAddressInfo shippingAddress =  ShippingAddressInfo.createInstance(map, prefix + "shippingAddress", -1);
+		if (shippingAddress != null) {
+			paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+			paymentDetailsResponse.setShippingAddress(shippingAddress);
+		}
+		if (map.containsKey(prefix + "payKeyExpirationDate")) {
+				paymentDetailsResponse = (paymentDetailsResponse == null) ? new PaymentDetailsResponse() : paymentDetailsResponse;
+				paymentDetailsResponse.setPayKeyExpirationDate(map.get(prefix + "payKeyExpirationDate"));
 		}
 		i = 0;
 		while(true) {

@@ -1,5 +1,6 @@
 package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.paypal.svcs.types.ap.AgreementType;
 import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 
@@ -30,6 +31,11 @@ public class ConfirmPreapprovalRequest{
 	 * 	 
 	 */ 
 	private String pin;
+
+	/**
+	 * 	 
+	 */ 
+	private AgreementType agreementType;
 
 	
 
@@ -103,6 +109,20 @@ public class ConfirmPreapprovalRequest{
 	 	this.pin = pin;
 	 }
 	 
+	/**
+	 * Getter for agreementType
+	 */
+	 public AgreementType getAgreementType() {
+	 	return agreementType;
+	 }
+	 
+	/**
+	 * Setter for agreementType
+	 */
+	 public void setAgreementType(AgreementType agreementType) {
+	 	this.agreementType = agreementType;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -125,6 +145,10 @@ public class ConfirmPreapprovalRequest{
 		}
 		if (this.pin != null) {
 			sb.append(prefix).append("pin=").append(NVPUtil.encodeUrl(this.pin));
+			sb.append("&");
+		}
+		if (this.agreementType != null) {
+			sb.append(prefix).append("agreementType=").append(this.agreementType.getValue());
 			sb.append("&");
 		}
 		return sb.toString();

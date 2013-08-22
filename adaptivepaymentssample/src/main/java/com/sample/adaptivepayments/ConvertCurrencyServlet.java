@@ -28,6 +28,7 @@ import com.paypal.svcs.types.ap.CurrencyConversionList;
 import com.paypal.svcs.types.ap.CurrencyList;
 import com.paypal.svcs.types.common.CurrencyType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class ConvertCurrencyServlet
@@ -107,8 +108,14 @@ public class ConvertCurrencyServlet extends HttpServlet {
 		if (request.getParameter("countryCode") != "")
 			req.setCountryCode(request.getParameter("countryCode"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer in wiki page
+		// (https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		response.setContentType("text/html");
 		try {
 

@@ -3,6 +3,7 @@ import com.paypal.svcs.types.common.ResponseEnvelope;
 import com.paypal.svcs.types.common.DayOfWeek;
 import com.paypal.svcs.types.ap.AddressList;
 import com.paypal.svcs.types.ap.SenderIdentifier;
+import com.paypal.svcs.types.ap.AgreementType;
 import java.util.List;
 import java.util.ArrayList;
 import com.paypal.svcs.types.common.ErrorData;
@@ -158,6 +159,11 @@ public class PreapprovalDetailsResponse{
 	 * 	 
 	 */ 
 	private SenderIdentifier sender;
+
+	/**
+	 * 	 
+	 */ 
+	private AgreementType agreementType;
 
 	/**
 	 * 	 
@@ -551,6 +557,20 @@ public class PreapprovalDetailsResponse{
 	 }
 	 
 	/**
+	 * Getter for agreementType
+	 */
+	 public AgreementType getAgreementType() {
+	 	return agreementType;
+	 }
+	 
+	/**
+	 * Setter for agreementType
+	 */
+	 public void setAgreementType(AgreementType agreementType) {
+	 	this.agreementType = agreementType;
+	 }
+	 
+	/**
 	 * Getter for error
 	 */
 	 public List<ErrorData> getError() {
@@ -690,6 +710,10 @@ public class PreapprovalDetailsResponse{
 		if (sender != null) {
 			preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
 			preapprovalDetailsResponse.setSender(sender);
+		}
+		if (map.containsKey(prefix + "agreementType")) {
+				preapprovalDetailsResponse = (preapprovalDetailsResponse == null) ? new PreapprovalDetailsResponse() : preapprovalDetailsResponse;
+				preapprovalDetailsResponse.setAgreementType(AgreementType.fromValue(map.get(prefix + "agreementType")));
 		}
 		i = 0;
 		while(true) {
