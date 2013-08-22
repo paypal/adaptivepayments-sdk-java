@@ -105,6 +105,13 @@ public class PayRequest{
 	 */ 
 	private SenderIdentifier sender;
 
+	/**
+	 * The pay key expires after the duration specified in this
+	 * column. If not provided, it defaults to normal expiration
+	 * behavior. Valid values are 5 minutes to 30 days. 	 
+	 */ 
+	private String payKeyDuration;
+
 	
 
 	/**
@@ -363,6 +370,20 @@ public class PayRequest{
 	 	this.sender = sender;
 	 }
 	 
+	/**
+	 * Getter for payKeyDuration
+	 */
+	 public String getPayKeyDuration() {
+	 	return payKeyDuration;
+	 }
+	 
+	/**
+	 * Setter for payKeyDuration
+	 */
+	 public void setPayKeyDuration(String payKeyDuration) {
+	 	this.payKeyDuration = payKeyDuration;
+	 }
+	 
 
 
 	public String toNVPString() throws UnsupportedEncodingException {
@@ -438,6 +459,10 @@ public class PayRequest{
 		if (this.sender != null) {
 			String newPrefix = prefix + "sender.";
 			sb.append(this.sender.toNVPString(newPrefix));
+		}
+		if (this.payKeyDuration != null) {
+			sb.append(prefix).append("payKeyDuration=").append(NVPUtil.encodeUrl(this.payKeyDuration));
+			sb.append("&");
 		}
 		return sb.toString();
 	}

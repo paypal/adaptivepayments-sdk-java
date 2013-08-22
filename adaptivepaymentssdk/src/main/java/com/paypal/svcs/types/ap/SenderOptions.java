@@ -1,4 +1,5 @@
 package com.paypal.svcs.types.ap;
+import com.paypal.svcs.types.ap.ShippingAddressInfo;
 import java.io.UnsupportedEncodingException;
 import com.paypal.core.NVPUtil;
 import java.util.Map;
@@ -16,9 +17,21 @@ public class SenderOptions{
 	private Boolean requireShippingAddressSelection;
 
 	/**
+	 * Determines whether or not the UI pages should display the
+	 * shipping address set by user in this SetPaymentOptions
+	 * request. 	 
+	 */ 
+	private Boolean addressOverride;
+
+	/**
 	 * 	 
 	 */ 
 	private String referrerCode;
+
+	/**
+	 * 	 
+	 */ 
+	private ShippingAddressInfo shippingAddress;
 
 	
 
@@ -43,6 +56,20 @@ public class SenderOptions{
 	 }
 	 
 	/**
+	 * Getter for addressOverride
+	 */
+	 public Boolean getAddressOverride() {
+	 	return addressOverride;
+	 }
+	 
+	/**
+	 * Setter for addressOverride
+	 */
+	 public void setAddressOverride(Boolean addressOverride) {
+	 	this.addressOverride = addressOverride;
+	 }
+	 
+	/**
 	 * Getter for referrerCode
 	 */
 	 public String getReferrerCode() {
@@ -54,6 +81,20 @@ public class SenderOptions{
 	 */
 	 public void setReferrerCode(String referrerCode) {
 	 	this.referrerCode = referrerCode;
+	 }
+	 
+	/**
+	 * Getter for shippingAddress
+	 */
+	 public ShippingAddressInfo getShippingAddress() {
+	 	return shippingAddress;
+	 }
+	 
+	/**
+	 * Setter for shippingAddress
+	 */
+	 public void setShippingAddress(ShippingAddressInfo shippingAddress) {
+	 	this.shippingAddress = shippingAddress;
 	 }
 	 
 
@@ -68,9 +109,17 @@ public class SenderOptions{
 			sb.append(prefix).append("requireShippingAddressSelection=").append(this.requireShippingAddressSelection);
 			sb.append("&");
 		}
+		if (this.addressOverride != null) {
+			sb.append(prefix).append("addressOverride=").append(this.addressOverride);
+			sb.append("&");
+		}
 		if (this.referrerCode != null) {
 			sb.append(prefix).append("referrerCode=").append(NVPUtil.encodeUrl(this.referrerCode));
 			sb.append("&");
+		}
+		if (this.shippingAddress != null) {
+			String newPrefix = prefix + "shippingAddress.";
+			sb.append(this.shippingAddress.toNVPString(newPrefix));
 		}
 		return sb.toString();
 	}
@@ -92,9 +141,18 @@ public class SenderOptions{
 				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
 				senderOptions.setRequireShippingAddressSelection(Boolean.valueOf(map.get(prefix + "requireShippingAddressSelection")));
 		}
+		if (map.containsKey(prefix + "addressOverride")) {
+				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
+				senderOptions.setAddressOverride(Boolean.valueOf(map.get(prefix + "addressOverride")));
+		}
 		if (map.containsKey(prefix + "referrerCode")) {
 				senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
 				senderOptions.setReferrerCode(map.get(prefix + "referrerCode"));
+		}
+		ShippingAddressInfo shippingAddress =  ShippingAddressInfo.createInstance(map, prefix + "shippingAddress", -1);
+		if (shippingAddress != null) {
+			senderOptions = (senderOptions == null) ? new SenderOptions() : senderOptions;
+			senderOptions.setShippingAddress(shippingAddress);
 		}
 		return senderOptions;
 	}
