@@ -31,6 +31,7 @@ import com.paypal.svcs.types.ap.SenderIdentifier;
 import com.paypal.svcs.types.common.ClientDetailsType;
 import com.paypal.svcs.types.common.PhoneNumberType;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import com.sample.util.Configuration;
 
 /**
  * Servlet implementation class PayServlet
@@ -290,8 +291,14 @@ public class PayServlet extends HttpServlet {
 		if (request.getParameter("returnURL") != "")
 			req.setReturnUrl(request.getParameter("returnURL"));
 		
-		AdaptivePaymentsService service = new AdaptivePaymentsService(this
-				.getClass().getResourceAsStream("/sdk_config.properties"));
+		// Configuration map containing signature credentials and other required configuration.
+		// For a full list of configuration parameters refer in wiki page
+		// (https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters)
+		Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
+		
+		// Creating service wrapper object to make an API call by loading configuration map. 
+		AdaptivePaymentsService service = new AdaptivePaymentsService(configurationMap);
+		
 		try {
 			PayResponse resp = service.pay(req);
 			response.setContentType("text/html");
