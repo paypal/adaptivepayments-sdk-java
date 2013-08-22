@@ -32,7 +32,7 @@ public class DeferredPaymentServlet extends HttpServlet{
 			.getRequestDispatcher("/usecase_jsp/CreatePayment.jsp")
 			.forward(request, response);
 		}
-		if(request.getRequestURI().contains("ExecutePayment")){
+		if(request.getRequestURI().contains("DeferredExecutePayment")){
 			getServletConfig().getServletContext()
 			.getRequestDispatcher("/usecase_jsp/ExecutePayment.jsp")
 			.forward(request, response);
@@ -126,7 +126,7 @@ public class DeferredPaymentServlet extends HttpServlet{
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("url", request.getRequestURI());
-			session.setAttribute("relatedUrl","<ul> To comlete payment at a later date you need to call <li><a href='ExecutePayment'>ExecutePayment</a></li></ul>");
+			session.setAttribute("relatedUrl","<ul> To comlete payment at a later date you need to call <li><a href='DeferredExecutePayment'>ExecutePayment</a></li></ul>");
 			try {
 				PayResponse resp = service.pay(req);
 				response.setContentType("text/html");
