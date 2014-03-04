@@ -1,6 +1,7 @@
 package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.CurrencyType;
 import com.paypal.svcs.types.ap.FeeDisclosure;
+import com.paypal.svcs.types.ap.ConversionRate;
 import java.util.Map;
 
 /**
@@ -25,6 +26,12 @@ public class SenderDisclosure{
 	 *@Required	 
 	 */ 
 	private CurrencyType totalAmountToTransfer;
+
+	/**
+	 * 	  
+	 *@Required	 
+	 */ 
+	private ConversionRate conversionRate;
 
 	
 
@@ -76,6 +83,20 @@ public class SenderDisclosure{
 	 	this.totalAmountToTransfer = totalAmountToTransfer;
 	 }
 	 
+	/**
+	 * Getter for conversionRate
+	 */
+	 public ConversionRate getConversionRate() {
+	 	return conversionRate;
+	 }
+	 
+	/**
+	 * Setter for conversionRate
+	 */
+	 public void setConversionRate(ConversionRate conversionRate) {
+	 	this.conversionRate = conversionRate;
+	 }
+	 
 
 
 	
@@ -106,6 +127,11 @@ public class SenderDisclosure{
 		if (totalAmountToTransfer != null) {
 			senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
 			senderDisclosure.setTotalAmountToTransfer(totalAmountToTransfer);
+		}
+		ConversionRate conversionRate =  ConversionRate.createInstance(map, prefix + "conversionRate", -1);
+		if (conversionRate != null) {
+			senderDisclosure = (senderDisclosure == null) ? new SenderDisclosure() : senderDisclosure;
+			senderDisclosure.setConversionRate(conversionRate);
 		}
 		return senderDisclosure;
 	}

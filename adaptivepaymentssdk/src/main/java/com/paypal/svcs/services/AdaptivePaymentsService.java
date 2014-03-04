@@ -48,7 +48,7 @@ public class AdaptivePaymentsService extends BaseService {
 
 
 	// Service Version
-	public static final String SERVICE_VERSION = "1.8.5";
+	public static final String SERVICE_VERSION = "1.8.6";
 
 	// Service Name
 	public static final String SERVICE_NAME = "AdaptivePayments";
@@ -57,7 +57,7 @@ public class AdaptivePaymentsService extends BaseService {
 	private static final String SDK_NAME = "adaptivepayments-java-sdk";
 	
 	//SDK Version
-	private static final String SDK_VERSION = "2.5.106";
+	private static final String SDK_VERSION = "2.6.110";
 
 
 	/**
