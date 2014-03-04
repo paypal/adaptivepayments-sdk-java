@@ -19,7 +19,9 @@ import java.util.Map;
  * database. So merchant has to call the API again with same
  * set of parameter along with Receiver country code.This is
  * useful in case of Unilateral scenario. where receiver is not
- * holding paypal account. feePayer:Indicates who has agreed to
+ * holding paypal account. This is currently a place holder to
+ * support backward compatibility since first name and last
+ * name are mandated too. feePayer:Indicates who has agreed to
  * Pay a Fee for the RTR transaction. Merchant can use this
  * information to decide who actually has to pay the fee .
  * senderDisclosure : This Variable Holds the disclosure
