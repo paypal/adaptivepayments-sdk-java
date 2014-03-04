@@ -1,4 +1,4 @@
-Version rel-2.6.110 - March 04, 2014
+Version 2.6.110 - March 04, 2014
  
 	- Updated stubs.
 	- Updated core version.

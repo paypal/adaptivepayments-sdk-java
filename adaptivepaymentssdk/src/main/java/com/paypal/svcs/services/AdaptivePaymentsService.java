@@ -57,7 +57,7 @@ public class AdaptivePaymentsService extends BaseService {
 	private static final String SDK_NAME = "adaptivepayments-java-sdk";
 	
 	//SDK Version
-	private static final String SDK_VERSION = "rel-2.6.110";
+	private static final String SDK_VERSION = "2.6.110";
 
 
 	/**
