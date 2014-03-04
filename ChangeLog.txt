@@ -1,3 +1,11 @@
+Version rel-2.6.110 - March 04, 2014
+ 
+	- Updated stubs.
+	- Updated core version.
+	
+You can see source code of this release in github under https://github.com/paypal/adaptivepayments-sdk-java/tree/v2.6.110.
+--------------------------------------------------------------------------------------------------
+
 Version 2.5.106 - August 21, 2013
  
 	- Updated stubs.
