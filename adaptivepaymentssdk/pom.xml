@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.paypal.sdk</groupId>
     <artifactId>adaptivepaymentssdk</artifactId>
-    <version>rel-2.6.110</version>
+    <version>2.6.110</version>
     <packaging>jar</packaging>
     <name>AdaptivePaymentsSDK</name>
     <description>The PayPal Adaptive Payments SDK provides Java APIs to create, process and manage simple and complex (parallel and chained) payments, and pre-approvals using the Adaptive Payments API.</description>

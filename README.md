@@ -35,7 +35,7 @@ For Maven Users:
     <dependency>
         <groupId>com.paypal.sdk</groupId>
         <artifactId>adaptivepaymentssdk</artifactId>
-        <version>rel-2.6.110</version>
+        <version>2.6.110</version>
     </dependency>
     ```
 
