@@ -1,11 +1,12 @@
 package com.paypal.svcs.types.ap;
 import com.paypal.svcs.types.common.AccountIdentifier;
+import com.paypal.svcs.types.ap.StateRegulatoryAgencyInfo;
 import java.util.Map;
 
 /**
  * Contains information related to Post Payment Disclosure
  * Details This contains 1.Receivers information 2.Funds
- * Avalibility Date 
+ * Avalibility Date 3.State Regulatory Agency Information 
  */
 public class PostPaymentDisclosure{
 
@@ -25,6 +26,11 @@ public class PostPaymentDisclosure{
 	 * 	 
 	 */ 
 	private String fundsAvailabilityDateDisclaimerText;
+
+	/**
+	 * 	 
+	 */ 
+	private StateRegulatoryAgencyInfo stateRegulatoryAgencyInfo;
 
 	
 
@@ -76,6 +82,20 @@ public class PostPaymentDisclosure{
 	 	this.fundsAvailabilityDateDisclaimerText = fundsAvailabilityDateDisclaimerText;
 	 }
 	 
+	/**
+	 * Getter for stateRegulatoryAgencyInfo
+	 */
+	 public StateRegulatoryAgencyInfo getStateRegulatoryAgencyInfo() {
+	 	return stateRegulatoryAgencyInfo;
+	 }
+	 
+	/**
+	 * Setter for stateRegulatoryAgencyInfo
+	 */
+	 public void setStateRegulatoryAgencyInfo(StateRegulatoryAgencyInfo stateRegulatoryAgencyInfo) {
+	 	this.stateRegulatoryAgencyInfo = stateRegulatoryAgencyInfo;
+	 }
+	 
 
 
 	
@@ -104,6 +124,11 @@ public class PostPaymentDisclosure{
 		if (map.containsKey(prefix + "fundsAvailabilityDateDisclaimerText")) {
 				postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
 				postPaymentDisclosure.setFundsAvailabilityDateDisclaimerText(map.get(prefix + "fundsAvailabilityDateDisclaimerText"));
+		}
+		StateRegulatoryAgencyInfo stateRegulatoryAgencyInfo =  StateRegulatoryAgencyInfo.createInstance(map, prefix + "stateRegulatoryAgencyInfo", -1);
+		if (stateRegulatoryAgencyInfo != null) {
+			postPaymentDisclosure = (postPaymentDisclosure == null) ? new PostPaymentDisclosure() : postPaymentDisclosure;
+			postPaymentDisclosure.setStateRegulatoryAgencyInfo(stateRegulatoryAgencyInfo);
 		}
 		return postPaymentDisclosure;
 	}

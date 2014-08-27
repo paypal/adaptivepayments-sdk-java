@@ -3,14 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.paypal.sdk</groupId>
     <artifactId>adaptivepaymentssample</artifactId>
-    <version>rel-2.6.110</version>
+    <version>2.7.117</version>
     <packaging>war</packaging>
     <name>AdaptivePaymentsSample</name>
     <dependencies>
         <dependency>
             <groupId>com.paypal.sdk</groupId>
             <artifactId>adaptivepaymentssdk</artifactId>
-            <version>rel-2.6.110</version>
+            <version>2.7.117</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
