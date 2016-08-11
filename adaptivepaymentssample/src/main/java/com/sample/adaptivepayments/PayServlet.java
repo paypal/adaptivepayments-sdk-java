@@ -293,7 +293,7 @@ public class PayServlet extends HttpServlet {
 		
 		// Configuration map containing signature credentials and other required configuration.
 		// For a full list of configuration parameters refer in wiki page
-		// (https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters)
+		// (https://github.com/paypal/sdk-core-java/blob/master/README.md)
 		Map<String,String> configurationMap =  Configuration.getAcctAndConfig();
 		
 		// Creating service wrapper object to make an API call by loading configuration map. 

@@ -135,7 +135,7 @@ The SDK uses dynamic configuration map or '*.properties' format configuration fi
 
 *	Service configuration.
 
-*   You can refer full list of configuration parameters in [wiki](https://github.com/paypal/sdk-core-java/wiki/SDK-Configuration-Parameters) page.
+*   You can refer full list of configuration parameters in [wiki](https://github.com/paypal/sdk-core-java/blob/master/README.md) page.
 
 Multiple SDK usage (Multiple End-points Support)
 ---------------------------
