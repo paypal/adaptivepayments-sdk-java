@@ -1,8 +1,8 @@
+# PayPal Java Adaptive Payments SDK
+
 #### Adaptive Payments moving to limited release
 
 > **Important**: Adaptive Payments is now a limited release product. It is restricted to select partners for approved use cases and should not be used for new integrations without guidance from PayPal.
-
-This repository contains java sdk and samples for Adaptive Payments API.
 
 Prerequisites:
 ---------------
