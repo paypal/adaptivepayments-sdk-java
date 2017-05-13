@@ -100,7 +100,7 @@ To make an API call:
 
     List<Receiver> receiver = new ArrayList<Receiver>();
     Receiver rec = new Receiver();
-    rec.setAmount("2.0");
+    rec.setAmount(2.0);
     rec.setEmail(request.getParameter("sdk@gmail.com"));
     receiver.add(rec);
     ReceiverList receiverlst = new ReceiverList(receiver);
